@@ -1,0 +1,37 @@
+grammar my.restaurantapp.features.Feature with org.eclipse.xtext.common.Terminals
+
+generate feature "http://www.restaurantapp.my/features/Feature"
+
+App:
+    (feature+=Feature)*;
+    
+Feature:
+	name=ID
+    (action=Action)
+    (object=ActionableItem);
+
+enum Action:
+	Add | Remove | Update | Display | Reserve | Order | Cancel | Bill;
+	
+ActionableItem:
+	Table | Seat | TableNumber | TableLocation | Menu | MenuCategory | MenuItem | Customer | OrderedItem | Customer;
+    
+Table:
+	tableNumber=INT
+	(isReserved?=Boolean)
+	(isOccupied?=Boolean)
+	(location=Location);
+	
+Location:
+	locationX=INT
+	locationY=INT;
+	
+Seat:
+	isTaken=Boolean
+	
+;
+	
+enum Boolean:
+	true | false
+	
+;    
