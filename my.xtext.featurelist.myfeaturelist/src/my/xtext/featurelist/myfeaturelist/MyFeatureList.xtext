@@ -1,0 +1,19 @@
+grammar my.xtext.featurelist.myfeaturelist.MyFeatureList with org.eclipse.xtext.common.Terminals
+
+generate myFeatureList "http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList"
+
+FeatureList:
+	(concept+=Concept)*
+    (feature+=Feature)*;
+    
+Concept:
+	'concept' name=ID
+	(attributes+=Concept);
+	
+Feature:
+	'feature' name=ID
+    (verb=Verb)
+    (concept=Concept);
+
+enum Verb:
+	Add | Remove | Update | Display;   

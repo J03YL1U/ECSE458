@@ -1,0 +1,17 @@
+concept Seat {
+	
+}
+
+concept Table {
+	concept Seat
+}
+
+feature AddTable {
+	verb: Add
+	concept: Table
+}
+
+feature RemoveTable {
+	verb: Remove
+	concept: Table
+}

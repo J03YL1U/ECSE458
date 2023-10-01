@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myFeatureList" nsURI="http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList"
+    nsPrefix="myFeatureList">
+  <eClassifiers xsi:type="ecore:EClass" name="FeatureList">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" upperBound="-1"
+        eType="#//Concept" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" upperBound="-1"
+        eType="#//Feature" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Concept">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//Concept" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Feature">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Verb">
+    <eLiterals name="Add" literal="Add"/>
+    <eLiterals name="Remove" value="1" literal="Remove"/>
+    <eLiterals name="Update" value="2" literal="Update"/>
+    <eLiterals name="Display" value="3" literal="Display"/>
+  </eClassifiers>
+</ecore:EPackage>
