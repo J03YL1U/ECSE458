@@ -4,16 +4,27 @@ generate myFeatureList "http://www.xtext.my/featurelist/myfeaturelist/MyFeatureL
 
 FeatureList:
 	(concept+=Concept)*
-    (feature+=Feature)*;
+    'features' (feature+=Feature)+;
     
 Concept:
 	'concept' name=ID
-	(attributes+=Concept);
+	(attributes+=Attribute)*;
+	
+Attribute:
+	name=ID;
+	//ref=DotExpression;
+	
+/*DotExpression returns Ref:
+    EntityRef ({DotExpression.ref=current}  "." tail=[Feature])*
+;
+
+EntityRef returns Ref:
+    {EntityRef} concept=[Concept]
+; 
+*/
 	
 Feature:
-	'feature' name=ID
-    (verb=Verb)
-    (concept=Concept);
+	(verb=Verb) (concept=[Concept])("."?(attribute=[Attribute]))?;
 
 enum Verb:
 	Add | Remove | Update | Display;   

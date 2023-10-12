@@ -96,12 +96,16 @@ ruleFeatureList returns [EObject current=null]
 				}
 			)
 		)*
+		otherlv_1='features'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getFeatureListAccess().getFeaturesKeyword_1());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_2_0());
 				}
-				lv_feature_1_0=ruleFeature
+				lv_feature_2_0=ruleFeature
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
@@ -109,12 +113,12 @@ ruleFeatureList returns [EObject current=null]
 					add(
 						$current,
 						"feature",
-						lv_feature_1_0,
+						lv_feature_2_0,
 						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)*
+		)+
 	)
 ;
 
@@ -159,9 +163,9 @@ ruleConcept returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConceptAccess().getAttributesConceptParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getConceptAccess().getAttributesAttributeParserRuleCall_2_0());
 				}
-				lv_attributes_2_0=ruleConcept
+				lv_attributes_2_0=ruleAttribute
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConceptRule());
@@ -170,10 +174,45 @@ ruleConcept returns [EObject current=null]
 						$current,
 						"attributes",
 						lv_attributes_2_0,
-						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Concept");
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Attribute");
 					afterParserOrEnumRuleCall();
 				}
 			)
+		)*
+	)
+;
+
+// Entry rule entryRuleAttribute
+entryRuleAttribute returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAttributeRule()); }
+	iv_ruleAttribute=ruleAttribute
+	{ $current=$iv_ruleAttribute.current; }
+	EOF;
+
+// Rule Attribute
+ruleAttribute returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_name_0_0=RULE_ID
+			{
+				newLeafNode(lv_name_0_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getAttributeRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"name",
+					lv_name_0_0,
+					"org.eclipse.xtext.common.Terminals.ID");
+			}
 		)
 	)
 ;
@@ -194,34 +233,12 @@ ruleFeature returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='feature'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getFeatureAccess().getFeatureKeyword_0());
-		}
-		(
-			(
-				lv_name_1_0=RULE_ID
-				{
-					newLeafNode(lv_name_1_0, grammarAccess.getFeatureAccess().getNameIDTerminalRuleCall_1_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFeatureRule());
-					}
-					setWithLastConsumed(
-						$current,
-						"name",
-						lv_name_1_0,
-						"org.eclipse.xtext.common.Terminals.ID");
-				}
-			)
-		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_0_0());
 				}
-				lv_verb_2_0=ruleVerb
+				lv_verb_0_0=ruleVerb
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFeatureRule());
@@ -229,7 +246,7 @@ ruleFeature returns [EObject current=null]
 					set(
 						$current,
 						"verb",
-						lv_verb_2_0,
+						lv_verb_0_0,
 						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Verb");
 					afterParserOrEnumRuleCall();
 				}
@@ -238,22 +255,37 @@ ruleFeature returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureAccess().getConceptConceptParserRuleCall_3_0());
-				}
-				lv_concept_3_0=ruleConcept
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFeatureRule());
+						$current = createModelElement(grammarAccess.getFeatureRule());
 					}
-					set(
-						$current,
-						"concept",
-						lv_concept_3_0,
-						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Concept");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getFeatureAccess().getConceptConceptCrossReference_1_0());
 				}
 			)
 		)
+		(
+			(
+				otherlv_2='.'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getFullStopKeyword_2_0());
+				}
+			)?
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFeatureRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getAttributeAttributeCrossReference_2_1_0());
+					}
+				)
+			)
+		)?
 	)
 ;
 

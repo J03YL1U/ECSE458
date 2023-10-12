@@ -3,6 +3,7 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
@@ -39,6 +40,13 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   private EClass conceptEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass attributeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -188,6 +196,28 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EClass getAttribute()
+  {
+    return attributeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getAttribute_Name()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFeature()
   {
     return featureEClass;
@@ -199,7 +229,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EAttribute getFeature_Name()
+  public EAttribute getFeature_Verb()
   {
     return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
   }
@@ -210,9 +240,9 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EAttribute getFeature_Verb()
+  public EReference getFeature_Concept()
   {
-    return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
+    return (EReference)featureEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -221,7 +251,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeature_Concept()
+  public EReference getFeature_Attribute()
   {
     return (EReference)featureEClass.getEStructuralFeatures().get(2);
   }
@@ -276,10 +306,13 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     createEAttribute(conceptEClass, CONCEPT__NAME);
     createEReference(conceptEClass, CONCEPT__ATTRIBUTES);
 
+    attributeEClass = createEClass(ATTRIBUTE);
+    createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+
     featureEClass = createEClass(FEATURE);
-    createEAttribute(featureEClass, FEATURE__NAME);
     createEAttribute(featureEClass, FEATURE__VERB);
     createEReference(featureEClass, FEATURE__CONCEPT);
+    createEReference(featureEClass, FEATURE__ATTRIBUTE);
 
     // Create enums
     verbEEnum = createEEnum(VERB);
@@ -322,12 +355,15 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
 
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConcept_Attributes(), this.getConcept(), null, "attributes", null, 0, -1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConcept_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFeature_Name(), ecorePackage.getEString(), "name", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getFeature_Verb(), this.getVerb(), "verb", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Concept(), this.getConcept(), null, "concept", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeature_Concept(), this.getConcept(), null, "concept", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeature_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(verbEEnum, Verb.class, "Verb");

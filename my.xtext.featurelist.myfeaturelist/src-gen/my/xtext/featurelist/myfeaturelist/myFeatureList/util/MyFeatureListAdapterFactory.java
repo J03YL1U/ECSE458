@@ -86,6 +86,11 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
         return createConceptAdapter();
       }
       @Override
+      public Adapter caseAttribute(Attribute object)
+      {
+        return createAttributeAdapter();
+      }
+      @Override
       public Adapter caseFeature(Feature object)
       {
         return createFeatureAdapter();
@@ -138,6 +143,21 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConceptAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute
+   * @generated
+   */
+  public Adapter createAttributeAdapter()
   {
     return null;
   }

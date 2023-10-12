@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getName <em>Name</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature()
@@ -25,28 +25,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Feature extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
   /**
    * Returns the value of the '<em><b>Verb</b></em>' attribute.
    * The literals are from the enumeration {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb}.
@@ -73,25 +51,47 @@ public interface Feature extends EObject
   void setVerb(Verb value);
 
   /**
-   * Returns the value of the '<em><b>Concept</b></em>' containment reference.
+   * Returns the value of the '<em><b>Concept</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Concept</em>' containment reference.
+   * @return the value of the '<em>Concept</em>' reference.
    * @see #setConcept(Concept)
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Concept()
-   * @model containment="true"
+   * @model
    * @generated
    */
   Concept getConcept();
 
   /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}' containment reference.
+   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Concept</em>' containment reference.
+   * @param value the new value of the '<em>Concept</em>' reference.
    * @see #getConcept()
    * @generated
    */
   void setConcept(Concept value);
+
+  /**
+   * Returns the value of the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Attribute</em>' reference.
+   * @see #setAttribute(Attribute)
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Attribute()
+   * @model
+   * @generated
+   */
+  Attribute getAttribute();
+
+  /**
+   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Attribute</em>' reference.
+   * @see #getAttribute()
+   * @generated
+   */
+  void setAttribute(Attribute value);
 
 } // Feature

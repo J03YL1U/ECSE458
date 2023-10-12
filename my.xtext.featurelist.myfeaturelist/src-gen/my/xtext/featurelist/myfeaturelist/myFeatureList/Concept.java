@@ -50,7 +50,7 @@ public interface Concept extends EObject
 
   /**
    * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
-   * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept}.
+   * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Attributes</em>' containment reference list.
@@ -58,6 +58,6 @@ public interface Concept extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Concept> getAttributes();
+  EList<Attribute> getAttributes();
 
 } // Concept

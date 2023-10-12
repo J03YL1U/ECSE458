@@ -1,17 +1,12 @@
-concept Seat {
+concept Seat
+	number
+
+concept Table
+	number
 	
-}
-
-concept Table {
-	concept Seat
-}
-
-feature AddTable {
-	verb: Add
-	concept: Table
-}
-
-feature RemoveTable {
-	verb: Remove
-	concept: Table
-}
+features
+	Add Table
+	Remove Table
+	Update Seat
+	Display Table
+	Update Table.number

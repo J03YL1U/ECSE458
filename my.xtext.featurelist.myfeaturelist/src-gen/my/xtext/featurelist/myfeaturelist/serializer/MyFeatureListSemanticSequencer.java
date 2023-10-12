@@ -5,6 +5,7 @@ package my.xtext.featurelist.myfeaturelist.serializer;
 
 import com.google.inject.Inject;
 import java.util.Set;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
@@ -34,6 +35,9 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == MyFeatureListPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case MyFeatureListPackage.ATTRIBUTE:
+				sequence_Attribute(context, (Attribute) semanticObject); 
+				return; 
 			case MyFeatureListPackage.CONCEPT:
 				sequence_Concept(context, (Concept) semanticObject); 
 				return; 
@@ -51,10 +55,30 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Concept returns Concept
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=Concept)
+	 *     (name=ID attributes+=Attribute*)
 	 * </pre>
 	 */
 	protected void sequence_Concept(ISerializationContext context, Concept semanticObject) {
@@ -68,7 +92,7 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     FeatureList returns FeatureList
 	 *
 	 * Constraint:
-	 *     ((concept+=Concept+ feature+=Feature+) | feature+=Feature+)?
+	 *     (concept+=Concept* feature+=Feature+)
 	 * </pre>
 	 */
 	protected void sequence_FeatureList(ISerializationContext context, FeatureList semanticObject) {
@@ -82,23 +106,11 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (name=ID verb=Verb concept=Concept)
+	 *     (verb=Verb concept=[Concept|ID] attribute=[Attribute|ID]?)
 	 * </pre>
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.FEATURE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.FEATURE__NAME));
-			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.FEATURE__VERB) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.FEATURE__VERB));
-			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.FEATURE__CONCEPT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.FEATURE__CONCEPT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFeatureAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_2_0(), semanticObject.getVerb());
-		feeder.accept(grammarAccess.getFeatureAccess().getConceptConceptParserRuleCall_3_0(), semanticObject.getConcept());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -68,6 +68,7 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
     {
       case MyFeatureListPackage.FEATURE_LIST: return createFeatureList();
       case MyFeatureListPackage.CONCEPT: return createConcept();
+      case MyFeatureListPackage.ATTRIBUTE: return createAttribute();
       case MyFeatureListPackage.FEATURE: return createFeature();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -130,6 +131,18 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
   {
     ConceptImpl concept = new ConceptImpl();
     return concept;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Attribute createAttribute()
+  {
+    AttributeImpl attribute = new AttributeImpl();
+    return attribute;
   }
 
   /**

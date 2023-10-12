@@ -133,14 +133,14 @@ public interface MyFeatureListPackage extends EPackage
   int CONCEPT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl <em>Feature</em>}' class.
+   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl <em>Attribute</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getFeature()
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getAttribute()
    * @generated
    */
-  int FEATURE = 2;
+  int ATTRIBUTE = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -149,7 +149,26 @@ public interface MyFeatureListPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__NAME = 0;
+  int ATTRIBUTE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl <em>Feature</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getFeature()
+   * @generated
+   */
+  int FEATURE = 3;
 
   /**
    * The feature id for the '<em><b>Verb</b></em>' attribute.
@@ -158,16 +177,25 @@ public interface MyFeatureListPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE__VERB = 1;
+  int FEATURE__VERB = 0;
 
   /**
-   * The feature id for the '<em><b>Concept</b></em>' containment reference.
+   * The feature id for the '<em><b>Concept</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__CONCEPT = 2;
+  int FEATURE__CONCEPT = 1;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__ATTRIBUTE = 2;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -186,7 +214,7 @@ public interface MyFeatureListPackage extends EPackage
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getVerb()
    * @generated
    */
-  int VERB = 3;
+  int VERB = 4;
 
 
   /**
@@ -254,6 +282,27 @@ public interface MyFeatureListPackage extends EPackage
   EReference getConcept_Attributes();
 
   /**
+   * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute
+   * @generated
+   */
+  EClass getAttribute();
+
+  /**
+   * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getName()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Name();
+
+  /**
    * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -262,17 +311,6 @@ public interface MyFeatureListPackage extends EPackage
    * @generated
    */
   EClass getFeature();
-
-  /**
-   * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getName()
-   * @see #getFeature()
-   * @generated
-   */
-  EAttribute getFeature_Name();
 
   /**
    * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}'.
@@ -286,15 +324,26 @@ public interface MyFeatureListPackage extends EPackage
   EAttribute getFeature_Verb();
 
   /**
-   * Returns the meta object for the containment reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}'.
+   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Concept</em>'.
+   * @return the meta object for the reference '<em>Concept</em>'.
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept()
    * @see #getFeature()
    * @generated
    */
   EReference getFeature_Concept();
+
+  /**
+   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute()
+   * @see #getFeature()
+   * @generated
+   */
+  EReference getFeature_Attribute();
 
   /**
    * Returns the meta object for enum '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb <em>Verb</em>}'.
@@ -382,6 +431,24 @@ public interface MyFeatureListPackage extends EPackage
     EReference CONCEPT__ATTRIBUTES = eINSTANCE.getConcept_Attributes();
 
     /**
+     * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl <em>Attribute</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl
+     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getAttribute()
+     * @generated
+     */
+    EClass ATTRIBUTE = eINSTANCE.getAttribute();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl <em>Feature</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -392,14 +459,6 @@ public interface MyFeatureListPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FEATURE__NAME = eINSTANCE.getFeature_Name();
-
-    /**
      * The meta object literal for the '<em><b>Verb</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -408,12 +467,20 @@ public interface MyFeatureListPackage extends EPackage
     EAttribute FEATURE__VERB = eINSTANCE.getFeature_Verb();
 
     /**
-     * The meta object literal for the '<em><b>Concept</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Concept</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference FEATURE__CONCEPT = eINSTANCE.getFeature_Concept();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FEATURE__ATTRIBUTE = eINSTANCE.getFeature_Attribute();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb <em>Verb</em>}' enum.

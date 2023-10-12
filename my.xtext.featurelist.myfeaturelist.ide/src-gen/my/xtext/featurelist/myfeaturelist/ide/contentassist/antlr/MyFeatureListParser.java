@@ -35,13 +35,15 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getFeatureListAccess().getGroup(), "rule__FeatureList__Group__0");
 			builder.put(grammarAccess.getConceptAccess().getGroup(), "rule__Concept__Group__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
+			builder.put(grammarAccess.getFeatureAccess().getGroup_2(), "rule__Feature__Group_2__0");
 			builder.put(grammarAccess.getFeatureListAccess().getConceptAssignment_0(), "rule__FeatureList__ConceptAssignment_0");
-			builder.put(grammarAccess.getFeatureListAccess().getFeatureAssignment_1(), "rule__FeatureList__FeatureAssignment_1");
+			builder.put(grammarAccess.getFeatureListAccess().getFeatureAssignment_2(), "rule__FeatureList__FeatureAssignment_2");
 			builder.put(grammarAccess.getConceptAccess().getNameAssignment_1(), "rule__Concept__NameAssignment_1");
 			builder.put(grammarAccess.getConceptAccess().getAttributesAssignment_2(), "rule__Concept__AttributesAssignment_2");
-			builder.put(grammarAccess.getFeatureAccess().getNameAssignment_1(), "rule__Feature__NameAssignment_1");
-			builder.put(grammarAccess.getFeatureAccess().getVerbAssignment_2(), "rule__Feature__VerbAssignment_2");
-			builder.put(grammarAccess.getFeatureAccess().getConceptAssignment_3(), "rule__Feature__ConceptAssignment_3");
+			builder.put(grammarAccess.getAttributeAccess().getNameAssignment(), "rule__Attribute__NameAssignment");
+			builder.put(grammarAccess.getFeatureAccess().getVerbAssignment_0(), "rule__Feature__VerbAssignment_0");
+			builder.put(grammarAccess.getFeatureAccess().getConceptAssignment_1(), "rule__Feature__ConceptAssignment_1");
+			builder.put(grammarAccess.getFeatureAccess().getAttributeAssignment_2_1(), "rule__Feature__AttributeAssignment_2_1");
 		}
 	}
 	

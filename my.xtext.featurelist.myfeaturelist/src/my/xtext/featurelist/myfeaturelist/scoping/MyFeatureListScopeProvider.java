@@ -3,6 +3,14 @@
  */
 package my.xtext.featurelist.myfeaturelist.scoping;
 
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 
 /**
  * This class contains custom scoping description.
@@ -10,6 +18,24 @@ package my.xtext.featurelist.myfeaturelist.scoping;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-public class MyFeatureListScopeProvider extends AbstractMyFeatureListScopeProvider {
-
+public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider {
+	//IScope scope_Service_extras(Feature ctx, EReference ref) {
+    //    return Scopes.scopeFor(ctx.concept.attribute);
+    //}
+	
+	/*IScope scope_DotExpression_tail(DotExpression exp, EReference ref) {
+        val head = exp.ref;
+        switch (head) {
+            EntityRef : Scopes::scopeFor(head.entity.features)
+            DotExpression : {
+                val tail = head.tail
+                switch (tail) {
+                    Attribute : IScope::NULLSCOPE
+                    Reference : Scopes::scopeFor(tail.type.features)
+                    default: IScope::NULLSCOPE
+                }
+            }
+             
+            default: IScope::NULLSCOPE
+        }*/
 }
