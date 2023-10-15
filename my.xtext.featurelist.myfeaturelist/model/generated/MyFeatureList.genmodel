@@ -19,14 +19,26 @@
     <genClasses ecoreClass="MyFeatureList.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Concept/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Concept/attributes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Concept/condition"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Attribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Attribute/name"/>
     </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Condition/attribute"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Condition/value"/>
+    </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//Ref"/>
     <genClasses ecoreClass="MyFeatureList.ecore#//Feature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Feature/verb"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Feature/concept"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Feature/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Feature/ref"/>
+    </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//DotExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//DotExpression/ref"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//DotExpression/tail"/>
+    </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//ConceptRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//ConceptRef/concept"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

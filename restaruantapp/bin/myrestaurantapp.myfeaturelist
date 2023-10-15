@@ -2,11 +2,10 @@ concept Seat
 	number
 
 concept Table
-	number
+	number [number > 0]
 	
 features
 	Add Table
 	Remove Table
-	Update Seat
+	Update Seat.number
 	Display Table
-	Update Table.number

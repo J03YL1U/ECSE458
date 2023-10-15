@@ -8,23 +8,26 @@ FeatureList:
     
 Concept:
 	'concept' name=ID
-	(attributes+=Attribute)*;
+	(attributes+=Attribute)* ("["condition+=Condition"]")?;
 	
 Attribute:
 	name=ID;
-	//ref=DotExpression;
 	
-/*DotExpression returns Ref:
-    EntityRef ({DotExpression.ref=current}  "." tail=[Feature])*
+Condition:
+	(attribute+=[Attribute]) ('>' | '>=' | '=' | '<=' | '<') (value+=INT);
+	
+DotExpression returns Ref:
+    ConceptRef ({DotExpression.ref=current}  "." tail=[Attribute])*
 ;
 
-EntityRef returns Ref:
-    {EntityRef} concept=[Concept]
+ConceptRef returns Ref:
+    {ConceptRef} concept=[Concept]
 ; 
-*/
+
 	
 Feature:
-	(verb=Verb) (concept=[Concept])("."?(attribute=[Attribute]))?;
+	//(verb+=Verb) (concept+=[Concept])('.'(attribute+=[Attribute]))?;
+	(verb+=Verb) ref=DotExpression;
 
 enum Verb:
 	Add | Remove | Update | Display;   

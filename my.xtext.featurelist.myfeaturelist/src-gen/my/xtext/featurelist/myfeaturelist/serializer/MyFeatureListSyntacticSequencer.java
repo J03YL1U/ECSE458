@@ -11,6 +11,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -20,12 +21,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyFeatureListGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Feature_FullStopKeyword_2_0_q;
+	protected AbstractElementAlias match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyFeatureListGrammarAccess) access;
-		match_Feature_FullStopKeyword_2_0_q = new TokenAlias(false, true, grammarAccess.getFeatureAccess().getFullStopKeyword_2_0());
+		match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getEqualsSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignKeyword_1_4()));
 	}
 	
 	@Override
@@ -40,8 +41,8 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Feature_FullStopKeyword_2_0_q.equals(syntax))
-				emit_Feature_FullStopKeyword_2_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4.equals(syntax))
+				emit_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -49,14 +50,14 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 	/**
 	 * <pre>
 	 * Ambiguous syntax:
-	 *     '.'?
+	 *     '&gt;' | '&gt;=' | '=' | '&lt;=' | '&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     concept=[Concept|ID] (ambiguity) attribute=[Attribute|ID]
+	 *     attribute+=[Attribute|ID] (ambiguity) value+=INT
 	 
 	 * </pre>
 	 */
-	protected void emit_Feature_FullStopKeyword_2_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

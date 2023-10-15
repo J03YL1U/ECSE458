@@ -7,6 +7,7 @@ import java.util.Collection;
 
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl#getName <em>Name</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +70,16 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
    * @ordered
    */
   protected EList<Attribute> attributes;
+
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected EList<Condition> condition;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,12 +148,29 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
    * @generated
    */
   @Override
+  public EList<Condition> getCondition()
+  {
+    if (condition == null)
+    {
+      condition = new EObjectContainmentEList<Condition>(Condition.class, this, MyFeatureListPackage.CONCEPT__CONDITION);
+    }
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
         return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+      case MyFeatureListPackage.CONCEPT__CONDITION:
+        return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -160,6 +189,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
         return getName();
       case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
         return getAttributes();
+      case MyFeatureListPackage.CONCEPT__CONDITION:
+        return getCondition();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -182,6 +213,10 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
         getAttributes().clear();
         getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
+      case MyFeatureListPackage.CONCEPT__CONDITION:
+        getCondition().clear();
+        getCondition().addAll((Collection<? extends Condition>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -202,6 +237,9 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
       case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
         getAttributes().clear();
         return;
+      case MyFeatureListPackage.CONCEPT__CONDITION:
+        getCondition().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -220,6 +258,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
         return attributes != null && !attributes.isEmpty();
+      case MyFeatureListPackage.CONCEPT__CONDITION:
+        return condition != null && !condition.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -5,10 +5,14 @@ package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListFactory;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Ref;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Verb;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -53,7 +57,35 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass conditionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass refEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass featureEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dotExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conceptRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -196,6 +228,17 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EReference getConcept_Condition()
+  {
+    return (EReference)conceptEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getAttribute()
   {
     return attributeEClass;
@@ -210,6 +253,50 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
   public EAttribute getAttribute_Name()
   {
     return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getCondition()
+  {
+    return conditionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getCondition_Attribute()
+  {
+    return (EReference)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCondition_Value()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getRef()
+  {
+    return refEClass;
   }
 
   /**
@@ -240,7 +327,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeature_Concept()
+  public EReference getFeature_Ref()
   {
     return (EReference)featureEClass.getEStructuralFeatures().get(1);
   }
@@ -251,9 +338,53 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeature_Attribute()
+  public EClass getDotExpression()
   {
-    return (EReference)featureEClass.getEStructuralFeatures().get(2);
+    return dotExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDotExpression_Ref()
+  {
+    return (EReference)dotExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getDotExpression_Tail()
+  {
+    return (EReference)dotExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getConceptRef()
+  {
+    return conceptRefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getConceptRef_Concept()
+  {
+    return (EReference)conceptRefEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -305,14 +436,27 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     conceptEClass = createEClass(CONCEPT);
     createEAttribute(conceptEClass, CONCEPT__NAME);
     createEReference(conceptEClass, CONCEPT__ATTRIBUTES);
+    createEReference(conceptEClass, CONCEPT__CONDITION);
 
     attributeEClass = createEClass(ATTRIBUTE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
 
+    conditionEClass = createEClass(CONDITION);
+    createEReference(conditionEClass, CONDITION__ATTRIBUTE);
+    createEAttribute(conditionEClass, CONDITION__VALUE);
+
+    refEClass = createEClass(REF);
+
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__VERB);
-    createEReference(featureEClass, FEATURE__CONCEPT);
-    createEReference(featureEClass, FEATURE__ATTRIBUTE);
+    createEReference(featureEClass, FEATURE__REF);
+
+    dotExpressionEClass = createEClass(DOT_EXPRESSION);
+    createEReference(dotExpressionEClass, DOT_EXPRESSION__REF);
+    createEReference(dotExpressionEClass, DOT_EXPRESSION__TAIL);
+
+    conceptRefEClass = createEClass(CONCEPT_REF);
+    createEReference(conceptRefEClass, CONCEPT_REF__CONCEPT);
 
     // Create enums
     verbEEnum = createEEnum(VERB);
@@ -347,6 +491,8 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    dotExpressionEClass.getESuperTypes().add(this.getRef());
+    conceptRefEClass.getESuperTypes().add(this.getRef());
 
     // Initialize classes and features; add operations and parameters
     initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -356,14 +502,27 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcept_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConcept_Condition(), this.getCondition(), null, "condition", null, 0, -1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCondition_Attribute(), this.getAttribute(), null, "attribute", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCondition_Value(), ecorePackage.getEInt(), "value", null, 0, -1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(refEClass, Ref.class, "Ref", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFeature_Verb(), this.getVerb(), "verb", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Concept(), this.getConcept(), null, "concept", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeature_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFeature_Verb(), this.getVerb(), "verb", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeature_Ref(), this.getRef(), null, "ref", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dotExpressionEClass, DotExpression.class, "DotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDotExpression_Ref(), this.getRef(), null, "ref", null, 0, 1, DotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDotExpression_Tail(), this.getAttribute(), null, "tail", null, 0, 1, DotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conceptRefEClass, ConceptRef.class, "ConceptRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConceptRef_Concept(), this.getConcept(), null, "concept", null, 0, 1, ConceptRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(verbEEnum, Verb.class, "Verb");

@@ -3,52 +3,35 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import java.util.Collection;
-
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Ref;
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Verb;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature</b></em>'.
+ * An implementation of the model object '<em><b>Dot Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getVerb <em>Verb</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl#getTail <em>Tail</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
+public class DotExpressionImpl extends RefImpl implements DotExpression
 {
-  /**
-   * The cached value of the '{@link #getVerb() <em>Verb</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVerb()
-   * @generated
-   * @ordered
-   */
-  protected EList<Verb> verb;
-
   /**
    * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,11 +43,21 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   protected Ref ref;
 
   /**
+   * The cached value of the '{@link #getTail() <em>Tail</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTail()
+   * @generated
+   * @ordered
+   */
+  protected Attribute tail;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureImpl()
+  protected DotExpressionImpl()
   {
     super();
   }
@@ -77,22 +70,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   @Override
   protected EClass eStaticClass()
   {
-    return MyFeatureListPackage.Literals.FEATURE;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Verb> getVerb()
-  {
-    if (verb == null)
-    {
-      verb = new EDataTypeEList<Verb>(Verb.class, this, MyFeatureListPackage.FEATURE__VERB);
-    }
-    return verb;
+    return MyFeatureListPackage.Literals.DOT_EXPRESSION;
   }
 
   /**
@@ -117,7 +95,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     ref = newRef;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__REF, oldRef, newRef);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.DOT_EXPRESSION__REF, oldRef, newRef);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -135,14 +113,59 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     {
       NotificationChain msgs = null;
       if (ref != null)
-        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.FEATURE__REF, null, msgs);
+        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.DOT_EXPRESSION__REF, null, msgs);
       if (newRef != null)
-        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.FEATURE__REF, null, msgs);
+        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.DOT_EXPRESSION__REF, null, msgs);
       msgs = basicSetRef(newRef, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__REF, newRef, newRef));
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.DOT_EXPRESSION__REF, newRef, newRef));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Attribute getTail()
+  {
+    if (tail != null && tail.eIsProxy())
+    {
+      InternalEObject oldTail = (InternalEObject)tail;
+      tail = (Attribute)eResolveProxy(oldTail);
+      if (tail != oldTail)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.DOT_EXPRESSION__TAIL, oldTail, tail));
+      }
+    }
+    return tail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute basicGetTail()
+  {
+    return tail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setTail(Attribute newTail)
+  {
+    Attribute oldTail = tail;
+    tail = newTail;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.DOT_EXPRESSION__TAIL, oldTail, tail));
   }
 
   /**
@@ -155,7 +178,7 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.FEATURE__REF:
+      case MyFeatureListPackage.DOT_EXPRESSION__REF:
         return basicSetRef(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -171,10 +194,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.FEATURE__VERB:
-        return getVerb();
-      case MyFeatureListPackage.FEATURE__REF:
+      case MyFeatureListPackage.DOT_EXPRESSION__REF:
         return getRef();
+      case MyFeatureListPackage.DOT_EXPRESSION__TAIL:
+        if (resolve) return getTail();
+        return basicGetTail();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,18 +208,16 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.FEATURE__VERB:
-        getVerb().clear();
-        getVerb().addAll((Collection<? extends Verb>)newValue);
-        return;
-      case MyFeatureListPackage.FEATURE__REF:
+      case MyFeatureListPackage.DOT_EXPRESSION__REF:
         setRef((Ref)newValue);
+        return;
+      case MyFeatureListPackage.DOT_EXPRESSION__TAIL:
+        setTail((Attribute)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,11 +233,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.FEATURE__VERB:
-        getVerb().clear();
-        return;
-      case MyFeatureListPackage.FEATURE__REF:
+      case MyFeatureListPackage.DOT_EXPRESSION__REF:
         setRef((Ref)null);
+        return;
+      case MyFeatureListPackage.DOT_EXPRESSION__TAIL:
+        setTail((Attribute)null);
         return;
     }
     super.eUnset(featureID);
@@ -231,29 +253,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.FEATURE__VERB:
-        return verb != null && !verb.isEmpty();
-      case MyFeatureListPackage.FEATURE__REF:
+      case MyFeatureListPackage.DOT_EXPRESSION__REF:
         return ref != null;
+      case MyFeatureListPackage.DOT_EXPRESSION__TAIL:
+        return tail != null;
     }
     return super.eIsSet(featureID);
   }
 
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (verb: ");
-    result.append(verb);
-    result.append(')');
-    return result.toString();
-  }
-
-} //FeatureImpl
+} //DotExpressionImpl

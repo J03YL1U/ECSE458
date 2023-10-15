@@ -3,6 +3,8 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,8 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature()
@@ -26,72 +27,39 @@ import org.eclipse.emf.ecore.EObject;
 public interface Feature extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Verb</b></em>' attribute.
+   * Returns the value of the '<em><b>Verb</b></em>' attribute list.
+   * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb}.
    * The literals are from the enumeration {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Verb</em>' attribute.
+   * @return the value of the '<em>Verb</em>' attribute list.
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Verb
-   * @see #setVerb(Verb)
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Verb()
-   * @model
+   * @model unique="false"
    * @generated
    */
-  Verb getVerb();
+  EList<Verb> getVerb();
 
   /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}' attribute.
+   * Returns the value of the '<em><b>Ref</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Verb</em>' attribute.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Verb
-   * @see #getVerb()
+   * @return the value of the '<em>Ref</em>' containment reference.
+   * @see #setRef(Ref)
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Ref()
+   * @model containment="true"
    * @generated
    */
-  void setVerb(Verb value);
+  Ref getRef();
 
   /**
-   * Returns the value of the '<em><b>Concept</b></em>' reference.
+   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getRef <em>Ref</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Concept</em>' reference.
-   * @see #setConcept(Concept)
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Concept()
-   * @model
+   * @param value the new value of the '<em>Ref</em>' containment reference.
+   * @see #getRef()
    * @generated
    */
-  Concept getConcept();
-
-  /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Concept</em>' reference.
-   * @see #getConcept()
-   * @generated
-   */
-  void setConcept(Concept value);
-
-  /**
-   * Returns the value of the '<em><b>Attribute</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' reference.
-   * @see #setAttribute(Attribute)
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeature_Attribute()
-   * @model
-   * @generated
-   */
-  Attribute getAttribute();
-
-  /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' reference.
-   * @see #getAttribute()
-   * @generated
-   */
-  void setAttribute(Attribute value);
+  void setRef(Ref value);
 
 } // Feature

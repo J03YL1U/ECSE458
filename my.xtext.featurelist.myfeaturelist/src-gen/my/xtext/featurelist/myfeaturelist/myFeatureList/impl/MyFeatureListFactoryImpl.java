@@ -69,7 +69,11 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
       case MyFeatureListPackage.FEATURE_LIST: return createFeatureList();
       case MyFeatureListPackage.CONCEPT: return createConcept();
       case MyFeatureListPackage.ATTRIBUTE: return createAttribute();
+      case MyFeatureListPackage.CONDITION: return createCondition();
+      case MyFeatureListPackage.REF: return createRef();
       case MyFeatureListPackage.FEATURE: return createFeature();
+      case MyFeatureListPackage.DOT_EXPRESSION: return createDotExpression();
+      case MyFeatureListPackage.CONCEPT_REF: return createConceptRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -151,10 +155,58 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public Condition createCondition()
+  {
+    ConditionImpl condition = new ConditionImpl();
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Ref createRef()
+  {
+    RefImpl ref = new RefImpl();
+    return ref;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Feature createFeature()
   {
     FeatureImpl feature = new FeatureImpl();
     return feature;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public DotExpression createDotExpression()
+  {
+    DotExpressionImpl dotExpression = new DotExpressionImpl();
+    return dotExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConceptRef createConceptRef()
+  {
+    ConceptRefImpl conceptRef = new ConceptRefImpl();
+    return conceptRef;
   }
 
   /**

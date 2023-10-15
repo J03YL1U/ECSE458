@@ -10,7 +10,7 @@ import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.*;
 
 /**
  * This class contains custom scoping description.
@@ -19,23 +19,25 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
  * on how and when to use it.
  */
 public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider {
-	//IScope scope_Service_extras(Feature ctx, EReference ref) {
-    //    return Scopes.scopeFor(ctx.concept.attribute);
-    //}
+	/*IScope scope_Feature_Attribute(Feature ctx, EReference ref) {
+        return Scopes.scopeFor(ctx.concept.attribute);
+    }*/
 	
 	/*IScope scope_DotExpression_tail(DotExpression exp, EReference ref) {
-        val head = exp.ref;
+        Ref head = exp.getRef();
         switch (head) {
-            EntityRef : Scopes::scopeFor(head.entity.features)
+            ConceptRef : Scopes::scopeFor(head.entity.features)
             DotExpression : {
                 val tail = head.tail
                 switch (tail) {
                     Attribute : IScope::NULLSCOPE
-                    Reference : Scopes::scopeFor(tail.type.features)
                     default: IScope::NULLSCOPE
                 }
             }
              
             default: IScope::NULLSCOPE
-        }*/
+      }*/
+     /* IScope scope_DotExpression_Tail(DotExpression exp, EReference ref) {
+    	  Ref head = exp.getRef();
+      }*/
 }

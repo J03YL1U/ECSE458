@@ -7,6 +7,9 @@ import com.google.inject.Inject;
 import java.util.Set;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
@@ -40,6 +43,15 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 				return; 
 			case MyFeatureListPackage.CONCEPT:
 				sequence_Concept(context, (Concept) semanticObject); 
+				return; 
+			case MyFeatureListPackage.CONCEPT_REF:
+				sequence_ConceptRef(context, (ConceptRef) semanticObject); 
+				return; 
+			case MyFeatureListPackage.CONDITION:
+				sequence_Condition(context, (Condition) semanticObject); 
+				return; 
+			case MyFeatureListPackage.DOT_EXPRESSION:
+				sequence_DotExpression(context, (DotExpression) semanticObject); 
 				return; 
 			case MyFeatureListPackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
@@ -75,14 +87,74 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     DotExpression returns ConceptRef
+	 *     DotExpression.DotExpression_1_0 returns ConceptRef
+	 *     ConceptRef returns ConceptRef
+	 *
+	 * Constraint:
+	 *     concept=[Concept|ID]
+	 * </pre>
+	 */
+	protected void sequence_ConceptRef(ISerializationContext context, ConceptRef semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.CONCEPT_REF__CONCEPT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.CONCEPT_REF__CONCEPT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConceptRefAccess().getConceptConceptIDTerminalRuleCall_1_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.CONCEPT_REF__CONCEPT, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Concept returns Concept
 	 *
 	 * Constraint:
-	 *     (name=ID attributes+=Attribute*)
+	 *     (name=ID attributes+=Attribute* condition+=Condition?)
 	 * </pre>
 	 */
 	protected void sequence_Concept(ISerializationContext context, Concept semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Condition returns Condition
+	 *
+	 * Constraint:
+	 *     (attribute+=[Attribute|ID] value+=INT)
+	 * </pre>
+	 */
+	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     DotExpression returns DotExpression
+	 *     DotExpression.DotExpression_1_0 returns DotExpression
+	 *
+	 * Constraint:
+	 *     (ref=DotExpression_DotExpression_1_0 tail=[Attribute|ID])
+	 * </pre>
+	 */
+	protected void sequence_DotExpression(ISerializationContext context, DotExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.DOT_EXPRESSION__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.DOT_EXPRESSION__REF));
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.DOT_EXPRESSION__TAIL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.DOT_EXPRESSION__TAIL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDotExpressionAccess().getDotExpressionRefAction_1_0(), semanticObject.getRef());
+		feeder.accept(grammarAccess.getDotExpressionAccess().getTailAttributeIDTerminalRuleCall_1_2_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.DOT_EXPRESSION__TAIL, false));
+		feeder.finish();
 	}
 	
 	
@@ -106,7 +178,7 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     Feature returns Feature
 	 *
 	 * Constraint:
-	 *     (verb=Verb concept=[Concept|ID] attribute=[Attribute|ID]?)
+	 *     (verb+=Verb ref=DotExpression)
 	 * </pre>
 	 */
 	protected void sequence_Feature(ISerializationContext context, Feature semanticObject) {
