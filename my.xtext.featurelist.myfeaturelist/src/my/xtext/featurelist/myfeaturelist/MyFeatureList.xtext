@@ -22,7 +22,7 @@ DotExpression returns Ref:
 
 ConceptRef returns Ref:
     {ConceptRef} concept=[Concept]
-; 
+;
 
 	
 Feature:

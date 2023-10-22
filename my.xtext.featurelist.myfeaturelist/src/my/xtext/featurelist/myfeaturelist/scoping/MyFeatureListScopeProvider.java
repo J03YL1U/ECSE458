@@ -40,4 +40,13 @@ public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider
      /* IScope scope_DotExpression_Tail(DotExpression exp, EReference ref) {
     	  Ref head = exp.getRef();
       }*/
+	
+	@Override
+	public IScope getScope(EObject object, EReference ref) {
+        if (ref == MyFeatureListPackage.Literals.DOT_EXPRESSION__REF) {
+        	DotExpression dotExp = (DotExpression) object;
+            return Scopes.scopeFor(dotExp.getRef()) ; //get the attributes of dotexp's concept?
+        }
+        return super.getScope(object, ref);
+    }   
 }
