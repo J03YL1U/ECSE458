@@ -19,34 +19,12 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.*;
  * on how and when to use it.
  */
 public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider {
-	/*IScope scope_Feature_Attribute(Feature ctx, EReference ref) {
-        return Scopes.scopeFor(ctx.concept.attribute);
-    }*/
-	
-	/*IScope scope_DotExpression_tail(DotExpression exp, EReference ref) {
-        Ref head = exp.getRef();
-        switch (head) {
-            ConceptRef : Scopes::scopeFor(head.entity.features)
-            DotExpression : {
-                val tail = head.tail
-                switch (tail) {
-                    Attribute : IScope::NULLSCOPE
-                    default: IScope::NULLSCOPE
-                }
-            }
-             
-            default: IScope::NULLSCOPE
-      }*/
-     /* IScope scope_DotExpression_Tail(DotExpression exp, EReference ref) {
-    	  Ref head = exp.getRef();
-      }*/
-	
 	@Override
-	public IScope getScope(EObject object, EReference ref) {
-        if (ref == MyFeatureListPackage.Literals.DOT_EXPRESSION__REF) {
-        	DotExpression dotExp = (DotExpression) object;
-            return Scopes.scopeFor(dotExp.getRef()) ; //get the attributes of dotexp's concept?
-        }
-        return super.getScope(object, ref);
-    }   
+    public IScope getScope(EObject object, EReference ref) {
+    if (ref == MyFeatureListPackage.Literals.FEATURE__ATTRIBUTE) {
+     Feature feature = (Feature) object;
+        return Scopes.scopeFor(feature.getConcept().getAttributes());
+    }
+    return super.getScope(object, ref);
+}     
 }

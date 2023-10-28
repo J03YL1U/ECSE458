@@ -3,31 +3,22 @@ grammar my.xtext.featurelist.myfeaturelist.MyFeatureList with org.eclipse.xtext.
 generate myFeatureList "http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList"
 
 FeatureList:
-	(concept+=Concept)*
-    'features' (feature+=Feature)+;
-    
+        (concept+=Concept)*
+    	'features' (feature+=Feature)+;
+   
 Concept:
-	'concept' name=ID
-	(attributes+=Attribute)* ("["condition+=Condition"]")?;
-	
+        'concept' name=ID
+        (attributes+=Attribute)*
+        ("["condition+=Condition"]")*;
+       
 Attribute:
-	name=ID;
-	
+        name=ID;
+       
 Condition:
-	(attribute+=[Attribute]) ('>' | '>=' | '=' | '<=' | '<') (value+=INT);
-	
-DotExpression returns Ref:
-    ConceptRef ({DotExpression.ref=current}  "." tail=[Attribute])*
-;
-
-ConceptRef returns Ref:
-    {ConceptRef} concept=[Concept]
-;
-
-	
+        (attribute=[Attribute]) ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+       
 Feature:
-	//(verb+=Verb) (concept+=[Concept])('.'(attribute+=[Attribute]))?;
-	(verb+=Verb) ref=DotExpression;
+        (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;
 
 enum Verb:
-	Add | Remove | Update | Display;   
+        Add | Remove | Update | Display;   

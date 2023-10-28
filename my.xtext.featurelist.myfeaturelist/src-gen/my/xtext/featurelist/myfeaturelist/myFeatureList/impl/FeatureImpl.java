@@ -3,25 +3,19 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import java.util.Collection;
-
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Ref;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Verb;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,7 +26,8 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
  * </p>
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getVerb <em>Verb</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getRef <em>Ref</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getConcept <em>Concept</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,24 +35,44 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
 {
   /**
-   * The cached value of the '{@link #getVerb() <em>Verb</em>}' attribute list.
+   * The default value of the '{@link #getVerb() <em>Verb</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVerb()
    * @generated
    * @ordered
    */
-  protected EList<Verb> verb;
+  protected static final Verb VERB_EDEFAULT = Verb.ADD;
 
   /**
-   * The cached value of the '{@link #getRef() <em>Ref</em>}' containment reference.
+   * The cached value of the '{@link #getVerb() <em>Verb</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRef()
+   * @see #getVerb()
    * @generated
    * @ordered
    */
-  protected Ref ref;
+  protected Verb verb = VERB_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConcept() <em>Concept</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConcept()
+   * @generated
+   * @ordered
+   */
+  protected Concept concept;
+
+  /**
+   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttribute()
+   * @generated
+   * @ordered
+   */
+  protected Attribute attribute;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,12 +101,8 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * @generated
    */
   @Override
-  public EList<Verb> getVerb()
+  public Verb getVerb()
   {
-    if (verb == null)
-    {
-      verb = new EDataTypeEList<Verb>(Verb.class, this, MyFeatureListPackage.FEATURE__VERB);
-    }
     return verb;
   }
 
@@ -101,26 +112,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * @generated
    */
   @Override
-  public Ref getRef()
+  public void setVerb(Verb newVerb)
   {
-    return ref;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRef(Ref newRef, NotificationChain msgs)
-  {
-    Ref oldRef = ref;
-    ref = newRef;
+    Verb oldVerb = verb;
+    verb = newVerb == null ? VERB_EDEFAULT : newVerb;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__REF, oldRef, newRef);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__VERB, oldVerb, verb));
   }
 
   /**
@@ -129,20 +126,29 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * @generated
    */
   @Override
-  public void setRef(Ref newRef)
+  public Concept getConcept()
   {
-    if (newRef != ref)
+    if (concept != null && concept.eIsProxy())
     {
-      NotificationChain msgs = null;
-      if (ref != null)
-        msgs = ((InternalEObject)ref).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.FEATURE__REF, null, msgs);
-      if (newRef != null)
-        msgs = ((InternalEObject)newRef).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - MyFeatureListPackage.FEATURE__REF, null, msgs);
-      msgs = basicSetRef(newRef, msgs);
-      if (msgs != null) msgs.dispatch();
+      InternalEObject oldConcept = (InternalEObject)concept;
+      concept = (Concept)eResolveProxy(oldConcept);
+      if (concept != oldConcept)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.FEATURE__CONCEPT, oldConcept, concept));
+      }
     }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__REF, newRef, newRef));
+    return concept;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Concept basicGetConcept()
+  {
+    return concept;
   }
 
   /**
@@ -151,14 +157,57 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * @generated
    */
   @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setConcept(Concept newConcept)
   {
-    switch (featureID)
+    Concept oldConcept = concept;
+    concept = newConcept;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__CONCEPT, oldConcept, concept));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Attribute getAttribute()
+  {
+    if (attribute != null && attribute.eIsProxy())
     {
-      case MyFeatureListPackage.FEATURE__REF:
-        return basicSetRef(null, msgs);
+      InternalEObject oldAttribute = (InternalEObject)attribute;
+      attribute = (Attribute)eResolveProxy(oldAttribute);
+      if (attribute != oldAttribute)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.FEATURE__ATTRIBUTE, oldAttribute, attribute));
+      }
     }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute basicGetAttribute()
+  {
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAttribute(Attribute newAttribute)
+  {
+    Attribute oldAttribute = attribute;
+    attribute = newAttribute;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.FEATURE__ATTRIBUTE, oldAttribute, attribute));
   }
 
   /**
@@ -173,8 +222,12 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     {
       case MyFeatureListPackage.FEATURE__VERB:
         return getVerb();
-      case MyFeatureListPackage.FEATURE__REF:
-        return getRef();
+      case MyFeatureListPackage.FEATURE__CONCEPT:
+        if (resolve) return getConcept();
+        return basicGetConcept();
+      case MyFeatureListPackage.FEATURE__ATTRIBUTE:
+        if (resolve) return getAttribute();
+        return basicGetAttribute();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,18 +237,19 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case MyFeatureListPackage.FEATURE__VERB:
-        getVerb().clear();
-        getVerb().addAll((Collection<? extends Verb>)newValue);
+        setVerb((Verb)newValue);
         return;
-      case MyFeatureListPackage.FEATURE__REF:
-        setRef((Ref)newValue);
+      case MyFeatureListPackage.FEATURE__CONCEPT:
+        setConcept((Concept)newValue);
+        return;
+      case MyFeatureListPackage.FEATURE__ATTRIBUTE:
+        setAttribute((Attribute)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -212,10 +266,13 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     switch (featureID)
     {
       case MyFeatureListPackage.FEATURE__VERB:
-        getVerb().clear();
+        setVerb(VERB_EDEFAULT);
         return;
-      case MyFeatureListPackage.FEATURE__REF:
-        setRef((Ref)null);
+      case MyFeatureListPackage.FEATURE__CONCEPT:
+        setConcept((Concept)null);
+        return;
+      case MyFeatureListPackage.FEATURE__ATTRIBUTE:
+        setAttribute((Attribute)null);
         return;
     }
     super.eUnset(featureID);
@@ -232,9 +289,11 @@ public class FeatureImpl extends MinimalEObjectImpl.Container implements Feature
     switch (featureID)
     {
       case MyFeatureListPackage.FEATURE__VERB:
-        return verb != null && !verb.isEmpty();
-      case MyFeatureListPackage.FEATURE__REF:
-        return ref != null;
+        return verb != VERB_EDEFAULT;
+      case MyFeatureListPackage.FEATURE__CONCEPT:
+        return concept != null;
+      case MyFeatureListPackage.FEATURE__ATTRIBUTE:
+        return attribute != null;
     }
     return super.eIsSet(featureID);
   }

@@ -53,7 +53,7 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 	 *     '&gt;' | '&gt;=' | '=' | '&lt;=' | '&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     attribute+=[Attribute|ID] (ambiguity) value+=INT
+	 *     attribute=[Attribute|ID] (ambiguity) value=INT
 	 
 	 * </pre>
 	 */

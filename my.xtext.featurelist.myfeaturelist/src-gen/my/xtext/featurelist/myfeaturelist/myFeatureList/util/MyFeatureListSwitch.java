@@ -101,33 +101,10 @@ public class MyFeatureListSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case MyFeatureListPackage.REF:
-      {
-        Ref ref = (Ref)theEObject;
-        T result = caseRef(ref);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case MyFeatureListPackage.FEATURE:
       {
         Feature feature = (Feature)theEObject;
         T result = caseFeature(feature);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyFeatureListPackage.DOT_EXPRESSION:
-      {
-        DotExpression dotExpression = (DotExpression)theEObject;
-        T result = caseDotExpression(dotExpression);
-        if (result == null) result = caseRef(dotExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case MyFeatureListPackage.CONCEPT_REF:
-      {
-        ConceptRef conceptRef = (ConceptRef)theEObject;
-        T result = caseConceptRef(conceptRef);
-        if (result == null) result = caseRef(conceptRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -200,22 +177,6 @@ public class MyFeatureListSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRef(Ref object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Feature</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -227,38 +188,6 @@ public class MyFeatureListSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFeature(Feature object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Dot Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Dot Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDotExpression(DotExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Concept Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Concept Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseConceptRef(ConceptRef object)
   {
     return null;
   }

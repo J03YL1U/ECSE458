@@ -3,20 +3,17 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import java.util.Collection;
-
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -35,24 +32,34 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
 {
   /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference list.
+   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAttribute()
    * @generated
    * @ordered
    */
-  protected EList<Attribute> attribute;
+  protected Attribute attribute;
 
   /**
-   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute list.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValue()
    * @generated
    * @ordered
    */
-  protected EList<Integer> value;
+  protected static final int VALUE_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getValue()
+   * @generated
+   * @ordered
+   */
+  protected int value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -81,11 +88,17 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public EList<Attribute> getAttribute()
+  public Attribute getAttribute()
   {
-    if (attribute == null)
+    if (attribute != null && attribute.eIsProxy())
     {
-      attribute = new EObjectResolvingEList<Attribute>(Attribute.class, this, MyFeatureListPackage.CONDITION__ATTRIBUTE);
+      InternalEObject oldAttribute = (InternalEObject)attribute;
+      attribute = (Attribute)eResolveProxy(oldAttribute);
+      if (attribute != oldAttribute)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.CONDITION__ATTRIBUTE, oldAttribute, attribute));
+      }
     }
     return attribute;
   }
@@ -95,14 +108,48 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EList<Integer> getValue()
+  public Attribute basicGetAttribute()
   {
-    if (value == null)
-    {
-      value = new EDataTypeEList<Integer>(Integer.class, this, MyFeatureListPackage.CONDITION__VALUE);
-    }
+    return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAttribute(Attribute newAttribute)
+  {
+    Attribute oldAttribute = attribute;
+    attribute = newAttribute;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.CONDITION__ATTRIBUTE, oldAttribute, attribute));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public int getValue()
+  {
     return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValue(int newValue)
+  {
+    int oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.CONDITION__VALUE, oldValue, value));
   }
 
   /**
@@ -116,7 +163,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     switch (featureID)
     {
       case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        return getAttribute();
+        if (resolve) return getAttribute();
+        return basicGetAttribute();
       case MyFeatureListPackage.CONDITION__VALUE:
         return getValue();
     }
@@ -128,19 +176,16 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        getAttribute().clear();
-        getAttribute().addAll((Collection<? extends Attribute>)newValue);
+        setAttribute((Attribute)newValue);
         return;
       case MyFeatureListPackage.CONDITION__VALUE:
-        getValue().clear();
-        getValue().addAll((Collection<? extends Integer>)newValue);
+        setValue((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -157,10 +202,10 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     switch (featureID)
     {
       case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        getAttribute().clear();
+        setAttribute((Attribute)null);
         return;
       case MyFeatureListPackage.CONDITION__VALUE:
-        getValue().clear();
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -177,9 +222,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     switch (featureID)
     {
       case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        return attribute != null && !attribute.isEmpty();
+        return attribute != null;
       case MyFeatureListPackage.CONDITION__VALUE:
-        return value != null && !value.isEmpty();
+        return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }

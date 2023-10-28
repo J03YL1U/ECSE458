@@ -180,7 +180,7 @@ public interface MyFeatureListPackage extends EPackage
   int CONDITION = 3;
 
   /**
-   * The feature id for the '<em><b>Attribute</b></em>' reference list.
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -189,7 +189,7 @@ public interface MyFeatureListPackage extends EPackage
   int CONDITION__ATTRIBUTE = 0;
 
   /**
-   * The feature id for the '<em><b>Value</b></em>' attribute list.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -207,25 +207,6 @@ public interface MyFeatureListPackage extends EPackage
   int CONDITION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.RefImpl <em>Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.RefImpl
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getRef()
-   * @generated
-   */
-  int REF = 4;
-
-  /**
-   * The number of structural features of the '<em>Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int REF_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl <em>Feature</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -233,10 +214,10 @@ public interface MyFeatureListPackage extends EPackage
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 5;
+  int FEATURE = 4;
 
   /**
-   * The feature id for the '<em><b>Verb</b></em>' attribute list.
+   * The feature id for the '<em><b>Verb</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -245,13 +226,22 @@ public interface MyFeatureListPackage extends EPackage
   int FEATURE__VERB = 0;
 
   /**
-   * The feature id for the '<em><b>Ref</b></em>' containment reference.
+   * The feature id for the '<em><b>Concept</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE__REF = 1;
+  int FEATURE__CONCEPT = 1;
+
+  /**
+   * The feature id for the '<em><b>Attribute</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FEATURE__ATTRIBUTE = 2;
 
   /**
    * The number of structural features of the '<em>Feature</em>' class.
@@ -260,72 +250,7 @@ public interface MyFeatureListPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl <em>Dot Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getDotExpression()
-   * @generated
-   */
-  int DOT_EXPRESSION = 6;
-
-  /**
-   * The feature id for the '<em><b>Ref</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOT_EXPRESSION__REF = REF_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Tail</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOT_EXPRESSION__TAIL = REF_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Dot Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DOT_EXPRESSION_FEATURE_COUNT = REF_FEATURE_COUNT + 2;
-
-  /**
-   * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptRefImpl <em>Concept Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptRefImpl
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getConceptRef()
-   * @generated
-   */
-  int CONCEPT_REF = 7;
-
-  /**
-   * The feature id for the '<em><b>Concept</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONCEPT_REF__CONCEPT = REF_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Concept Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CONCEPT_REF_FEATURE_COUNT = REF_FEATURE_COUNT + 1;
+  int FEATURE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb <em>Verb</em>}' enum.
@@ -335,7 +260,7 @@ public interface MyFeatureListPackage extends EPackage
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getVerb()
    * @generated
    */
-  int VERB = 8;
+  int VERB = 5;
 
 
   /**
@@ -445,10 +370,10 @@ public interface MyFeatureListPackage extends EPackage
   EClass getCondition();
 
   /**
-   * Returns the meta object for the reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getAttribute <em>Attribute</em>}'.
+   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getAttribute <em>Attribute</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference list '<em>Attribute</em>'.
+   * @return the meta object for the reference '<em>Attribute</em>'.
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getAttribute()
    * @see #getCondition()
    * @generated
@@ -456,25 +381,15 @@ public interface MyFeatureListPackage extends EPackage
   EReference getCondition_Attribute();
 
   /**
-   * Returns the meta object for the attribute list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Value</em>'.
+   * @return the meta object for the attribute '<em>Value</em>'.
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getValue()
    * @see #getCondition()
    * @generated
    */
   EAttribute getCondition_Value();
-
-  /**
-   * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Ref <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Ref</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Ref
-   * @generated
-   */
-  EClass getRef();
 
   /**
    * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature <em>Feature</em>}'.
@@ -487,10 +402,10 @@ public interface MyFeatureListPackage extends EPackage
   EClass getFeature();
 
   /**
-   * Returns the meta object for the attribute list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}'.
+   * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb <em>Verb</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Verb</em>'.
+   * @return the meta object for the attribute '<em>Verb</em>'.
    * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getVerb()
    * @see #getFeature()
    * @generated
@@ -498,68 +413,26 @@ public interface MyFeatureListPackage extends EPackage
   EAttribute getFeature_Verb();
 
   /**
-   * Returns the meta object for the containment reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getRef <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getRef()
-   * @see #getFeature()
-   * @generated
-   */
-  EReference getFeature_Ref();
-
-  /**
-   * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression <em>Dot Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Dot Expression</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression
-   * @generated
-   */
-  EClass getDotExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression#getRef <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ref</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression#getRef()
-   * @see #getDotExpression()
-   * @generated
-   */
-  EReference getDotExpression_Ref();
-
-  /**
-   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression#getTail <em>Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Tail</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression#getTail()
-   * @see #getDotExpression()
-   * @generated
-   */
-  EReference getDotExpression_Tail();
-
-  /**
-   * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef <em>Concept Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Concept Ref</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef
-   * @generated
-   */
-  EClass getConceptRef();
-
-  /**
-   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef#getConcept <em>Concept</em>}'.
+   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept <em>Concept</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the reference '<em>Concept</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef#getConcept()
-   * @see #getConceptRef()
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getConcept()
+   * @see #getFeature()
    * @generated
    */
-  EReference getConceptRef_Concept();
+  EReference getFeature_Concept();
+
+  /**
+   * Returns the meta object for the reference '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute <em>Attribute</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Attribute</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Feature#getAttribute()
+   * @see #getFeature()
+   * @generated
+   */
+  EReference getFeature_Attribute();
 
   /**
    * Returns the meta object for enum '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb <em>Verb</em>}'.
@@ -683,7 +556,7 @@ public interface MyFeatureListPackage extends EPackage
     EClass CONDITION = eINSTANCE.getCondition();
 
     /**
-     * The meta object literal for the '<em><b>Attribute</b></em>' reference list feature.
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -691,22 +564,12 @@ public interface MyFeatureListPackage extends EPackage
     EReference CONDITION__ATTRIBUTE = eINSTANCE.getCondition_Attribute();
 
     /**
-     * The meta object literal for the '<em><b>Value</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
-
-    /**
-     * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.RefImpl <em>Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.RefImpl
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getRef()
-     * @generated
-     */
-    EClass REF = eINSTANCE.getRef();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureImpl <em>Feature</em>}' class.
@@ -719,7 +582,7 @@ public interface MyFeatureListPackage extends EPackage
     EClass FEATURE = eINSTANCE.getFeature();
 
     /**
-     * The meta object literal for the '<em><b>Verb</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Verb</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -727,56 +590,20 @@ public interface MyFeatureListPackage extends EPackage
     EAttribute FEATURE__VERB = eINSTANCE.getFeature_Verb();
 
     /**
-     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FEATURE__REF = eINSTANCE.getFeature_Ref();
-
-    /**
-     * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl <em>Dot Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.DotExpressionImpl
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getDotExpression()
-     * @generated
-     */
-    EClass DOT_EXPRESSION = eINSTANCE.getDotExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Ref</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DOT_EXPRESSION__REF = eINSTANCE.getDotExpression_Ref();
-
-    /**
-     * The meta object literal for the '<em><b>Tail</b></em>' reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference DOT_EXPRESSION__TAIL = eINSTANCE.getDotExpression_Tail();
-
-    /**
-     * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptRefImpl <em>Concept Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptRefImpl
-     * @see my.xtext.featurelist.myfeaturelist.myFeatureList.impl.MyFeatureListPackageImpl#getConceptRef()
-     * @generated
-     */
-    EClass CONCEPT_REF = eINSTANCE.getConceptRef();
-
-    /**
      * The meta object literal for the '<em><b>Concept</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CONCEPT_REF__CONCEPT = eINSTANCE.getConceptRef_Concept();
+    EReference FEATURE__CONCEPT = eINSTANCE.getFeature_Concept();
+
+    /**
+     * The meta object literal for the '<em><b>Attribute</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FEATURE__ATTRIBUTE = eINSTANCE.getFeature_Attribute();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Verb <em>Verb</em>}' enum.

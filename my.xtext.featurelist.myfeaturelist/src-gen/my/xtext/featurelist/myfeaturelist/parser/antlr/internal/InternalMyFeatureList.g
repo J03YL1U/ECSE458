@@ -207,7 +207,7 @@ ruleConcept returns [EObject current=null]
 			{
 				newLeafNode(otherlv_5, grammarAccess.getConceptAccess().getRightSquareBracketKeyword_3_2());
 			}
-		)?
+		)*
 	)
 ;
 
@@ -311,103 +311,11 @@ ruleCondition returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getConditionRule());
 					}
-					addWithLastConsumed(
+					setWithLastConsumed(
 						$current,
 						"value",
 						lv_value_6_0,
 						"org.eclipse.xtext.common.Terminals.INT");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleDotExpression
-entryRuleDotExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDotExpressionRule()); }
-	iv_ruleDotExpression=ruleDotExpression
-	{ $current=$iv_ruleDotExpression.current; }
-	EOF;
-
-// Rule DotExpression
-ruleDotExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		{
-			newCompositeNode(grammarAccess.getDotExpressionAccess().getConceptRefParserRuleCall_0());
-		}
-		this_ConceptRef_0=ruleConceptRef
-		{
-			$current = $this_ConceptRef_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			(
-				{
-					$current = forceCreateModelElementAndSet(
-						grammarAccess.getDotExpressionAccess().getDotExpressionRefAction_1_0(),
-						$current);
-				}
-			)
-			otherlv_2='.'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getDotExpressionAccess().getFullStopKeyword_1_1());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getDotExpressionRule());
-						}
-					}
-					otherlv_3=RULE_ID
-					{
-						newLeafNode(otherlv_3, grammarAccess.getDotExpressionAccess().getTailAttributeCrossReference_1_2_0());
-					}
-				)
-			)
-		)*
-	)
-;
-
-// Entry rule entryRuleConceptRef
-entryRuleConceptRef returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getConceptRefRule()); }
-	iv_ruleConceptRef=ruleConceptRef
-	{ $current=$iv_ruleConceptRef.current; }
-	EOF;
-
-// Rule ConceptRef
-ruleConceptRef returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getConceptRefAccess().getConceptRefAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConceptRefRule());
-					}
-				}
-				otherlv_1=RULE_ID
-				{
-					newLeafNode(otherlv_1, grammarAccess.getConceptRefAccess().getConceptConceptCrossReference_1_0());
 				}
 			)
 		)
@@ -440,7 +348,7 @@ ruleFeature returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFeatureRule());
 					}
-					add(
+					set(
 						$current,
 						"verb",
 						lv_verb_0_0,
@@ -452,22 +360,35 @@ ruleFeature returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureAccess().getRefDotExpressionParserRuleCall_1_0());
-				}
-				lv_ref_1_0=ruleDotExpression
-				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFeatureRule());
+						$current = createModelElement(grammarAccess.getFeatureRule());
 					}
-					set(
-						$current,
-						"ref",
-						lv_ref_1_0,
-						"my.xtext.featurelist.myfeaturelist.MyFeatureList.DotExpression");
-					afterParserOrEnumRuleCall();
+				}
+				otherlv_1=RULE_ID
+				{
+					newLeafNode(otherlv_1, grammarAccess.getFeatureAccess().getConceptConceptCrossReference_1_0());
 				}
 			)
 		)
+		(
+			otherlv_2='.'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getFullStopKeyword_2_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFeatureRule());
+						}
+					}
+					otherlv_3=RULE_ID
+					{
+						newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getAttributeAttributeCrossReference_2_1_0());
+					}
+				)
+			)
+		)?
 	)
 ;
 

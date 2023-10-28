@@ -96,24 +96,9 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
         return createConditionAdapter();
       }
       @Override
-      public Adapter caseRef(Ref object)
-      {
-        return createRefAdapter();
-      }
-      @Override
       public Adapter caseFeature(Feature object)
       {
         return createFeatureAdapter();
-      }
-      @Override
-      public Adapter caseDotExpression(DotExpression object)
-      {
-        return createDotExpressionAdapter();
-      }
-      @Override
-      public Adapter caseConceptRef(ConceptRef object)
-      {
-        return createConceptRefAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -198,21 +183,6 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Ref <em>Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Ref
-   * @generated
-   */
-  public Adapter createRefAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -223,36 +193,6 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFeatureAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression <em>Dot Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.DotExpression
-   * @generated
-   */
-  public Adapter createDotExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef <em>Concept Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptRef
-   * @generated
-   */
-  public Adapter createConceptRefAdapter()
   {
     return null;
   }

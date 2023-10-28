@@ -60,15 +60,6 @@ public interface MyFeatureListFactory extends EFactory
   Condition createCondition();
 
   /**
-   * Returns a new object of class '<em>Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Ref</em>'.
-   * @generated
-   */
-  Ref createRef();
-
-  /**
    * Returns a new object of class '<em>Feature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -76,24 +67,6 @@ public interface MyFeatureListFactory extends EFactory
    * @generated
    */
   Feature createFeature();
-
-  /**
-   * Returns a new object of class '<em>Dot Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Dot Expression</em>'.
-   * @generated
-   */
-  DotExpression createDotExpression();
-
-  /**
-   * Returns a new object of class '<em>Concept Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Concept Ref</em>'.
-   * @generated
-   */
-  ConceptRef createConceptRef();
 
   /**
    * Returns the package supported by this factory.

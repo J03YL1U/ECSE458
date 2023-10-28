@@ -309,7 +309,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleConcept"
-    // InternalMyFeatureList.g:133:1: ruleConcept returns [EObject current=null] : (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )? ) ;
+    // InternalMyFeatureList.g:133:1: ruleConcept returns [EObject current=null] : (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )* ) ;
     public final EObject ruleConcept() throws RecognitionException {
         EObject current = null;
 
@@ -326,11 +326,11 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyFeatureList.g:139:2: ( (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )? ) )
-            // InternalMyFeatureList.g:140:2: (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )? )
+            // InternalMyFeatureList.g:139:2: ( (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )* ) )
+            // InternalMyFeatureList.g:140:2: (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )* )
             {
-            // InternalMyFeatureList.g:140:2: (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )? )
-            // InternalMyFeatureList.g:141:3: otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )?
+            // InternalMyFeatureList.g:140:2: (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )* )
+            // InternalMyFeatureList.g:141:3: otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )*
             {
             otherlv_0=(Token)match(input,12,FOLLOW_6); 
 
@@ -411,61 +411,68 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            // InternalMyFeatureList.g:182:3: (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+            // InternalMyFeatureList.g:182:3: (otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']' )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==13) ) {
-                alt4=1;
-            }
-            switch (alt4) {
-                case 1 :
-                    // InternalMyFeatureList.g:183:4: otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']'
-                    {
-                    otherlv_3=(Token)match(input,13,FOLLOW_6); 
-
-                    				newLeafNode(otherlv_3, grammarAccess.getConceptAccess().getLeftSquareBracketKeyword_3_0());
-                    			
-                    // InternalMyFeatureList.g:187:4: ( (lv_condition_4_0= ruleCondition ) )
-                    // InternalMyFeatureList.g:188:5: (lv_condition_4_0= ruleCondition )
-                    {
-                    // InternalMyFeatureList.g:188:5: (lv_condition_4_0= ruleCondition )
-                    // InternalMyFeatureList.g:189:6: lv_condition_4_0= ruleCondition
-                    {
-
-                    						newCompositeNode(grammarAccess.getConceptAccess().getConditionConditionParserRuleCall_3_1_0());
-                    					
-                    pushFollow(FOLLOW_8);
-                    lv_condition_4_0=ruleCondition();
-
-                    state._fsp--;
+                if ( (LA4_0==13) ) {
+                    alt4=1;
+                }
 
 
-                    						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getConceptRule());
-                    						}
-                    						add(
-                    							current,
-                    							"condition",
-                    							lv_condition_4_0,
-                    							"my.xtext.featurelist.myfeaturelist.MyFeatureList.Condition");
-                    						afterParserOrEnumRuleCall();
-                    					
+                switch (alt4) {
+            	case 1 :
+            	    // InternalMyFeatureList.g:183:4: otherlv_3= '[' ( (lv_condition_4_0= ruleCondition ) ) otherlv_5= ']'
+            	    {
+            	    otherlv_3=(Token)match(input,13,FOLLOW_6); 
 
-                    }
+            	    				newLeafNode(otherlv_3, grammarAccess.getConceptAccess().getLeftSquareBracketKeyword_3_0());
+            	    			
+            	    // InternalMyFeatureList.g:187:4: ( (lv_condition_4_0= ruleCondition ) )
+            	    // InternalMyFeatureList.g:188:5: (lv_condition_4_0= ruleCondition )
+            	    {
+            	    // InternalMyFeatureList.g:188:5: (lv_condition_4_0= ruleCondition )
+            	    // InternalMyFeatureList.g:189:6: lv_condition_4_0= ruleCondition
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getConceptAccess().getConditionConditionParserRuleCall_3_1_0());
+            	    					
+            	    pushFollow(FOLLOW_8);
+            	    lv_condition_4_0=ruleCondition();
+
+            	    state._fsp--;
 
 
-                    }
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getConceptRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"condition",
+            	    							lv_condition_4_0,
+            	    							"my.xtext.featurelist.myfeaturelist.MyFeatureList.Condition");
+            	    						afterParserOrEnumRuleCall();
+            	    					
 
-                    otherlv_5=(Token)match(input,14,FOLLOW_2); 
+            	    }
 
-                    				newLeafNode(otherlv_5, grammarAccess.getConceptAccess().getRightSquareBracketKeyword_3_2());
-                    			
 
-                    }
-                    break;
+            	    }
 
-            }
+            	    otherlv_5=(Token)match(input,14,FOLLOW_9); 
+
+            	    				newLeafNode(otherlv_5, grammarAccess.getConceptAccess().getRightSquareBracketKeyword_3_2());
+            	    			
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
 
 
             }
@@ -654,7 +661,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             						current = createModelElement(grammarAccess.getConditionRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_9); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
             					newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getAttributeAttributeCrossReference_0_0());
             				
@@ -703,7 +710,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalMyFeatureList.g:279:4: otherlv_1= '>'
                     {
-                    otherlv_1=(Token)match(input,15,FOLLOW_10); 
+                    otherlv_1=(Token)match(input,15,FOLLOW_11); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_1_0());
                     			
@@ -713,7 +720,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalMyFeatureList.g:284:4: otherlv_2= '>='
                     {
-                    otherlv_2=(Token)match(input,16,FOLLOW_10); 
+                    otherlv_2=(Token)match(input,16,FOLLOW_11); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_1_1());
                     			
@@ -723,7 +730,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalMyFeatureList.g:289:4: otherlv_3= '='
                     {
-                    otherlv_3=(Token)match(input,17,FOLLOW_10); 
+                    otherlv_3=(Token)match(input,17,FOLLOW_11); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getEqualsSignKeyword_1_2());
                     			
@@ -733,7 +740,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalMyFeatureList.g:294:4: otherlv_4= '<='
                     {
-                    otherlv_4=(Token)match(input,18,FOLLOW_10); 
+                    otherlv_4=(Token)match(input,18,FOLLOW_11); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_1_3());
                     			
@@ -743,7 +750,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // InternalMyFeatureList.g:299:4: otherlv_5= '<'
                     {
-                    otherlv_5=(Token)match(input,19,FOLLOW_10); 
+                    otherlv_5=(Token)match(input,19,FOLLOW_11); 
 
                     				newLeafNode(otherlv_5, grammarAccess.getConditionAccess().getLessThanSignKeyword_1_4());
                     			
@@ -767,7 +774,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElement(grammarAccess.getConditionRule());
             					}
-            					addWithLastConsumed(
+            					setWithLastConsumed(
             						current,
             						"value",
             						lv_value_6_0,
@@ -801,265 +808,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleCondition"
 
 
-    // $ANTLR start "entryRuleDotExpression"
-    // InternalMyFeatureList.g:326:1: entryRuleDotExpression returns [EObject current=null] : iv_ruleDotExpression= ruleDotExpression EOF ;
-    public final EObject entryRuleDotExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleDotExpression = null;
-
-
-        try {
-            // InternalMyFeatureList.g:326:54: (iv_ruleDotExpression= ruleDotExpression EOF )
-            // InternalMyFeatureList.g:327:2: iv_ruleDotExpression= ruleDotExpression EOF
-            {
-             newCompositeNode(grammarAccess.getDotExpressionRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleDotExpression=ruleDotExpression();
-
-            state._fsp--;
-
-             current =iv_ruleDotExpression; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleDotExpression"
-
-
-    // $ANTLR start "ruleDotExpression"
-    // InternalMyFeatureList.g:333:1: ruleDotExpression returns [EObject current=null] : (this_ConceptRef_0= ruleConceptRef ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* ) ;
-    public final EObject ruleDotExpression() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_2=null;
-        Token otherlv_3=null;
-        EObject this_ConceptRef_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalMyFeatureList.g:339:2: ( (this_ConceptRef_0= ruleConceptRef ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* ) )
-            // InternalMyFeatureList.g:340:2: (this_ConceptRef_0= ruleConceptRef ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* )
-            {
-            // InternalMyFeatureList.g:340:2: (this_ConceptRef_0= ruleConceptRef ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )* )
-            // InternalMyFeatureList.g:341:3: this_ConceptRef_0= ruleConceptRef ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )*
-            {
-
-            			newCompositeNode(grammarAccess.getDotExpressionAccess().getConceptRefParserRuleCall_0());
-            		
-            pushFollow(FOLLOW_11);
-            this_ConceptRef_0=ruleConceptRef();
-
-            state._fsp--;
-
-
-            			current = this_ConceptRef_0;
-            			afterParserOrEnumRuleCall();
-            		
-            // InternalMyFeatureList.g:349:3: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( (LA6_0==20) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // InternalMyFeatureList.g:350:4: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
-            	    {
-            	    // InternalMyFeatureList.g:350:4: ()
-            	    // InternalMyFeatureList.g:351:5: 
-            	    {
-
-            	    					current = forceCreateModelElementAndSet(
-            	    						grammarAccess.getDotExpressionAccess().getDotExpressionRefAction_1_0(),
-            	    						current);
-            	    				
-
-            	    }
-
-            	    otherlv_2=(Token)match(input,20,FOLLOW_6); 
-
-            	    				newLeafNode(otherlv_2, grammarAccess.getDotExpressionAccess().getFullStopKeyword_1_1());
-            	    			
-            	    // InternalMyFeatureList.g:361:4: ( (otherlv_3= RULE_ID ) )
-            	    // InternalMyFeatureList.g:362:5: (otherlv_3= RULE_ID )
-            	    {
-            	    // InternalMyFeatureList.g:362:5: (otherlv_3= RULE_ID )
-            	    // InternalMyFeatureList.g:363:6: otherlv_3= RULE_ID
-            	    {
-
-            	    						if (current==null) {
-            	    							current = createModelElement(grammarAccess.getDotExpressionRule());
-            	    						}
-            	    					
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_11); 
-
-            	    						newLeafNode(otherlv_3, grammarAccess.getDotExpressionAccess().getTailAttributeCrossReference_1_2_0());
-            	    					
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop6;
-                }
-            } while (true);
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleDotExpression"
-
-
-    // $ANTLR start "entryRuleConceptRef"
-    // InternalMyFeatureList.g:379:1: entryRuleConceptRef returns [EObject current=null] : iv_ruleConceptRef= ruleConceptRef EOF ;
-    public final EObject entryRuleConceptRef() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleConceptRef = null;
-
-
-        try {
-            // InternalMyFeatureList.g:379:51: (iv_ruleConceptRef= ruleConceptRef EOF )
-            // InternalMyFeatureList.g:380:2: iv_ruleConceptRef= ruleConceptRef EOF
-            {
-             newCompositeNode(grammarAccess.getConceptRefRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleConceptRef=ruleConceptRef();
-
-            state._fsp--;
-
-             current =iv_ruleConceptRef; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleConceptRef"
-
-
-    // $ANTLR start "ruleConceptRef"
-    // InternalMyFeatureList.g:386:1: ruleConceptRef returns [EObject current=null] : ( () ( (otherlv_1= RULE_ID ) ) ) ;
-    public final EObject ruleConceptRef() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-
-
-        	enterRule();
-
-        try {
-            // InternalMyFeatureList.g:392:2: ( ( () ( (otherlv_1= RULE_ID ) ) ) )
-            // InternalMyFeatureList.g:393:2: ( () ( (otherlv_1= RULE_ID ) ) )
-            {
-            // InternalMyFeatureList.g:393:2: ( () ( (otherlv_1= RULE_ID ) ) )
-            // InternalMyFeatureList.g:394:3: () ( (otherlv_1= RULE_ID ) )
-            {
-            // InternalMyFeatureList.g:394:3: ()
-            // InternalMyFeatureList.g:395:4: 
-            {
-
-            				current = forceCreateModelElement(
-            					grammarAccess.getConceptRefAccess().getConceptRefAction_0(),
-            					current);
-            			
-
-            }
-
-            // InternalMyFeatureList.g:401:3: ( (otherlv_1= RULE_ID ) )
-            // InternalMyFeatureList.g:402:4: (otherlv_1= RULE_ID )
-            {
-            // InternalMyFeatureList.g:402:4: (otherlv_1= RULE_ID )
-            // InternalMyFeatureList.g:403:5: otherlv_1= RULE_ID
-            {
-
-            					if (current==null) {
-            						current = createModelElement(grammarAccess.getConceptRefRule());
-            					}
-            				
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_2); 
-
-            					newLeafNode(otherlv_1, grammarAccess.getConceptRefAccess().getConceptConceptCrossReference_1_0());
-            				
-
-            }
-
-
-            }
-
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleConceptRef"
-
-
     // $ANTLR start "entryRuleFeature"
-    // InternalMyFeatureList.g:418:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
+    // InternalMyFeatureList.g:326:1: entryRuleFeature returns [EObject current=null] : iv_ruleFeature= ruleFeature EOF ;
     public final EObject entryRuleFeature() throws RecognitionException {
         EObject current = null;
 
@@ -1067,8 +817,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalMyFeatureList.g:418:48: (iv_ruleFeature= ruleFeature EOF )
-            // InternalMyFeatureList.g:419:2: iv_ruleFeature= ruleFeature EOF
+            // InternalMyFeatureList.g:326:48: (iv_ruleFeature= ruleFeature EOF )
+            // InternalMyFeatureList.g:327:2: iv_ruleFeature= ruleFeature EOF
             {
              newCompositeNode(grammarAccess.getFeatureRule()); 
             pushFollow(FOLLOW_1);
@@ -1095,30 +845,31 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFeature"
-    // InternalMyFeatureList.g:425:1: ruleFeature returns [EObject current=null] : ( ( (lv_verb_0_0= ruleVerb ) ) ( (lv_ref_1_0= ruleDotExpression ) ) ) ;
+    // InternalMyFeatureList.g:333:1: ruleFeature returns [EObject current=null] : ( ( (lv_verb_0_0= ruleVerb ) ) ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )? ) ;
     public final EObject ruleFeature() throws RecognitionException {
         EObject current = null;
 
+        Token otherlv_1=null;
+        Token otherlv_2=null;
+        Token otherlv_3=null;
         Enumerator lv_verb_0_0 = null;
-
-        EObject lv_ref_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalMyFeatureList.g:431:2: ( ( ( (lv_verb_0_0= ruleVerb ) ) ( (lv_ref_1_0= ruleDotExpression ) ) ) )
-            // InternalMyFeatureList.g:432:2: ( ( (lv_verb_0_0= ruleVerb ) ) ( (lv_ref_1_0= ruleDotExpression ) ) )
+            // InternalMyFeatureList.g:339:2: ( ( ( (lv_verb_0_0= ruleVerb ) ) ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )? ) )
+            // InternalMyFeatureList.g:340:2: ( ( (lv_verb_0_0= ruleVerb ) ) ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )? )
             {
-            // InternalMyFeatureList.g:432:2: ( ( (lv_verb_0_0= ruleVerb ) ) ( (lv_ref_1_0= ruleDotExpression ) ) )
-            // InternalMyFeatureList.g:433:3: ( (lv_verb_0_0= ruleVerb ) ) ( (lv_ref_1_0= ruleDotExpression ) )
+            // InternalMyFeatureList.g:340:2: ( ( (lv_verb_0_0= ruleVerb ) ) ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )? )
+            // InternalMyFeatureList.g:341:3: ( (lv_verb_0_0= ruleVerb ) ) ( (otherlv_1= RULE_ID ) ) (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )?
             {
-            // InternalMyFeatureList.g:433:3: ( (lv_verb_0_0= ruleVerb ) )
-            // InternalMyFeatureList.g:434:4: (lv_verb_0_0= ruleVerb )
+            // InternalMyFeatureList.g:341:3: ( (lv_verb_0_0= ruleVerb ) )
+            // InternalMyFeatureList.g:342:4: (lv_verb_0_0= ruleVerb )
             {
-            // InternalMyFeatureList.g:434:4: (lv_verb_0_0= ruleVerb )
-            // InternalMyFeatureList.g:435:5: lv_verb_0_0= ruleVerb
+            // InternalMyFeatureList.g:342:4: (lv_verb_0_0= ruleVerb )
+            // InternalMyFeatureList.g:343:5: lv_verb_0_0= ruleVerb
             {
 
             					newCompositeNode(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_0_0());
@@ -1132,7 +883,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             					if (current==null) {
             						current = createModelElementForParent(grammarAccess.getFeatureRule());
             					}
-            					add(
+            					set(
             						current,
             						"verb",
             						lv_verb_0_0,
@@ -1145,34 +896,66 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalMyFeatureList.g:452:3: ( (lv_ref_1_0= ruleDotExpression ) )
-            // InternalMyFeatureList.g:453:4: (lv_ref_1_0= ruleDotExpression )
+            // InternalMyFeatureList.g:360:3: ( (otherlv_1= RULE_ID ) )
+            // InternalMyFeatureList.g:361:4: (otherlv_1= RULE_ID )
             {
-            // InternalMyFeatureList.g:453:4: (lv_ref_1_0= ruleDotExpression )
-            // InternalMyFeatureList.g:454:5: lv_ref_1_0= ruleDotExpression
+            // InternalMyFeatureList.g:361:4: (otherlv_1= RULE_ID )
+            // InternalMyFeatureList.g:362:5: otherlv_1= RULE_ID
             {
-
-            					newCompositeNode(grammarAccess.getFeatureAccess().getRefDotExpressionParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_2);
-            lv_ref_1_0=ruleDotExpression();
-
-            state._fsp--;
-
 
             					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getFeatureRule());
+            						current = createModelElement(grammarAccess.getFeatureRule());
             					}
-            					set(
-            						current,
-            						"ref",
-            						lv_ref_1_0,
-            						"my.xtext.featurelist.myfeaturelist.MyFeatureList.DotExpression");
-            					afterParserOrEnumRuleCall();
+            				
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_12); 
+
+            					newLeafNode(otherlv_1, grammarAccess.getFeatureAccess().getConceptConceptCrossReference_1_0());
             				
 
             }
 
+
+            }
+
+            // InternalMyFeatureList.g:373:3: (otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )?
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==20) ) {
+                alt6=1;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalMyFeatureList.g:374:4: otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
+                    {
+                    otherlv_2=(Token)match(input,20,FOLLOW_6); 
+
+                    				newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getFullStopKeyword_2_0());
+                    			
+                    // InternalMyFeatureList.g:378:4: ( (otherlv_3= RULE_ID ) )
+                    // InternalMyFeatureList.g:379:5: (otherlv_3= RULE_ID )
+                    {
+                    // InternalMyFeatureList.g:379:5: (otherlv_3= RULE_ID )
+                    // InternalMyFeatureList.g:380:6: otherlv_3= RULE_ID
+                    {
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getFeatureRule());
+                    						}
+                    					
+                    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_2); 
+
+                    						newLeafNode(otherlv_3, grammarAccess.getFeatureAccess().getAttributeAttributeCrossReference_2_1_0());
+                    					
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
 
             }
 
@@ -1199,7 +982,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleVerb"
-    // InternalMyFeatureList.g:475:1: ruleVerb returns [Enumerator current=null] : ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) ) ;
+    // InternalMyFeatureList.g:396:1: ruleVerb returns [Enumerator current=null] : ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) ) ;
     public final Enumerator ruleVerb() throws RecognitionException {
         Enumerator current = null;
 
@@ -1212,10 +995,10 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalMyFeatureList.g:481:2: ( ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) ) )
-            // InternalMyFeatureList.g:482:2: ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) )
+            // InternalMyFeatureList.g:402:2: ( ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) ) )
+            // InternalMyFeatureList.g:403:2: ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) )
             {
-            // InternalMyFeatureList.g:482:2: ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) )
+            // InternalMyFeatureList.g:403:2: ( (enumLiteral_0= 'Add' ) | (enumLiteral_1= 'Remove' ) | (enumLiteral_2= 'Update' ) | (enumLiteral_3= 'Display' ) )
             int alt7=4;
             switch ( input.LA(1) ) {
             case 21:
@@ -1247,10 +1030,10 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             switch (alt7) {
                 case 1 :
-                    // InternalMyFeatureList.g:483:3: (enumLiteral_0= 'Add' )
+                    // InternalMyFeatureList.g:404:3: (enumLiteral_0= 'Add' )
                     {
-                    // InternalMyFeatureList.g:483:3: (enumLiteral_0= 'Add' )
-                    // InternalMyFeatureList.g:484:4: enumLiteral_0= 'Add'
+                    // InternalMyFeatureList.g:404:3: (enumLiteral_0= 'Add' )
+                    // InternalMyFeatureList.g:405:4: enumLiteral_0= 'Add'
                     {
                     enumLiteral_0=(Token)match(input,21,FOLLOW_2); 
 
@@ -1264,10 +1047,10 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalMyFeatureList.g:491:3: (enumLiteral_1= 'Remove' )
+                    // InternalMyFeatureList.g:412:3: (enumLiteral_1= 'Remove' )
                     {
-                    // InternalMyFeatureList.g:491:3: (enumLiteral_1= 'Remove' )
-                    // InternalMyFeatureList.g:492:4: enumLiteral_1= 'Remove'
+                    // InternalMyFeatureList.g:412:3: (enumLiteral_1= 'Remove' )
+                    // InternalMyFeatureList.g:413:4: enumLiteral_1= 'Remove'
                     {
                     enumLiteral_1=(Token)match(input,22,FOLLOW_2); 
 
@@ -1281,10 +1064,10 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalMyFeatureList.g:499:3: (enumLiteral_2= 'Update' )
+                    // InternalMyFeatureList.g:420:3: (enumLiteral_2= 'Update' )
                     {
-                    // InternalMyFeatureList.g:499:3: (enumLiteral_2= 'Update' )
-                    // InternalMyFeatureList.g:500:4: enumLiteral_2= 'Update'
+                    // InternalMyFeatureList.g:420:3: (enumLiteral_2= 'Update' )
+                    // InternalMyFeatureList.g:421:4: enumLiteral_2= 'Update'
                     {
                     enumLiteral_2=(Token)match(input,23,FOLLOW_2); 
 
@@ -1298,10 +1081,10 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalMyFeatureList.g:507:3: (enumLiteral_3= 'Display' )
+                    // InternalMyFeatureList.g:428:3: (enumLiteral_3= 'Display' )
                     {
-                    // InternalMyFeatureList.g:507:3: (enumLiteral_3= 'Display' )
-                    // InternalMyFeatureList.g:508:4: enumLiteral_3= 'Display'
+                    // InternalMyFeatureList.g:428:3: (enumLiteral_3= 'Display' )
+                    // InternalMyFeatureList.g:429:4: enumLiteral_3= 'Display'
                     {
                     enumLiteral_3=(Token)match(input,24,FOLLOW_2); 
 
@@ -1348,8 +1131,9 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000002012L});
     public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000000F8000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000000F8000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000100002L});
 
 }

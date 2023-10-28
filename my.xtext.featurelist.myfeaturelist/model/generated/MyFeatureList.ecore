@@ -19,28 +19,18 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" unique="false"
-        upperBound="-1" eType="#//Attribute"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" unique="false" upperBound="-1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Ref"/>
   <eClassifiers xsi:type="ecore:EClass" name="Feature">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" unique="false" upperBound="-1"
-        eType="#//Verb"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//Verb"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Verb">
     <eLiterals name="Add" literal="Add"/>
     <eLiterals name="Remove" value="1" literal="Remove"/>
     <eLiterals name="Update" value="2" literal="Update"/>
     <eLiterals name="Display" value="3" literal="Display"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DotExpression" eSuperTypes="#//Ref">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//Ref" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tail" eType="#//Attribute"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConceptRef" eSuperTypes="#//Ref">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"/>
   </eClassifiers>
 </ecore:EPackage>
