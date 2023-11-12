@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ASCII"?>
+<myFeatureList:FeatureList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:myFeatureList="http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList">
+  <concept name="Seat">
+    <attributes name="number"/>
+  </concept>
+  <concept name="Table">
+    <attributes name="number"/>
+    <condition attribute="//@concept.1/@attributes.0"/>
+  </concept>
+  <feature concept="//@concept.1"/>
+  <feature verb="Remove" concept="//@concept.1"/>
+  <feature verb="Update" concept="//@concept.0" attribute="//@concept.0/@attributes.0"/>
+  <feature verb="Display" concept="//@concept.1"/>
+</myFeatureList:FeatureList>
