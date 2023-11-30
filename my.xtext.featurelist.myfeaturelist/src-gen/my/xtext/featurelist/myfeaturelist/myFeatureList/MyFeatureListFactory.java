@@ -51,6 +51,15 @@ public interface MyFeatureListFactory extends EFactory
   Attribute createAttribute();
 
   /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
    * Returns a new object of class '<em>Condition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -58,6 +67,24 @@ public interface MyFeatureListFactory extends EFactory
    * @generated
    */
   Condition createCondition();
+
+  /**
+   * Returns a new object of class '<em>Constraint</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constraint</em>'.
+   * @generated
+   */
+  Constraint createConstraint();
+
+  /**
+   * Returns a new object of class '<em>Key</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Key</em>'.
+   * @generated
+   */
+  Key createKey();
 
   /**
    * Returns a new object of class '<em>Feature</em>'.

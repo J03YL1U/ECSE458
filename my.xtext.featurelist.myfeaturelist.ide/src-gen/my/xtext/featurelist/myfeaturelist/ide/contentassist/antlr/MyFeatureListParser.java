@@ -31,22 +31,33 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyFeatureListGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getConditionAccess().getAlternatives_1(), "rule__Condition__Alternatives_1");
+			builder.put(grammarAccess.getConditionAccess().getAlternatives_0(), "rule__Condition__Alternatives_0");
 			builder.put(grammarAccess.getVerbAccess().getAlternatives(), "rule__Verb__Alternatives");
 			builder.put(grammarAccess.getFeatureListAccess().getGroup(), "rule__FeatureList__Group__0");
 			builder.put(grammarAccess.getConceptAccess().getGroup(), "rule__Concept__Group__0");
-			builder.put(grammarAccess.getConceptAccess().getGroup_3(), "rule__Concept__Group_3__0");
+			builder.put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
+			builder.put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
+			builder.put(grammarAccess.getConstraintAccess().getGroup_1(), "rule__Constraint__Group_1__0");
+			builder.put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
+			builder.put(grammarAccess.getKeyAccess().getGroup_1(), "rule__Key__Group_1__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup_2(), "rule__Feature__Group_2__0");
 			builder.put(grammarAccess.getFeatureListAccess().getConceptAssignment_0(), "rule__FeatureList__ConceptAssignment_0");
-			builder.put(grammarAccess.getFeatureListAccess().getFeatureAssignment_2(), "rule__FeatureList__FeatureAssignment_2");
+			builder.put(grammarAccess.getFeatureListAccess().getConstraintAssignment_2(), "rule__FeatureList__ConstraintAssignment_2");
+			builder.put(grammarAccess.getFeatureListAccess().getKeyAssignment_4(), "rule__FeatureList__KeyAssignment_4");
+			builder.put(grammarAccess.getFeatureListAccess().getFeatureAssignment_6(), "rule__FeatureList__FeatureAssignment_6");
 			builder.put(grammarAccess.getConceptAccess().getNameAssignment_1(), "rule__Concept__NameAssignment_1");
 			builder.put(grammarAccess.getConceptAccess().getAttributesAssignment_2(), "rule__Concept__AttributesAssignment_2");
-			builder.put(grammarAccess.getConceptAccess().getConditionAssignment_3_1(), "rule__Concept__ConditionAssignment_3_1");
-			builder.put(grammarAccess.getAttributeAccess().getNameAssignment(), "rule__Attribute__NameAssignment");
-			builder.put(grammarAccess.getConditionAccess().getAttributeAssignment_0(), "rule__Condition__AttributeAssignment_0");
-			builder.put(grammarAccess.getConditionAccess().getValueAssignment_2(), "rule__Condition__ValueAssignment_2");
+			builder.put(grammarAccess.getAttributeAccess().getTypeAssignment_0(), "rule__Attribute__TypeAssignment_0");
+			builder.put(grammarAccess.getAttributeAccess().getNameAssignment_1(), "rule__Attribute__NameAssignment_1");
+			builder.put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
+			builder.put(grammarAccess.getConditionAccess().getValueAssignment_1(), "rule__Condition__ValueAssignment_1");
+			builder.put(grammarAccess.getConstraintAccess().getConceptAssignment_0(), "rule__Constraint__ConceptAssignment_0");
+			builder.put(grammarAccess.getConstraintAccess().getAttributeAssignment_1_1(), "rule__Constraint__AttributeAssignment_1_1");
+			builder.put(grammarAccess.getConstraintAccess().getConditionAssignment_2(), "rule__Constraint__ConditionAssignment_2");
+			builder.put(grammarAccess.getKeyAccess().getConceptAssignment_0(), "rule__Key__ConceptAssignment_0");
+			builder.put(grammarAccess.getKeyAccess().getAttributeAssignment_1_1(), "rule__Key__AttributeAssignment_1_1");
 			builder.put(grammarAccess.getFeatureAccess().getVerbAssignment_0(), "rule__Feature__VerbAssignment_0");
 			builder.put(grammarAccess.getFeatureAccess().getConceptAssignment_1(), "rule__Feature__ConceptAssignment_1");
 			builder.put(grammarAccess.getFeatureAccess().getAttributeAssignment_2_1(), "rule__Feature__AttributeAssignment_2_1");

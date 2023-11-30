@@ -27,7 +27,7 @@ public class MethodGeneration {
 			 Concept concept = feature.getConcept();
 			 Attribute featureAttribute = feature.getAttribute();
 			 
-			 String methodName = verb.getName() + concept.getName();
+			 String methodName = verb.getName().toLowerCase() + concept.getName();
 			 if (featureAttribute != null) {
 				 methodName.concat(featureAttribute.getName());
 			 }
@@ -44,9 +44,9 @@ public class MethodGeneration {
 				 else {
 					 paramList = concept.getName() + " " + concept.getName().toLowerCase() + ", " + featureAttribute.getName() + " " + featureAttribute.getName().toLowerCase();
 				 }
-				 String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
+				 //String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
 				 
-				 String methodSignature = "public " + returnStatement + " " + methodName + "(" + paramList + ");";
+				 String methodSignature = "public String " + methodName + "(" + paramList + ");";
 				 System.out.println(methodSignature);
 			 }
 			 else if (verb.getName() == "Remove") {
@@ -60,15 +60,16 @@ public class MethodGeneration {
 			 }
 			 else if (verb.getName() == "Display") {
 				 String paramList;
+				 methodName = methodName.replaceFirst("display", "get");
 				 if (featureAttribute == null) {
 					 paramList = concept.getName() + " " + concept.getName().toLowerCase();
 				 }
 				 else {
 					 paramList = featureAttribute.getName() + " " + featureAttribute.getName().toLowerCase();
 				 }
-				 String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
+				 //String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
 				 
-				 String methodSignature = "public " + returnStatement + " " + methodName + "(" + paramList + ");";
+				 String methodSignature = "public String " + methodName + "(" + paramList + ");";
 				 System.out.println(methodSignature);
 			 }
 			 else if (verb.getName() == "Update") {
@@ -83,13 +84,14 @@ public class MethodGeneration {
 				 else {
 					 paramList = concept.getName() + " " + concept.getName().toLowerCase() + ", " + featureAttribute.getName() + " " + featureAttribute.getName().toLowerCase();
 				 }
-				 String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
+				 //String returnStatement = featureAttribute == null? concept.getName() : featureAttribute.getName();
 				 
-				 String methodSignature = "public " + returnStatement + " " + methodName + "(" + paramList + ");";
+				 String methodSignature = "public String " + methodName + "(" + paramList + ");";
 				 System.out.println(methodSignature);
 			 }
 		 }
 		 
 		 //TODO: FIX CAPITALIZATION ISSUE
+		 //TODO: FIX NUMBER CLASS --> SHOULD BE INT
 	 }
 }

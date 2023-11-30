@@ -4,18 +4,28 @@ generate myFeatureList "http://www.xtext.my/featurelist/myfeaturelist/MyFeatureL
 
 FeatureList:
         (concept+=Concept)*
+        'constraints' (constraint+=Constraint)+
+        'keys' (key+=Key)+
     	'features' (feature+=Feature)+;
-   
+    	
 Concept:
         'concept' name=ID
-        (attributes+=Attribute)*
-        ("["condition+=Condition"]")*;
+        (attributes+=Attribute)*;
        
 Attribute:
-        name=ID;
+        (type=Type) name=ID;
+        
+Type:
+	name=ID;
        
 Condition:
-        (attribute=[Attribute]) ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+        ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+        
+Constraint:
+	(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
+	
+Key:
+	(concept=[Concept])('.'(attribute=[Attribute])); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
        
 Feature:
         (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;

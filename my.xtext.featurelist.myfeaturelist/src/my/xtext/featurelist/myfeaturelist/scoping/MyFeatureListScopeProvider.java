@@ -18,13 +18,21 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.*;
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#scoping
  * on how and when to use it.
  */
-public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider {
-	@Override
-    public IScope getScope(EObject object, EReference ref) {
-    if (ref == MyFeatureListPackage.Literals.FEATURE__ATTRIBUTE) {
-     Feature feature = (Feature) object;
-        return Scopes.scopeFor(feature.getConcept().getAttributes());
-    }
-    return super.getScope(object, ref);
-}     
+	public class MyFeatureListScopeProvider extends AbstractDeclarativeScopeProvider {
+		@Override
+	    public IScope getScope(EObject object, EReference ref) {
+	    if (ref == MyFeatureListPackage.Literals.FEATURE__ATTRIBUTE) {
+	     Feature feature = (Feature) object;
+	        return Scopes.scopeFor(feature.getConcept().getAttributes());
+	    }
+	    if (ref == MyFeatureListPackage.Literals.CONSTRAINT__ATTRIBUTE) {
+		     Constraint constraint = (Constraint) object;
+		        return Scopes.scopeFor(constraint.getConcept().getAttributes());
+		    }
+	    if (ref == MyFeatureListPackage.Literals.KEY__ATTRIBUTE) {
+		     Key key = (Key) object;
+		        return Scopes.scopeFor(key.getConcept().getAttributes());
+		    }
+	    return super.getScope(object, ref);
+	}     
 }

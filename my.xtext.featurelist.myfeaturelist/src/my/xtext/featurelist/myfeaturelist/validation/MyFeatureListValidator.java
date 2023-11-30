@@ -3,6 +3,11 @@
  */
 package my.xtext.featurelist.myfeaturelist.validation;
 
+import org.eclipse.xtext.validation.Check;
+
+import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +26,20 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 //					INVALID_NAME);
 //		}
 //	}
+	
+	@Check
+	public void checkOnlyOneKeyPerConcept(Key key) {
+		FeatureList featureList = (FeatureList) key.eContainer();
+		
+		if (featureList != null) {
+			for (Key otherKey : featureList.getKey()) {
+				if ( !key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept())) {
+					error("There can only be one key per concept",
+							MyFeatureListPackage.Literals.KEY__CONCEPT);
+					break;
+				}
+			}
+		}
+	}
 	
 }

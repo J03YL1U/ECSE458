@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept#getName <em>Name</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept#getAttributes <em>Attributes</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept#getCondition <em>Condition</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getConcept()
@@ -60,17 +59,5 @@ public interface Concept extends EObject
    * @generated
    */
   EList<Attribute> getAttributes();
-
-  /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-   * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getConcept_Condition()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Condition> getCondition();
 
 } // Concept

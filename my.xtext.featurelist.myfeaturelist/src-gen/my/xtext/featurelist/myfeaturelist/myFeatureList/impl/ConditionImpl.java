@@ -3,14 +3,12 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -23,7 +21,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConditionImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConditionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -31,16 +28,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
 {
-  /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAttribute()
-   * @generated
-   * @ordered
-   */
-  protected Attribute attribute;
-
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -88,51 +75,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
-  public Attribute getAttribute()
-  {
-    if (attribute != null && attribute.eIsProxy())
-    {
-      InternalEObject oldAttribute = (InternalEObject)attribute;
-      attribute = (Attribute)eResolveProxy(oldAttribute);
-      if (attribute != oldAttribute)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.CONDITION__ATTRIBUTE, oldAttribute, attribute));
-      }
-    }
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute basicGetAttribute()
-  {
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setAttribute(Attribute newAttribute)
-  {
-    Attribute oldAttribute = attribute;
-    attribute = newAttribute;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.CONDITION__ATTRIBUTE, oldAttribute, attribute));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public int getValue()
   {
     return value;
@@ -162,9 +104,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        if (resolve) return getAttribute();
-        return basicGetAttribute();
       case MyFeatureListPackage.CONDITION__VALUE:
         return getValue();
     }
@@ -181,9 +120,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        setAttribute((Attribute)newValue);
-        return;
       case MyFeatureListPackage.CONDITION__VALUE:
         setValue((Integer)newValue);
         return;
@@ -201,9 +137,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        setAttribute((Attribute)null);
-        return;
       case MyFeatureListPackage.CONDITION__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -221,8 +154,6 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONDITION__ATTRIBUTE:
-        return attribute != null;
       case MyFeatureListPackage.CONDITION__VALUE:
         return value != VALUE_EDEFAULT;
     }

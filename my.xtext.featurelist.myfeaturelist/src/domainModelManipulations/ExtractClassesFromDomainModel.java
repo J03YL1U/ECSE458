@@ -5,8 +5,13 @@ import java.util.Collections;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -32,21 +37,38 @@ public class ExtractClassesFromDomainModel {
 		Resource resource = resourceSet.getResource(fileURI, true);
 
 		// Print the contents of the resource to System.out.
-		try
+		/*try
 		{
 		resource.save(System.out, Collections.EMPTY_MAP);
 		}
 		catch (IOException e) {
 			System.out.println("problem");
-		}
+		}*/
 		
 		//get classes
-		EList<EObject> objects = resource.getContents();
+		EPackage epackage = (EPackage) resource.getContents().get(0);
 		
-		for (EObject object : objects) {
+		for (EClassifier classifier : epackage.getEClassifiers()) {
+			if (classifier instanceof EClass) {
+				System.out.println(classifier.getName());
+				for (EStructuralFeature feature : ((EClass) classifier).getEStructuralFeatures()) {
+					if (feature instanceof EAttribute) {
+						System.out.println(feature.getName());
+					}
+					if (feature instanceof EReference) {
+						
+					}
+				}
+			}
+			System.out.println();
+		}
+		
+		
+		
+		/*for (EObject object : objects) {
 			if (object.getClass() == EClassifier.class) {
 				System.out.println(object.toString());
 			}
-		}	
+		}*/
 	}
 }

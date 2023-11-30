@@ -96,16 +96,62 @@ ruleFeatureList returns [EObject current=null]
 				}
 			)
 		)*
-		otherlv_1='features'
+		otherlv_1='constraints'
 		{
-			newLeafNode(otherlv_1, grammarAccess.getFeatureListAccess().getFeaturesKeyword_1());
+			newLeafNode(otherlv_1, grammarAccess.getFeatureListAccess().getConstraintsKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFeatureListAccess().getConstraintConstraintParserRuleCall_2_0());
 				}
-				lv_feature_2_0=ruleFeature
+				lv_constraint_2_0=ruleConstraint
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
+					}
+					add(
+						$current,
+						"constraint",
+						lv_constraint_2_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Constraint");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_3='keys'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getFeatureListAccess().getKeysKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFeatureListAccess().getKeyKeyParserRuleCall_4_0());
+				}
+				lv_key_4_0=ruleKey
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
+					}
+					add(
+						$current,
+						"key",
+						lv_key_4_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Key");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_5='features'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getFeatureListAccess().getFeaturesKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_6_0());
+				}
+				lv_feature_6_0=ruleFeature
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
@@ -113,7 +159,7 @@ ruleFeatureList returns [EObject current=null]
 					add(
 						$current,
 						"feature",
-						lv_feature_2_0,
+						lv_feature_6_0,
 						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
 					afterParserOrEnumRuleCall();
 				}
@@ -179,35 +225,6 @@ ruleConcept returns [EObject current=null]
 				}
 			)
 		)*
-		(
-			otherlv_3='['
-			{
-				newLeafNode(otherlv_3, grammarAccess.getConceptAccess().getLeftSquareBracketKeyword_3_0());
-			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getConceptAccess().getConditionConditionParserRuleCall_3_1_0());
-					}
-					lv_condition_4_0=ruleCondition
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getConceptRule());
-						}
-						add(
-							$current,
-							"condition",
-							lv_condition_4_0,
-							"my.xtext.featurelist.myfeaturelist.MyFeatureList.Condition");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_5=']'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getConceptAccess().getRightSquareBracketKeyword_3_2());
-			}
-		)*
 	)
 ;
 
@@ -228,13 +245,69 @@ ruleAttribute returns [EObject current=null]
 }:
 	(
 		(
+			(
+				{
+					newCompositeNode(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_0_0());
+				}
+				lv_type_0_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getAttributeRule());
+					}
+					set(
+						$current,
+						"type",
+						lv_type_0_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAttributeRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleType
+entryRuleType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTypeRule()); }
+	iv_ruleType=ruleType
+	{ $current=$iv_ruleType.current; }
+	EOF;
+
+// Rule Type
+ruleType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
 			lv_name_0_0=RULE_ID
 			{
-				newLeafNode(lv_name_0_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_0());
+				newLeafNode(lv_name_0_0, grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_0());
 			}
 			{
 				if ($current==null) {
-					$current = createModelElement(grammarAccess.getAttributeRule());
+					$current = createModelElement(grammarAccess.getTypeRule());
 				}
 				setWithLastConsumed(
 					$current,
@@ -263,49 +336,36 @@ ruleCondition returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getConditionRule());
-					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getAttributeAttributeCrossReference_0_0());
-				}
-			)
-		)
-		(
-			otherlv_1='>'
+			otherlv_0='>'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_1_0());
+				newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0());
 			}
 			    |
-			otherlv_2='>='
+			otherlv_1='>='
 			{
-				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_1_1());
+				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1());
 			}
 			    |
-			otherlv_3='='
+			otherlv_2='='
 			{
-				newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getEqualsSignKeyword_1_2());
+				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2());
 			}
 			    |
-			otherlv_4='<='
+			otherlv_3='<='
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_1_3());
+				newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3());
 			}
 			    |
-			otherlv_5='<'
+			otherlv_4='<'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getConditionAccess().getLessThanSignKeyword_1_4());
+				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4());
 			}
 		)
 		(
 			(
-				lv_value_6_0=RULE_INT
+				lv_value_5_0=RULE_INT
 				{
-					newLeafNode(lv_value_6_0, grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_2_0());
+					newLeafNode(lv_value_5_0, grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -314,9 +374,130 @@ ruleCondition returns [EObject current=null]
 					setWithLastConsumed(
 						$current,
 						"value",
-						lv_value_6_0,
+						lv_value_5_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleConstraint
+entryRuleConstraint returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConstraintRule()); }
+	iv_ruleConstraint=ruleConstraint
+	{ $current=$iv_ruleConstraint.current; }
+	EOF;
+
+// Rule Constraint
+ruleConstraint returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConstraintRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConceptConceptCrossReference_0_0());
+				}
+			)
+		)
+		(
+			otherlv_1='.'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getFullStopKeyword_1_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getConstraintRule());
+						}
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getAttributeAttributeCrossReference_1_1_0());
+					}
+				)
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConstraintAccess().getConditionConditionParserRuleCall_2_0());
+				}
+				lv_condition_3_0=ruleCondition
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConstraintRule());
+					}
+					add(
+						$current,
+						"condition",
+						lv_condition_3_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Condition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleKey
+entryRuleKey returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getKeyRule()); }
+	iv_ruleKey=ruleKey
+	{ $current=$iv_ruleKey.current; }
+	EOF;
+
+// Rule Key
+ruleKey returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getKeyRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getKeyAccess().getConceptConceptCrossReference_0_0());
+				}
+			)
+		)
+		(
+			otherlv_1='.'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getKeyAccess().getFullStopKeyword_1_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getKeyRule());
+						}
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getKeyAccess().getAttributeAttributeCrossReference_1_1_0());
+					}
+				)
 			)
 		)
 	)

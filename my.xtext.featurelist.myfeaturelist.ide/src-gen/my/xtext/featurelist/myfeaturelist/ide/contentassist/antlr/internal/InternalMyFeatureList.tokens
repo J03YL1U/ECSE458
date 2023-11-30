@@ -8,10 +8,10 @@
 'Display'=19
 'Remove'=17
 'Update'=18
-'['=22
-']'=23
-'concept'=21
-'features'=20
+'concept'=23
+'constraints'=20
+'features'=22
+'keys'=21
 RULE_ANY_OTHER=10
 RULE_ID=4
 RULE_INT=5

@@ -21,12 +21,12 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected MyFeatureListGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4;
+	protected AbstractElementAlias match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyFeatureListGrammarAccess) access;
-		match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getEqualsSignKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_1_3()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignKeyword_1_4()));
+		match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4()));
 	}
 	
 	@Override
@@ -41,8 +41,8 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4.equals(syntax))
-				emit_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4.equals(syntax))
+				emit_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -53,11 +53,11 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 	 *     '&gt;' | '&gt;=' | '=' | '&lt;=' | '&lt;'
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     attribute=[Attribute|ID] (ambiguity) value=INT
+	 *     (rule start) (ambiguity) value=INT
 	 
 	 * </pre>
 	 */
-	protected void emit_Condition_EqualsSignKeyword_1_2_or_GreaterThanSignEqualsSignKeyword_1_1_or_GreaterThanSignKeyword_1_0_or_LessThanSignEqualsSignKeyword_1_3_or_LessThanSignKeyword_1_4(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

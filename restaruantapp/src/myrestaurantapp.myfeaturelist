@@ -1,11 +1,22 @@
 concept Seat
-	number
+	int number
 
 concept Table
-	number [number > 0]
+	int number
+	Seat seat
+	
+constraints
+	Table.number > 0
+	Seat.number > 0
+	
+keys
+	Table.number
+	Seat.number
 	
 features
 	Add Table
 	Remove Table
 	Update Seat.number
 	Display Table
+	Add Table.seat
+	Remove Table.seat

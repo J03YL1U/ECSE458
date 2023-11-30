@@ -14,19 +14,32 @@
     </genEnums>
     <genClasses ecoreClass="MyFeatureList.ecore#//FeatureList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/concept"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/constraint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/key"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/feature"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Concept/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Concept/attributes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Concept/condition"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Attribute">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Attribute/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Attribute/name"/>
     </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//Type">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Type/name"/>
+    </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Condition">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Condition/attribute"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Condition/value"/>
+    </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//Constraint">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Constraint/concept"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Constraint/attribute"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Constraint/condition"/>
+    </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//Key">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Key/concept"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Key/attribute"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Feature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Feature/verb"/>

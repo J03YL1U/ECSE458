@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -24,28 +23,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Condition extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Attribute</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' reference.
-   * @see #setAttribute(Attribute)
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getCondition_Attribute()
-   * @model
-   * @generated
-   */
-  Attribute getAttribute();
-
-  /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition#getAttribute <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' reference.
-   * @see #getAttribute()
-   * @generated
-   */
-  void setAttribute(Attribute value);
-
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getName <em>Name</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Attribute extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Type</em>' containment reference.
+   * @see #setType(Type)
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getAttribute_Type()
+   * @model containment="true"
+   * @generated
+   */
+  Type getType();
+
+  /**
+   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getType <em>Type</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Type</em>' containment reference.
+   * @see #getType()
+   * @generated
+   */
+  void setType(Type value);
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

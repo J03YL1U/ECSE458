@@ -3,41 +3,30 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import java.util.Collection;
-
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Type;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Concept</b></em>'.
+ * An implementation of the model object '<em><b>Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl#getName <em>Name</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.TypeImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
+public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -60,21 +49,11 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAttributes()
-   * @generated
-   * @ordered
-   */
-  protected EList<Attribute> attributes;
-
-  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ConceptImpl()
+  protected TypeImpl()
   {
     super();
   }
@@ -87,7 +66,7 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   @Override
   protected EClass eStaticClass()
   {
-    return MyFeatureListPackage.Literals.CONCEPT;
+    return MyFeatureListPackage.Literals.TYPE;
   }
 
   /**
@@ -112,38 +91,7 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.CONCEPT__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EList<Attribute> getAttributes()
-  {
-    if (attributes == null)
-    {
-      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, MyFeatureListPackage.CONCEPT__ATTRIBUTES);
-    }
-    return attributes;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
-        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.TYPE__NAME, oldName, name));
   }
 
   /**
@@ -156,10 +104,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONCEPT__NAME:
+      case MyFeatureListPackage.TYPE__NAME:
         return getName();
-      case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
-        return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -169,18 +115,13 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONCEPT__NAME:
+      case MyFeatureListPackage.TYPE__NAME:
         setName((String)newValue);
-        return;
-      case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
-        getAttributes().clear();
-        getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -196,11 +137,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONCEPT__NAME:
+      case MyFeatureListPackage.TYPE__NAME:
         setName(NAME_EDEFAULT);
-        return;
-      case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
-        getAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -216,10 +154,8 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case MyFeatureListPackage.CONCEPT__NAME:
+      case MyFeatureListPackage.TYPE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case MyFeatureListPackage.CONCEPT__ATTRIBUTES:
-        return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -241,4 +177,4 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
     return result.toString();
   }
 
-} //ConceptImpl
+} //TypeImpl

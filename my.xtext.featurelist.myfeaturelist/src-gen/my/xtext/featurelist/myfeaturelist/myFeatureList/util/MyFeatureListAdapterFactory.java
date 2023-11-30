@@ -91,9 +91,24 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
         return createAttributeAdapter();
       }
       @Override
+      public Adapter caseType(Type object)
+      {
+        return createTypeAdapter();
+      }
+      @Override
       public Adapter caseCondition(Condition object)
       {
         return createConditionAdapter();
+      }
+      @Override
+      public Adapter caseConstraint(Constraint object)
+      {
+        return createConstraintAdapter();
+      }
+      @Override
+      public Adapter caseKey(Key object)
+      {
+        return createKeyAdapter();
       }
       @Override
       public Adapter caseFeature(Feature object)
@@ -168,6 +183,21 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Type <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Type
+   * @generated
+   */
+  public Adapter createTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Condition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -178,6 +208,36 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createConditionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint <em>Constraint</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint
+   * @generated
+   */
+  public Adapter createConstraintAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Key <em>Key</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Key
+   * @generated
+   */
+  public Adapter createKeyAdapter()
   {
     return null;
   }
