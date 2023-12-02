@@ -1,0 +1,40 @@
+concept RestoApp
+	Table tables
+	Menu menu
+	PricedMenuItem pricedMenuItems
+	Bill bills
+
+concept Table
+	int number
+	int x
+	int y
+	int width
+	int length
+	RestoApp restoApp
+	Seat seats
+
+concept Seat
+	int number
+	Table table
+	Bill bills
+
+concept Menu
+	RestoApp restoApp
+	MenuItem menuItems
+
+concept MenuItem
+	String name
+	ItemCategory itemCategory
+	Menu menu
+	PricedMenuItem pricedMenuItems
+	PricedMenuItem currentPricedMenuItem
+
+concept PricedMenuItem
+	double price
+	RestoApp restoApp
+	MenuItem menuItem
+
+concept Bill
+	RestoApp restoApp
+	Seat issuedForSeats
+
