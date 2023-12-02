@@ -5,6 +5,7 @@ package my.xtext.featurelist.myfeaturelist.validation;
 
 import org.eclipse.xtext.validation.Check;
 
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
@@ -38,6 +39,26 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 							MyFeatureListPackage.Literals.KEY__CONCEPT);
 					break;
 				}
+			}
+		}
+	}
+	
+	@Check
+	public void checkEachConceptHasKey(Concept concept) {
+		FeatureList featureList = (FeatureList) concept.eContainer();
+		boolean hasKey = false;
+		
+		if (featureList != null) {
+			for (Key key : featureList.getKey()) {
+				if (key.getConcept().equals(concept)) {
+					hasKey = true;
+					break;
+				}
+			}
+			
+			if (!hasKey) {
+				error("Every concept needs a key",
+						MyFeatureListPackage.Literals.CONCEPT__NAME);
 			}
 		}
 	}

@@ -17,6 +17,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="seats" lowerBound="1" upperBound="-1" eType="#//Seat" eOpposite="#//Seat/table" />
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Seat">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
     <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table" eOpposite="#//Table/seats" />
     <eStructuralFeatures xsi:type="ecore:EReference" name="bills" upperBound="-1" eType="#//Bill" eOpposite="#//Bill/issuedForSeats" />
   </eClassifiers>
