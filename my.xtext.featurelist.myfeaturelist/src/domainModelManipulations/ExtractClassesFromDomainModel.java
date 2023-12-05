@@ -105,6 +105,7 @@ public class ExtractClassesFromDomainModel {
 			//TODO: CHANGE TO SAME FILE NAME AS LINE 95 WHEN EXTRACTION WILL BE BETTER
 			FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\myrestaurantappFromUmple.myfeaturelist");
 			myWriter.write(result);
+			myWriter.write(xtextFileContent);
 			myWriter.close();
 			System.out.println("MyFeatureList was updated.");
 		} catch (IOException e) {

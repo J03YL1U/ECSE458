@@ -131,10 +131,13 @@ public class MethodGeneration {
 	 private static void createDisplayMethodPrototype(Concept concept, Attribute featureAttribute, Key key, Key attributeKey, String methodName) {
 		 String paramList;
 		 methodName = methodName.replaceFirst("display", "get");
+		 String returnType = "TO";
 		 if (featureAttribute == null) {
+			 returnType = returnType.concat(concept.getName());
 			 paramList = key.getAttribute().getType().getName() + " " + key.getAttribute().getName().toLowerCase();
 		 }
 		 else {
+			 returnType = returnType.concat(featureAttribute.getName());
 			 Attribute uniqueAttribute = concept.getAttributes().stream().filter(item -> item == key.getAttribute()).findFirst().get();
 			 Attribute uniqueAttributeAttribute;
 			 uniqueAttributeAttribute = attributeKey != null? attributeKey.getConcept().getAttributes().stream().filter(item -> item.getName().equals(key.getAttribute().getName())).findFirst().get() : featureAttribute;
@@ -143,7 +146,7 @@ public class MethodGeneration {
 					 + uniqueAttributeAttribute.getType().getName() + " " + uniqueAttributeAttribute.getName().toLowerCase();
 		 }
 		 
-		 String methodSignature = "public String " + methodName + "(" + paramList + ");";
+		 String methodSignature = "public " + returnType + " " + methodName + "(" + paramList + ");";
 		 System.out.println(methodSignature);
 	 }
 	 

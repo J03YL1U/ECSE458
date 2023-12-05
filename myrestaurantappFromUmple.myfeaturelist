@@ -38,3 +38,18 @@ concept Bill
 	RestoApp restoApp
 	Seat issuedForSeats
 
+constraints
+	Table.number > 0
+	Seat.number > 0
+	
+keys
+	Table.number
+	Seat.number
+	
+features
+	Add Table
+	Remove Table
+	Update Seat.number
+	Display Table
+	Add Table.seat
+	Remove Table.seat
