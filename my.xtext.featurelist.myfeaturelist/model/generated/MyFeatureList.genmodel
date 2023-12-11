@@ -26,6 +26,7 @@
     <genClasses ecoreClass="MyFeatureList.ecore#//Attribute">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Attribute/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Attribute/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Attribute/multiplicity"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Type/name"/>

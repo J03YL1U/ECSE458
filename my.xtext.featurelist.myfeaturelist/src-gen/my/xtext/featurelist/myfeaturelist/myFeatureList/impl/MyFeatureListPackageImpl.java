@@ -302,6 +302,17 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EAttribute getAttribute_Multiplicity()
+  {
+    return (EAttribute)attributeEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getType()
   {
     return typeEClass;
@@ -550,6 +561,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     attributeEClass = createEClass(ATTRIBUTE);
     createEReference(attributeEClass, ATTRIBUTE__TYPE);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+    createEAttribute(attributeEClass, ATTRIBUTE__MULTIPLICITY);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
@@ -624,6 +636,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAttribute_Type(), this.getType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAttribute_Multiplicity(), ecorePackage.getEString(), "multiplicity", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

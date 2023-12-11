@@ -1,8 +1,8 @@
 concept RestoApp
-	Table tables
-	Menu menu
-	PricedMenuItem pricedMenuItems
-	Bill bills
+	Table tables 0..*
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 0..*
+	Bill bills 0..*
 
 concept Table
 	int number
@@ -10,41 +10,44 @@ concept Table
 	int y
 	int width
 	int length
-	RestoApp restoApp
-	Seat seats
+	RestoApp restoApp 1..1
+	Seat seats 1..*
 
 concept Seat
 	int number
-	Table table
-	Bill bills
+	Table table 1..1
+	Bill bills 0..*
 
 concept Menu
-	RestoApp restoApp
-	MenuItem menuItems
+	RestoApp restoApp 1..1
+	MenuItem menuItems 0..*
 
 concept MenuItem
 	String name
 	ItemCategory itemCategory
-	Menu menu
-	PricedMenuItem pricedMenuItems
-	PricedMenuItem currentPricedMenuItem
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 1..*
+	PricedMenuItem currentPricedMenuItem 0..1
 
 concept PricedMenuItem
 	double price
-	RestoApp restoApp
-	MenuItem menuItem
+	RestoApp restoApp 1..1
+	MenuItem menuItem 1..1
 
 concept Bill
-	RestoApp restoApp
-	Seat issuedForSeats
+	RestoApp restoApp 1..1
+	Seat issuedForSeats 1..*
 
 constraints
 	Table.number > 0
 	Seat.number > 0
 	
 keys
-	Table.number
-	Seat.number
+	Table.number unique
+	Seat.number unique
+	
+properties
+	Table.fakeatt lazy
 	
 features
 	Add Table

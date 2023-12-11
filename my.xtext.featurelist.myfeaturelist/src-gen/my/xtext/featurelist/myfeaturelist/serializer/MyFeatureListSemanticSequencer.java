@@ -78,20 +78,11 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     Attribute returns Attribute
 	 *
 	 * Constraint:
-	 *     (type=Type name=ID)
+	 *     (type=Type name=ID multiplicity=MULTIPLICITY?)
 	 * </pre>
 	 */
 	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__TYPE));
-			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.ATTRIBUTE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_0_0(), semanticObject.getType());
-		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

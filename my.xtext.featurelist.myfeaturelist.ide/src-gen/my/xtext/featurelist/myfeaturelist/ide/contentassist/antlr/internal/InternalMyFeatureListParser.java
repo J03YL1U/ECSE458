@@ -22,29 +22,30 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalMyFeatureListParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'>'", "'>='", "'='", "'<='", "'<'", "'unique'", "'autounique'", "'Add'", "'Remove'", "'Update'", "'Display'", "'constraints'", "'keys'", "'properties'", "'features'", "'concept'", "'.'", "'lazy'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_MULTIPLICITY", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'>'", "'>='", "'='", "'<='", "'<'", "'unique'", "'autounique'", "'Add'", "'Remove'", "'Update'", "'Display'", "'constraints'", "'keys'", "'properties'", "'features'", "'concept'", "'.'", "'lazy'"
     };
-    public static final int RULE_STRING=6;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_STRING=7;
+    public static final int RULE_SL_COMMENT=9;
     public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
     public static final int T__18=18;
-    public static final int T__11=11;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_MULTIPLICITY=5;
     public static final int RULE_ID=4;
-    public static final int RULE_WS=9;
-    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_WS=10;
+    public static final int RULE_ANY_OTHER=11;
     public static final int T__26=26;
     public static final int T__27=27;
     public static final int T__28=28;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
+    public static final int T__29=29;
     public static final int T__22=22;
-    public static final int RULE_ML_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
     public static final int T__23=23;
     public static final int T__24=24;
     public static final int T__25=25;
@@ -836,27 +837,27 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:297:1: ( ( '>' ) | ( '>=' ) | ( '=' ) | ( '<=' ) | ( '<' ) )
             int alt1=5;
             switch ( input.LA(1) ) {
-            case 11:
+            case 12:
                 {
                 alt1=1;
                 }
                 break;
-            case 12:
+            case 13:
                 {
                 alt1=2;
                 }
                 break;
-            case 13:
+            case 14:
                 {
                 alt1=3;
                 }
                 break;
-            case 14:
+            case 15:
                 {
                 alt1=4;
                 }
                 break;
-            case 15:
+            case 16:
                 {
                 alt1=5;
                 }
@@ -876,7 +877,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:299:3: '>'
                     {
                      before(grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0()); 
-                    match(input,11,FOLLOW_2); 
+                    match(input,12,FOLLOW_2); 
                      after(grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0()); 
 
                     }
@@ -891,7 +892,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:305:3: '>='
                     {
                      before(grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1()); 
-                    match(input,12,FOLLOW_2); 
+                    match(input,13,FOLLOW_2); 
                      after(grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1()); 
 
                     }
@@ -906,7 +907,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:311:3: '='
                     {
                      before(grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2()); 
-                    match(input,13,FOLLOW_2); 
+                    match(input,14,FOLLOW_2); 
                      after(grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2()); 
 
                     }
@@ -921,7 +922,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:317:3: '<='
                     {
                      before(grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3()); 
-                    match(input,14,FOLLOW_2); 
+                    match(input,15,FOLLOW_2); 
                      after(grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3()); 
 
                     }
@@ -936,7 +937,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:323:3: '<'
                     {
                      before(grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4()); 
-                    match(input,15,FOLLOW_2); 
+                    match(input,16,FOLLOW_2); 
                      after(grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4()); 
 
                     }
@@ -972,10 +973,10 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==16) ) {
+            if ( (LA2_0==17) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==17) ) {
+            else if ( (LA2_0==18) ) {
                 alt2=2;
             }
             else {
@@ -992,7 +993,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:338:3: 'unique'
                     {
                      before(grammarAccess.getKeyAccess().getUniqueKeyword_2_0()); 
-                    match(input,16,FOLLOW_2); 
+                    match(input,17,FOLLOW_2); 
                      after(grammarAccess.getKeyAccess().getUniqueKeyword_2_0()); 
 
                     }
@@ -1007,7 +1008,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:344:3: 'autounique'
                     {
                      before(grammarAccess.getKeyAccess().getAutouniqueKeyword_2_1()); 
-                    match(input,17,FOLLOW_2); 
+                    match(input,18,FOLLOW_2); 
                      after(grammarAccess.getKeyAccess().getAutouniqueKeyword_2_1()); 
 
                     }
@@ -1042,22 +1043,22 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:357:1: ( ( ( 'Add' ) ) | ( ( 'Remove' ) ) | ( ( 'Update' ) ) | ( ( 'Display' ) ) )
             int alt3=4;
             switch ( input.LA(1) ) {
-            case 18:
+            case 19:
                 {
                 alt3=1;
                 }
                 break;
-            case 19:
+            case 20:
                 {
                 alt3=2;
                 }
                 break;
-            case 20:
+            case 21:
                 {
                 alt3=3;
                 }
                 break;
-            case 21:
+            case 22:
                 {
                 alt3=4;
                 }
@@ -1080,7 +1081,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:360:3: ( 'Add' )
                     // InternalMyFeatureList.g:360:4: 'Add'
                     {
-                    match(input,18,FOLLOW_2); 
+                    match(input,19,FOLLOW_2); 
 
                     }
 
@@ -1101,7 +1102,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:366:3: ( 'Remove' )
                     // InternalMyFeatureList.g:366:4: 'Remove'
                     {
-                    match(input,19,FOLLOW_2); 
+                    match(input,20,FOLLOW_2); 
 
                     }
 
@@ -1122,7 +1123,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:372:3: ( 'Update' )
                     // InternalMyFeatureList.g:372:4: 'Update'
                     {
-                    match(input,20,FOLLOW_2); 
+                    match(input,21,FOLLOW_2); 
 
                     }
 
@@ -1143,7 +1144,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                     // InternalMyFeatureList.g:378:3: ( 'Display' )
                     // InternalMyFeatureList.g:378:4: 'Display'
                     {
-                    match(input,21,FOLLOW_2); 
+                    match(input,22,FOLLOW_2); 
 
                     }
 
@@ -1229,7 +1230,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0==26) ) {
+                if ( (LA4_0==27) ) {
                     alt4=1;
                 }
 
@@ -1326,7 +1327,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:431:2: 'constraints'
             {
              before(grammarAccess.getFeatureListAccess().getConstraintsKeyword_1()); 
-            match(input,22,FOLLOW_2); 
+            match(input,23,FOLLOW_2); 
              after(grammarAccess.getFeatureListAccess().getConstraintsKeyword_1()); 
 
             }
@@ -1529,7 +1530,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:492:2: 'keys'
             {
              before(grammarAccess.getFeatureListAccess().getKeysKeyword_3()); 
-            match(input,23,FOLLOW_2); 
+            match(input,24,FOLLOW_2); 
              after(grammarAccess.getFeatureListAccess().getKeysKeyword_3()); 
 
             }
@@ -1732,7 +1733,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:553:2: 'properties'
             {
              before(grammarAccess.getFeatureListAccess().getPropertiesKeyword_5()); 
-            match(input,24,FOLLOW_2); 
+            match(input,25,FOLLOW_2); 
              after(grammarAccess.getFeatureListAccess().getPropertiesKeyword_5()); 
 
             }
@@ -1935,7 +1936,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:614:2: 'features'
             {
              before(grammarAccess.getFeatureListAccess().getFeaturesKeyword_7()); 
-            match(input,25,FOLLOW_2); 
+            match(input,26,FOLLOW_2); 
              after(grammarAccess.getFeatureListAccess().getFeaturesKeyword_7()); 
 
             }
@@ -2033,7 +2034,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
                 int alt8=2;
                 int LA8_0 = input.LA(1);
 
-                if ( ((LA8_0>=18 && LA8_0<=21)) ) {
+                if ( ((LA8_0>=19 && LA8_0<=22)) ) {
                     alt8=1;
                 }
 
@@ -2133,7 +2134,7 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
             // InternalMyFeatureList.g:675:2: 'concept'
             {
              before(grammarAccess.getConceptAccess().getConceptKeyword_0()); 
-            match(input,26,FOLLOW_2); 
+            match(input,27,FOLLOW_2); 
              after(grammarAccess.getConceptAccess().getConceptKeyword_0()); 
 
             }
@@ -2425,17 +2426,22 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // InternalMyFeatureList.g:765:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl ;
+    // InternalMyFeatureList.g:765:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:769:1: ( rule__Attribute__Group__1__Impl )
-            // InternalMyFeatureList.g:770:2: rule__Attribute__Group__1__Impl
+            // InternalMyFeatureList.g:769:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // InternalMyFeatureList.g:770:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_12);
             rule__Attribute__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__Attribute__Group__2();
 
             state._fsp--;
 
@@ -2458,21 +2464,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // InternalMyFeatureList.g:776:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
+    // InternalMyFeatureList.g:777:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:780:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
-            // InternalMyFeatureList.g:781:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalMyFeatureList.g:781:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
+            // InternalMyFeatureList.g:782:1: ( ( rule__Attribute__NameAssignment_1 ) )
             {
-            // InternalMyFeatureList.g:781:1: ( ( rule__Attribute__NameAssignment_1 ) )
-            // InternalMyFeatureList.g:782:2: ( rule__Attribute__NameAssignment_1 )
+            // InternalMyFeatureList.g:782:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalMyFeatureList.g:783:2: ( rule__Attribute__NameAssignment_1 )
             {
              before(grammarAccess.getAttributeAccess().getNameAssignment_1()); 
-            // InternalMyFeatureList.g:783:2: ( rule__Attribute__NameAssignment_1 )
-            // InternalMyFeatureList.g:783:3: rule__Attribute__NameAssignment_1
+            // InternalMyFeatureList.g:784:2: ( rule__Attribute__NameAssignment_1 )
+            // InternalMyFeatureList.g:784:3: rule__Attribute__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__NameAssignment_1();
@@ -2504,17 +2510,108 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
     // $ANTLR end "rule__Attribute__Group__1__Impl"
 
 
+    // $ANTLR start "rule__Attribute__Group__2"
+    // InternalMyFeatureList.g:792:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
+    public final void rule__Attribute__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalMyFeatureList.g:796:1: ( rule__Attribute__Group__2__Impl )
+            // InternalMyFeatureList.g:797:2: rule__Attribute__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Attribute__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group__2"
+
+
+    // $ANTLR start "rule__Attribute__Group__2__Impl"
+    // InternalMyFeatureList.g:803:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__MultiplicityAssignment_2 )? ) ;
+    public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalMyFeatureList.g:807:1: ( ( ( rule__Attribute__MultiplicityAssignment_2 )? ) )
+            // InternalMyFeatureList.g:808:1: ( ( rule__Attribute__MultiplicityAssignment_2 )? )
+            {
+            // InternalMyFeatureList.g:808:1: ( ( rule__Attribute__MultiplicityAssignment_2 )? )
+            // InternalMyFeatureList.g:809:2: ( rule__Attribute__MultiplicityAssignment_2 )?
+            {
+             before(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2()); 
+            // InternalMyFeatureList.g:810:2: ( rule__Attribute__MultiplicityAssignment_2 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
+
+            if ( (LA10_0==RULE_MULTIPLICITY) ) {
+                alt10=1;
+            }
+            switch (alt10) {
+                case 1 :
+                    // InternalMyFeatureList.g:810:3: rule__Attribute__MultiplicityAssignment_2
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Attribute__MultiplicityAssignment_2();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__Group__2__Impl"
+
+
     // $ANTLR start "rule__Condition__Group__0"
-    // InternalMyFeatureList.g:792:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
+    // InternalMyFeatureList.g:819:1: rule__Condition__Group__0 : rule__Condition__Group__0__Impl rule__Condition__Group__1 ;
     public final void rule__Condition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:796:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
-            // InternalMyFeatureList.g:797:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
+            // InternalMyFeatureList.g:823:1: ( rule__Condition__Group__0__Impl rule__Condition__Group__1 )
+            // InternalMyFeatureList.g:824:2: rule__Condition__Group__0__Impl rule__Condition__Group__1
             {
-            pushFollow(FOLLOW_12);
+            pushFollow(FOLLOW_13);
             rule__Condition__Group__0__Impl();
 
             state._fsp--;
@@ -2543,21 +2640,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Condition__Group__0__Impl"
-    // InternalMyFeatureList.g:804:1: rule__Condition__Group__0__Impl : ( ( rule__Condition__Alternatives_0 ) ) ;
+    // InternalMyFeatureList.g:831:1: rule__Condition__Group__0__Impl : ( ( rule__Condition__Alternatives_0 ) ) ;
     public final void rule__Condition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:808:1: ( ( ( rule__Condition__Alternatives_0 ) ) )
-            // InternalMyFeatureList.g:809:1: ( ( rule__Condition__Alternatives_0 ) )
+            // InternalMyFeatureList.g:835:1: ( ( ( rule__Condition__Alternatives_0 ) ) )
+            // InternalMyFeatureList.g:836:1: ( ( rule__Condition__Alternatives_0 ) )
             {
-            // InternalMyFeatureList.g:809:1: ( ( rule__Condition__Alternatives_0 ) )
-            // InternalMyFeatureList.g:810:2: ( rule__Condition__Alternatives_0 )
+            // InternalMyFeatureList.g:836:1: ( ( rule__Condition__Alternatives_0 ) )
+            // InternalMyFeatureList.g:837:2: ( rule__Condition__Alternatives_0 )
             {
              before(grammarAccess.getConditionAccess().getAlternatives_0()); 
-            // InternalMyFeatureList.g:811:2: ( rule__Condition__Alternatives_0 )
-            // InternalMyFeatureList.g:811:3: rule__Condition__Alternatives_0
+            // InternalMyFeatureList.g:838:2: ( rule__Condition__Alternatives_0 )
+            // InternalMyFeatureList.g:838:3: rule__Condition__Alternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__Condition__Alternatives_0();
@@ -2590,14 +2687,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Condition__Group__1"
-    // InternalMyFeatureList.g:819:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl ;
+    // InternalMyFeatureList.g:846:1: rule__Condition__Group__1 : rule__Condition__Group__1__Impl ;
     public final void rule__Condition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:823:1: ( rule__Condition__Group__1__Impl )
-            // InternalMyFeatureList.g:824:2: rule__Condition__Group__1__Impl
+            // InternalMyFeatureList.g:850:1: ( rule__Condition__Group__1__Impl )
+            // InternalMyFeatureList.g:851:2: rule__Condition__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Condition__Group__1__Impl();
@@ -2623,21 +2720,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Condition__Group__1__Impl"
-    // InternalMyFeatureList.g:830:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__ValueAssignment_1 ) ) ;
+    // InternalMyFeatureList.g:857:1: rule__Condition__Group__1__Impl : ( ( rule__Condition__ValueAssignment_1 ) ) ;
     public final void rule__Condition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:834:1: ( ( ( rule__Condition__ValueAssignment_1 ) ) )
-            // InternalMyFeatureList.g:835:1: ( ( rule__Condition__ValueAssignment_1 ) )
+            // InternalMyFeatureList.g:861:1: ( ( ( rule__Condition__ValueAssignment_1 ) ) )
+            // InternalMyFeatureList.g:862:1: ( ( rule__Condition__ValueAssignment_1 ) )
             {
-            // InternalMyFeatureList.g:835:1: ( ( rule__Condition__ValueAssignment_1 ) )
-            // InternalMyFeatureList.g:836:2: ( rule__Condition__ValueAssignment_1 )
+            // InternalMyFeatureList.g:862:1: ( ( rule__Condition__ValueAssignment_1 ) )
+            // InternalMyFeatureList.g:863:2: ( rule__Condition__ValueAssignment_1 )
             {
              before(grammarAccess.getConditionAccess().getValueAssignment_1()); 
-            // InternalMyFeatureList.g:837:2: ( rule__Condition__ValueAssignment_1 )
-            // InternalMyFeatureList.g:837:3: rule__Condition__ValueAssignment_1
+            // InternalMyFeatureList.g:864:2: ( rule__Condition__ValueAssignment_1 )
+            // InternalMyFeatureList.g:864:3: rule__Condition__ValueAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Condition__ValueAssignment_1();
@@ -2670,16 +2767,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__0"
-    // InternalMyFeatureList.g:846:1: rule__Constraint__Group__0 : rule__Constraint__Group__0__Impl rule__Constraint__Group__1 ;
+    // InternalMyFeatureList.g:873:1: rule__Constraint__Group__0 : rule__Constraint__Group__0__Impl rule__Constraint__Group__1 ;
     public final void rule__Constraint__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:850:1: ( rule__Constraint__Group__0__Impl rule__Constraint__Group__1 )
-            // InternalMyFeatureList.g:851:2: rule__Constraint__Group__0__Impl rule__Constraint__Group__1
+            // InternalMyFeatureList.g:877:1: ( rule__Constraint__Group__0__Impl rule__Constraint__Group__1 )
+            // InternalMyFeatureList.g:878:2: rule__Constraint__Group__0__Impl rule__Constraint__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Constraint__Group__0__Impl();
 
             state._fsp--;
@@ -2708,21 +2805,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__0__Impl"
-    // InternalMyFeatureList.g:858:1: rule__Constraint__Group__0__Impl : ( ( rule__Constraint__ConceptAssignment_0 ) ) ;
+    // InternalMyFeatureList.g:885:1: rule__Constraint__Group__0__Impl : ( ( rule__Constraint__ConceptAssignment_0 ) ) ;
     public final void rule__Constraint__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:862:1: ( ( ( rule__Constraint__ConceptAssignment_0 ) ) )
-            // InternalMyFeatureList.g:863:1: ( ( rule__Constraint__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:889:1: ( ( ( rule__Constraint__ConceptAssignment_0 ) ) )
+            // InternalMyFeatureList.g:890:1: ( ( rule__Constraint__ConceptAssignment_0 ) )
             {
-            // InternalMyFeatureList.g:863:1: ( ( rule__Constraint__ConceptAssignment_0 ) )
-            // InternalMyFeatureList.g:864:2: ( rule__Constraint__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:890:1: ( ( rule__Constraint__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:891:2: ( rule__Constraint__ConceptAssignment_0 )
             {
              before(grammarAccess.getConstraintAccess().getConceptAssignment_0()); 
-            // InternalMyFeatureList.g:865:2: ( rule__Constraint__ConceptAssignment_0 )
-            // InternalMyFeatureList.g:865:3: rule__Constraint__ConceptAssignment_0
+            // InternalMyFeatureList.g:892:2: ( rule__Constraint__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:892:3: rule__Constraint__ConceptAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__ConceptAssignment_0();
@@ -2755,16 +2852,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__1"
-    // InternalMyFeatureList.g:873:1: rule__Constraint__Group__1 : rule__Constraint__Group__1__Impl rule__Constraint__Group__2 ;
+    // InternalMyFeatureList.g:900:1: rule__Constraint__Group__1 : rule__Constraint__Group__1__Impl rule__Constraint__Group__2 ;
     public final void rule__Constraint__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:877:1: ( rule__Constraint__Group__1__Impl rule__Constraint__Group__2 )
-            // InternalMyFeatureList.g:878:2: rule__Constraint__Group__1__Impl rule__Constraint__Group__2
+            // InternalMyFeatureList.g:904:1: ( rule__Constraint__Group__1__Impl rule__Constraint__Group__2 )
+            // InternalMyFeatureList.g:905:2: rule__Constraint__Group__1__Impl rule__Constraint__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_15);
             rule__Constraint__Group__1__Impl();
 
             state._fsp--;
@@ -2793,21 +2890,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__1__Impl"
-    // InternalMyFeatureList.g:885:1: rule__Constraint__Group__1__Impl : ( ( rule__Constraint__Group_1__0 ) ) ;
+    // InternalMyFeatureList.g:912:1: rule__Constraint__Group__1__Impl : ( ( rule__Constraint__Group_1__0 ) ) ;
     public final void rule__Constraint__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:889:1: ( ( ( rule__Constraint__Group_1__0 ) ) )
-            // InternalMyFeatureList.g:890:1: ( ( rule__Constraint__Group_1__0 ) )
+            // InternalMyFeatureList.g:916:1: ( ( ( rule__Constraint__Group_1__0 ) ) )
+            // InternalMyFeatureList.g:917:1: ( ( rule__Constraint__Group_1__0 ) )
             {
-            // InternalMyFeatureList.g:890:1: ( ( rule__Constraint__Group_1__0 ) )
-            // InternalMyFeatureList.g:891:2: ( rule__Constraint__Group_1__0 )
+            // InternalMyFeatureList.g:917:1: ( ( rule__Constraint__Group_1__0 ) )
+            // InternalMyFeatureList.g:918:2: ( rule__Constraint__Group_1__0 )
             {
              before(grammarAccess.getConstraintAccess().getGroup_1()); 
-            // InternalMyFeatureList.g:892:2: ( rule__Constraint__Group_1__0 )
-            // InternalMyFeatureList.g:892:3: rule__Constraint__Group_1__0
+            // InternalMyFeatureList.g:919:2: ( rule__Constraint__Group_1__0 )
+            // InternalMyFeatureList.g:919:3: rule__Constraint__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__Group_1__0();
@@ -2840,14 +2937,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__2"
-    // InternalMyFeatureList.g:900:1: rule__Constraint__Group__2 : rule__Constraint__Group__2__Impl ;
+    // InternalMyFeatureList.g:927:1: rule__Constraint__Group__2 : rule__Constraint__Group__2__Impl ;
     public final void rule__Constraint__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:904:1: ( rule__Constraint__Group__2__Impl )
-            // InternalMyFeatureList.g:905:2: rule__Constraint__Group__2__Impl
+            // InternalMyFeatureList.g:931:1: ( rule__Constraint__Group__2__Impl )
+            // InternalMyFeatureList.g:932:2: rule__Constraint__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__Group__2__Impl();
@@ -2873,21 +2970,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group__2__Impl"
-    // InternalMyFeatureList.g:911:1: rule__Constraint__Group__2__Impl : ( ( rule__Constraint__ConditionAssignment_2 ) ) ;
+    // InternalMyFeatureList.g:938:1: rule__Constraint__Group__2__Impl : ( ( rule__Constraint__ConditionAssignment_2 ) ) ;
     public final void rule__Constraint__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:915:1: ( ( ( rule__Constraint__ConditionAssignment_2 ) ) )
-            // InternalMyFeatureList.g:916:1: ( ( rule__Constraint__ConditionAssignment_2 ) )
+            // InternalMyFeatureList.g:942:1: ( ( ( rule__Constraint__ConditionAssignment_2 ) ) )
+            // InternalMyFeatureList.g:943:1: ( ( rule__Constraint__ConditionAssignment_2 ) )
             {
-            // InternalMyFeatureList.g:916:1: ( ( rule__Constraint__ConditionAssignment_2 ) )
-            // InternalMyFeatureList.g:917:2: ( rule__Constraint__ConditionAssignment_2 )
+            // InternalMyFeatureList.g:943:1: ( ( rule__Constraint__ConditionAssignment_2 ) )
+            // InternalMyFeatureList.g:944:2: ( rule__Constraint__ConditionAssignment_2 )
             {
              before(grammarAccess.getConstraintAccess().getConditionAssignment_2()); 
-            // InternalMyFeatureList.g:918:2: ( rule__Constraint__ConditionAssignment_2 )
-            // InternalMyFeatureList.g:918:3: rule__Constraint__ConditionAssignment_2
+            // InternalMyFeatureList.g:945:2: ( rule__Constraint__ConditionAssignment_2 )
+            // InternalMyFeatureList.g:945:3: rule__Constraint__ConditionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__ConditionAssignment_2();
@@ -2920,14 +3017,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group_1__0"
-    // InternalMyFeatureList.g:927:1: rule__Constraint__Group_1__0 : rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1 ;
+    // InternalMyFeatureList.g:954:1: rule__Constraint__Group_1__0 : rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1 ;
     public final void rule__Constraint__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:931:1: ( rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1 )
-            // InternalMyFeatureList.g:932:2: rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1
+            // InternalMyFeatureList.g:958:1: ( rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1 )
+            // InternalMyFeatureList.g:959:2: rule__Constraint__Group_1__0__Impl rule__Constraint__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Constraint__Group_1__0__Impl();
@@ -2958,20 +3055,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group_1__0__Impl"
-    // InternalMyFeatureList.g:939:1: rule__Constraint__Group_1__0__Impl : ( '.' ) ;
+    // InternalMyFeatureList.g:966:1: rule__Constraint__Group_1__0__Impl : ( '.' ) ;
     public final void rule__Constraint__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:943:1: ( ( '.' ) )
-            // InternalMyFeatureList.g:944:1: ( '.' )
+            // InternalMyFeatureList.g:970:1: ( ( '.' ) )
+            // InternalMyFeatureList.g:971:1: ( '.' )
             {
-            // InternalMyFeatureList.g:944:1: ( '.' )
-            // InternalMyFeatureList.g:945:2: '.'
+            // InternalMyFeatureList.g:971:1: ( '.' )
+            // InternalMyFeatureList.g:972:2: '.'
             {
              before(grammarAccess.getConstraintAccess().getFullStopKeyword_1_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getConstraintAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -2995,14 +3092,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group_1__1"
-    // InternalMyFeatureList.g:954:1: rule__Constraint__Group_1__1 : rule__Constraint__Group_1__1__Impl ;
+    // InternalMyFeatureList.g:981:1: rule__Constraint__Group_1__1 : rule__Constraint__Group_1__1__Impl ;
     public final void rule__Constraint__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:958:1: ( rule__Constraint__Group_1__1__Impl )
-            // InternalMyFeatureList.g:959:2: rule__Constraint__Group_1__1__Impl
+            // InternalMyFeatureList.g:985:1: ( rule__Constraint__Group_1__1__Impl )
+            // InternalMyFeatureList.g:986:2: rule__Constraint__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__Group_1__1__Impl();
@@ -3028,21 +3125,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__Group_1__1__Impl"
-    // InternalMyFeatureList.g:965:1: rule__Constraint__Group_1__1__Impl : ( ( rule__Constraint__AttributeAssignment_1_1 ) ) ;
+    // InternalMyFeatureList.g:992:1: rule__Constraint__Group_1__1__Impl : ( ( rule__Constraint__AttributeAssignment_1_1 ) ) ;
     public final void rule__Constraint__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:969:1: ( ( ( rule__Constraint__AttributeAssignment_1_1 ) ) )
-            // InternalMyFeatureList.g:970:1: ( ( rule__Constraint__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:996:1: ( ( ( rule__Constraint__AttributeAssignment_1_1 ) ) )
+            // InternalMyFeatureList.g:997:1: ( ( rule__Constraint__AttributeAssignment_1_1 ) )
             {
-            // InternalMyFeatureList.g:970:1: ( ( rule__Constraint__AttributeAssignment_1_1 ) )
-            // InternalMyFeatureList.g:971:2: ( rule__Constraint__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:997:1: ( ( rule__Constraint__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:998:2: ( rule__Constraint__AttributeAssignment_1_1 )
             {
              before(grammarAccess.getConstraintAccess().getAttributeAssignment_1_1()); 
-            // InternalMyFeatureList.g:972:2: ( rule__Constraint__AttributeAssignment_1_1 )
-            // InternalMyFeatureList.g:972:3: rule__Constraint__AttributeAssignment_1_1
+            // InternalMyFeatureList.g:999:2: ( rule__Constraint__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:999:3: rule__Constraint__AttributeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Constraint__AttributeAssignment_1_1();
@@ -3075,16 +3172,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__0"
-    // InternalMyFeatureList.g:981:1: rule__Key__Group__0 : rule__Key__Group__0__Impl rule__Key__Group__1 ;
+    // InternalMyFeatureList.g:1008:1: rule__Key__Group__0 : rule__Key__Group__0__Impl rule__Key__Group__1 ;
     public final void rule__Key__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:985:1: ( rule__Key__Group__0__Impl rule__Key__Group__1 )
-            // InternalMyFeatureList.g:986:2: rule__Key__Group__0__Impl rule__Key__Group__1
+            // InternalMyFeatureList.g:1012:1: ( rule__Key__Group__0__Impl rule__Key__Group__1 )
+            // InternalMyFeatureList.g:1013:2: rule__Key__Group__0__Impl rule__Key__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Key__Group__0__Impl();
 
             state._fsp--;
@@ -3113,21 +3210,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__0__Impl"
-    // InternalMyFeatureList.g:993:1: rule__Key__Group__0__Impl : ( ( rule__Key__ConceptAssignment_0 ) ) ;
+    // InternalMyFeatureList.g:1020:1: rule__Key__Group__0__Impl : ( ( rule__Key__ConceptAssignment_0 ) ) ;
     public final void rule__Key__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:997:1: ( ( ( rule__Key__ConceptAssignment_0 ) ) )
-            // InternalMyFeatureList.g:998:1: ( ( rule__Key__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:1024:1: ( ( ( rule__Key__ConceptAssignment_0 ) ) )
+            // InternalMyFeatureList.g:1025:1: ( ( rule__Key__ConceptAssignment_0 ) )
             {
-            // InternalMyFeatureList.g:998:1: ( ( rule__Key__ConceptAssignment_0 ) )
-            // InternalMyFeatureList.g:999:2: ( rule__Key__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:1025:1: ( ( rule__Key__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:1026:2: ( rule__Key__ConceptAssignment_0 )
             {
              before(grammarAccess.getKeyAccess().getConceptAssignment_0()); 
-            // InternalMyFeatureList.g:1000:2: ( rule__Key__ConceptAssignment_0 )
-            // InternalMyFeatureList.g:1000:3: rule__Key__ConceptAssignment_0
+            // InternalMyFeatureList.g:1027:2: ( rule__Key__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:1027:3: rule__Key__ConceptAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Key__ConceptAssignment_0();
@@ -3160,16 +3257,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__1"
-    // InternalMyFeatureList.g:1008:1: rule__Key__Group__1 : rule__Key__Group__1__Impl rule__Key__Group__2 ;
+    // InternalMyFeatureList.g:1035:1: rule__Key__Group__1 : rule__Key__Group__1__Impl rule__Key__Group__2 ;
     public final void rule__Key__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1012:1: ( rule__Key__Group__1__Impl rule__Key__Group__2 )
-            // InternalMyFeatureList.g:1013:2: rule__Key__Group__1__Impl rule__Key__Group__2
+            // InternalMyFeatureList.g:1039:1: ( rule__Key__Group__1__Impl rule__Key__Group__2 )
+            // InternalMyFeatureList.g:1040:2: rule__Key__Group__1__Impl rule__Key__Group__2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_16);
             rule__Key__Group__1__Impl();
 
             state._fsp--;
@@ -3198,21 +3295,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__1__Impl"
-    // InternalMyFeatureList.g:1020:1: rule__Key__Group__1__Impl : ( ( rule__Key__Group_1__0 ) ) ;
+    // InternalMyFeatureList.g:1047:1: rule__Key__Group__1__Impl : ( ( rule__Key__Group_1__0 ) ) ;
     public final void rule__Key__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1024:1: ( ( ( rule__Key__Group_1__0 ) ) )
-            // InternalMyFeatureList.g:1025:1: ( ( rule__Key__Group_1__0 ) )
+            // InternalMyFeatureList.g:1051:1: ( ( ( rule__Key__Group_1__0 ) ) )
+            // InternalMyFeatureList.g:1052:1: ( ( rule__Key__Group_1__0 ) )
             {
-            // InternalMyFeatureList.g:1025:1: ( ( rule__Key__Group_1__0 ) )
-            // InternalMyFeatureList.g:1026:2: ( rule__Key__Group_1__0 )
+            // InternalMyFeatureList.g:1052:1: ( ( rule__Key__Group_1__0 ) )
+            // InternalMyFeatureList.g:1053:2: ( rule__Key__Group_1__0 )
             {
              before(grammarAccess.getKeyAccess().getGroup_1()); 
-            // InternalMyFeatureList.g:1027:2: ( rule__Key__Group_1__0 )
-            // InternalMyFeatureList.g:1027:3: rule__Key__Group_1__0
+            // InternalMyFeatureList.g:1054:2: ( rule__Key__Group_1__0 )
+            // InternalMyFeatureList.g:1054:3: rule__Key__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Key__Group_1__0();
@@ -3245,14 +3342,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__2"
-    // InternalMyFeatureList.g:1035:1: rule__Key__Group__2 : rule__Key__Group__2__Impl ;
+    // InternalMyFeatureList.g:1062:1: rule__Key__Group__2 : rule__Key__Group__2__Impl ;
     public final void rule__Key__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1039:1: ( rule__Key__Group__2__Impl )
-            // InternalMyFeatureList.g:1040:2: rule__Key__Group__2__Impl
+            // InternalMyFeatureList.g:1066:1: ( rule__Key__Group__2__Impl )
+            // InternalMyFeatureList.g:1067:2: rule__Key__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Key__Group__2__Impl();
@@ -3278,21 +3375,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group__2__Impl"
-    // InternalMyFeatureList.g:1046:1: rule__Key__Group__2__Impl : ( ( rule__Key__Alternatives_2 ) ) ;
+    // InternalMyFeatureList.g:1073:1: rule__Key__Group__2__Impl : ( ( rule__Key__Alternatives_2 ) ) ;
     public final void rule__Key__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1050:1: ( ( ( rule__Key__Alternatives_2 ) ) )
-            // InternalMyFeatureList.g:1051:1: ( ( rule__Key__Alternatives_2 ) )
+            // InternalMyFeatureList.g:1077:1: ( ( ( rule__Key__Alternatives_2 ) ) )
+            // InternalMyFeatureList.g:1078:1: ( ( rule__Key__Alternatives_2 ) )
             {
-            // InternalMyFeatureList.g:1051:1: ( ( rule__Key__Alternatives_2 ) )
-            // InternalMyFeatureList.g:1052:2: ( rule__Key__Alternatives_2 )
+            // InternalMyFeatureList.g:1078:1: ( ( rule__Key__Alternatives_2 ) )
+            // InternalMyFeatureList.g:1079:2: ( rule__Key__Alternatives_2 )
             {
              before(grammarAccess.getKeyAccess().getAlternatives_2()); 
-            // InternalMyFeatureList.g:1053:2: ( rule__Key__Alternatives_2 )
-            // InternalMyFeatureList.g:1053:3: rule__Key__Alternatives_2
+            // InternalMyFeatureList.g:1080:2: ( rule__Key__Alternatives_2 )
+            // InternalMyFeatureList.g:1080:3: rule__Key__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__Key__Alternatives_2();
@@ -3325,14 +3422,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group_1__0"
-    // InternalMyFeatureList.g:1062:1: rule__Key__Group_1__0 : rule__Key__Group_1__0__Impl rule__Key__Group_1__1 ;
+    // InternalMyFeatureList.g:1089:1: rule__Key__Group_1__0 : rule__Key__Group_1__0__Impl rule__Key__Group_1__1 ;
     public final void rule__Key__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1066:1: ( rule__Key__Group_1__0__Impl rule__Key__Group_1__1 )
-            // InternalMyFeatureList.g:1067:2: rule__Key__Group_1__0__Impl rule__Key__Group_1__1
+            // InternalMyFeatureList.g:1093:1: ( rule__Key__Group_1__0__Impl rule__Key__Group_1__1 )
+            // InternalMyFeatureList.g:1094:2: rule__Key__Group_1__0__Impl rule__Key__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Key__Group_1__0__Impl();
@@ -3363,20 +3460,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group_1__0__Impl"
-    // InternalMyFeatureList.g:1074:1: rule__Key__Group_1__0__Impl : ( '.' ) ;
+    // InternalMyFeatureList.g:1101:1: rule__Key__Group_1__0__Impl : ( '.' ) ;
     public final void rule__Key__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1078:1: ( ( '.' ) )
-            // InternalMyFeatureList.g:1079:1: ( '.' )
+            // InternalMyFeatureList.g:1105:1: ( ( '.' ) )
+            // InternalMyFeatureList.g:1106:1: ( '.' )
             {
-            // InternalMyFeatureList.g:1079:1: ( '.' )
-            // InternalMyFeatureList.g:1080:2: '.'
+            // InternalMyFeatureList.g:1106:1: ( '.' )
+            // InternalMyFeatureList.g:1107:2: '.'
             {
              before(grammarAccess.getKeyAccess().getFullStopKeyword_1_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getKeyAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -3400,14 +3497,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group_1__1"
-    // InternalMyFeatureList.g:1089:1: rule__Key__Group_1__1 : rule__Key__Group_1__1__Impl ;
+    // InternalMyFeatureList.g:1116:1: rule__Key__Group_1__1 : rule__Key__Group_1__1__Impl ;
     public final void rule__Key__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1093:1: ( rule__Key__Group_1__1__Impl )
-            // InternalMyFeatureList.g:1094:2: rule__Key__Group_1__1__Impl
+            // InternalMyFeatureList.g:1120:1: ( rule__Key__Group_1__1__Impl )
+            // InternalMyFeatureList.g:1121:2: rule__Key__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Key__Group_1__1__Impl();
@@ -3433,21 +3530,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__Group_1__1__Impl"
-    // InternalMyFeatureList.g:1100:1: rule__Key__Group_1__1__Impl : ( ( rule__Key__AttributeAssignment_1_1 ) ) ;
+    // InternalMyFeatureList.g:1127:1: rule__Key__Group_1__1__Impl : ( ( rule__Key__AttributeAssignment_1_1 ) ) ;
     public final void rule__Key__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1104:1: ( ( ( rule__Key__AttributeAssignment_1_1 ) ) )
-            // InternalMyFeatureList.g:1105:1: ( ( rule__Key__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:1131:1: ( ( ( rule__Key__AttributeAssignment_1_1 ) ) )
+            // InternalMyFeatureList.g:1132:1: ( ( rule__Key__AttributeAssignment_1_1 ) )
             {
-            // InternalMyFeatureList.g:1105:1: ( ( rule__Key__AttributeAssignment_1_1 ) )
-            // InternalMyFeatureList.g:1106:2: ( rule__Key__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:1132:1: ( ( rule__Key__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:1133:2: ( rule__Key__AttributeAssignment_1_1 )
             {
              before(grammarAccess.getKeyAccess().getAttributeAssignment_1_1()); 
-            // InternalMyFeatureList.g:1107:2: ( rule__Key__AttributeAssignment_1_1 )
-            // InternalMyFeatureList.g:1107:3: rule__Key__AttributeAssignment_1_1
+            // InternalMyFeatureList.g:1134:2: ( rule__Key__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:1134:3: rule__Key__AttributeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Key__AttributeAssignment_1_1();
@@ -3480,16 +3577,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__0"
-    // InternalMyFeatureList.g:1116:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
+    // InternalMyFeatureList.g:1143:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
     public final void rule__Property__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1120:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
-            // InternalMyFeatureList.g:1121:2: rule__Property__Group__0__Impl rule__Property__Group__1
+            // InternalMyFeatureList.g:1147:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
+            // InternalMyFeatureList.g:1148:2: rule__Property__Group__0__Impl rule__Property__Group__1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Property__Group__0__Impl();
 
             state._fsp--;
@@ -3518,21 +3615,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__0__Impl"
-    // InternalMyFeatureList.g:1128:1: rule__Property__Group__0__Impl : ( ( rule__Property__ConceptAssignment_0 ) ) ;
+    // InternalMyFeatureList.g:1155:1: rule__Property__Group__0__Impl : ( ( rule__Property__ConceptAssignment_0 ) ) ;
     public final void rule__Property__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1132:1: ( ( ( rule__Property__ConceptAssignment_0 ) ) )
-            // InternalMyFeatureList.g:1133:1: ( ( rule__Property__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:1159:1: ( ( ( rule__Property__ConceptAssignment_0 ) ) )
+            // InternalMyFeatureList.g:1160:1: ( ( rule__Property__ConceptAssignment_0 ) )
             {
-            // InternalMyFeatureList.g:1133:1: ( ( rule__Property__ConceptAssignment_0 ) )
-            // InternalMyFeatureList.g:1134:2: ( rule__Property__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:1160:1: ( ( rule__Property__ConceptAssignment_0 ) )
+            // InternalMyFeatureList.g:1161:2: ( rule__Property__ConceptAssignment_0 )
             {
              before(grammarAccess.getPropertyAccess().getConceptAssignment_0()); 
-            // InternalMyFeatureList.g:1135:2: ( rule__Property__ConceptAssignment_0 )
-            // InternalMyFeatureList.g:1135:3: rule__Property__ConceptAssignment_0
+            // InternalMyFeatureList.g:1162:2: ( rule__Property__ConceptAssignment_0 )
+            // InternalMyFeatureList.g:1162:3: rule__Property__ConceptAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Property__ConceptAssignment_0();
@@ -3565,16 +3662,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__1"
-    // InternalMyFeatureList.g:1143:1: rule__Property__Group__1 : rule__Property__Group__1__Impl rule__Property__Group__2 ;
+    // InternalMyFeatureList.g:1170:1: rule__Property__Group__1 : rule__Property__Group__1__Impl rule__Property__Group__2 ;
     public final void rule__Property__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1147:1: ( rule__Property__Group__1__Impl rule__Property__Group__2 )
-            // InternalMyFeatureList.g:1148:2: rule__Property__Group__1__Impl rule__Property__Group__2
+            // InternalMyFeatureList.g:1174:1: ( rule__Property__Group__1__Impl rule__Property__Group__2 )
+            // InternalMyFeatureList.g:1175:2: rule__Property__Group__1__Impl rule__Property__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_17);
             rule__Property__Group__1__Impl();
 
             state._fsp--;
@@ -3603,21 +3700,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__1__Impl"
-    // InternalMyFeatureList.g:1155:1: rule__Property__Group__1__Impl : ( ( rule__Property__Group_1__0 ) ) ;
+    // InternalMyFeatureList.g:1182:1: rule__Property__Group__1__Impl : ( ( rule__Property__Group_1__0 ) ) ;
     public final void rule__Property__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1159:1: ( ( ( rule__Property__Group_1__0 ) ) )
-            // InternalMyFeatureList.g:1160:1: ( ( rule__Property__Group_1__0 ) )
+            // InternalMyFeatureList.g:1186:1: ( ( ( rule__Property__Group_1__0 ) ) )
+            // InternalMyFeatureList.g:1187:1: ( ( rule__Property__Group_1__0 ) )
             {
-            // InternalMyFeatureList.g:1160:1: ( ( rule__Property__Group_1__0 ) )
-            // InternalMyFeatureList.g:1161:2: ( rule__Property__Group_1__0 )
+            // InternalMyFeatureList.g:1187:1: ( ( rule__Property__Group_1__0 ) )
+            // InternalMyFeatureList.g:1188:2: ( rule__Property__Group_1__0 )
             {
              before(grammarAccess.getPropertyAccess().getGroup_1()); 
-            // InternalMyFeatureList.g:1162:2: ( rule__Property__Group_1__0 )
-            // InternalMyFeatureList.g:1162:3: rule__Property__Group_1__0
+            // InternalMyFeatureList.g:1189:2: ( rule__Property__Group_1__0 )
+            // InternalMyFeatureList.g:1189:3: rule__Property__Group_1__0
             {
             pushFollow(FOLLOW_2);
             rule__Property__Group_1__0();
@@ -3650,14 +3747,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__2"
-    // InternalMyFeatureList.g:1170:1: rule__Property__Group__2 : rule__Property__Group__2__Impl ;
+    // InternalMyFeatureList.g:1197:1: rule__Property__Group__2 : rule__Property__Group__2__Impl ;
     public final void rule__Property__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1174:1: ( rule__Property__Group__2__Impl )
-            // InternalMyFeatureList.g:1175:2: rule__Property__Group__2__Impl
+            // InternalMyFeatureList.g:1201:1: ( rule__Property__Group__2__Impl )
+            // InternalMyFeatureList.g:1202:2: rule__Property__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Property__Group__2__Impl();
@@ -3683,20 +3780,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group__2__Impl"
-    // InternalMyFeatureList.g:1181:1: rule__Property__Group__2__Impl : ( 'lazy' ) ;
+    // InternalMyFeatureList.g:1208:1: rule__Property__Group__2__Impl : ( 'lazy' ) ;
     public final void rule__Property__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1185:1: ( ( 'lazy' ) )
-            // InternalMyFeatureList.g:1186:1: ( 'lazy' )
+            // InternalMyFeatureList.g:1212:1: ( ( 'lazy' ) )
+            // InternalMyFeatureList.g:1213:1: ( 'lazy' )
             {
-            // InternalMyFeatureList.g:1186:1: ( 'lazy' )
-            // InternalMyFeatureList.g:1187:2: 'lazy'
+            // InternalMyFeatureList.g:1213:1: ( 'lazy' )
+            // InternalMyFeatureList.g:1214:2: 'lazy'
             {
              before(grammarAccess.getPropertyAccess().getLazyKeyword_2()); 
-            match(input,28,FOLLOW_2); 
+            match(input,29,FOLLOW_2); 
              after(grammarAccess.getPropertyAccess().getLazyKeyword_2()); 
 
             }
@@ -3720,14 +3817,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group_1__0"
-    // InternalMyFeatureList.g:1197:1: rule__Property__Group_1__0 : rule__Property__Group_1__0__Impl rule__Property__Group_1__1 ;
+    // InternalMyFeatureList.g:1224:1: rule__Property__Group_1__0 : rule__Property__Group_1__0__Impl rule__Property__Group_1__1 ;
     public final void rule__Property__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1201:1: ( rule__Property__Group_1__0__Impl rule__Property__Group_1__1 )
-            // InternalMyFeatureList.g:1202:2: rule__Property__Group_1__0__Impl rule__Property__Group_1__1
+            // InternalMyFeatureList.g:1228:1: ( rule__Property__Group_1__0__Impl rule__Property__Group_1__1 )
+            // InternalMyFeatureList.g:1229:2: rule__Property__Group_1__0__Impl rule__Property__Group_1__1
             {
             pushFollow(FOLLOW_5);
             rule__Property__Group_1__0__Impl();
@@ -3758,20 +3855,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group_1__0__Impl"
-    // InternalMyFeatureList.g:1209:1: rule__Property__Group_1__0__Impl : ( '.' ) ;
+    // InternalMyFeatureList.g:1236:1: rule__Property__Group_1__0__Impl : ( '.' ) ;
     public final void rule__Property__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1213:1: ( ( '.' ) )
-            // InternalMyFeatureList.g:1214:1: ( '.' )
+            // InternalMyFeatureList.g:1240:1: ( ( '.' ) )
+            // InternalMyFeatureList.g:1241:1: ( '.' )
             {
-            // InternalMyFeatureList.g:1214:1: ( '.' )
-            // InternalMyFeatureList.g:1215:2: '.'
+            // InternalMyFeatureList.g:1241:1: ( '.' )
+            // InternalMyFeatureList.g:1242:2: '.'
             {
              before(grammarAccess.getPropertyAccess().getFullStopKeyword_1_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getPropertyAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -3795,14 +3892,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group_1__1"
-    // InternalMyFeatureList.g:1224:1: rule__Property__Group_1__1 : rule__Property__Group_1__1__Impl ;
+    // InternalMyFeatureList.g:1251:1: rule__Property__Group_1__1 : rule__Property__Group_1__1__Impl ;
     public final void rule__Property__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1228:1: ( rule__Property__Group_1__1__Impl )
-            // InternalMyFeatureList.g:1229:2: rule__Property__Group_1__1__Impl
+            // InternalMyFeatureList.g:1255:1: ( rule__Property__Group_1__1__Impl )
+            // InternalMyFeatureList.g:1256:2: rule__Property__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Property__Group_1__1__Impl();
@@ -3828,21 +3925,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__Group_1__1__Impl"
-    // InternalMyFeatureList.g:1235:1: rule__Property__Group_1__1__Impl : ( ( rule__Property__AttributeAssignment_1_1 ) ) ;
+    // InternalMyFeatureList.g:1262:1: rule__Property__Group_1__1__Impl : ( ( rule__Property__AttributeAssignment_1_1 ) ) ;
     public final void rule__Property__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1239:1: ( ( ( rule__Property__AttributeAssignment_1_1 ) ) )
-            // InternalMyFeatureList.g:1240:1: ( ( rule__Property__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:1266:1: ( ( ( rule__Property__AttributeAssignment_1_1 ) ) )
+            // InternalMyFeatureList.g:1267:1: ( ( rule__Property__AttributeAssignment_1_1 ) )
             {
-            // InternalMyFeatureList.g:1240:1: ( ( rule__Property__AttributeAssignment_1_1 ) )
-            // InternalMyFeatureList.g:1241:2: ( rule__Property__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:1267:1: ( ( rule__Property__AttributeAssignment_1_1 ) )
+            // InternalMyFeatureList.g:1268:2: ( rule__Property__AttributeAssignment_1_1 )
             {
              before(grammarAccess.getPropertyAccess().getAttributeAssignment_1_1()); 
-            // InternalMyFeatureList.g:1242:2: ( rule__Property__AttributeAssignment_1_1 )
-            // InternalMyFeatureList.g:1242:3: rule__Property__AttributeAssignment_1_1
+            // InternalMyFeatureList.g:1269:2: ( rule__Property__AttributeAssignment_1_1 )
+            // InternalMyFeatureList.g:1269:3: rule__Property__AttributeAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Property__AttributeAssignment_1_1();
@@ -3875,14 +3972,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__0"
-    // InternalMyFeatureList.g:1251:1: rule__Feature__Group__0 : rule__Feature__Group__0__Impl rule__Feature__Group__1 ;
+    // InternalMyFeatureList.g:1278:1: rule__Feature__Group__0 : rule__Feature__Group__0__Impl rule__Feature__Group__1 ;
     public final void rule__Feature__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1255:1: ( rule__Feature__Group__0__Impl rule__Feature__Group__1 )
-            // InternalMyFeatureList.g:1256:2: rule__Feature__Group__0__Impl rule__Feature__Group__1
+            // InternalMyFeatureList.g:1282:1: ( rule__Feature__Group__0__Impl rule__Feature__Group__1 )
+            // InternalMyFeatureList.g:1283:2: rule__Feature__Group__0__Impl rule__Feature__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__Feature__Group__0__Impl();
@@ -3913,21 +4010,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__0__Impl"
-    // InternalMyFeatureList.g:1263:1: rule__Feature__Group__0__Impl : ( ( rule__Feature__VerbAssignment_0 ) ) ;
+    // InternalMyFeatureList.g:1290:1: rule__Feature__Group__0__Impl : ( ( rule__Feature__VerbAssignment_0 ) ) ;
     public final void rule__Feature__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1267:1: ( ( ( rule__Feature__VerbAssignment_0 ) ) )
-            // InternalMyFeatureList.g:1268:1: ( ( rule__Feature__VerbAssignment_0 ) )
+            // InternalMyFeatureList.g:1294:1: ( ( ( rule__Feature__VerbAssignment_0 ) ) )
+            // InternalMyFeatureList.g:1295:1: ( ( rule__Feature__VerbAssignment_0 ) )
             {
-            // InternalMyFeatureList.g:1268:1: ( ( rule__Feature__VerbAssignment_0 ) )
-            // InternalMyFeatureList.g:1269:2: ( rule__Feature__VerbAssignment_0 )
+            // InternalMyFeatureList.g:1295:1: ( ( rule__Feature__VerbAssignment_0 ) )
+            // InternalMyFeatureList.g:1296:2: ( rule__Feature__VerbAssignment_0 )
             {
              before(grammarAccess.getFeatureAccess().getVerbAssignment_0()); 
-            // InternalMyFeatureList.g:1270:2: ( rule__Feature__VerbAssignment_0 )
-            // InternalMyFeatureList.g:1270:3: rule__Feature__VerbAssignment_0
+            // InternalMyFeatureList.g:1297:2: ( rule__Feature__VerbAssignment_0 )
+            // InternalMyFeatureList.g:1297:3: rule__Feature__VerbAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Feature__VerbAssignment_0();
@@ -3960,16 +4057,16 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__1"
-    // InternalMyFeatureList.g:1278:1: rule__Feature__Group__1 : rule__Feature__Group__1__Impl rule__Feature__Group__2 ;
+    // InternalMyFeatureList.g:1305:1: rule__Feature__Group__1 : rule__Feature__Group__1__Impl rule__Feature__Group__2 ;
     public final void rule__Feature__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1282:1: ( rule__Feature__Group__1__Impl rule__Feature__Group__2 )
-            // InternalMyFeatureList.g:1283:2: rule__Feature__Group__1__Impl rule__Feature__Group__2
+            // InternalMyFeatureList.g:1309:1: ( rule__Feature__Group__1__Impl rule__Feature__Group__2 )
+            // InternalMyFeatureList.g:1310:2: rule__Feature__Group__1__Impl rule__Feature__Group__2
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_14);
             rule__Feature__Group__1__Impl();
 
             state._fsp--;
@@ -3998,21 +4095,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__1__Impl"
-    // InternalMyFeatureList.g:1290:1: rule__Feature__Group__1__Impl : ( ( rule__Feature__ConceptAssignment_1 ) ) ;
+    // InternalMyFeatureList.g:1317:1: rule__Feature__Group__1__Impl : ( ( rule__Feature__ConceptAssignment_1 ) ) ;
     public final void rule__Feature__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1294:1: ( ( ( rule__Feature__ConceptAssignment_1 ) ) )
-            // InternalMyFeatureList.g:1295:1: ( ( rule__Feature__ConceptAssignment_1 ) )
+            // InternalMyFeatureList.g:1321:1: ( ( ( rule__Feature__ConceptAssignment_1 ) ) )
+            // InternalMyFeatureList.g:1322:1: ( ( rule__Feature__ConceptAssignment_1 ) )
             {
-            // InternalMyFeatureList.g:1295:1: ( ( rule__Feature__ConceptAssignment_1 ) )
-            // InternalMyFeatureList.g:1296:2: ( rule__Feature__ConceptAssignment_1 )
+            // InternalMyFeatureList.g:1322:1: ( ( rule__Feature__ConceptAssignment_1 ) )
+            // InternalMyFeatureList.g:1323:2: ( rule__Feature__ConceptAssignment_1 )
             {
              before(grammarAccess.getFeatureAccess().getConceptAssignment_1()); 
-            // InternalMyFeatureList.g:1297:2: ( rule__Feature__ConceptAssignment_1 )
-            // InternalMyFeatureList.g:1297:3: rule__Feature__ConceptAssignment_1
+            // InternalMyFeatureList.g:1324:2: ( rule__Feature__ConceptAssignment_1 )
+            // InternalMyFeatureList.g:1324:3: rule__Feature__ConceptAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Feature__ConceptAssignment_1();
@@ -4045,14 +4142,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__2"
-    // InternalMyFeatureList.g:1305:1: rule__Feature__Group__2 : rule__Feature__Group__2__Impl ;
+    // InternalMyFeatureList.g:1332:1: rule__Feature__Group__2 : rule__Feature__Group__2__Impl ;
     public final void rule__Feature__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1309:1: ( rule__Feature__Group__2__Impl )
-            // InternalMyFeatureList.g:1310:2: rule__Feature__Group__2__Impl
+            // InternalMyFeatureList.g:1336:1: ( rule__Feature__Group__2__Impl )
+            // InternalMyFeatureList.g:1337:2: rule__Feature__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Feature__Group__2__Impl();
@@ -4078,29 +4175,29 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group__2__Impl"
-    // InternalMyFeatureList.g:1316:1: rule__Feature__Group__2__Impl : ( ( rule__Feature__Group_2__0 )? ) ;
+    // InternalMyFeatureList.g:1343:1: rule__Feature__Group__2__Impl : ( ( rule__Feature__Group_2__0 )? ) ;
     public final void rule__Feature__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1320:1: ( ( ( rule__Feature__Group_2__0 )? ) )
-            // InternalMyFeatureList.g:1321:1: ( ( rule__Feature__Group_2__0 )? )
+            // InternalMyFeatureList.g:1347:1: ( ( ( rule__Feature__Group_2__0 )? ) )
+            // InternalMyFeatureList.g:1348:1: ( ( rule__Feature__Group_2__0 )? )
             {
-            // InternalMyFeatureList.g:1321:1: ( ( rule__Feature__Group_2__0 )? )
-            // InternalMyFeatureList.g:1322:2: ( rule__Feature__Group_2__0 )?
+            // InternalMyFeatureList.g:1348:1: ( ( rule__Feature__Group_2__0 )? )
+            // InternalMyFeatureList.g:1349:2: ( rule__Feature__Group_2__0 )?
             {
              before(grammarAccess.getFeatureAccess().getGroup_2()); 
-            // InternalMyFeatureList.g:1323:2: ( rule__Feature__Group_2__0 )?
-            int alt10=2;
-            int LA10_0 = input.LA(1);
+            // InternalMyFeatureList.g:1350:2: ( rule__Feature__Group_2__0 )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-            if ( (LA10_0==27) ) {
-                alt10=1;
+            if ( (LA11_0==28) ) {
+                alt11=1;
             }
-            switch (alt10) {
+            switch (alt11) {
                 case 1 :
-                    // InternalMyFeatureList.g:1323:3: rule__Feature__Group_2__0
+                    // InternalMyFeatureList.g:1350:3: rule__Feature__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Feature__Group_2__0();
@@ -4136,14 +4233,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group_2__0"
-    // InternalMyFeatureList.g:1332:1: rule__Feature__Group_2__0 : rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1 ;
+    // InternalMyFeatureList.g:1359:1: rule__Feature__Group_2__0 : rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1 ;
     public final void rule__Feature__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1336:1: ( rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1 )
-            // InternalMyFeatureList.g:1337:2: rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1
+            // InternalMyFeatureList.g:1363:1: ( rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1 )
+            // InternalMyFeatureList.g:1364:2: rule__Feature__Group_2__0__Impl rule__Feature__Group_2__1
             {
             pushFollow(FOLLOW_5);
             rule__Feature__Group_2__0__Impl();
@@ -4174,20 +4271,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group_2__0__Impl"
-    // InternalMyFeatureList.g:1344:1: rule__Feature__Group_2__0__Impl : ( '.' ) ;
+    // InternalMyFeatureList.g:1371:1: rule__Feature__Group_2__0__Impl : ( '.' ) ;
     public final void rule__Feature__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1348:1: ( ( '.' ) )
-            // InternalMyFeatureList.g:1349:1: ( '.' )
+            // InternalMyFeatureList.g:1375:1: ( ( '.' ) )
+            // InternalMyFeatureList.g:1376:1: ( '.' )
             {
-            // InternalMyFeatureList.g:1349:1: ( '.' )
-            // InternalMyFeatureList.g:1350:2: '.'
+            // InternalMyFeatureList.g:1376:1: ( '.' )
+            // InternalMyFeatureList.g:1377:2: '.'
             {
              before(grammarAccess.getFeatureAccess().getFullStopKeyword_2_0()); 
-            match(input,27,FOLLOW_2); 
+            match(input,28,FOLLOW_2); 
              after(grammarAccess.getFeatureAccess().getFullStopKeyword_2_0()); 
 
             }
@@ -4211,14 +4308,14 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group_2__1"
-    // InternalMyFeatureList.g:1359:1: rule__Feature__Group_2__1 : rule__Feature__Group_2__1__Impl ;
+    // InternalMyFeatureList.g:1386:1: rule__Feature__Group_2__1 : rule__Feature__Group_2__1__Impl ;
     public final void rule__Feature__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1363:1: ( rule__Feature__Group_2__1__Impl )
-            // InternalMyFeatureList.g:1364:2: rule__Feature__Group_2__1__Impl
+            // InternalMyFeatureList.g:1390:1: ( rule__Feature__Group_2__1__Impl )
+            // InternalMyFeatureList.g:1391:2: rule__Feature__Group_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Feature__Group_2__1__Impl();
@@ -4244,21 +4341,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__Group_2__1__Impl"
-    // InternalMyFeatureList.g:1370:1: rule__Feature__Group_2__1__Impl : ( ( rule__Feature__AttributeAssignment_2_1 ) ) ;
+    // InternalMyFeatureList.g:1397:1: rule__Feature__Group_2__1__Impl : ( ( rule__Feature__AttributeAssignment_2_1 ) ) ;
     public final void rule__Feature__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1374:1: ( ( ( rule__Feature__AttributeAssignment_2_1 ) ) )
-            // InternalMyFeatureList.g:1375:1: ( ( rule__Feature__AttributeAssignment_2_1 ) )
+            // InternalMyFeatureList.g:1401:1: ( ( ( rule__Feature__AttributeAssignment_2_1 ) ) )
+            // InternalMyFeatureList.g:1402:1: ( ( rule__Feature__AttributeAssignment_2_1 ) )
             {
-            // InternalMyFeatureList.g:1375:1: ( ( rule__Feature__AttributeAssignment_2_1 ) )
-            // InternalMyFeatureList.g:1376:2: ( rule__Feature__AttributeAssignment_2_1 )
+            // InternalMyFeatureList.g:1402:1: ( ( rule__Feature__AttributeAssignment_2_1 ) )
+            // InternalMyFeatureList.g:1403:2: ( rule__Feature__AttributeAssignment_2_1 )
             {
              before(grammarAccess.getFeatureAccess().getAttributeAssignment_2_1()); 
-            // InternalMyFeatureList.g:1377:2: ( rule__Feature__AttributeAssignment_2_1 )
-            // InternalMyFeatureList.g:1377:3: rule__Feature__AttributeAssignment_2_1
+            // InternalMyFeatureList.g:1404:2: ( rule__Feature__AttributeAssignment_2_1 )
+            // InternalMyFeatureList.g:1404:3: rule__Feature__AttributeAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__Feature__AttributeAssignment_2_1();
@@ -4291,17 +4388,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FeatureList__ConceptAssignment_0"
-    // InternalMyFeatureList.g:1386:1: rule__FeatureList__ConceptAssignment_0 : ( ruleConcept ) ;
+    // InternalMyFeatureList.g:1413:1: rule__FeatureList__ConceptAssignment_0 : ( ruleConcept ) ;
     public final void rule__FeatureList__ConceptAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1390:1: ( ( ruleConcept ) )
-            // InternalMyFeatureList.g:1391:2: ( ruleConcept )
+            // InternalMyFeatureList.g:1417:1: ( ( ruleConcept ) )
+            // InternalMyFeatureList.g:1418:2: ( ruleConcept )
             {
-            // InternalMyFeatureList.g:1391:2: ( ruleConcept )
-            // InternalMyFeatureList.g:1392:3: ruleConcept
+            // InternalMyFeatureList.g:1418:2: ( ruleConcept )
+            // InternalMyFeatureList.g:1419:3: ruleConcept
             {
              before(grammarAccess.getFeatureListAccess().getConceptConceptParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4332,17 +4429,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FeatureList__ConstraintAssignment_2"
-    // InternalMyFeatureList.g:1401:1: rule__FeatureList__ConstraintAssignment_2 : ( ruleConstraint ) ;
+    // InternalMyFeatureList.g:1428:1: rule__FeatureList__ConstraintAssignment_2 : ( ruleConstraint ) ;
     public final void rule__FeatureList__ConstraintAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1405:1: ( ( ruleConstraint ) )
-            // InternalMyFeatureList.g:1406:2: ( ruleConstraint )
+            // InternalMyFeatureList.g:1432:1: ( ( ruleConstraint ) )
+            // InternalMyFeatureList.g:1433:2: ( ruleConstraint )
             {
-            // InternalMyFeatureList.g:1406:2: ( ruleConstraint )
-            // InternalMyFeatureList.g:1407:3: ruleConstraint
+            // InternalMyFeatureList.g:1433:2: ( ruleConstraint )
+            // InternalMyFeatureList.g:1434:3: ruleConstraint
             {
              before(grammarAccess.getFeatureListAccess().getConstraintConstraintParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4373,17 +4470,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FeatureList__KeyAssignment_4"
-    // InternalMyFeatureList.g:1416:1: rule__FeatureList__KeyAssignment_4 : ( ruleKey ) ;
+    // InternalMyFeatureList.g:1443:1: rule__FeatureList__KeyAssignment_4 : ( ruleKey ) ;
     public final void rule__FeatureList__KeyAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1420:1: ( ( ruleKey ) )
-            // InternalMyFeatureList.g:1421:2: ( ruleKey )
+            // InternalMyFeatureList.g:1447:1: ( ( ruleKey ) )
+            // InternalMyFeatureList.g:1448:2: ( ruleKey )
             {
-            // InternalMyFeatureList.g:1421:2: ( ruleKey )
-            // InternalMyFeatureList.g:1422:3: ruleKey
+            // InternalMyFeatureList.g:1448:2: ( ruleKey )
+            // InternalMyFeatureList.g:1449:3: ruleKey
             {
              before(grammarAccess.getFeatureListAccess().getKeyKeyParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -4414,17 +4511,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FeatureList__PropertyAssignment_6"
-    // InternalMyFeatureList.g:1431:1: rule__FeatureList__PropertyAssignment_6 : ( ruleProperty ) ;
+    // InternalMyFeatureList.g:1458:1: rule__FeatureList__PropertyAssignment_6 : ( ruleProperty ) ;
     public final void rule__FeatureList__PropertyAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1435:1: ( ( ruleProperty ) )
-            // InternalMyFeatureList.g:1436:2: ( ruleProperty )
+            // InternalMyFeatureList.g:1462:1: ( ( ruleProperty ) )
+            // InternalMyFeatureList.g:1463:2: ( ruleProperty )
             {
-            // InternalMyFeatureList.g:1436:2: ( ruleProperty )
-            // InternalMyFeatureList.g:1437:3: ruleProperty
+            // InternalMyFeatureList.g:1463:2: ( ruleProperty )
+            // InternalMyFeatureList.g:1464:3: ruleProperty
             {
              before(grammarAccess.getFeatureListAccess().getPropertyPropertyParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -4455,17 +4552,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__FeatureList__FeatureAssignment_8"
-    // InternalMyFeatureList.g:1446:1: rule__FeatureList__FeatureAssignment_8 : ( ruleFeature ) ;
+    // InternalMyFeatureList.g:1473:1: rule__FeatureList__FeatureAssignment_8 : ( ruleFeature ) ;
     public final void rule__FeatureList__FeatureAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1450:1: ( ( ruleFeature ) )
-            // InternalMyFeatureList.g:1451:2: ( ruleFeature )
+            // InternalMyFeatureList.g:1477:1: ( ( ruleFeature ) )
+            // InternalMyFeatureList.g:1478:2: ( ruleFeature )
             {
-            // InternalMyFeatureList.g:1451:2: ( ruleFeature )
-            // InternalMyFeatureList.g:1452:3: ruleFeature
+            // InternalMyFeatureList.g:1478:2: ( ruleFeature )
+            // InternalMyFeatureList.g:1479:3: ruleFeature
             {
              before(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -4496,17 +4593,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Concept__NameAssignment_1"
-    // InternalMyFeatureList.g:1461:1: rule__Concept__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalMyFeatureList.g:1488:1: rule__Concept__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Concept__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1465:1: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1466:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1492:1: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1493:2: ( RULE_ID )
             {
-            // InternalMyFeatureList.g:1466:2: ( RULE_ID )
-            // InternalMyFeatureList.g:1467:3: RULE_ID
+            // InternalMyFeatureList.g:1493:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1494:3: RULE_ID
             {
              before(grammarAccess.getConceptAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4533,17 +4630,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Concept__AttributesAssignment_2"
-    // InternalMyFeatureList.g:1476:1: rule__Concept__AttributesAssignment_2 : ( ruleAttribute ) ;
+    // InternalMyFeatureList.g:1503:1: rule__Concept__AttributesAssignment_2 : ( ruleAttribute ) ;
     public final void rule__Concept__AttributesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1480:1: ( ( ruleAttribute ) )
-            // InternalMyFeatureList.g:1481:2: ( ruleAttribute )
+            // InternalMyFeatureList.g:1507:1: ( ( ruleAttribute ) )
+            // InternalMyFeatureList.g:1508:2: ( ruleAttribute )
             {
-            // InternalMyFeatureList.g:1481:2: ( ruleAttribute )
-            // InternalMyFeatureList.g:1482:3: ruleAttribute
+            // InternalMyFeatureList.g:1508:2: ( ruleAttribute )
+            // InternalMyFeatureList.g:1509:3: ruleAttribute
             {
              before(grammarAccess.getConceptAccess().getAttributesAttributeParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4574,17 +4671,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Attribute__TypeAssignment_0"
-    // InternalMyFeatureList.g:1491:1: rule__Attribute__TypeAssignment_0 : ( ruleType ) ;
+    // InternalMyFeatureList.g:1518:1: rule__Attribute__TypeAssignment_0 : ( ruleType ) ;
     public final void rule__Attribute__TypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1495:1: ( ( ruleType ) )
-            // InternalMyFeatureList.g:1496:2: ( ruleType )
+            // InternalMyFeatureList.g:1522:1: ( ( ruleType ) )
+            // InternalMyFeatureList.g:1523:2: ( ruleType )
             {
-            // InternalMyFeatureList.g:1496:2: ( ruleType )
-            // InternalMyFeatureList.g:1497:3: ruleType
+            // InternalMyFeatureList.g:1523:2: ( ruleType )
+            // InternalMyFeatureList.g:1524:3: ruleType
             {
              before(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -4615,17 +4712,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_1"
-    // InternalMyFeatureList.g:1506:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalMyFeatureList.g:1533:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1510:1: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1511:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1537:1: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1538:2: ( RULE_ID )
             {
-            // InternalMyFeatureList.g:1511:2: ( RULE_ID )
-            // InternalMyFeatureList.g:1512:3: RULE_ID
+            // InternalMyFeatureList.g:1538:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1539:3: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4651,18 +4748,55 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
     // $ANTLR end "rule__Attribute__NameAssignment_1"
 
 
+    // $ANTLR start "rule__Attribute__MultiplicityAssignment_2"
+    // InternalMyFeatureList.g:1548:1: rule__Attribute__MultiplicityAssignment_2 : ( RULE_MULTIPLICITY ) ;
+    public final void rule__Attribute__MultiplicityAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalMyFeatureList.g:1552:1: ( ( RULE_MULTIPLICITY ) )
+            // InternalMyFeatureList.g:1553:2: ( RULE_MULTIPLICITY )
+            {
+            // InternalMyFeatureList.g:1553:2: ( RULE_MULTIPLICITY )
+            // InternalMyFeatureList.g:1554:3: RULE_MULTIPLICITY
+            {
+             before(grammarAccess.getAttributeAccess().getMultiplicityMULTIPLICITYTerminalRuleCall_2_0()); 
+            match(input,RULE_MULTIPLICITY,FOLLOW_2); 
+             after(grammarAccess.getAttributeAccess().getMultiplicityMULTIPLICITYTerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Attribute__MultiplicityAssignment_2"
+
+
     // $ANTLR start "rule__Type__NameAssignment"
-    // InternalMyFeatureList.g:1521:1: rule__Type__NameAssignment : ( RULE_ID ) ;
+    // InternalMyFeatureList.g:1563:1: rule__Type__NameAssignment : ( RULE_ID ) ;
     public final void rule__Type__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1525:1: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1526:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1567:1: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1568:2: ( RULE_ID )
             {
-            // InternalMyFeatureList.g:1526:2: ( RULE_ID )
-            // InternalMyFeatureList.g:1527:3: RULE_ID
+            // InternalMyFeatureList.g:1568:2: ( RULE_ID )
+            // InternalMyFeatureList.g:1569:3: RULE_ID
             {
              before(grammarAccess.getTypeAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4689,17 +4823,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Condition__ValueAssignment_1"
-    // InternalMyFeatureList.g:1536:1: rule__Condition__ValueAssignment_1 : ( RULE_INT ) ;
+    // InternalMyFeatureList.g:1578:1: rule__Condition__ValueAssignment_1 : ( RULE_INT ) ;
     public final void rule__Condition__ValueAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1540:1: ( ( RULE_INT ) )
-            // InternalMyFeatureList.g:1541:2: ( RULE_INT )
+            // InternalMyFeatureList.g:1582:1: ( ( RULE_INT ) )
+            // InternalMyFeatureList.g:1583:2: ( RULE_INT )
             {
-            // InternalMyFeatureList.g:1541:2: ( RULE_INT )
-            // InternalMyFeatureList.g:1542:3: RULE_INT
+            // InternalMyFeatureList.g:1583:2: ( RULE_INT )
+            // InternalMyFeatureList.g:1584:3: RULE_INT
             {
              before(grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -4726,21 +4860,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__ConceptAssignment_0"
-    // InternalMyFeatureList.g:1551:1: rule__Constraint__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1593:1: rule__Constraint__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Constraint__ConceptAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1555:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1556:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1597:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1598:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1556:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1557:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1598:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1599:3: ( RULE_ID )
             {
              before(grammarAccess.getConstraintAccess().getConceptConceptCrossReference_0_0()); 
-            // InternalMyFeatureList.g:1558:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1559:4: RULE_ID
+            // InternalMyFeatureList.g:1600:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1601:4: RULE_ID
             {
              before(grammarAccess.getConstraintAccess().getConceptConceptIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4771,21 +4905,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__AttributeAssignment_1_1"
-    // InternalMyFeatureList.g:1570:1: rule__Constraint__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1612:1: rule__Constraint__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__Constraint__AttributeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1574:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1575:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1616:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1617:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1575:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1576:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1617:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1618:3: ( RULE_ID )
             {
              before(grammarAccess.getConstraintAccess().getAttributeAttributeCrossReference_1_1_0()); 
-            // InternalMyFeatureList.g:1577:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1578:4: RULE_ID
+            // InternalMyFeatureList.g:1619:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1620:4: RULE_ID
             {
              before(grammarAccess.getConstraintAccess().getAttributeAttributeIDTerminalRuleCall_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4816,17 +4950,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Constraint__ConditionAssignment_2"
-    // InternalMyFeatureList.g:1589:1: rule__Constraint__ConditionAssignment_2 : ( ruleCondition ) ;
+    // InternalMyFeatureList.g:1631:1: rule__Constraint__ConditionAssignment_2 : ( ruleCondition ) ;
     public final void rule__Constraint__ConditionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1593:1: ( ( ruleCondition ) )
-            // InternalMyFeatureList.g:1594:2: ( ruleCondition )
+            // InternalMyFeatureList.g:1635:1: ( ( ruleCondition ) )
+            // InternalMyFeatureList.g:1636:2: ( ruleCondition )
             {
-            // InternalMyFeatureList.g:1594:2: ( ruleCondition )
-            // InternalMyFeatureList.g:1595:3: ruleCondition
+            // InternalMyFeatureList.g:1636:2: ( ruleCondition )
+            // InternalMyFeatureList.g:1637:3: ruleCondition
             {
              before(grammarAccess.getConstraintAccess().getConditionConditionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -4857,21 +4991,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__ConceptAssignment_0"
-    // InternalMyFeatureList.g:1604:1: rule__Key__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1646:1: rule__Key__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Key__ConceptAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1608:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1609:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1650:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1651:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1609:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1610:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1651:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1652:3: ( RULE_ID )
             {
              before(grammarAccess.getKeyAccess().getConceptConceptCrossReference_0_0()); 
-            // InternalMyFeatureList.g:1611:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1612:4: RULE_ID
+            // InternalMyFeatureList.g:1653:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1654:4: RULE_ID
             {
              before(grammarAccess.getKeyAccess().getConceptConceptIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4902,21 +5036,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Key__AttributeAssignment_1_1"
-    // InternalMyFeatureList.g:1623:1: rule__Key__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1665:1: rule__Key__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__Key__AttributeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1627:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1628:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1669:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1670:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1628:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1629:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1670:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1671:3: ( RULE_ID )
             {
              before(grammarAccess.getKeyAccess().getAttributeAttributeCrossReference_1_1_0()); 
-            // InternalMyFeatureList.g:1630:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1631:4: RULE_ID
+            // InternalMyFeatureList.g:1672:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1673:4: RULE_ID
             {
              before(grammarAccess.getKeyAccess().getAttributeAttributeIDTerminalRuleCall_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4947,21 +5081,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__ConceptAssignment_0"
-    // InternalMyFeatureList.g:1642:1: rule__Property__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1684:1: rule__Property__ConceptAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Property__ConceptAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1646:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1647:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1688:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1689:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1647:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1648:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1689:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1690:3: ( RULE_ID )
             {
              before(grammarAccess.getPropertyAccess().getConceptConceptCrossReference_0_0()); 
-            // InternalMyFeatureList.g:1649:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1650:4: RULE_ID
+            // InternalMyFeatureList.g:1691:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1692:4: RULE_ID
             {
              before(grammarAccess.getPropertyAccess().getConceptConceptIDTerminalRuleCall_0_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -4992,21 +5126,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Property__AttributeAssignment_1_1"
-    // InternalMyFeatureList.g:1661:1: rule__Property__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1703:1: rule__Property__AttributeAssignment_1_1 : ( ( RULE_ID ) ) ;
     public final void rule__Property__AttributeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1665:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1666:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1707:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1708:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1666:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1667:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1708:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1709:3: ( RULE_ID )
             {
              before(grammarAccess.getPropertyAccess().getAttributeAttributeCrossReference_1_1_0()); 
-            // InternalMyFeatureList.g:1668:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1669:4: RULE_ID
+            // InternalMyFeatureList.g:1710:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1711:4: RULE_ID
             {
              before(grammarAccess.getPropertyAccess().getAttributeAttributeIDTerminalRuleCall_1_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5037,17 +5171,17 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__VerbAssignment_0"
-    // InternalMyFeatureList.g:1680:1: rule__Feature__VerbAssignment_0 : ( ruleVerb ) ;
+    // InternalMyFeatureList.g:1722:1: rule__Feature__VerbAssignment_0 : ( ruleVerb ) ;
     public final void rule__Feature__VerbAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1684:1: ( ( ruleVerb ) )
-            // InternalMyFeatureList.g:1685:2: ( ruleVerb )
+            // InternalMyFeatureList.g:1726:1: ( ( ruleVerb ) )
+            // InternalMyFeatureList.g:1727:2: ( ruleVerb )
             {
-            // InternalMyFeatureList.g:1685:2: ( ruleVerb )
-            // InternalMyFeatureList.g:1686:3: ruleVerb
+            // InternalMyFeatureList.g:1727:2: ( ruleVerb )
+            // InternalMyFeatureList.g:1728:3: ruleVerb
             {
              before(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -5078,21 +5212,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__ConceptAssignment_1"
-    // InternalMyFeatureList.g:1695:1: rule__Feature__ConceptAssignment_1 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1737:1: rule__Feature__ConceptAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__Feature__ConceptAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1699:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1700:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1741:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1742:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1700:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1701:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1742:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1743:3: ( RULE_ID )
             {
              before(grammarAccess.getFeatureAccess().getConceptConceptCrossReference_1_0()); 
-            // InternalMyFeatureList.g:1702:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1703:4: RULE_ID
+            // InternalMyFeatureList.g:1744:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1745:4: RULE_ID
             {
              before(grammarAccess.getFeatureAccess().getConceptConceptIDTerminalRuleCall_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5123,21 +5257,21 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
 
     // $ANTLR start "rule__Feature__AttributeAssignment_2_1"
-    // InternalMyFeatureList.g:1714:1: rule__Feature__AttributeAssignment_2_1 : ( ( RULE_ID ) ) ;
+    // InternalMyFeatureList.g:1756:1: rule__Feature__AttributeAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__Feature__AttributeAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalMyFeatureList.g:1718:1: ( ( ( RULE_ID ) ) )
-            // InternalMyFeatureList.g:1719:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1760:1: ( ( ( RULE_ID ) ) )
+            // InternalMyFeatureList.g:1761:2: ( ( RULE_ID ) )
             {
-            // InternalMyFeatureList.g:1719:2: ( ( RULE_ID ) )
-            // InternalMyFeatureList.g:1720:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1761:2: ( ( RULE_ID ) )
+            // InternalMyFeatureList.g:1762:3: ( RULE_ID )
             {
              before(grammarAccess.getFeatureAccess().getAttributeAttributeCrossReference_2_1_0()); 
-            // InternalMyFeatureList.g:1721:3: ( RULE_ID )
-            // InternalMyFeatureList.g:1722:4: RULE_ID
+            // InternalMyFeatureList.g:1763:3: ( RULE_ID )
+            // InternalMyFeatureList.g:1764:4: RULE_ID
             {
              before(grammarAccess.getFeatureAccess().getAttributeAttributeIDTerminalRuleCall_2_1_0_1()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -5173,19 +5307,20 @@ public class InternalMyFeatureListParser extends AbstractInternalContentAssistPa
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000008000002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000003C0000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x00000000003C0002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000780000L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000780002L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000008000000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x000000000000F800L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000030000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000000000001F000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000060000L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000020000000L});
 
 }

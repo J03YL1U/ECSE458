@@ -140,12 +140,14 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cMultiplicityAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMultiplicityMULTIPLICITYTerminalRuleCall_2_0 = (RuleCall)cMultiplicityAssignment_2.eContents().get(0);
 		
 		//Attribute:
-		//        (type=Type) name=ID;
+		//        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(type=Type) name=ID
+		//(type=Type) name=ID (multiplicity=MULTIPLICITY)?
 		public Group getGroup() { return cGroup; }
 		
 		//(type=Type)
@@ -159,6 +161,12 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//(multiplicity=MULTIPLICITY)?
+		public Assignment getMultiplicityAssignment_2() { return cMultiplicityAssignment_2; }
+		
+		//MULTIPLICITY
+		public RuleCall getMultiplicityMULTIPLICITYTerminalRuleCall_2_0() { return cMultiplicityMULTIPLICITYTerminalRuleCall_2_0; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Type");
@@ -232,6 +240,11 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
 		
+		///*Multiplicity:
+		//    //(from=MULTIPLICITYSYMBOL)'..'(to=MULTIPLICITYSYMBOL);
+		//    //(from=INT)'..'(to=INT);
+		//    name=ID;
+		//    */
 		//Constraint:
 		//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 		@Override public ParserRule getRule() { return rule; }
@@ -474,6 +487,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	private final PropertyElements pProperty;
 	private final FeatureElements pFeature;
 	private final VerbElements eVerb;
+	private final TerminalRule tMULTIPLICITY;
 	
 	private final Grammar grammar;
 	
@@ -494,6 +508,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		this.pProperty = new PropertyElements();
 		this.pFeature = new FeatureElements();
 		this.eVerb = new VerbElements();
+		this.tMULTIPLICITY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.MULTIPLICITY");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -549,7 +564,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	
 	//Attribute:
-	//        (type=Type) name=ID;
+	//        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}
@@ -578,6 +593,11 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		return getConditionAccess().getRule();
 	}
 	
+	///*Multiplicity:
+	//    //(from=MULTIPLICITYSYMBOL)'..'(to=MULTIPLICITYSYMBOL);
+	//    //(from=INT)'..'(to=INT);
+	//    name=ID;
+	//    */
 	//Constraint:
 	//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 	public ConstraintElements getConstraintAccess() {
@@ -627,6 +647,12 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	
 	public EnumRule getVerbRule() {
 		return getVerbAccess().getRule();
+	}
+	
+	//terminal MULTIPLICITY:
+	//    (INT | '*')'..'(INT | '*');
+	public TerminalRule getMULTIPLICITYRule() {
+		return tMULTIPLICITY;
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

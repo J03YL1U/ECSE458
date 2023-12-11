@@ -188,13 +188,22 @@ public interface MyFeatureListPackage extends EPackage
   int ATTRIBUTE__NAME = 1;
 
   /**
+   * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE__MULTIPLICITY = 2;
+
+  /**
    * The number of structural features of the '<em>Attribute</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ATTRIBUTE_FEATURE_COUNT = 2;
+  int ATTRIBUTE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.TypeImpl <em>Type</em>}' class.
@@ -559,6 +568,17 @@ public interface MyFeatureListPackage extends EPackage
   EAttribute getAttribute_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getMultiplicity <em>Multiplicity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Multiplicity</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getMultiplicity()
+   * @see #getAttribute()
+   * @generated
+   */
+  EAttribute getAttribute_Multiplicity();
+
+  /**
    * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -884,6 +904,14 @@ public interface MyFeatureListPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ATTRIBUTE__MULTIPLICITY = eINSTANCE.getAttribute_Multiplicity();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.TypeImpl <em>Type</em>}' class.

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getType <em>Type</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getName <em>Name</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getAttribute()
@@ -67,5 +68,27 @@ public interface Attribute extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Multiplicity</em>' attribute.
+   * @see #setMultiplicity(String)
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getAttribute_Multiplicity()
+   * @model
+   * @generated
+   */
+  String getMultiplicity();
+
+  /**
+   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute#getMultiplicity <em>Multiplicity</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Multiplicity</em>' attribute.
+   * @see #getMultiplicity()
+   * @generated
+   */
+  void setMultiplicity(String value);
 
 } // Attribute

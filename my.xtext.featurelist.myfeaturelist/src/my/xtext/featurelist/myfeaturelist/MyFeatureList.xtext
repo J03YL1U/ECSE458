@@ -14,14 +14,14 @@ Concept:
         (attributes+=Attribute)*;
        
 Attribute:
-        (type=Type) name=ID;
+        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
         
 Type:
 	name=ID;
-       
+
 Condition:
         ('>' | '>=' | '=' | '<=' | '<') (value=INT);
-        
+	        
 Constraint:
 	(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 	
@@ -36,3 +36,6 @@ Feature:
 
 enum Verb:
         Add | Remove | Update | Display;   
+        
+terminal MULTIPLICITY:
+	(INT | '*')'..'(INT | '*');

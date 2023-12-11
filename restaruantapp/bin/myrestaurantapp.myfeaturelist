@@ -3,8 +3,8 @@ concept Seat
 
 concept Table
 	int number
-	Seat seat
-	String fakeatt
+	Seat seat 1..*
+	String fakeatt 1..0
 	
 constraints
 	Table.number > 0

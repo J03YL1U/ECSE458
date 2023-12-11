@@ -60,7 +60,10 @@ public class ExtractClassesFromDomainModel {
 						result = result.concat("\t" + featureType + " " + feature.getName() + "\n");
 					}
 					if (feature instanceof EReference) {
-						result = result.concat("\t" + feature.getEType().getName() + " " + feature.getName() + "\n");
+						int lowerBound = feature.getLowerBound();
+						int upperBound = feature.getUpperBound();
+						String multiplicity = formatMultiplicity(lowerBound, upperBound);
+						result = result.concat("\t" + feature.getEType().getName() + " " + feature.getName() + " " + multiplicity + "\n");
 					}
 				}
 				result = result.concat("\n");
@@ -112,5 +115,11 @@ public class ExtractClassesFromDomainModel {
 			System.out.println("Writing to MyFeatureList failed.");
 			e.printStackTrace();
 		}
+	}
+	
+	private static String formatMultiplicity(int lowerBound, int upperBound) {
+		String result = lowerBound + ".." + upperBound;
+		result = result.replace("-1", "*");
+		return result;
 	}
 }

@@ -304,6 +304,24 @@ ruleAttribute returns [EObject current=null]
 				}
 			)
 		)
+		(
+			(
+				lv_multiplicity_2_0=RULE_MULTIPLICITY
+				{
+					newLeafNode(lv_multiplicity_2_0, grammarAccess.getAttributeAccess().getMultiplicityMULTIPLICITYTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAttributeRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"multiplicity",
+						lv_multiplicity_2_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.MULTIPLICITY");
+				}
+			)
+		)?
 	)
 ;
 
@@ -704,6 +722,8 @@ ruleVerb returns [Enumerator current=null]
 		)
 	)
 ;
+
+RULE_MULTIPLICITY : (RULE_INT|'*') '..' (RULE_INT|'*');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 

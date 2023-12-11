@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl#getType <em>Type</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl#getName <em>Name</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.AttributeImpl#getMultiplicity <em>Multiplicity</em>}</li>
  * </ul>
  *
  * @generated
@@ -61,6 +62,26 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMultiplicity()
+   * @generated
+   * @ordered
+   */
+  protected static final String MULTIPLICITY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMultiplicity()
+   * @generated
+   * @ordered
+   */
+  protected String multiplicity = MULTIPLICITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -164,6 +185,31 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
    * @generated
    */
   @Override
+  public String getMultiplicity()
+  {
+    return multiplicity;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setMultiplicity(String newMultiplicity)
+  {
+    String oldMultiplicity = multiplicity;
+    multiplicity = newMultiplicity;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.ATTRIBUTE__MULTIPLICITY, oldMultiplicity, multiplicity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -188,6 +234,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return getType();
       case MyFeatureListPackage.ATTRIBUTE__NAME:
         return getName();
+      case MyFeatureListPackage.ATTRIBUTE__MULTIPLICITY:
+        return getMultiplicity();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -207,6 +255,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return;
       case MyFeatureListPackage.ATTRIBUTE__NAME:
         setName((String)newValue);
+        return;
+      case MyFeatureListPackage.ATTRIBUTE__MULTIPLICITY:
+        setMultiplicity((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -228,6 +279,9 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
       case MyFeatureListPackage.ATTRIBUTE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case MyFeatureListPackage.ATTRIBUTE__MULTIPLICITY:
+        setMultiplicity(MULTIPLICITY_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -246,6 +300,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
         return type != null;
       case MyFeatureListPackage.ATTRIBUTE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case MyFeatureListPackage.ATTRIBUTE__MULTIPLICITY:
+        return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
     }
     return super.eIsSet(featureID);
   }
@@ -263,6 +319,8 @@ public class AttributeImpl extends MinimalEObjectImpl.Container implements Attri
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", multiplicity: ");
+    result.append(multiplicity);
     result.append(')');
     return result.toString();
   }

@@ -768,6 +768,7 @@ rule__Attribute__Group__1
 	}
 :
 	rule__Attribute__Group__1__Impl
+	rule__Attribute__Group__2
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -782,6 +783,32 @@ rule__Attribute__Group__1__Impl
 	{ before(grammarAccess.getAttributeAccess().getNameAssignment_1()); }
 	(rule__Attribute__NameAssignment_1)
 	{ after(grammarAccess.getAttributeAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Attribute__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Attribute__Group__2__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Attribute__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2()); }
+	(rule__Attribute__MultiplicityAssignment_2)?
+	{ after(grammarAccess.getAttributeAccess().getMultiplicityAssignment_2()); }
 )
 ;
 finally {
@@ -1518,6 +1545,21 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__Attribute__MultiplicityAssignment_2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getAttributeAccess().getMultiplicityMULTIPLICITYTerminalRuleCall_2_0()); }
+		RULE_MULTIPLICITY
+		{ after(grammarAccess.getAttributeAccess().getMultiplicityMULTIPLICITYTerminalRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Type__NameAssignment
 	@init {
 		int stackSize = keepStackSize();
@@ -1729,6 +1771,8 @@ rule__Feature__AttributeAssignment_2_1
 finally {
 	restoreStackSize(stackSize);
 }
+
+RULE_MULTIPLICITY : (RULE_INT|'*') '..' (RULE_INT|'*');
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
