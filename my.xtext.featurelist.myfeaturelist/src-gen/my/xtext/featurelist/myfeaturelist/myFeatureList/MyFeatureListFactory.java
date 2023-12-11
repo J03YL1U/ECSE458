@@ -87,6 +87,15 @@ public interface MyFeatureListFactory extends EFactory
   Key createKey();
 
   /**
+   * Returns a new object of class '<em>Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property</em>'.
+   * @generated
+   */
+  Property createProperty();
+
+  /**
    * Returns a new object of class '<em>Feature</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

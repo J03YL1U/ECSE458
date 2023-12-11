@@ -22,11 +22,13 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 
 	protected MyFeatureListGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4;
+	protected AbstractElementAlias match_Key_AutouniqueKeyword_2_1_or_UniqueKeyword_2_0;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (MyFeatureListGrammarAccess) access;
 		match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4()));
+		match_Key_AutouniqueKeyword_2_1_or_UniqueKeyword_2_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getKeyAccess().getAutouniqueKeyword_2_1()), new TokenAlias(false, false, grammarAccess.getKeyAccess().getUniqueKeyword_2_0()));
 	}
 	
 	@Override
@@ -43,6 +45,8 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
 			if (match_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4.equals(syntax))
 				emit_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Key_AutouniqueKeyword_2_1_or_UniqueKeyword_2_0.equals(syntax))
+				emit_Key_AutouniqueKeyword_2_1_or_UniqueKeyword_2_0(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -58,6 +62,20 @@ public class MyFeatureListSyntacticSequencer extends AbstractSyntacticSequencer 
 	 * </pre>
 	 */
 	protected void emit_Condition_EqualsSignKeyword_0_2_or_GreaterThanSignEqualsSignKeyword_0_1_or_GreaterThanSignKeyword_0_0_or_LessThanSignEqualsSignKeyword_0_3_or_LessThanSignKeyword_0_4(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * <pre>
+	 * Ambiguous syntax:
+	 *     'unique' | 'autounique'
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     attribute=[Attribute|ID] (ambiguity) (rule end)
+	 
+	 * </pre>
+	 */
+	protected void emit_Key_AutouniqueKeyword_2_1_or_UniqueKeyword_2_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

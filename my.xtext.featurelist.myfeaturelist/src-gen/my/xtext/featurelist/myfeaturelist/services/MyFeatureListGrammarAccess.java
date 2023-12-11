@@ -36,20 +36,25 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Keyword cKeysKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cKeyAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cKeyKeyParserRuleCall_4_0 = (RuleCall)cKeyAssignment_4.eContents().get(0);
-		private final Keyword cFeaturesKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cFeatureAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cFeatureFeatureParserRuleCall_6_0 = (RuleCall)cFeatureAssignment_6.eContents().get(0);
+		private final Keyword cPropertiesKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cPropertyAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPropertyPropertyParserRuleCall_6_0 = (RuleCall)cPropertyAssignment_6.eContents().get(0);
+		private final Keyword cFeaturesKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Assignment cFeatureAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cFeatureFeatureParserRuleCall_8_0 = (RuleCall)cFeatureAssignment_8.eContents().get(0);
 		
 		//FeatureList:
 		//        (concept+=Concept)*
 		//        'constraints' (constraint+=Constraint)+
 		//        'keys' (key+=Key)+
+		//        'properties' (property+=Property)+
 		//        'features' (feature+=Feature)+;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//(concept+=Concept)*
 		//'constraints' (constraint+=Constraint)+
 		//'keys' (key+=Key)+
+		//'properties' (property+=Property)+
 		//'features' (feature+=Feature)+
 		public Group getGroup() { return cGroup; }
 		
@@ -77,14 +82,23 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		//Key
 		public RuleCall getKeyKeyParserRuleCall_4_0() { return cKeyKeyParserRuleCall_4_0; }
 		
+		//'properties'
+		public Keyword getPropertiesKeyword_5() { return cPropertiesKeyword_5; }
+		
+		//(property+=Property)+
+		public Assignment getPropertyAssignment_6() { return cPropertyAssignment_6; }
+		
+		//Property
+		public RuleCall getPropertyPropertyParserRuleCall_6_0() { return cPropertyPropertyParserRuleCall_6_0; }
+		
 		//'features'
-		public Keyword getFeaturesKeyword_5() { return cFeaturesKeyword_5; }
+		public Keyword getFeaturesKeyword_7() { return cFeaturesKeyword_7; }
 		
 		//(feature+=Feature)+
-		public Assignment getFeatureAssignment_6() { return cFeatureAssignment_6; }
+		public Assignment getFeatureAssignment_8() { return cFeatureAssignment_8; }
 		
 		//Feature
-		public RuleCall getFeatureFeatureParserRuleCall_6_0() { return cFeatureFeatureParserRuleCall_6_0; }
+		public RuleCall getFeatureFeatureParserRuleCall_8_0() { return cFeatureFeatureParserRuleCall_8_0; }
 	}
 	public class ConceptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Concept");
@@ -266,12 +280,15 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Assignment cAttributeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final CrossReference cAttributeAttributeCrossReference_1_1_0 = (CrossReference)cAttributeAssignment_1_1.eContents().get(0);
 		private final RuleCall cAttributeAttributeIDTerminalRuleCall_1_1_0_1 = (RuleCall)cAttributeAttributeCrossReference_1_1_0.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Keyword cUniqueKeyword_2_0 = (Keyword)cAlternatives_2.eContents().get(0);
+		private final Keyword cAutouniqueKeyword_2_1 = (Keyword)cAlternatives_2.eContents().get(1);
 		
 		//Key:
-		//    (concept=[Concept])('.'(attribute=[Attribute]));
+		//    (concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique');
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept=[Concept])('.'(attribute=[Attribute]))
+		//(concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique')
 		public Group getGroup() { return cGroup; }
 		
 		//(concept=[Concept])
@@ -297,6 +314,63 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		
 		//ID
 		public RuleCall getAttributeAttributeIDTerminalRuleCall_1_1_0_1() { return cAttributeAttributeIDTerminalRuleCall_1_1_0_1; }
+		
+		//('unique' | 'autounique')
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//'unique'
+		public Keyword getUniqueKeyword_2_0() { return cUniqueKeyword_2_0; }
+		
+		//'autounique'
+		public Keyword getAutouniqueKeyword_2_1() { return cAutouniqueKeyword_2_1; }
+	}
+	public class PropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Property");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cConceptConceptCrossReference_0_0 = (CrossReference)cConceptAssignment_0.eContents().get(0);
+		private final RuleCall cConceptConceptIDTerminalRuleCall_0_0_1 = (RuleCall)cConceptConceptCrossReference_0_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cAttributeAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final CrossReference cAttributeAttributeCrossReference_1_1_0 = (CrossReference)cAttributeAssignment_1_1.eContents().get(0);
+		private final RuleCall cAttributeAttributeIDTerminalRuleCall_1_1_0_1 = (RuleCall)cAttributeAttributeCrossReference_1_1_0.eContents().get(1);
+		private final Keyword cLazyKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+		//Property:
+		//    (concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(concept=[Concept])('.'(attribute=[Attribute])) 'lazy'
+		public Group getGroup() { return cGroup; }
+		
+		//(concept=[Concept])
+		public Assignment getConceptAssignment_0() { return cConceptAssignment_0; }
+		
+		//[Concept]
+		public CrossReference getConceptConceptCrossReference_0_0() { return cConceptConceptCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getConceptConceptIDTerminalRuleCall_0_0_1() { return cConceptConceptIDTerminalRuleCall_0_0_1; }
+		
+		//('.'(attribute=[Attribute]))
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+		
+		//(attribute=[Attribute])
+		public Assignment getAttributeAssignment_1_1() { return cAttributeAssignment_1_1; }
+		
+		//[Attribute]
+		public CrossReference getAttributeAttributeCrossReference_1_1_0() { return cAttributeAttributeCrossReference_1_1_0; }
+		
+		//ID
+		public RuleCall getAttributeAttributeIDTerminalRuleCall_1_1_0_1() { return cAttributeAttributeIDTerminalRuleCall_1_1_0_1; }
+		
+		//'lazy'
+		public Keyword getLazyKeyword_2() { return cLazyKeyword_2; }
 	}
 	public class FeatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
@@ -312,7 +386,6 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final CrossReference cAttributeAttributeCrossReference_2_1_0 = (CrossReference)cAttributeAssignment_2_1.eContents().get(0);
 		private final RuleCall cAttributeAttributeIDTerminalRuleCall_2_1_0_1 = (RuleCall)cAttributeAttributeCrossReference_2_1_0.eContents().get(1);
 		
-		// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
 		//Feature:
 		//        (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;
 		@Override public ParserRule getRule() { return rule; }
@@ -398,6 +471,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	private final ConditionElements pCondition;
 	private final ConstraintElements pConstraint;
 	private final KeyElements pKey;
+	private final PropertyElements pProperty;
 	private final FeatureElements pFeature;
 	private final VerbElements eVerb;
 	
@@ -417,6 +491,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		this.pCondition = new ConditionElements();
 		this.pConstraint = new ConstraintElements();
 		this.pKey = new KeyElements();
+		this.pProperty = new PropertyElements();
 		this.pFeature = new FeatureElements();
 		this.eVerb = new VerbElements();
 	}
@@ -452,6 +527,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	//        (concept+=Concept)*
 	//        'constraints' (constraint+=Constraint)+
 	//        'keys' (key+=Key)+
+	//        'properties' (property+=Property)+
 	//        'features' (feature+=Feature)+;
 	public FeatureListElements getFeatureListAccess() {
 		return pFeatureList;
@@ -513,7 +589,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	
 	//Key:
-	//    (concept=[Concept])('.'(attribute=[Attribute]));
+	//    (concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique');
 	public KeyElements getKeyAccess() {
 		return pKey;
 	}
@@ -523,6 +599,16 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	
 	// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+	//Property:
+	//    (concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
+	public PropertyElements getPropertyAccess() {
+		return pProperty;
+	}
+	
+	public ParserRule getPropertyRule() {
+		return getPropertyAccess().getRule();
+	}
+	
 	//Feature:
 	//        (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;
 	public FeatureElements getFeatureAccess() {

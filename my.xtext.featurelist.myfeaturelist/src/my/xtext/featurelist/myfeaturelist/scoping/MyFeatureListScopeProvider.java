@@ -33,6 +33,10 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.*;
 		     Key key = (Key) object;
 		        return Scopes.scopeFor(key.getConcept().getAttributes());
 		    }
+	    if (ref == MyFeatureListPackage.Literals.PROPERTY__ATTRIBUTE) {
+		     Property property = (Property) object;
+		        return Scopes.scopeFor(property.getConcept().getAttributes());
+		    }
 	    return super.getScope(object, ref);
 	}     
 }

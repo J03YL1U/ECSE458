@@ -12,6 +12,7 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListFactory;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Property;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Type;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Verb;
 
@@ -79,6 +80,13 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   private EClass keyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass propertyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,9 +214,20 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Feature()
+  public EReference getFeatureList_Property()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getFeatureList_Feature()
+  {
+    return (EReference)featureListEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -404,6 +423,39 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EClass getProperty()
+  {
+    return propertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProperty_Concept()
+  {
+    return (EReference)propertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getProperty_Attribute()
+  {
+    return (EReference)propertyEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getFeature()
   {
     return featureEClass;
@@ -488,6 +540,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     createEReference(featureListEClass, FEATURE_LIST__CONCEPT);
     createEReference(featureListEClass, FEATURE_LIST__CONSTRAINT);
     createEReference(featureListEClass, FEATURE_LIST__KEY);
+    createEReference(featureListEClass, FEATURE_LIST__PROPERTY);
     createEReference(featureListEClass, FEATURE_LIST__FEATURE);
 
     conceptEClass = createEClass(CONCEPT);
@@ -512,6 +565,10 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     keyEClass = createEClass(KEY);
     createEReference(keyEClass, KEY__CONCEPT);
     createEReference(keyEClass, KEY__ATTRIBUTE);
+
+    propertyEClass = createEClass(PROPERTY);
+    createEReference(propertyEClass, PROPERTY__CONCEPT);
+    createEReference(propertyEClass, PROPERTY__ATTRIBUTE);
 
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__VERB);
@@ -557,6 +614,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEReference(getFeatureList_Concept(), this.getConcept(), null, "concept", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureList_Constraint(), this.getConstraint(), null, "constraint", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureList_Key(), this.getKey(), null, "key", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Property(), this.getProperty(), null, "property", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFeatureList_Feature(), this.getFeature(), null, "feature", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -581,6 +639,10 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getKey_Concept(), this.getConcept(), null, "concept", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKey_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getProperty_Concept(), this.getConcept(), null, "concept", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getProperty_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFeature_Verb(), this.getVerb(), "verb", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

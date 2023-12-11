@@ -142,16 +142,39 @@ ruleFeatureList returns [EObject current=null]
 				}
 			)
 		)+
-		otherlv_5='features'
+		otherlv_5='properties'
 		{
-			newLeafNode(otherlv_5, grammarAccess.getFeatureListAccess().getFeaturesKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getFeatureListAccess().getPropertiesKeyword_5());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getFeatureListAccess().getPropertyPropertyParserRuleCall_6_0());
 				}
-				lv_feature_6_0=ruleFeature
+				lv_property_6_0=ruleProperty
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
+					}
+					add(
+						$current,
+						"property",
+						lv_property_6_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Property");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)+
+		otherlv_7='features'
+		{
+			newLeafNode(otherlv_7, grammarAccess.getFeatureListAccess().getFeaturesKeyword_7());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_8_0());
+				}
+				lv_feature_8_0=ruleFeature
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFeatureListRule());
@@ -159,7 +182,7 @@ ruleFeatureList returns [EObject current=null]
 					add(
 						$current,
 						"feature",
-						lv_feature_6_0,
+						lv_feature_8_0,
 						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
 					afterParserOrEnumRuleCall();
 				}
@@ -500,6 +523,72 @@ ruleKey returns [EObject current=null]
 				)
 			)
 		)
+		(
+			otherlv_3='unique'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getKeyAccess().getUniqueKeyword_2_0());
+			}
+			    |
+			otherlv_4='autounique'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getKeyAccess().getAutouniqueKeyword_2_1());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleProperty
+entryRuleProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPropertyRule()); }
+	iv_ruleProperty=ruleProperty
+	{ $current=$iv_ruleProperty.current; }
+	EOF;
+
+// Rule Property
+ruleProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPropertyRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getPropertyAccess().getConceptConceptCrossReference_0_0());
+				}
+			)
+		)
+		(
+			otherlv_1='.'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getPropertyAccess().getFullStopKeyword_1_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getPropertyRule());
+						}
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getPropertyAccess().getAttributeAttributeCrossReference_1_1_0());
+					}
+				)
+			)
+		)
+		otherlv_3='lazy'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPropertyAccess().getLazyKeyword_2());
+		}
 	)
 ;
 

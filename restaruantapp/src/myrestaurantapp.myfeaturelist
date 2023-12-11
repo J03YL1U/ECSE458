@@ -4,14 +4,18 @@ concept Seat
 concept Table
 	int number
 	Seat seat
+	String fakeatt
 	
 constraints
 	Table.number > 0
 	Seat.number > 0
 	
 keys
-	Table.number
-	Seat.number
+	Table.number unique
+	Seat.number unique
+	
+properties
+	Table.fakeatt lazy
 	
 features
 	Add Table

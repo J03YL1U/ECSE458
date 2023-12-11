@@ -6,6 +6,7 @@ FeatureList:
         (concept+=Concept)*
         'constraints' (constraint+=Constraint)+
         'keys' (key+=Key)+
+        'properties' (property+=Property)+
     	'features' (feature+=Feature)+;
     	
 Concept:
@@ -25,7 +26,10 @@ Constraint:
 	(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 	
 Key:
-	(concept=[Concept])('.'(attribute=[Attribute])); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+	(concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique'); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+	
+Property:
+	(concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
        
 Feature:
         (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;

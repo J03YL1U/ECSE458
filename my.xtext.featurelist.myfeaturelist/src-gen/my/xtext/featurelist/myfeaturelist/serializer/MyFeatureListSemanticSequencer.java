@@ -13,6 +13,7 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Property;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Type;
 import my.xtext.featurelist.myfeaturelist.services.MyFeatureListGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
@@ -59,6 +60,9 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 				return; 
 			case MyFeatureListPackage.KEY:
 				sequence_Key(context, (Key) semanticObject); 
+				return; 
+			case MyFeatureListPackage.PROPERTY:
+				sequence_Property(context, (Property) semanticObject); 
 				return; 
 			case MyFeatureListPackage.TYPE:
 				sequence_Type(context, (Type) semanticObject); 
@@ -145,7 +149,7 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     FeatureList returns FeatureList
 	 *
 	 * Constraint:
-	 *     (concept+=Concept* constraint+=Constraint+ key+=Key+ feature+=Feature+)
+	 *     (concept+=Concept* constraint+=Constraint+ key+=Key+ property+=Property+ feature+=Feature+)
 	 * </pre>
 	 */
 	protected void sequence_FeatureList(ISerializationContext context, FeatureList semanticObject) {
@@ -186,6 +190,29 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getKeyAccess().getConceptConceptIDTerminalRuleCall_0_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.KEY__CONCEPT, false));
 		feeder.accept(grammarAccess.getKeyAccess().getAttributeAttributeIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.KEY__ATTRIBUTE, false));
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Property returns Property
+	 *
+	 * Constraint:
+	 *     (concept=[Concept|ID] attribute=[Attribute|ID])
+	 * </pre>
+	 */
+	protected void sequence_Property(ISerializationContext context, Property semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.PROPERTY__CONCEPT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.PROPERTY__CONCEPT));
+			if (transientValues.isValueTransient(semanticObject, MyFeatureListPackage.Literals.PROPERTY__ATTRIBUTE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, MyFeatureListPackage.Literals.PROPERTY__ATTRIBUTE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPropertyAccess().getConceptConceptIDTerminalRuleCall_0_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.PROPERTY__CONCEPT, false));
+		feeder.accept(grammarAccess.getPropertyAccess().getAttributeAttributeIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(MyFeatureListPackage.Literals.PROPERTY__ATTRIBUTE, false));
 		feeder.finish();
 	}
 	

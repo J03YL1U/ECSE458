@@ -11,6 +11,7 @@ import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Property;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -35,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureListImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureListImpl#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureListImpl#getKey <em>Key</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureListImpl#getProperty <em>Property</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.FeatureListImpl#getFeature <em>Feature</em>}</li>
  * </ul>
  *
@@ -71,6 +73,16 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
    * @ordered
    */
   protected EList<Key> key;
+
+  /**
+   * The cached value of the '{@link #getProperty() <em>Property</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getProperty()
+   * @generated
+   * @ordered
+   */
+  protected EList<Property> property;
 
   /**
    * The cached value of the '{@link #getFeature() <em>Feature</em>}' containment reference list.
@@ -154,6 +166,21 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
    * @generated
    */
   @Override
+  public EList<Property> getProperty()
+  {
+    if (property == null)
+    {
+      property = new EObjectContainmentEList<Property>(Property.class, this, MyFeatureListPackage.FEATURE_LIST__PROPERTY);
+    }
+    return property;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Feature> getFeature()
   {
     if (feature == null)
@@ -179,6 +206,8 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
         return ((InternalEList<?>)getConstraint()).basicRemove(otherEnd, msgs);
       case MyFeatureListPackage.FEATURE_LIST__KEY:
         return ((InternalEList<?>)getKey()).basicRemove(otherEnd, msgs);
+      case MyFeatureListPackage.FEATURE_LIST__PROPERTY:
+        return ((InternalEList<?>)getProperty()).basicRemove(otherEnd, msgs);
       case MyFeatureListPackage.FEATURE_LIST__FEATURE:
         return ((InternalEList<?>)getFeature()).basicRemove(otherEnd, msgs);
     }
@@ -201,6 +230,8 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
         return getConstraint();
       case MyFeatureListPackage.FEATURE_LIST__KEY:
         return getKey();
+      case MyFeatureListPackage.FEATURE_LIST__PROPERTY:
+        return getProperty();
       case MyFeatureListPackage.FEATURE_LIST__FEATURE:
         return getFeature();
     }
@@ -230,6 +261,10 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
         getKey().clear();
         getKey().addAll((Collection<? extends Key>)newValue);
         return;
+      case MyFeatureListPackage.FEATURE_LIST__PROPERTY:
+        getProperty().clear();
+        getProperty().addAll((Collection<? extends Property>)newValue);
+        return;
       case MyFeatureListPackage.FEATURE_LIST__FEATURE:
         getFeature().clear();
         getFeature().addAll((Collection<? extends Feature>)newValue);
@@ -257,6 +292,9 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
       case MyFeatureListPackage.FEATURE_LIST__KEY:
         getKey().clear();
         return;
+      case MyFeatureListPackage.FEATURE_LIST__PROPERTY:
+        getProperty().clear();
+        return;
       case MyFeatureListPackage.FEATURE_LIST__FEATURE:
         getFeature().clear();
         return;
@@ -280,6 +318,8 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
         return constraint != null && !constraint.isEmpty();
       case MyFeatureListPackage.FEATURE_LIST__KEY:
         return key != null && !key.isEmpty();
+      case MyFeatureListPackage.FEATURE_LIST__PROPERTY:
+        return property != null && !property.isEmpty();
       case MyFeatureListPackage.FEATURE_LIST__FEATURE:
         return feature != null && !feature.isEmpty();
     }

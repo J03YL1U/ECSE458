@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcept <em>Concept</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraint <em>Constraint</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKey <em>Key</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperty <em>Property</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeature <em>Feature</em>}</li>
  * </ul>
  *
@@ -63,6 +64,18 @@ public interface FeatureList extends EObject
    * @generated
    */
   EList<Key> getKey();
+
+  /**
+   * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+   * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Property}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Property</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Property()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Property> getProperty();
 
   /**
    * Returns the value of the '<em><b>Feature</b></em>' containment reference list.

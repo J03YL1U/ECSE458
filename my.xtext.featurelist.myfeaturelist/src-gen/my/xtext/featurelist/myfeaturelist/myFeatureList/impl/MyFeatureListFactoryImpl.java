@@ -73,6 +73,7 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
       case MyFeatureListPackage.CONDITION: return createCondition();
       case MyFeatureListPackage.CONSTRAINT: return createConstraint();
       case MyFeatureListPackage.KEY: return createKey();
+      case MyFeatureListPackage.PROPERTY: return createProperty();
       case MyFeatureListPackage.FEATURE: return createFeature();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -195,6 +196,18 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
   {
     KeyImpl key = new KeyImpl();
     return key;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Property createProperty()
+  {
+    PropertyImpl property = new PropertyImpl();
+    return property;
   }
 
   /**

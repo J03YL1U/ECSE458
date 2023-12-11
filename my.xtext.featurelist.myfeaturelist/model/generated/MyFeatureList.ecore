@@ -9,6 +9,8 @@
         eType="#//Constraint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="key" upperBound="-1" eType="#//Key"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+        eType="#//Property" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="feature" upperBound="-1"
         eType="#//Feature" containment="true"/>
   </eClassifiers>
@@ -34,6 +36,10 @@
         eType="#//Condition" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Key">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EReference" name="concept" eType="#//Concept"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//Attribute"/>
   </eClassifiers>
