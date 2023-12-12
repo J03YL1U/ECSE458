@@ -24,9 +24,9 @@ public class MethodGeneration {
 		 Resource resource = ResourceHelper.INSTANCE.loadResource("xmiFiles/restoappxmi.xmi");
 		 FeatureList xmiRoot = (FeatureList) resource.getContents().get(0);	
 		 
-		 EList<Feature> features = xmiRoot.getFeature();
-		 EList<Key> keys = xmiRoot.getKey();
-		 EList<Concept> concepts = xmiRoot.getConcept();
+		 EList<Feature> features = xmiRoot.getFeatures();
+		 EList<Key> keys = xmiRoot.getKeys();
+		 EList<Concept> concepts = xmiRoot.getConcepts();
 		 
 		 for (Feature feature : features) {
 			 Verb verb = feature.getVerb();

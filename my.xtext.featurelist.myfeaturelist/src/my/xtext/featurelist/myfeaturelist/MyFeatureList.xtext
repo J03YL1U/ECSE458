@@ -3,11 +3,11 @@ grammar my.xtext.featurelist.myfeaturelist.MyFeatureList with org.eclipse.xtext.
 generate myFeatureList "http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList"
 
 FeatureList:
-        (concept+=Concept)*
-        'constraints' (constraint+=Constraint)+
-        'keys' (key+=Key)+
-        'properties' (property+=Property)+
-    	'features' (feature+=Feature)+;
+        (concepts+=Concept)*
+        'constraints' (constraints+=Constraint)*
+        'keys' (keys+=Key)*
+        'properties' (properties+=Property)*
+    	'features' (features+=Feature)*;
     	
 Concept:
         'concept' name=ID

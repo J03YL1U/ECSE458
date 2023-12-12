@@ -69,49 +69,49 @@ public interface MyFeatureListPackage extends EPackage
   int FEATURE_LIST = 0;
 
   /**
-   * The feature id for the '<em><b>Concept</b></em>' containment reference list.
+   * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__CONCEPT = 0;
+  int FEATURE_LIST__CONCEPTS = 0;
 
   /**
-   * The feature id for the '<em><b>Constraint</b></em>' containment reference list.
+   * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__CONSTRAINT = 1;
+  int FEATURE_LIST__CONSTRAINTS = 1;
 
   /**
-   * The feature id for the '<em><b>Key</b></em>' containment reference list.
+   * The feature id for the '<em><b>Keys</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__KEY = 2;
+  int FEATURE_LIST__KEYS = 2;
 
   /**
-   * The feature id for the '<em><b>Property</b></em>' containment reference list.
+   * The feature id for the '<em><b>Properties</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__PROPERTY = 3;
+  int FEATURE_LIST__PROPERTIES = 3;
 
   /**
-   * The feature id for the '<em><b>Feature</b></em>' containment reference list.
+   * The feature id for the '<em><b>Features</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__FEATURE = 4;
+  int FEATURE_LIST__FEATURES = 4;
 
   /**
    * The number of structural features of the '<em>Feature List</em>' class.
@@ -449,59 +449,59 @@ public interface MyFeatureListPackage extends EPackage
   EClass getFeatureList();
 
   /**
-   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcept <em>Concept</em>}'.
+   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcepts <em>Concepts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Concept</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcept()
+   * @return the meta object for the containment reference list '<em>Concepts</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcepts()
    * @see #getFeatureList()
    * @generated
    */
-  EReference getFeatureList_Concept();
+  EReference getFeatureList_Concepts();
 
   /**
-   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraint <em>Constraint</em>}'.
+   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraints <em>Constraints</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Constraint</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraint()
+   * @return the meta object for the containment reference list '<em>Constraints</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraints()
    * @see #getFeatureList()
    * @generated
    */
-  EReference getFeatureList_Constraint();
+  EReference getFeatureList_Constraints();
 
   /**
-   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKey <em>Key</em>}'.
+   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKeys <em>Keys</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Key</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKey()
+   * @return the meta object for the containment reference list '<em>Keys</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKeys()
    * @see #getFeatureList()
    * @generated
    */
-  EReference getFeatureList_Key();
+  EReference getFeatureList_Keys();
 
   /**
-   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperty <em>Property</em>}'.
+   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperties <em>Properties</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Property</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperty()
+   * @return the meta object for the containment reference list '<em>Properties</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperties()
    * @see #getFeatureList()
    * @generated
    */
-  EReference getFeatureList_Property();
+  EReference getFeatureList_Properties();
 
   /**
-   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeature <em>Feature</em>}'.
+   * Returns the meta object for the containment reference list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeatures <em>Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Feature</em>'.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeature()
+   * @return the meta object for the containment reference list '<em>Features</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeatures()
    * @see #getFeatureList()
    * @generated
    */
-  EReference getFeatureList_Feature();
+  EReference getFeatureList_Features();
 
   /**
    * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept <em>Concept</em>}'.
@@ -814,44 +814,44 @@ public interface MyFeatureListPackage extends EPackage
     EClass FEATURE_LIST = eINSTANCE.getFeatureList();
 
     /**
-     * The meta object literal for the '<em><b>Concept</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Concepts</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__CONCEPT = eINSTANCE.getFeatureList_Concept();
+    EReference FEATURE_LIST__CONCEPTS = eINSTANCE.getFeatureList_Concepts();
 
     /**
-     * The meta object literal for the '<em><b>Constraint</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__CONSTRAINT = eINSTANCE.getFeatureList_Constraint();
+    EReference FEATURE_LIST__CONSTRAINTS = eINSTANCE.getFeatureList_Constraints();
 
     /**
-     * The meta object literal for the '<em><b>Key</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Keys</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__KEY = eINSTANCE.getFeatureList_Key();
+    EReference FEATURE_LIST__KEYS = eINSTANCE.getFeatureList_Keys();
 
     /**
-     * The meta object literal for the '<em><b>Property</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__PROPERTY = eINSTANCE.getFeatureList_Property();
+    EReference FEATURE_LIST__PROPERTIES = eINSTANCE.getFeatureList_Properties();
 
     /**
-     * The meta object literal for the '<em><b>Feature</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__FEATURE = eINSTANCE.getFeatureList_Feature();
+    EReference FEATURE_LIST__FEATURES = eINSTANCE.getFeatureList_Features();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConceptImpl <em>Concept</em>}' class.

@@ -5,6 +5,7 @@ package my.xtext.featurelist.myfeaturelist.validation;
 
 import org.eclipse.xtext.validation.Check;
 
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
@@ -33,7 +34,7 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 		FeatureList featureList = (FeatureList) key.eContainer();
 		
 		if (featureList != null) {
-			for (Key otherKey : featureList.getKey()) {
+			for (Key otherKey : featureList.getKeys()) {
 				if ( !key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept())) {
 					error("There can only be one key per concept",
 							MyFeatureListPackage.Literals.KEY__CONCEPT);
@@ -49,7 +50,7 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 		boolean hasKey = false;
 		
 		if (featureList != null) {
-			for (Key key : featureList.getKey()) {
+			for (Key key : featureList.getKeys()) {
 				if (key.getConcept().equals(concept)) {
 					hasKey = true;
 					break;
@@ -59,6 +60,38 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 			if (!hasKey) {
 				error("Every concept needs a key",
 						MyFeatureListPackage.Literals.CONCEPT__NAME);
+			}
+		}
+	}
+	
+	//TODO: FIX
+	@Check
+	public void checkMultiplicity(Attribute attribute) {
+		String multiplicity = attribute.getMultiplicity();
+		if (multiplicity != null) {
+			String[] symbols = multiplicity.split("..");
+			int from;
+			try {
+				from = Integer.parseInt(symbols[0]);
+			}
+			catch (NumberFormatException e) {
+				if (symbols[1] != "*") {
+					error("Multiplicity's lower bound must be lesser or equal to upper bound",
+							MyFeatureListPackage.Literals.ATTRIBUTE__NAME);
+				}
+				return;
+			}
+			int to;
+			try {
+				to = Integer.parseInt(symbols[1]);
+			}
+			catch (NumberFormatException e) {
+				return;
+			}
+			
+			if (from > to) {
+				error("Multiplicity's lower bound must be lesser or equal to upper bound",
+						MyFeatureListPackage.Literals.ATTRIBUTE__NAME);
 			}
 		}
 	}

@@ -1,0 +1,13 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList')]
+
+
+[template public generate(aFeatureList : FeatureList)]
+[comment @main/]
+[file('myfeaturelist.txt', false, 'UTF-8')]
+Hello world
+[for (aConcept : Concept | aFeatureList.concepts)]
+   [aConcept.name.toLower()/]
+[/for]
+[/file]
+[/template]

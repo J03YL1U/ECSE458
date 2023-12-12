@@ -28,77 +28,77 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	public class FeatureListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.FeatureList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cConceptConceptParserRuleCall_0_0 = (RuleCall)cConceptAssignment_0.eContents().get(0);
+		private final Assignment cConceptsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConceptsConceptParserRuleCall_0_0 = (RuleCall)cConceptsAssignment_0.eContents().get(0);
 		private final Keyword cConstraintsKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cConstraintAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cConstraintConstraintParserRuleCall_2_0 = (RuleCall)cConstraintAssignment_2.eContents().get(0);
+		private final Assignment cConstraintsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cConstraintsConstraintParserRuleCall_2_0 = (RuleCall)cConstraintsAssignment_2.eContents().get(0);
 		private final Keyword cKeysKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cKeyAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cKeyKeyParserRuleCall_4_0 = (RuleCall)cKeyAssignment_4.eContents().get(0);
+		private final Assignment cKeysAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cKeysKeyParserRuleCall_4_0 = (RuleCall)cKeysAssignment_4.eContents().get(0);
 		private final Keyword cPropertiesKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cPropertyAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cPropertyPropertyParserRuleCall_6_0 = (RuleCall)cPropertyAssignment_6.eContents().get(0);
+		private final Assignment cPropertiesAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cPropertiesPropertyParserRuleCall_6_0 = (RuleCall)cPropertiesAssignment_6.eContents().get(0);
 		private final Keyword cFeaturesKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Assignment cFeatureAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cFeatureFeatureParserRuleCall_8_0 = (RuleCall)cFeatureAssignment_8.eContents().get(0);
+		private final Assignment cFeaturesAssignment_8 = (Assignment)cGroup.eContents().get(8);
+		private final RuleCall cFeaturesFeatureParserRuleCall_8_0 = (RuleCall)cFeaturesAssignment_8.eContents().get(0);
 		
 		//FeatureList:
-		//        (concept+=Concept)*
-		//        'constraints' (constraint+=Constraint)+
-		//        'keys' (key+=Key)+
-		//        'properties' (property+=Property)+
-		//        'features' (feature+=Feature)+;
+		//        (concepts+=Concept)*
+		//        'constraints' (constraints+=Constraint)*
+		//        'keys' (keys+=Key)*
+		//        'properties' (properties+=Property)*
+		//        'features' (features+=Feature)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept+=Concept)*
-		//'constraints' (constraint+=Constraint)+
-		//'keys' (key+=Key)+
-		//'properties' (property+=Property)+
-		//'features' (feature+=Feature)+
+		//(concepts+=Concept)*
+		//'constraints' (constraints+=Constraint)*
+		//'keys' (keys+=Key)*
+		//'properties' (properties+=Property)*
+		//'features' (features+=Feature)*
 		public Group getGroup() { return cGroup; }
 		
-		//(concept+=Concept)*
-		public Assignment getConceptAssignment_0() { return cConceptAssignment_0; }
+		//(concepts+=Concept)*
+		public Assignment getConceptsAssignment_0() { return cConceptsAssignment_0; }
 		
 		//Concept
-		public RuleCall getConceptConceptParserRuleCall_0_0() { return cConceptConceptParserRuleCall_0_0; }
+		public RuleCall getConceptsConceptParserRuleCall_0_0() { return cConceptsConceptParserRuleCall_0_0; }
 		
 		//'constraints'
 		public Keyword getConstraintsKeyword_1() { return cConstraintsKeyword_1; }
 		
-		//(constraint+=Constraint)+
-		public Assignment getConstraintAssignment_2() { return cConstraintAssignment_2; }
+		//(constraints+=Constraint)*
+		public Assignment getConstraintsAssignment_2() { return cConstraintsAssignment_2; }
 		
 		//Constraint
-		public RuleCall getConstraintConstraintParserRuleCall_2_0() { return cConstraintConstraintParserRuleCall_2_0; }
+		public RuleCall getConstraintsConstraintParserRuleCall_2_0() { return cConstraintsConstraintParserRuleCall_2_0; }
 		
 		//'keys'
 		public Keyword getKeysKeyword_3() { return cKeysKeyword_3; }
 		
-		//(key+=Key)+
-		public Assignment getKeyAssignment_4() { return cKeyAssignment_4; }
+		//(keys+=Key)*
+		public Assignment getKeysAssignment_4() { return cKeysAssignment_4; }
 		
 		//Key
-		public RuleCall getKeyKeyParserRuleCall_4_0() { return cKeyKeyParserRuleCall_4_0; }
+		public RuleCall getKeysKeyParserRuleCall_4_0() { return cKeysKeyParserRuleCall_4_0; }
 		
 		//'properties'
 		public Keyword getPropertiesKeyword_5() { return cPropertiesKeyword_5; }
 		
-		//(property+=Property)+
-		public Assignment getPropertyAssignment_6() { return cPropertyAssignment_6; }
+		//(properties+=Property)*
+		public Assignment getPropertiesAssignment_6() { return cPropertiesAssignment_6; }
 		
 		//Property
-		public RuleCall getPropertyPropertyParserRuleCall_6_0() { return cPropertyPropertyParserRuleCall_6_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_6_0() { return cPropertiesPropertyParserRuleCall_6_0; }
 		
 		//'features'
 		public Keyword getFeaturesKeyword_7() { return cFeaturesKeyword_7; }
 		
-		//(feature+=Feature)+
-		public Assignment getFeatureAssignment_8() { return cFeatureAssignment_8; }
+		//(features+=Feature)*
+		public Assignment getFeaturesAssignment_8() { return cFeaturesAssignment_8; }
 		
 		//Feature
-		public RuleCall getFeatureFeatureParserRuleCall_8_0() { return cFeatureFeatureParserRuleCall_8_0; }
+		public RuleCall getFeaturesFeatureParserRuleCall_8_0() { return cFeaturesFeatureParserRuleCall_8_0; }
 	}
 	public class ConceptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Concept");
@@ -240,11 +240,6 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
 		
-		///*Multiplicity:
-		//    //(from=MULTIPLICITYSYMBOL)'..'(to=MULTIPLICITYSYMBOL);
-		//    //(from=INT)'..'(to=INT);
-		//    name=ID;
-		//    */
 		//Constraint:
 		//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 		@Override public ParserRule getRule() { return rule; }
@@ -539,11 +534,11 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 
 	
 	//FeatureList:
-	//        (concept+=Concept)*
-	//        'constraints' (constraint+=Constraint)+
-	//        'keys' (key+=Key)+
-	//        'properties' (property+=Property)+
-	//        'features' (feature+=Feature)+;
+	//        (concepts+=Concept)*
+	//        'constraints' (constraints+=Constraint)*
+	//        'keys' (keys+=Key)*
+	//        'properties' (properties+=Property)*
+	//        'features' (features+=Feature)*;
 	public FeatureListElements getFeatureListAccess() {
 		return pFeatureList;
 	}
@@ -593,11 +588,6 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		return getConditionAccess().getRule();
 	}
 	
-	///*Multiplicity:
-	//    //(from=MULTIPLICITYSYMBOL)'..'(to=MULTIPLICITYSYMBOL);
-	//    //(from=INT)'..'(to=INT);
-	//    name=ID;
-	//    */
 	//Constraint:
 	//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
 	public ConstraintElements getConstraintAccess() {

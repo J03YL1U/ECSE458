@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcept <em>Concept</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraint <em>Constraint</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKey <em>Key</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperty <em>Property</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeature <em>Feature</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getKeys <em>Keys</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getProperties <em>Properties</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList()
@@ -30,63 +30,63 @@ import org.eclipse.emf.ecore.EObject;
 public interface FeatureList extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Concept</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Concepts</b></em>' containment reference list.
    * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Concept}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Concept</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Concept()
+   * @return the value of the '<em>Concepts</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Concepts()
    * @model containment="true"
    * @generated
    */
-  EList<Concept> getConcept();
+  EList<Concept> getConcepts();
 
   /**
-   * Returns the value of the '<em><b>Constraint</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Constraints</b></em>' containment reference list.
    * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Constraint</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Constraint()
+   * @return the value of the '<em>Constraints</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Constraints()
    * @model containment="true"
    * @generated
    */
-  EList<Constraint> getConstraint();
+  EList<Constraint> getConstraints();
 
   /**
-   * Returns the value of the '<em><b>Key</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Keys</b></em>' containment reference list.
    * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Key}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Key</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Key()
+   * @return the value of the '<em>Keys</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Keys()
    * @model containment="true"
    * @generated
    */
-  EList<Key> getKey();
+  EList<Key> getKeys();
 
   /**
-   * Returns the value of the '<em><b>Property</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
    * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Property}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Property</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Property()
+   * @return the value of the '<em>Properties</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Properties()
    * @model containment="true"
    * @generated
    */
-  EList<Property> getProperty();
+  EList<Property> getProperties();
 
   /**
-   * Returns the value of the '<em><b>Feature</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Features</b></em>' containment reference list.
    * The list contents are of type {@link my.xtext.featurelist.myfeaturelist.myFeatureList.Feature}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Feature</em>' containment reference list.
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Feature()
+   * @return the value of the '<em>Features</em>' containment reference list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getFeatureList_Features()
    * @model containment="true"
    * @generated
    */
-  EList<Feature> getFeature();
+  EList<Feature> getFeatures();
 
 } // FeatureList

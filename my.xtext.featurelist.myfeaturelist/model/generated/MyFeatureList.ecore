@@ -3,15 +3,15 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="myFeatureList" nsURI="http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList"
     nsPrefix="myFeatureList">
   <eClassifiers xsi:type="ecore:EClass" name="FeatureList">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="concept" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="concepts" upperBound="-1"
         eType="#//Concept" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constraints" upperBound="-1"
         eType="#//Constraint" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="key" upperBound="-1" eType="#//Key"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="keys" upperBound="-1" eType="#//Key"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="property" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="feature" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="features" upperBound="-1"
         eType="#//Feature" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Concept">

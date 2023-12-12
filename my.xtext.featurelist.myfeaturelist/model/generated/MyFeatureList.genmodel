@@ -13,11 +13,11 @@
       <genEnumLiterals ecoreEnumLiteral="MyFeatureList.ecore#//Verb/Display"/>
     </genEnums>
     <genClasses ecoreClass="MyFeatureList.ecore#//FeatureList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/concept"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/constraint"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/key"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/property"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/feature"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/concepts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/keys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//FeatureList/features"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Concept">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Concept/name"/>

@@ -140,7 +140,7 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     FeatureList returns FeatureList
 	 *
 	 * Constraint:
-	 *     (concept+=Concept* constraint+=Constraint+ key+=Key+ property+=Property+ feature+=Feature+)
+	 *     (concepts+=Concept* constraints+=Constraint* keys+=Key* properties+=Property* features+=Feature*)
 	 * </pre>
 	 */
 	protected void sequence_FeatureList(ISerializationContext context, FeatureList semanticObject) {

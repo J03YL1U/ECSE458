@@ -181,7 +181,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Concept()
+  public EReference getFeatureList_Concepts()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(0);
   }
@@ -192,7 +192,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Constraint()
+  public EReference getFeatureList_Constraints()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(1);
   }
@@ -203,7 +203,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Key()
+  public EReference getFeatureList_Keys()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(2);
   }
@@ -214,7 +214,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Property()
+  public EReference getFeatureList_Properties()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(3);
   }
@@ -225,7 +225,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Feature()
+  public EReference getFeatureList_Features()
   {
     return (EReference)featureListEClass.getEStructuralFeatures().get(4);
   }
@@ -548,11 +548,11 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
 
     // Create classes and their features
     featureListEClass = createEClass(FEATURE_LIST);
-    createEReference(featureListEClass, FEATURE_LIST__CONCEPT);
-    createEReference(featureListEClass, FEATURE_LIST__CONSTRAINT);
-    createEReference(featureListEClass, FEATURE_LIST__KEY);
-    createEReference(featureListEClass, FEATURE_LIST__PROPERTY);
-    createEReference(featureListEClass, FEATURE_LIST__FEATURE);
+    createEReference(featureListEClass, FEATURE_LIST__CONCEPTS);
+    createEReference(featureListEClass, FEATURE_LIST__CONSTRAINTS);
+    createEReference(featureListEClass, FEATURE_LIST__KEYS);
+    createEReference(featureListEClass, FEATURE_LIST__PROPERTIES);
+    createEReference(featureListEClass, FEATURE_LIST__FEATURES);
 
     conceptEClass = createEClass(CONCEPT);
     createEAttribute(conceptEClass, CONCEPT__NAME);
@@ -623,11 +623,11 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
 
     // Initialize classes and features; add operations and parameters
     initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeatureList_Concept(), this.getConcept(), null, "concept", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Constraint(), this.getConstraint(), null, "constraint", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Key(), this.getKey(), null, "key", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Property(), this.getProperty(), null, "property", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Feature(), this.getFeature(), null, "feature", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Keys(), this.getKey(), null, "keys", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Properties(), this.getProperty(), null, "properties", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureList_Features(), this.getFeature(), null, "features", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

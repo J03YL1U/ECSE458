@@ -17,7 +17,8 @@ public class TextToXMIConverter {
 
 	    // replace absoluteTargetFolderPath with the path to your folder
 	    String absoluteTargetFolderPath = "C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\";
-	    String inputURI = "file:///" + absoluteTargetFolderPath + "restaruantapp\\src\\myrestaurantapp.myfeaturelist";
+	   // String inputURI = "file:///" + absoluteTargetFolderPath + "restaruantapp\\src\\myrestaurantapp.myfeaturelist";
+	    String inputURI = "file:///" + absoluteTargetFolderPath + "myrestaurantappFromUmple.myfeaturelist";
 	    String outputURI = "file:///" + absoluteTargetFolderPath + "attempt.xmi";
 	    
 	    URI uri = URI.createURI(inputURI);

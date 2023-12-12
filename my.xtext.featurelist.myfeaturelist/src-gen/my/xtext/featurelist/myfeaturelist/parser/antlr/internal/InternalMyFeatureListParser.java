@@ -128,7 +128,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFeatureList"
-    // InternalMyFeatureList.g:72:1: ruleFeatureList returns [EObject current=null] : ( ( (lv_concept_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraint_2_0= ruleConstraint ) )+ otherlv_3= 'keys' ( (lv_key_4_0= ruleKey ) )+ otherlv_5= 'properties' ( (lv_property_6_0= ruleProperty ) )+ otherlv_7= 'features' ( (lv_feature_8_0= ruleFeature ) )+ ) ;
+    // InternalMyFeatureList.g:72:1: ruleFeatureList returns [EObject current=null] : ( ( (lv_concepts_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraints_2_0= ruleConstraint ) )* otherlv_3= 'keys' ( (lv_keys_4_0= ruleKey ) )* otherlv_5= 'properties' ( (lv_properties_6_0= ruleProperty ) )* otherlv_7= 'features' ( (lv_features_8_0= ruleFeature ) )* ) ;
     public final EObject ruleFeatureList() throws RecognitionException {
         EObject current = null;
 
@@ -136,28 +136,28 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
         Token otherlv_3=null;
         Token otherlv_5=null;
         Token otherlv_7=null;
-        EObject lv_concept_0_0 = null;
+        EObject lv_concepts_0_0 = null;
 
-        EObject lv_constraint_2_0 = null;
+        EObject lv_constraints_2_0 = null;
 
-        EObject lv_key_4_0 = null;
+        EObject lv_keys_4_0 = null;
 
-        EObject lv_property_6_0 = null;
+        EObject lv_properties_6_0 = null;
 
-        EObject lv_feature_8_0 = null;
+        EObject lv_features_8_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalMyFeatureList.g:78:2: ( ( ( (lv_concept_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraint_2_0= ruleConstraint ) )+ otherlv_3= 'keys' ( (lv_key_4_0= ruleKey ) )+ otherlv_5= 'properties' ( (lv_property_6_0= ruleProperty ) )+ otherlv_7= 'features' ( (lv_feature_8_0= ruleFeature ) )+ ) )
-            // InternalMyFeatureList.g:79:2: ( ( (lv_concept_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraint_2_0= ruleConstraint ) )+ otherlv_3= 'keys' ( (lv_key_4_0= ruleKey ) )+ otherlv_5= 'properties' ( (lv_property_6_0= ruleProperty ) )+ otherlv_7= 'features' ( (lv_feature_8_0= ruleFeature ) )+ )
+            // InternalMyFeatureList.g:78:2: ( ( ( (lv_concepts_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraints_2_0= ruleConstraint ) )* otherlv_3= 'keys' ( (lv_keys_4_0= ruleKey ) )* otherlv_5= 'properties' ( (lv_properties_6_0= ruleProperty ) )* otherlv_7= 'features' ( (lv_features_8_0= ruleFeature ) )* ) )
+            // InternalMyFeatureList.g:79:2: ( ( (lv_concepts_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraints_2_0= ruleConstraint ) )* otherlv_3= 'keys' ( (lv_keys_4_0= ruleKey ) )* otherlv_5= 'properties' ( (lv_properties_6_0= ruleProperty ) )* otherlv_7= 'features' ( (lv_features_8_0= ruleFeature ) )* )
             {
-            // InternalMyFeatureList.g:79:2: ( ( (lv_concept_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraint_2_0= ruleConstraint ) )+ otherlv_3= 'keys' ( (lv_key_4_0= ruleKey ) )+ otherlv_5= 'properties' ( (lv_property_6_0= ruleProperty ) )+ otherlv_7= 'features' ( (lv_feature_8_0= ruleFeature ) )+ )
-            // InternalMyFeatureList.g:80:3: ( (lv_concept_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraint_2_0= ruleConstraint ) )+ otherlv_3= 'keys' ( (lv_key_4_0= ruleKey ) )+ otherlv_5= 'properties' ( (lv_property_6_0= ruleProperty ) )+ otherlv_7= 'features' ( (lv_feature_8_0= ruleFeature ) )+
+            // InternalMyFeatureList.g:79:2: ( ( (lv_concepts_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraints_2_0= ruleConstraint ) )* otherlv_3= 'keys' ( (lv_keys_4_0= ruleKey ) )* otherlv_5= 'properties' ( (lv_properties_6_0= ruleProperty ) )* otherlv_7= 'features' ( (lv_features_8_0= ruleFeature ) )* )
+            // InternalMyFeatureList.g:80:3: ( (lv_concepts_0_0= ruleConcept ) )* otherlv_1= 'constraints' ( (lv_constraints_2_0= ruleConstraint ) )* otherlv_3= 'keys' ( (lv_keys_4_0= ruleKey ) )* otherlv_5= 'properties' ( (lv_properties_6_0= ruleProperty ) )* otherlv_7= 'features' ( (lv_features_8_0= ruleFeature ) )*
             {
-            // InternalMyFeatureList.g:80:3: ( (lv_concept_0_0= ruleConcept ) )*
+            // InternalMyFeatureList.g:80:3: ( (lv_concepts_0_0= ruleConcept ) )*
             loop1:
             do {
                 int alt1=2;
@@ -170,16 +170,16 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
                 switch (alt1) {
             	case 1 :
-            	    // InternalMyFeatureList.g:81:4: (lv_concept_0_0= ruleConcept )
+            	    // InternalMyFeatureList.g:81:4: (lv_concepts_0_0= ruleConcept )
             	    {
-            	    // InternalMyFeatureList.g:81:4: (lv_concept_0_0= ruleConcept )
-            	    // InternalMyFeatureList.g:82:5: lv_concept_0_0= ruleConcept
+            	    // InternalMyFeatureList.g:81:4: (lv_concepts_0_0= ruleConcept )
+            	    // InternalMyFeatureList.g:82:5: lv_concepts_0_0= ruleConcept
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getConceptConceptParserRuleCall_0_0());
+            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getConceptsConceptParserRuleCall_0_0());
             	    				
             	    pushFollow(FOLLOW_3);
-            	    lv_concept_0_0=ruleConcept();
+            	    lv_concepts_0_0=ruleConcept();
 
             	    state._fsp--;
 
@@ -189,8 +189,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"concept",
-            	    						lv_concept_0_0,
+            	    						"concepts",
+            	    						lv_concepts_0_0,
             	    						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Concept");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -210,8 +210,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getFeatureListAccess().getConstraintsKeyword_1());
             		
-            // InternalMyFeatureList.g:103:3: ( (lv_constraint_2_0= ruleConstraint ) )+
-            int cnt2=0;
+            // InternalMyFeatureList.g:103:3: ( (lv_constraints_2_0= ruleConstraint ) )*
             loop2:
             do {
                 int alt2=2;
@@ -224,16 +223,16 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // InternalMyFeatureList.g:104:4: (lv_constraint_2_0= ruleConstraint )
+            	    // InternalMyFeatureList.g:104:4: (lv_constraints_2_0= ruleConstraint )
             	    {
-            	    // InternalMyFeatureList.g:104:4: (lv_constraint_2_0= ruleConstraint )
-            	    // InternalMyFeatureList.g:105:5: lv_constraint_2_0= ruleConstraint
+            	    // InternalMyFeatureList.g:104:4: (lv_constraints_2_0= ruleConstraint )
+            	    // InternalMyFeatureList.g:105:5: lv_constraints_2_0= ruleConstraint
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getConstraintConstraintParserRuleCall_2_0());
+            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getConstraintsConstraintParserRuleCall_2_0());
             	    				
-            	    pushFollow(FOLLOW_5);
-            	    lv_constraint_2_0=ruleConstraint();
+            	    pushFollow(FOLLOW_4);
+            	    lv_constraints_2_0=ruleConstraint();
 
             	    state._fsp--;
 
@@ -243,8 +242,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"constraint",
-            	    						lv_constraint_2_0,
+            	    						"constraints",
+            	    						lv_constraints_2_0,
             	    						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Constraint");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -256,20 +255,15 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt2 >= 1 ) break loop2;
-                        EarlyExitException eee =
-                            new EarlyExitException(2, input);
-                        throw eee;
+            	    break loop2;
                 }
-                cnt2++;
             } while (true);
 
-            otherlv_3=(Token)match(input,13,FOLLOW_4); 
+            otherlv_3=(Token)match(input,13,FOLLOW_5); 
 
             			newLeafNode(otherlv_3, grammarAccess.getFeatureListAccess().getKeysKeyword_3());
             		
-            // InternalMyFeatureList.g:126:3: ( (lv_key_4_0= ruleKey ) )+
-            int cnt3=0;
+            // InternalMyFeatureList.g:126:3: ( (lv_keys_4_0= ruleKey ) )*
             loop3:
             do {
                 int alt3=2;
@@ -282,16 +276,16 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalMyFeatureList.g:127:4: (lv_key_4_0= ruleKey )
+            	    // InternalMyFeatureList.g:127:4: (lv_keys_4_0= ruleKey )
             	    {
-            	    // InternalMyFeatureList.g:127:4: (lv_key_4_0= ruleKey )
-            	    // InternalMyFeatureList.g:128:5: lv_key_4_0= ruleKey
+            	    // InternalMyFeatureList.g:127:4: (lv_keys_4_0= ruleKey )
+            	    // InternalMyFeatureList.g:128:5: lv_keys_4_0= ruleKey
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getKeyKeyParserRuleCall_4_0());
+            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getKeysKeyParserRuleCall_4_0());
             	    				
-            	    pushFollow(FOLLOW_6);
-            	    lv_key_4_0=ruleKey();
+            	    pushFollow(FOLLOW_5);
+            	    lv_keys_4_0=ruleKey();
 
             	    state._fsp--;
 
@@ -301,8 +295,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"key",
-            	    						lv_key_4_0,
+            	    						"keys",
+            	    						lv_keys_4_0,
             	    						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Key");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -314,20 +308,15 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
-                        EarlyExitException eee =
-                            new EarlyExitException(3, input);
-                        throw eee;
+            	    break loop3;
                 }
-                cnt3++;
             } while (true);
 
-            otherlv_5=(Token)match(input,14,FOLLOW_4); 
+            otherlv_5=(Token)match(input,14,FOLLOW_6); 
 
             			newLeafNode(otherlv_5, grammarAccess.getFeatureListAccess().getPropertiesKeyword_5());
             		
-            // InternalMyFeatureList.g:149:3: ( (lv_property_6_0= ruleProperty ) )+
-            int cnt4=0;
+            // InternalMyFeatureList.g:149:3: ( (lv_properties_6_0= ruleProperty ) )*
             loop4:
             do {
                 int alt4=2;
@@ -340,16 +329,16 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // InternalMyFeatureList.g:150:4: (lv_property_6_0= ruleProperty )
+            	    // InternalMyFeatureList.g:150:4: (lv_properties_6_0= ruleProperty )
             	    {
-            	    // InternalMyFeatureList.g:150:4: (lv_property_6_0= ruleProperty )
-            	    // InternalMyFeatureList.g:151:5: lv_property_6_0= ruleProperty
+            	    // InternalMyFeatureList.g:150:4: (lv_properties_6_0= ruleProperty )
+            	    // InternalMyFeatureList.g:151:5: lv_properties_6_0= ruleProperty
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getPropertyPropertyParserRuleCall_6_0());
+            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getPropertiesPropertyParserRuleCall_6_0());
             	    				
-            	    pushFollow(FOLLOW_7);
-            	    lv_property_6_0=ruleProperty();
+            	    pushFollow(FOLLOW_6);
+            	    lv_properties_6_0=ruleProperty();
 
             	    state._fsp--;
 
@@ -359,8 +348,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"property",
-            	    						lv_property_6_0,
+            	    						"properties",
+            	    						lv_properties_6_0,
             	    						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Property");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -372,20 +361,15 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt4 >= 1 ) break loop4;
-                        EarlyExitException eee =
-                            new EarlyExitException(4, input);
-                        throw eee;
+            	    break loop4;
                 }
-                cnt4++;
             } while (true);
 
-            otherlv_7=(Token)match(input,15,FOLLOW_8); 
+            otherlv_7=(Token)match(input,15,FOLLOW_7); 
 
             			newLeafNode(otherlv_7, grammarAccess.getFeatureListAccess().getFeaturesKeyword_7());
             		
-            // InternalMyFeatureList.g:172:3: ( (lv_feature_8_0= ruleFeature ) )+
-            int cnt5=0;
+            // InternalMyFeatureList.g:172:3: ( (lv_features_8_0= ruleFeature ) )*
             loop5:
             do {
                 int alt5=2;
@@ -398,16 +382,16 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalMyFeatureList.g:173:4: (lv_feature_8_0= ruleFeature )
+            	    // InternalMyFeatureList.g:173:4: (lv_features_8_0= ruleFeature )
             	    {
-            	    // InternalMyFeatureList.g:173:4: (lv_feature_8_0= ruleFeature )
-            	    // InternalMyFeatureList.g:174:5: lv_feature_8_0= ruleFeature
+            	    // InternalMyFeatureList.g:173:4: (lv_features_8_0= ruleFeature )
+            	    // InternalMyFeatureList.g:174:5: lv_features_8_0= ruleFeature
             	    {
 
-            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getFeatureFeatureParserRuleCall_8_0());
+            	    					newCompositeNode(grammarAccess.getFeatureListAccess().getFeaturesFeatureParserRuleCall_8_0());
             	    				
-            	    pushFollow(FOLLOW_9);
-            	    lv_feature_8_0=ruleFeature();
+            	    pushFollow(FOLLOW_7);
+            	    lv_features_8_0=ruleFeature();
 
             	    state._fsp--;
 
@@ -417,8 +401,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    					}
             	    					add(
             	    						current,
-            	    						"feature",
-            	    						lv_feature_8_0,
+            	    						"features",
+            	    						lv_features_8_0,
             	    						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
             	    					afterParserOrEnumRuleCall();
             	    				
@@ -430,12 +414,8 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt5 >= 1 ) break loop5;
-                        EarlyExitException eee =
-                            new EarlyExitException(5, input);
-                        throw eee;
+            	    break loop5;
                 }
-                cnt5++;
             } while (true);
 
 
@@ -516,7 +496,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:209:2: (otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )* )
             // InternalMyFeatureList.g:210:3: otherlv_0= 'concept' ( (lv_name_1_0= RULE_ID ) ) ( (lv_attributes_2_0= ruleAttribute ) )*
             {
-            otherlv_0=(Token)match(input,16,FOLLOW_4); 
+            otherlv_0=(Token)match(input,16,FOLLOW_8); 
 
             			newLeafNode(otherlv_0, grammarAccess.getConceptAccess().getConceptKeyword_0());
             		
@@ -526,7 +506,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:215:4: (lv_name_1_0= RULE_ID )
             // InternalMyFeatureList.g:216:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_9); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getConceptAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -567,7 +547,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             	    					newCompositeNode(grammarAccess.getConceptAccess().getAttributesAttributeParserRuleCall_2_0());
             	    				
-            	    pushFollow(FOLLOW_10);
+            	    pushFollow(FOLLOW_9);
             	    lv_attributes_2_0=ruleAttribute();
 
             	    state._fsp--;
@@ -682,7 +662,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getAttributeAccess().getTypeTypeParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_8);
             lv_type_0_0=ruleType();
 
             state._fsp--;
@@ -710,7 +690,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:290:4: (lv_name_1_0= RULE_ID )
             // InternalMyFeatureList.g:291:5: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_11); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_10); 
 
             					newLeafNode(lv_name_1_0, grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0());
             				
@@ -981,7 +961,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalMyFeatureList.g:380:4: otherlv_0= '>'
                     {
-                    otherlv_0=(Token)match(input,17,FOLLOW_12); 
+                    otherlv_0=(Token)match(input,17,FOLLOW_11); 
 
                     				newLeafNode(otherlv_0, grammarAccess.getConditionAccess().getGreaterThanSignKeyword_0_0());
                     			
@@ -991,7 +971,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 2 :
                     // InternalMyFeatureList.g:385:4: otherlv_1= '>='
                     {
-                    otherlv_1=(Token)match(input,18,FOLLOW_12); 
+                    otherlv_1=(Token)match(input,18,FOLLOW_11); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getConditionAccess().getGreaterThanSignEqualsSignKeyword_0_1());
                     			
@@ -1001,7 +981,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 3 :
                     // InternalMyFeatureList.g:390:4: otherlv_2= '='
                     {
-                    otherlv_2=(Token)match(input,19,FOLLOW_12); 
+                    otherlv_2=(Token)match(input,19,FOLLOW_11); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getConditionAccess().getEqualsSignKeyword_0_2());
                     			
@@ -1011,7 +991,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 4 :
                     // InternalMyFeatureList.g:395:4: otherlv_3= '<='
                     {
-                    otherlv_3=(Token)match(input,20,FOLLOW_12); 
+                    otherlv_3=(Token)match(input,20,FOLLOW_11); 
 
                     				newLeafNode(otherlv_3, grammarAccess.getConditionAccess().getLessThanSignEqualsSignKeyword_0_3());
                     			
@@ -1021,7 +1001,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 5 :
                     // InternalMyFeatureList.g:400:4: otherlv_4= '<'
                     {
-                    otherlv_4=(Token)match(input,21,FOLLOW_12); 
+                    otherlv_4=(Token)match(input,21,FOLLOW_11); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getConditionAccess().getLessThanSignKeyword_0_4());
                     			
@@ -1147,7 +1127,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             						current = createModelElement(grammarAccess.getConstraintRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             					newLeafNode(otherlv_0, grammarAccess.getConstraintAccess().getConceptConceptCrossReference_0_0());
             				
@@ -1160,7 +1140,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:455:3: (otherlv_1= '.' ( (otherlv_2= RULE_ID ) ) )
             // InternalMyFeatureList.g:456:4: otherlv_1= '.' ( (otherlv_2= RULE_ID ) )
             {
-            otherlv_1=(Token)match(input,22,FOLLOW_4); 
+            otherlv_1=(Token)match(input,22,FOLLOW_8); 
 
             				newLeafNode(otherlv_1, grammarAccess.getConstraintAccess().getFullStopKeyword_1_0());
             			
@@ -1175,7 +1155,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             							current = createModelElement(grammarAccess.getConstraintRule());
             						}
             					
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_14); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_13); 
 
             						newLeafNode(otherlv_2, grammarAccess.getConstraintAccess().getAttributeAttributeCrossReference_1_1_0());
             					
@@ -1309,7 +1289,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             						current = createModelElement(grammarAccess.getKeyRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             					newLeafNode(otherlv_0, grammarAccess.getKeyAccess().getConceptConceptCrossReference_0_0());
             				
@@ -1322,7 +1302,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:525:3: (otherlv_1= '.' ( (otherlv_2= RULE_ID ) ) )
             // InternalMyFeatureList.g:526:4: otherlv_1= '.' ( (otherlv_2= RULE_ID ) )
             {
-            otherlv_1=(Token)match(input,22,FOLLOW_4); 
+            otherlv_1=(Token)match(input,22,FOLLOW_8); 
 
             				newLeafNode(otherlv_1, grammarAccess.getKeyAccess().getFullStopKeyword_1_0());
             			
@@ -1337,7 +1317,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             							current = createModelElement(grammarAccess.getKeyRule());
             						}
             					
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_15); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_14); 
 
             						newLeafNode(otherlv_2, grammarAccess.getKeyAccess().getAttributeAttributeCrossReference_1_1_0());
             					
@@ -1479,7 +1459,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             						current = createModelElement(grammarAccess.getPropertyRule());
             					}
             				
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_13); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_12); 
 
             					newLeafNode(otherlv_0, grammarAccess.getPropertyAccess().getConceptConceptCrossReference_0_0());
             				
@@ -1492,7 +1472,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             // InternalMyFeatureList.g:587:3: (otherlv_1= '.' ( (otherlv_2= RULE_ID ) ) )
             // InternalMyFeatureList.g:588:4: otherlv_1= '.' ( (otherlv_2= RULE_ID ) )
             {
-            otherlv_1=(Token)match(input,22,FOLLOW_4); 
+            otherlv_1=(Token)match(input,22,FOLLOW_8); 
 
             				newLeafNode(otherlv_1, grammarAccess.getPropertyAccess().getFullStopKeyword_1_0());
             			
@@ -1507,7 +1487,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             							current = createModelElement(grammarAccess.getPropertyRule());
             						}
             					
-            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_16); 
+            otherlv_2=(Token)match(input,RULE_ID,FOLLOW_15); 
 
             						newLeafNode(otherlv_2, grammarAccess.getPropertyAccess().getAttributeAttributeCrossReference_1_1_0());
             					
@@ -1612,7 +1592,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
 
             					newCompositeNode(grammarAccess.getFeatureAccess().getVerbVerbEnumRuleCall_0_0());
             				
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_8);
             lv_verb_0_0=ruleVerb();
 
             state._fsp--;
@@ -1645,7 +1625,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
             						current = createModelElement(grammarAccess.getFeatureRule());
             					}
             				
-            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_17); 
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_16); 
 
             					newLeafNode(otherlv_1, grammarAccess.getFeatureAccess().getConceptConceptCrossReference_1_0());
             				
@@ -1666,7 +1646,7 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // InternalMyFeatureList.g:662:4: otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
                     {
-                    otherlv_2=(Token)match(input,22,FOLLOW_4); 
+                    otherlv_2=(Token)match(input,22,FOLLOW_8); 
 
                     				newLeafNode(otherlv_2, grammarAccess.getFeatureAccess().getFullStopKeyword_2_0());
                     			
@@ -1864,19 +1844,18 @@ public class InternalMyFeatureListParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000011000L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000002010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000000008010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x000000003C000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x000000003C000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000022L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x00000000003E0000L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000001800000L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000000002010L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000008010L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x000000003C000002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000022L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000000003E0000L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000001800000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000400002L});
 
 }
