@@ -1,8 +1,7 @@
-Hello world
-   restoapp
-   table
-   seat
-   menu
-   menuitem
-   pricedmenuitem
-   bill
+Method Generation
+		public String addTable(hello world);
+		public void removeTable(hello world);
+		public String updateSeat(hello world);
+		public String getTable(hello world);
+		public String addTable(hello world);
+		public void removeTable(hello world);

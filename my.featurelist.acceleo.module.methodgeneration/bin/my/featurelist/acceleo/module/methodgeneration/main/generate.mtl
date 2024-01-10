@@ -5,9 +5,45 @@
 [template public generate(aFeatureList : FeatureList)]
 [comment @main/]
 [file('myfeaturelist.txt', false, 'UTF-8')]
-Hello world
-[for (aConcept : Concept | aFeatureList.concepts)]
-   [aConcept.name.toLower()/]
+Method Generation
+[for (aFeature : Feature | aFeatureList.features)]
+	[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+		[add(aFeature)/]
+	[/if]
+	[if (aFeature.verb.toString().equalsIgnoreCase('Remove'))]
+		[remove(aFeature)/]
+	[/if]
+	[if (aFeature.verb.toString().equalsIgnoreCase('Update'))]
+		[update(aFeature)/]
+	[/if]
+	[if (aFeature.verb.toString().equalsIgnoreCase('Display'))]
+		[display(aFeature)/]
+	[/if]
 [/for]
 [/file]
+[/template]
+
+[template public add(aFeature : Feature)]
+public String add[createName(aFeature)/]([paramList(aFeature)/]);
+[/template]
+
+[template public remove(aFeature : Feature)]
+public void remove[createName(aFeature)/]([paramList(aFeature)/]);
+[/template]
+
+[template public update(aFeature : Feature)]
+public String update[createName(aFeature)/]([paramList(aFeature)/]);
+[/template]
+
+[template public display(aFeature : Feature)]
+public String get[createName(aFeature)/]([paramList(aFeature)/]);
+[/template]
+
+[template public createName(aFeature : Feature)]
+[if ((not aFeature.attribute.name.oclIsUndefined()) and (not aFeature.verb.toString().equalsIgnoreCase('Update')))]
+	[aFeature.attribute.name/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
+[/template]
+
+[template public paramList(aFeature : Feature)]
+hello world
 [/template]

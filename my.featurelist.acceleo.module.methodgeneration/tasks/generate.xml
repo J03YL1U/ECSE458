@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="generate" name="my.featurelist.acceleo.module.methodgeneration">
-    <property name="ECLIPSE_HOME" value="../../../eclipse/modeling-2022-122/eclipse"/>
-    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+    <property name="ECLIPSE_HOME" value="../../../../../../../eclipse/modeling-2022-122/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../../../../eclipse-workspace-modelingtools"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="my.featurelist.acceleo.module.methodgeneration.libraryclasspath">
