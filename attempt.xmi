@@ -107,10 +107,6 @@
   <features verb="Remove" concept="//@concepts.1"/>
   <features verb="Update" concept="//@concepts.2" attribute="//@concepts.2/@attributes.0"/>
   <features verb="Display" concept="//@concepts.1"/>
-  <features concept="//@concepts.1">
-    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|16"/>
-  </features>
-  <features verb="Remove" concept="//@concepts.1">
-    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|18"/>
-  </features>
+  <features concept="//@concepts.1" attribute="//@concepts.1/@attributes.6"/>
+  <features verb="Remove" concept="//@concepts.1" attribute="//@concepts.1/@attributes.6"/>
 </myFeatureList:FeatureList>

@@ -1,7 +1,8 @@
 Method Generation
-		public String addTable(hello world);
-		public void removeTable(hello world);
-		public String updateSeat(hello world);
-		public String getTable(hello world);
-		public String addTable(hello world);
-		public void removeTable(hello world);
+		public String addTable(		int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats, 
+		);
+		public void removeTable();
+		public String updateSeat();
+		public String getTable();
+		public String addSeatsToTable();
+		public void removeSeatsFromTable();

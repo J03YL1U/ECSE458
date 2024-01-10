@@ -41,9 +41,17 @@ public String get[createName(aFeature)/]([paramList(aFeature)/]);
 
 [template public createName(aFeature : Feature)]
 [if ((not aFeature.attribute.name.oclIsUndefined()) and (not aFeature.verb.toString().equalsIgnoreCase('Update')))]
-	[aFeature.attribute.name/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
+[aFeature.attribute.name.toUpperFirst()/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
 [/template]
 
 [template public paramList(aFeature : Feature)]
-hello world
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+	[if (aFeature.attribute.name.oclIsUndefined())]
+		[listAttributes(aFeature.concept)/]
+	[/if]
+[/if]
+[/template]
+
+[template public listAttributes(aConcept : Concept)]
+[for (anAttribute : Attribute | aConcept.attributes)][anAttribute.type.name/] [anAttribute.name.toLowerFirst()/], [/for]
 [/template]
