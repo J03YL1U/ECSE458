@@ -8,35 +8,35 @@
 Method Generation
 [for (aFeature : Feature | aFeatureList.features)]
 	[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
-		[add(aFeature)/]
+		[add(aFeature, aFeatureList)/]
 	[/if]
 	[if (aFeature.verb.toString().equalsIgnoreCase('Remove'))]
-		[remove(aFeature)/]
+		[remove(aFeature, aFeatureList)/]
 	[/if]
 	[if (aFeature.verb.toString().equalsIgnoreCase('Update'))]
-		[update(aFeature)/]
+		[update(aFeature, aFeatureList)/]
 	[/if]
 	[if (aFeature.verb.toString().equalsIgnoreCase('Display'))]
-		[display(aFeature)/]
+		[display(aFeature, aFeatureList)/]
 	[/if]
 [/for]
 [/file]
 [/template]
 
-[template public add(aFeature : Feature)]
-public String add[createName(aFeature)/]([paramList(aFeature)/]);
+[template public add(aFeature : Feature, aFeatureList : FeatureList)]
+public String add[createName(aFeature)/]([paramList(aFeature, aFeatureList)/]);
 [/template]
 
-[template public remove(aFeature : Feature)]
-public void remove[createName(aFeature)/]([paramList(aFeature)/]);
+[template public remove(aFeature : Feature, aFeatureList : FeatureList)]
+public void remove[createName(aFeature)/]([paramList(aFeature, aFeatureList)/]);
 [/template]
 
-[template public update(aFeature : Feature)]
-public String update[createName(aFeature)/]([paramList(aFeature)/]);
+[template public update(aFeature : Feature, aFeatureList : FeatureList)]
+public String update[createName(aFeature)/]([paramList(aFeature, aFeatureList)/]);
 [/template]
 
-[template public display(aFeature : Feature)]
-public String get[createName(aFeature)/]([paramList(aFeature)/]);
+[template public display(aFeature : Feature, aFeatureList : FeatureList)]
+public String get[createName(aFeature)/]([paramList(aFeature, aFeatureList)/]);
 [/template]
 
 [template public createName(aFeature : Feature)]
@@ -44,14 +44,33 @@ public String get[createName(aFeature)/]([paramList(aFeature)/]);
 [aFeature.attribute.name.toUpperFirst()/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
 [/template]
 
-[template public paramList(aFeature : Feature)]
+[template public paramList(aFeature : Feature, aFeatureList : FeatureList)]
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
 	[if (aFeature.attribute.name.oclIsUndefined())]
-		[listAttributes(aFeature.concept)/]
+[listAttributes(aFeature.concept)/]
+	[/if]
+	[if (not aFeature.attribute.name.oclIsUndefined())]
+[findConceptKey(aFeature.concept, aFeatureList)/], [findAttributeKey(aFeature.attribute, aFeatureList)/]
 	[/if]
 [/if]
 [/template]
 
 [template public listAttributes(aConcept : Concept)]
 [for (anAttribute : Attribute | aConcept.attributes)][anAttribute.type.name/] [anAttribute.name.toLowerFirst()/], [/for]
+[/template]
+
+[template public findConceptKey(aConcept : Concept, aFeatureList : FeatureList)]
+	[for (aKey : Key | aFeatureList.keys)]
+		[if (aKey.concept.name.equalsIgnoreCase(aConcept.name))]
+[aKey.attribute.type.name/] [aConcept.name.toLowerFirst()/][aKey.attribute.name.toUpperFirst()/]
+		[/if]
+	[/for]
+[/template]
+
+[template public findAttributeKey(anAttribute : Attribute, aFeatureList : FeatureList)]
+	[for (aKey : Key | aFeatureList.keys)]
+		[if (aKey.concept.name.equalsIgnoreCase(anAttribute.type.name))]
+[aKey.attribute.type.name/] [aKey.attribute.name.toLowerFirst()/]
+		[/if]
+	[/for]
 [/template]
