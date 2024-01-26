@@ -54,5 +54,5 @@ features
 	Remove Table
 	Update Seat.number
 	Display Table
-	Add Table.seats
-	Remove Table.seats
+	Add Table.seat
+	Remove Table.seat

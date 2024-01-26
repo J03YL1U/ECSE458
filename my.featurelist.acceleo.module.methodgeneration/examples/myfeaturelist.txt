@@ -8,11 +8,7 @@ Method Generation
 		public TOTable getTable(int number
 		);
 		
-		public String addSeatsToTable(int tableNumber
-		, int number
-		
+		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats, 
 		);
-		public void removeSeatsFromTable(int tableNumber
-		, int number
-		
+		public void removeTable(int number
 		);
