@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getConcept <em>Concept</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getCondition <em>Condition</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getErrormsg <em>Errormsg</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getConstraint()
@@ -82,5 +83,17 @@ public interface Constraint extends EObject
    * @generated
    */
   EList<Condition> getCondition();
+
+  /**
+   * Returns the value of the '<em><b>Errormsg</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Errormsg</em>' attribute list.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getConstraint_Errormsg()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getErrormsg();
 
 } // Constraint

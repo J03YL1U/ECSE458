@@ -126,7 +126,7 @@ public class MyFeatureListSemanticSequencer extends AbstractDelegatingSemanticSe
 	 *     Constraint returns Constraint
 	 *
 	 * Constraint:
-	 *     (concept=[Concept|ID] attribute=[Attribute|ID] condition+=Condition)
+	 *     (concept=[Concept|ID] attribute=[Attribute|ID] condition+=Condition errormsg+=ErrorMsg)
 	 * </pre>
 	 */
 	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {

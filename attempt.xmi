@@ -94,9 +94,11 @@
   </concepts>
   <constraints concept="//@concepts.1" attribute="//@concepts.1/@attributes.0">
     <condition/>
+    <errormsg>&quot;The table number must be greater than 0&quot;</errormsg>
   </constraints>
   <constraints concept="//@concepts.2" attribute="//@concepts.2/@attributes.0">
     <condition/>
+    <errormsg>&quot;The seat number must be greater than 0&quot;</errormsg>
   </constraints>
   <keys concept="//@concepts.1" attribute="//@concepts.1/@attributes.0"/>
   <keys concept="//@concepts.2" attribute="//@concepts.2/@attributes.0"/>

@@ -299,13 +299,22 @@ public interface MyFeatureListPackage extends EPackage
   int CONSTRAINT__CONDITION = 2;
 
   /**
+   * The feature id for the '<em><b>Errormsg</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTRAINT__ERRORMSG = 3;
+
+  /**
    * The number of structural features of the '<em>Constraint</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTRAINT_FEATURE_COUNT = 3;
+  int CONSTRAINT_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.KeyImpl <em>Key</em>}' class.
@@ -664,6 +673,17 @@ public interface MyFeatureListPackage extends EPackage
   EReference getConstraint_Condition();
 
   /**
+   * Returns the meta object for the attribute list '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getErrormsg <em>Errormsg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Errormsg</em>'.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint#getErrormsg()
+   * @see #getConstraint()
+   * @generated
+   */
+  EAttribute getConstraint_Errormsg();
+
+  /**
    * Returns the meta object for class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Key <em>Key</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -982,6 +1002,14 @@ public interface MyFeatureListPackage extends EPackage
      * @generated
      */
     EReference CONSTRAINT__CONDITION = eINSTANCE.getConstraint_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Errormsg</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONSTRAINT__ERRORMSG = eINSTANCE.getConstraint_Errormsg();
 
     /**
      * The meta object literal for the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.KeyImpl <em>Key</em>}' class.

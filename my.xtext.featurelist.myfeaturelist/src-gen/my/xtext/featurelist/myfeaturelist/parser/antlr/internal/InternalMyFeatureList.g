@@ -423,6 +423,30 @@ ruleCondition returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleErrorMsg
+entryRuleErrorMsg returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getErrorMsgRule()); }
+	iv_ruleErrorMsg=ruleErrorMsg
+	{ $current=$iv_ruleErrorMsg.current.getText(); }
+	EOF;
+
+// Rule ErrorMsg
+ruleErrorMsg returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	this_STRING_0=RULE_STRING
+	{
+		$current.merge(this_STRING_0);
+	}
+	{
+		newLeafNode(this_STRING_0, grammarAccess.getErrorMsgAccess().getSTRINGTerminalRuleCall());
+	}
+;
+
 // Entry rule entryRuleConstraint
 entryRuleConstraint returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getConstraintRule()); }
@@ -486,6 +510,25 @@ ruleConstraint returns [EObject current=null]
 						"condition",
 						lv_condition_3_0,
 						"my.xtext.featurelist.myfeaturelist.MyFeatureList.Condition");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConstraintAccess().getErrormsgErrorMsgParserRuleCall_3_0());
+				}
+				lv_errormsg_4_0=ruleErrorMsg
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConstraintRule());
+					}
+					add(
+						$current,
+						"errormsg",
+						lv_errormsg_4_0,
+						"my.xtext.featurelist.myfeaturelist.MyFeatureList.ErrorMsg");
 					afterParserOrEnumRuleCall();
 				}
 			)

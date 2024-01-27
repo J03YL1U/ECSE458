@@ -174,6 +174,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleErrorMsg
+entryRuleErrorMsg
+:
+{ before(grammarAccess.getErrorMsgRule()); }
+	 ruleErrorMsg
+{ after(grammarAccess.getErrorMsgRule()); } 
+	 EOF 
+;
+
+// Rule ErrorMsg
+ruleErrorMsg 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getErrorMsgAccess().getSTRINGTerminalRuleCall()); }
+		RULE_STRING
+		{ after(grammarAccess.getErrorMsgAccess().getSTRINGTerminalRuleCall()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleConstraint
 entryRuleConstraint
 :
@@ -902,6 +927,7 @@ rule__Constraint__Group__2
 	}
 :
 	rule__Constraint__Group__2__Impl
+	rule__Constraint__Group__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -916,6 +942,32 @@ rule__Constraint__Group__2__Impl
 	{ before(grammarAccess.getConstraintAccess().getConditionAssignment_2()); }
 	(rule__Constraint__ConditionAssignment_2)
 	{ after(grammarAccess.getConstraintAccess().getConditionAssignment_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Constraint__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Constraint__Group__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Constraint__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getConstraintAccess().getErrormsgAssignment_3()); }
+	(rule__Constraint__ErrormsgAssignment_3)
+	{ after(grammarAccess.getConstraintAccess().getErrormsgAssignment_3()); }
 )
 ;
 finally {
@@ -1609,6 +1661,21 @@ rule__Constraint__ConditionAssignment_2
 		{ before(grammarAccess.getConstraintAccess().getConditionConditionParserRuleCall_2_0()); }
 		ruleCondition
 		{ after(grammarAccess.getConstraintAccess().getConditionConditionParserRuleCall_2_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Constraint__ErrormsgAssignment_3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getConstraintAccess().getErrormsgErrorMsgParserRuleCall_3_0()); }
+		ruleErrorMsg
+		{ after(grammarAccess.getConstraintAccess().getErrormsgErrorMsgParserRuleCall_3_0()); }
 	)
 ;
 finally {

@@ -61,6 +61,7 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstraintAccess().getConceptAssignment_0(), "rule__Constraint__ConceptAssignment_0");
 			builder.put(grammarAccess.getConstraintAccess().getAttributeAssignment_1_1(), "rule__Constraint__AttributeAssignment_1_1");
 			builder.put(grammarAccess.getConstraintAccess().getConditionAssignment_2(), "rule__Constraint__ConditionAssignment_2");
+			builder.put(grammarAccess.getConstraintAccess().getErrormsgAssignment_3(), "rule__Constraint__ErrormsgAssignment_3");
 			builder.put(grammarAccess.getKeyAccess().getConceptAssignment_0(), "rule__Key__ConceptAssignment_0");
 			builder.put(grammarAccess.getKeyAccess().getAttributeAssignment_1_1(), "rule__Key__AttributeAssignment_1_1");
 			builder.put(grammarAccess.getPropertyAccess().getConceptAssignment_0(), "rule__Property__ConceptAssignment_0");

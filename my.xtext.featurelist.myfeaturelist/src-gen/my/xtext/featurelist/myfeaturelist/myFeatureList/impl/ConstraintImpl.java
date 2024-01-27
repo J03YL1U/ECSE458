@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,6 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConstraintImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConstraintImpl#getAttribute <em>Attribute</em>}</li>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConstraintImpl#getCondition <em>Condition</em>}</li>
+ *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.ConstraintImpl#getErrormsg <em>Errormsg</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +73,16 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @ordered
    */
   protected EList<Condition> condition;
+
+  /**
+   * The cached value of the '{@link #getErrormsg() <em>Errormsg</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getErrormsg()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> errormsg;
 
   /**
    * <!-- begin-user-doc -->
@@ -204,6 +216,21 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @generated
    */
   @Override
+  public EList<String> getErrormsg()
+  {
+    if (errormsg == null)
+    {
+      errormsg = new EDataTypeEList<String>(String.class, this, MyFeatureListPackage.CONSTRAINT__ERRORMSG);
+    }
+    return errormsg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -232,6 +259,8 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         return basicGetAttribute();
       case MyFeatureListPackage.CONSTRAINT__CONDITION:
         return getCondition();
+      case MyFeatureListPackage.CONSTRAINT__ERRORMSG:
+        return getErrormsg();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -257,6 +286,10 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         getCondition().clear();
         getCondition().addAll((Collection<? extends Condition>)newValue);
         return;
+      case MyFeatureListPackage.CONSTRAINT__ERRORMSG:
+        getErrormsg().clear();
+        getErrormsg().addAll((Collection<? extends String>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -280,6 +313,9 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
       case MyFeatureListPackage.CONSTRAINT__CONDITION:
         getCondition().clear();
         return;
+      case MyFeatureListPackage.CONSTRAINT__ERRORMSG:
+        getErrormsg().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -300,8 +336,27 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         return attribute != null;
       case MyFeatureListPackage.CONSTRAINT__CONDITION:
         return condition != null && !condition.isEmpty();
+      case MyFeatureListPackage.CONSTRAINT__ERRORMSG:
+        return errormsg != null && !errormsg.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (errormsg: ");
+    result.append(errormsg);
+    result.append(')');
+    return result.toString();
   }
 
 } //ConstraintImpl

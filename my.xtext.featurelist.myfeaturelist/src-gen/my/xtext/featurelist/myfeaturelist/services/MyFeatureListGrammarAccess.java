@@ -226,6 +226,17 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
 	}
+	public class ErrorMsgElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.ErrorMsg");
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//ErrorMsg:
+		//    STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
+	}
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Constraint");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -239,12 +250,14 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final RuleCall cAttributeAttributeIDTerminalRuleCall_1_1_0_1 = (RuleCall)cAttributeAttributeCrossReference_1_1_0.eContents().get(1);
 		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
+		private final Assignment cErrormsgAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cErrormsgErrorMsgParserRuleCall_3_0 = (RuleCall)cErrormsgAssignment_3.eContents().get(0);
 		
 		//Constraint:
-		//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
+		//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition) (errormsg+=ErrorMsg);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition)
+		//(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition) (errormsg+=ErrorMsg)
 		public Group getGroup() { return cGroup; }
 		
 		//(concept=[Concept])
@@ -276,6 +289,12 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_2_0() { return cConditionConditionParserRuleCall_2_0; }
+		
+		//(errormsg+=ErrorMsg)
+		public Assignment getErrormsgAssignment_3() { return cErrormsgAssignment_3; }
+		
+		//ErrorMsg
+		public RuleCall getErrormsgErrorMsgParserRuleCall_3_0() { return cErrormsgErrorMsgParserRuleCall_3_0; }
 	}
 	public class KeyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Key");
@@ -477,6 +496,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	private final AttributeElements pAttribute;
 	private final TypeElements pType;
 	private final ConditionElements pCondition;
+	private final ErrorMsgElements pErrorMsg;
 	private final ConstraintElements pConstraint;
 	private final KeyElements pKey;
 	private final PropertyElements pProperty;
@@ -498,6 +518,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		this.pAttribute = new AttributeElements();
 		this.pType = new TypeElements();
 		this.pCondition = new ConditionElements();
+		this.pErrorMsg = new ErrorMsgElements();
 		this.pConstraint = new ConstraintElements();
 		this.pKey = new KeyElements();
 		this.pProperty = new PropertyElements();
@@ -588,8 +609,18 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		return getConditionAccess().getRule();
 	}
 	
+	//ErrorMsg:
+	//    STRING;
+	public ErrorMsgElements getErrorMsgAccess() {
+		return pErrorMsg;
+	}
+	
+	public ParserRule getErrorMsgRule() {
+		return getErrorMsgAccess().getRule();
+	}
+	
 	//Constraint:
-	//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
+	//    (concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition) (errormsg+=ErrorMsg);
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}

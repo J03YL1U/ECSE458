@@ -401,6 +401,17 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EAttribute getConstraint_Errormsg()
+  {
+    return (EAttribute)constraintEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getKey()
   {
     return keyEClass;
@@ -573,6 +584,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     createEReference(constraintEClass, CONSTRAINT__CONCEPT);
     createEReference(constraintEClass, CONSTRAINT__ATTRIBUTE);
     createEReference(constraintEClass, CONSTRAINT__CONDITION);
+    createEAttribute(constraintEClass, CONSTRAINT__ERRORMSG);
 
     keyEClass = createEClass(KEY);
     createEReference(keyEClass, KEY__CONCEPT);
@@ -648,6 +660,7 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEReference(getConstraint_Concept(), this.getConcept(), null, "concept", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Condition(), this.getCondition(), null, "condition", null, 0, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConstraint_Errormsg(), ecorePackage.getEString(), "errormsg", null, 0, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getKey_Concept(), this.getConcept(), null, "concept", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

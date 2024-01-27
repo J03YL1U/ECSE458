@@ -21,9 +21,12 @@ Type:
 
 Condition:
         ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+        
+ErrorMsg:
+	STRING;
 	        
 Constraint:
-	(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition);
+	(concept=[Concept])('.'(attribute=[Attribute])) (condition+=Condition) (errormsg+=ErrorMsg);
 	
 Key:
 	(concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique'); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only

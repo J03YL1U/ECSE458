@@ -1,14 +1,8 @@
 Method Generation
-		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats, 
-		);
-		public void removeTable(int number
-		);
-		public String updateSeat(int number, int newNumber
-		);
-		public TOTable getTable(int number
-		);
+		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats);
+		public void removeTable(int number);
+		public String updateSeat(int number, int newNumber);
+		public TOTable getTable(int number);
 		
-		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats, 
-		);
-		public void removeTable(int number
-		);
+		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats);
+		public void removeTable(int number);
