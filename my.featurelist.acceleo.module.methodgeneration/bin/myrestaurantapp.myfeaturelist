@@ -1,0 +1,26 @@
+concept Seat
+	int number
+
+concept Table
+	int number
+	Seat seat 1..*
+	String fakeatt 0..1
+	
+constraints
+	Table.number > 0 "The table number must be greater than 0"
+	Seat.number > 0 "The seat number must be greater than 0"
+	
+keys
+	Table.number unique
+	Seat.number unique
+	
+properties
+	Table.fakeatt lazy
+	
+features
+	Add Table
+	Remove Table
+	Update Seat.number
+	Display Table
+	Add Table.seat
+	Remove Table.seat
