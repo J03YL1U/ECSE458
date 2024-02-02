@@ -4,7 +4,9 @@
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.AttributeProperty;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptProperty;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Condition;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Constraint;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Feature;
@@ -80,6 +82,20 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   private EClass keyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conceptPropertyEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass attributePropertyEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -445,6 +461,39 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
    * @generated
    */
   @Override
+  public EClass getConceptProperty()
+  {
+    return conceptPropertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getAttributeProperty()
+  {
+    return attributePropertyEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getAttributeProperty_Attribute()
+  {
+    return (EReference)attributePropertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getProperty()
   {
     return propertyEClass;
@@ -459,17 +508,6 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
   public EReference getProperty_Concept()
   {
     return (EReference)propertyEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EReference getProperty_Attribute()
-  {
-    return (EReference)propertyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -590,9 +628,13 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     createEReference(keyEClass, KEY__CONCEPT);
     createEReference(keyEClass, KEY__ATTRIBUTE);
 
+    conceptPropertyEClass = createEClass(CONCEPT_PROPERTY);
+
+    attributePropertyEClass = createEClass(ATTRIBUTE_PROPERTY);
+    createEReference(attributePropertyEClass, ATTRIBUTE_PROPERTY__ATTRIBUTE);
+
     propertyEClass = createEClass(PROPERTY);
     createEReference(propertyEClass, PROPERTY__CONCEPT);
-    createEReference(propertyEClass, PROPERTY__ATTRIBUTE);
 
     featureEClass = createEClass(FEATURE);
     createEAttribute(featureEClass, FEATURE__VERB);
@@ -632,6 +674,8 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    conceptPropertyEClass.getESuperTypes().add(this.getProperty());
+    attributePropertyEClass.getESuperTypes().add(this.getProperty());
 
     // Initialize classes and features; add operations and parameters
     initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -666,9 +710,13 @@ public class MyFeatureListPackageImpl extends EPackageImpl implements MyFeatureL
     initEReference(getKey_Concept(), this.getConcept(), null, "concept", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getKey_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(conceptPropertyEClass, ConceptProperty.class, "ConceptProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(attributePropertyEClass, AttributeProperty.class, "AttributeProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAttributeProperty_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, AttributeProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProperty_Concept(), this.getConcept(), null, "concept", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getProperty_Attribute(), this.getAttribute(), null, "attribute", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(featureEClass, Feature.class, "Feature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getFeature_Verb(), this.getVerb(), "verb", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

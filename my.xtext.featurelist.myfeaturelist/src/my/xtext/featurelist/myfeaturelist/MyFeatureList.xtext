@@ -31,8 +31,14 @@ Constraint:
 Key:
 	(concept=[Concept])('.'(attribute=[Attribute])) ('unique' | 'autounique'); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
 	
-Property:
+ConceptProperty:
+	(concept=[Concept]) 'root';
+
+AttributeProperty:
 	(concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
+	
+Property:
+	ConceptProperty | AttributeProperty;
        
 Feature:
         (verb=Verb) (concept=[Concept])('.'(attribute=[Attribute]))?;

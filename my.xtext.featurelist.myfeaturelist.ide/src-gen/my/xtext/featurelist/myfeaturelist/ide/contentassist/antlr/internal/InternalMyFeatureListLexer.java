@@ -23,6 +23,7 @@ public class InternalMyFeatureListLexer extends Lexer {
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int T__30=30;
     public static final int RULE_MULTIPLICITY=6;
     public static final int RULE_ID=5;
     public static final int RULE_WS=10;
@@ -411,10 +412,10 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:28:7: ( 'lazy' )
-            // InternalMyFeatureList.g:28:9: 'lazy'
+            // InternalMyFeatureList.g:28:7: ( 'root' )
+            // InternalMyFeatureList.g:28:9: 'root'
             {
-            match("lazy"); 
+            match("root"); 
 
 
             }
@@ -427,15 +428,36 @@ public class InternalMyFeatureListLexer extends Lexer {
     }
     // $ANTLR end "T__29"
 
+    // $ANTLR start "T__30"
+    public final void mT__30() throws RecognitionException {
+        try {
+            int _type = T__30;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // InternalMyFeatureList.g:29:7: ( 'lazy' )
+            // InternalMyFeatureList.g:29:9: 'lazy'
+            {
+            match("lazy"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__30"
+
     // $ANTLR start "RULE_MULTIPLICITY"
     public final void mRULE_MULTIPLICITY() throws RecognitionException {
         try {
             int _type = RULE_MULTIPLICITY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1814:19: ( ( RULE_INT | '*' ) '..' ( RULE_INT | '*' ) )
-            // InternalMyFeatureList.g:1814:21: ( RULE_INT | '*' ) '..' ( RULE_INT | '*' )
+            // InternalMyFeatureList.g:1958:19: ( ( RULE_INT | '*' ) '..' ( RULE_INT | '*' ) )
+            // InternalMyFeatureList.g:1958:21: ( RULE_INT | '*' ) '..' ( RULE_INT | '*' )
             {
-            // InternalMyFeatureList.g:1814:21: ( RULE_INT | '*' )
+            // InternalMyFeatureList.g:1958:21: ( RULE_INT | '*' )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -453,14 +475,14 @@ public class InternalMyFeatureListLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalMyFeatureList.g:1814:22: RULE_INT
+                    // InternalMyFeatureList.g:1958:22: RULE_INT
                     {
                     mRULE_INT(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalMyFeatureList.g:1814:31: '*'
+                    // InternalMyFeatureList.g:1958:31: '*'
                     {
                     match('*'); 
 
@@ -471,7 +493,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
             match(".."); 
 
-            // InternalMyFeatureList.g:1814:41: ( RULE_INT | '*' )
+            // InternalMyFeatureList.g:1958:41: ( RULE_INT | '*' )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -489,14 +511,14 @@ public class InternalMyFeatureListLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalMyFeatureList.g:1814:42: RULE_INT
+                    // InternalMyFeatureList.g:1958:42: RULE_INT
                     {
                     mRULE_INT(); 
 
                     }
                     break;
                 case 2 :
-                    // InternalMyFeatureList.g:1814:51: '*'
+                    // InternalMyFeatureList.g:1958:51: '*'
                     {
                     match('*'); 
 
@@ -521,10 +543,10 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1816:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalMyFeatureList.g:1816:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalMyFeatureList.g:1960:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalMyFeatureList.g:1960:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalMyFeatureList.g:1816:11: ( '^' )?
+            // InternalMyFeatureList.g:1960:11: ( '^' )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -533,7 +555,7 @@ public class InternalMyFeatureListLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalMyFeatureList.g:1816:11: '^'
+                    // InternalMyFeatureList.g:1960:11: '^'
                     {
                     match('^'); 
 
@@ -551,7 +573,7 @@ public class InternalMyFeatureListLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalMyFeatureList.g:1816:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalMyFeatureList.g:1960:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop4:
             do {
                 int alt4=2;
@@ -600,10 +622,10 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1818:10: ( ( '0' .. '9' )+ )
-            // InternalMyFeatureList.g:1818:12: ( '0' .. '9' )+
+            // InternalMyFeatureList.g:1962:10: ( ( '0' .. '9' )+ )
+            // InternalMyFeatureList.g:1962:12: ( '0' .. '9' )+
             {
-            // InternalMyFeatureList.g:1818:12: ( '0' .. '9' )+
+            // InternalMyFeatureList.g:1962:12: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -617,7 +639,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // InternalMyFeatureList.g:1818:13: '0' .. '9'
+            	    // InternalMyFeatureList.g:1962:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -649,10 +671,10 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1820:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalMyFeatureList.g:1820:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalMyFeatureList.g:1964:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalMyFeatureList.g:1964:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalMyFeatureList.g:1820:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalMyFeatureList.g:1964:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
@@ -670,10 +692,10 @@ public class InternalMyFeatureListLexer extends Lexer {
             }
             switch (alt8) {
                 case 1 :
-                    // InternalMyFeatureList.g:1820:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalMyFeatureList.g:1964:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalMyFeatureList.g:1820:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalMyFeatureList.g:1964:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -689,7 +711,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // InternalMyFeatureList.g:1820:21: '\\\\' .
+                    	    // InternalMyFeatureList.g:1964:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -697,7 +719,7 @@ public class InternalMyFeatureListLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalMyFeatureList.g:1820:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalMyFeatureList.g:1964:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -722,10 +744,10 @@ public class InternalMyFeatureListLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalMyFeatureList.g:1820:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalMyFeatureList.g:1964:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalMyFeatureList.g:1820:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalMyFeatureList.g:1964:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop7:
                     do {
                         int alt7=3;
@@ -741,7 +763,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                         switch (alt7) {
                     	case 1 :
-                    	    // InternalMyFeatureList.g:1820:54: '\\\\' .
+                    	    // InternalMyFeatureList.g:1964:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -749,7 +771,7 @@ public class InternalMyFeatureListLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalMyFeatureList.g:1820:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalMyFeatureList.g:1964:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -792,12 +814,12 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1822:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalMyFeatureList.g:1822:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalMyFeatureList.g:1966:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalMyFeatureList.g:1966:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalMyFeatureList.g:1822:24: ( options {greedy=false; } : . )*
+            // InternalMyFeatureList.g:1966:24: ( options {greedy=false; } : . )*
             loop9:
             do {
                 int alt9=2;
@@ -822,7 +844,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // InternalMyFeatureList.g:1822:52: .
+            	    // InternalMyFeatureList.g:1966:52: .
             	    {
             	    matchAny(); 
 
@@ -852,12 +874,12 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1824:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalMyFeatureList.g:1824:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalMyFeatureList.g:1968:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalMyFeatureList.g:1968:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalMyFeatureList.g:1824:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalMyFeatureList.g:1968:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop10:
             do {
                 int alt10=2;
@@ -870,7 +892,7 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // InternalMyFeatureList.g:1824:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalMyFeatureList.g:1968:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -890,7 +912,7 @@ public class InternalMyFeatureListLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalMyFeatureList.g:1824:40: ( ( '\\r' )? '\\n' )?
+            // InternalMyFeatureList.g:1968:40: ( ( '\\r' )? '\\n' )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -899,9 +921,9 @@ public class InternalMyFeatureListLexer extends Lexer {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalMyFeatureList.g:1824:41: ( '\\r' )? '\\n'
+                    // InternalMyFeatureList.g:1968:41: ( '\\r' )? '\\n'
                     {
-                    // InternalMyFeatureList.g:1824:41: ( '\\r' )?
+                    // InternalMyFeatureList.g:1968:41: ( '\\r' )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -910,7 +932,7 @@ public class InternalMyFeatureListLexer extends Lexer {
                     }
                     switch (alt11) {
                         case 1 :
-                            // InternalMyFeatureList.g:1824:41: '\\r'
+                            // InternalMyFeatureList.g:1968:41: '\\r'
                             {
                             match('\r'); 
 
@@ -942,10 +964,10 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1826:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalMyFeatureList.g:1826:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalMyFeatureList.g:1970:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalMyFeatureList.g:1970:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalMyFeatureList.g:1826:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalMyFeatureList.g:1970:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt13=0;
             loop13:
             do {
@@ -999,8 +1021,8 @@ public class InternalMyFeatureListLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalMyFeatureList.g:1828:16: ( . )
-            // InternalMyFeatureList.g:1828:18: .
+            // InternalMyFeatureList.g:1972:16: ( . )
+            // InternalMyFeatureList.g:1972:18: .
             {
             matchAny(); 
 
@@ -1015,8 +1037,8 @@ public class InternalMyFeatureListLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // InternalMyFeatureList.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | RULE_MULTIPLICITY | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt14=26;
+        // InternalMyFeatureList.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | RULE_MULTIPLICITY | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt14=27;
         alt14 = dfa14.predict(input);
         switch (alt14) {
             case 1 :
@@ -1146,56 +1168,63 @@ public class InternalMyFeatureListLexer extends Lexer {
                 }
                 break;
             case 19 :
-                // InternalMyFeatureList.g:1:118: RULE_MULTIPLICITY
+                // InternalMyFeatureList.g:1:118: T__30
+                {
+                mT__30(); 
+
+                }
+                break;
+            case 20 :
+                // InternalMyFeatureList.g:1:124: RULE_MULTIPLICITY
                 {
                 mRULE_MULTIPLICITY(); 
 
                 }
                 break;
-            case 20 :
-                // InternalMyFeatureList.g:1:136: RULE_ID
+            case 21 :
+                // InternalMyFeatureList.g:1:142: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 21 :
-                // InternalMyFeatureList.g:1:144: RULE_INT
+            case 22 :
+                // InternalMyFeatureList.g:1:150: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 22 :
-                // InternalMyFeatureList.g:1:153: RULE_STRING
+            case 23 :
+                // InternalMyFeatureList.g:1:159: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 23 :
-                // InternalMyFeatureList.g:1:165: RULE_ML_COMMENT
+            case 24 :
+                // InternalMyFeatureList.g:1:171: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 24 :
-                // InternalMyFeatureList.g:1:181: RULE_SL_COMMENT
+            case 25 :
+                // InternalMyFeatureList.g:1:187: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 25 :
-                // InternalMyFeatureList.g:1:197: RULE_WS
+            case 26 :
+                // InternalMyFeatureList.g:1:203: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 26 :
-                // InternalMyFeatureList.g:1:205: RULE_ANY_OTHER
+            case 27 :
+                // InternalMyFeatureList.g:1:211: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1209,24 +1238,23 @@ public class InternalMyFeatureListLexer extends Lexer {
 
     protected DFA14 dfa14 = new DFA14(this);
     static final String DFA14_eotS =
-        "\1\uffff\1\32\1\uffff\1\35\12\37\1\uffff\1\37\1\53\2\30\1\uffff\3\30\7\uffff\1\37\1\uffff\11\37\1\uffff\1\37\2\uffff\1\53\4\uffff\2\37\1\77\12\37\1\uffff\5\37\1\120\2\37\1\123\7\37\1\uffff\2\37\1\uffff\1\135\1\37\1\137\1\140\5\37\1\uffff\1\37\2\uffff\1\147\1\37\1\151\3\37\1\uffff\1\37\1\uffff\1\37\1\157\3\37\1\uffff\1\163\1\37\1\165\1\uffff\1\166\2\uffff";
+        "\1\uffff\1\33\1\uffff\1\36\12\40\1\uffff\2\40\1\55\2\31\1\uffff\3\31\7\uffff\1\40\1\uffff\11\40\1\uffff\2\40\1\uffff\1\55\5\uffff\2\40\1\102\13\40\1\uffff\5\40\1\124\2\40\1\127\1\130\7\40\1\uffff\2\40\2\uffff\1\142\1\40\1\144\1\145\5\40\1\uffff\1\40\2\uffff\1\154\1\40\1\156\3\40\1\uffff\1\40\1\uffff\1\40\1\164\3\40\1\uffff\1\170\1\40\1\172\1\uffff\1\173\2\uffff";
     static final String DFA14_eofS =
-        "\167\uffff";
+        "\174\uffff";
     static final String DFA14_minS =
-        "\1\0\1\75\1\uffff\1\75\1\156\1\165\1\144\1\145\1\160\1\151\1\157\1\145\1\162\1\145\1\uffff\1\141\2\56\1\101\1\uffff\2\0\1\52\7\uffff\1\151\1\uffff\1\164\1\144\1\155\1\144\1\163\1\156\1\171\1\157\1\141\1\uffff\1\172\2\uffff\1\56\4\uffff\1\161\1\157\1\60\1\157\1\141\1\160\1\143\1\163\1\160\1\164\1\171\2\165\1\uffff\1\166\1\164\1\154\1\164\1\145\1\60\1\145\1\165\1\60\1\145\1\156\2\145\1\141\1\162\1\160\1\uffff\2\162\1\uffff\1\60\1\151\2\60\1\171\1\141\2\164\1\145\1\uffff\1\161\2\uffff\1\60\1\151\1\60\1\151\1\163\1\165\1\uffff\1\156\1\uffff\1\145\1\60\1\145\1\164\1\163\1\uffff\1\60\1\163\1\60\1\uffff\1\60\2\uffff";
+        "\1\0\1\75\1\uffff\1\75\1\156\1\165\1\144\1\145\1\160\1\151\1\157\1\145\1\162\1\145\1\uffff\1\157\1\141\2\56\1\101\1\uffff\2\0\1\52\7\uffff\1\151\1\uffff\1\164\1\144\1\155\1\144\1\163\1\156\1\171\1\157\1\141\1\uffff\1\157\1\172\1\uffff\1\56\5\uffff\1\161\1\157\1\60\1\157\1\141\1\160\1\143\1\163\1\160\2\164\1\171\2\165\1\uffff\1\166\1\164\1\154\1\164\1\145\1\60\1\145\1\165\2\60\1\145\1\156\2\145\1\141\1\162\1\160\1\uffff\2\162\2\uffff\1\60\1\151\2\60\1\171\1\141\2\164\1\145\1\uffff\1\161\2\uffff\1\60\1\151\1\60\1\151\1\163\1\165\1\uffff\1\156\1\uffff\1\145\1\60\1\145\1\164\1\163\1\uffff\1\60\1\163\1\60\1\uffff\1\60\2\uffff";
     static final String DFA14_maxS =
-        "\1\uffff\1\75\1\uffff\1\75\1\156\1\165\1\144\1\145\1\160\1\151\1\157\1\145\1\162\1\145\1\uffff\1\141\1\71\1\56\1\172\1\uffff\2\uffff\1\57\7\uffff\1\151\1\uffff\1\164\1\144\1\155\1\144\1\163\1\156\1\171\1\157\1\141\1\uffff\1\172\2\uffff\1\71\4\uffff\1\161\1\157\1\172\1\157\1\141\1\160\2\163\1\160\1\164\1\171\2\165\1\uffff\1\166\1\164\1\154\1\164\1\145\1\172\1\145\1\165\1\172\1\145\1\156\2\145\1\141\1\162\1\160\1\uffff\2\162\1\uffff\1\172\1\151\2\172\1\171\1\141\2\164\1\145\1\uffff\1\161\2\uffff\1\172\1\151\1\172\1\151\1\163\1\165\1\uffff\1\156\1\uffff\1\145\1\172\1\145\1\164\1\163\1\uffff\1\172\1\163\1\172\1\uffff\1\172\2\uffff";
+        "\1\uffff\1\75\1\uffff\1\75\1\156\1\165\1\144\1\145\1\160\1\151\1\157\1\145\1\162\1\145\1\uffff\1\157\1\141\1\71\1\56\1\172\1\uffff\2\uffff\1\57\7\uffff\1\151\1\uffff\1\164\1\144\1\155\1\144\1\163\1\156\1\171\1\157\1\141\1\uffff\1\157\1\172\1\uffff\1\71\5\uffff\1\161\1\157\1\172\1\157\1\141\1\160\2\163\1\160\2\164\1\171\2\165\1\uffff\1\166\1\164\1\154\1\164\1\145\1\172\1\145\1\165\2\172\1\145\1\156\2\145\1\141\1\162\1\160\1\uffff\2\162\2\uffff\1\172\1\151\2\172\1\171\1\141\2\164\1\145\1\uffff\1\161\2\uffff\1\172\1\151\1\172\1\151\1\163\1\165\1\uffff\1\156\1\uffff\1\145\1\172\1\145\1\164\1\163\1\uffff\1\172\1\163\1\172\1\uffff\1\172\2\uffff";
     static final String DFA14_acceptS =
-        "\2\uffff\1\3\13\uffff\1\21\4\uffff\1\24\3\uffff\1\31\1\32\1\2\1\1\1\3\1\4\1\5\1\uffff\1\24\11\uffff\1\21\1\uffff\1\25\1\23\1\uffff\1\26\1\27\1\30\1\31\15\uffff\1\10\20\uffff\1\15\2\uffff\1\22\11\uffff\1\6\1\uffff\1\11\1\12\6\uffff\1\13\1\uffff\1\20\5\uffff\1\17\3\uffff\1\7\1\uffff\1\16\1\14";
+        "\2\uffff\1\3\13\uffff\1\21\5\uffff\1\25\3\uffff\1\32\1\33\1\2\1\1\1\3\1\4\1\5\1\uffff\1\25\11\uffff\1\21\2\uffff\1\26\1\uffff\1\24\1\27\1\30\1\31\1\32\16\uffff\1\10\21\uffff\1\15\2\uffff\1\22\1\23\11\uffff\1\6\1\uffff\1\11\1\12\6\uffff\1\13\1\uffff\1\20\5\uffff\1\17\3\uffff\1\7\1\uffff\1\16\1\14";
     static final String DFA14_specialS =
-        "\1\0\23\uffff\1\2\1\1\141\uffff}>";
+        "\1\0\24\uffff\1\1\1\2\145\uffff}>";
     static final String[] DFA14_transitionS = {
-            "\11\30\2\27\2\30\1\27\22\30\1\27\1\30\1\24\4\30\1\25\2\30\1\21\3\30\1\16\1\26\12\20\2\30\1\3\1\2\1\1\2\30\1\6\2\23\1\11\15\23\1\7\2\23\1\10\5\23\3\30\1\22\1\23\1\30\1\5\1\23\1\12\2\23\1\15\4\23\1\13\1\17\3\23\1\14\4\23\1\4\5\23\uff85\30",
-            "\1\31",
+            "\11\31\2\30\2\31\1\30\22\31\1\30\1\31\1\25\4\31\1\26\2\31\1\22\3\31\1\16\1\27\12\21\2\31\1\3\1\2\1\1\2\31\1\6\2\24\1\11\15\24\1\7\2\24\1\10\5\24\3\31\1\23\1\24\1\31\1\5\1\24\1\12\2\24\1\15\4\24\1\13\1\20\3\24\1\14\1\24\1\17\2\24\1\4\5\24\uff85\31",
+            "\1\32",
             "",
-            "\1\34",
-            "\1\36",
-            "\1\40",
+            "\1\35",
+            "\1\37",
             "\1\41",
             "\1\42",
             "\1\43",
@@ -1235,26 +1263,26 @@ public class InternalMyFeatureListLexer extends Lexer {
             "\1\46",
             "\1\47",
             "\1\50",
+            "\1\51",
             "",
-            "\1\52",
-            "\1\54\1\uffff\12\55",
+            "\1\53",
             "\1\54",
-            "\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\57\1\uffff\12\56",
+            "\1\57",
+            "\32\40\4\uffff\1\40\1\uffff\32\40",
             "",
-            "\0\56",
-            "\0\56",
-            "\1\57\4\uffff\1\60",
-            "",
-            "",
-            "",
-            "",
+            "\0\60",
+            "\0\60",
+            "\1\61\4\uffff\1\62",
             "",
             "",
             "",
-            "\1\62",
             "",
-            "\1\63",
+            "",
+            "",
+            "",
             "\1\64",
+            "",
             "\1\65",
             "\1\66",
             "\1\67",
@@ -1262,82 +1290,88 @@ public class InternalMyFeatureListLexer extends Lexer {
             "\1\71",
             "\1\72",
             "\1\73",
-            "",
             "\1\74",
-            "",
-            "",
-            "\1\54\1\uffff\12\55",
-            "",
-            "",
-            "",
-            "",
             "\1\75",
+            "",
             "\1\76",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\77",
+            "",
+            "\1\57\1\uffff\12\56",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\100",
             "\1\101",
-            "\1\102",
-            "\1\104\17\uffff\1\103",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\1\103",
+            "\1\104",
             "\1\105",
-            "\1\106",
-            "\1\107",
+            "\1\107\17\uffff\1\106",
             "\1\110",
             "\1\111",
             "\1\112",
-            "",
             "\1\113",
             "\1\114",
             "\1\115",
             "\1\116",
+            "",
             "\1\117",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\120",
             "\1\121",
             "\1\122",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\124",
+            "\1\123",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\1\125",
             "\1\126",
-            "\1\127",
-            "\1\130",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\1\131",
             "\1\132",
-            "",
             "\1\133",
             "\1\134",
-            "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\135",
             "\1\136",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\137",
+            "",
+            "\1\140",
             "\1\141",
-            "\1\142",
+            "",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\1\143",
-            "\1\144",
-            "\1\145",
-            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\1\146",
-            "",
-            "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\147",
             "\1\150",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\151",
             "\1\152",
+            "",
             "\1\153",
-            "\1\154",
             "",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "\1\155",
-            "",
-            "\1\156",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\1\157",
             "\1\160",
             "\1\161",
+            "",
             "\1\162",
             "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
-            "\1\164",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\1\163",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\1\165",
+            "\1\166",
+            "\1\167",
             "",
-            "\12\37\7\uffff\32\37\4\uffff\1\37\1\uffff\32\37",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "\1\171",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
+            "",
+            "\12\40\7\uffff\32\40\4\uffff\1\40\1\uffff\32\40",
             "",
             ""
     };
@@ -1372,7 +1406,7 @@ public class InternalMyFeatureListLexer extends Lexer {
             this.transition = DFA14_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | RULE_MULTIPLICITY | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | RULE_MULTIPLICITY | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -1410,25 +1444,27 @@ public class InternalMyFeatureListLexer extends Lexer {
 
                         else if ( (LA14_0=='.') ) {s = 14;}
 
-                        else if ( (LA14_0=='l') ) {s = 15;}
+                        else if ( (LA14_0=='r') ) {s = 15;}
 
-                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 16;}
+                        else if ( (LA14_0=='l') ) {s = 16;}
 
-                        else if ( (LA14_0=='*') ) {s = 17;}
+                        else if ( ((LA14_0>='0' && LA14_0<='9')) ) {s = 17;}
 
-                        else if ( (LA14_0=='^') ) {s = 18;}
+                        else if ( (LA14_0=='*') ) {s = 18;}
 
-                        else if ( ((LA14_0>='B' && LA14_0<='C')||(LA14_0>='E' && LA14_0<='Q')||(LA14_0>='S' && LA14_0<='T')||(LA14_0>='V' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='b'||(LA14_0>='d' && LA14_0<='e')||(LA14_0>='g' && LA14_0<='j')||(LA14_0>='m' && LA14_0<='o')||(LA14_0>='q' && LA14_0<='t')||(LA14_0>='v' && LA14_0<='z')) ) {s = 19;}
+                        else if ( (LA14_0=='^') ) {s = 19;}
 
-                        else if ( (LA14_0=='\"') ) {s = 20;}
+                        else if ( ((LA14_0>='B' && LA14_0<='C')||(LA14_0>='E' && LA14_0<='Q')||(LA14_0>='S' && LA14_0<='T')||(LA14_0>='V' && LA14_0<='Z')||LA14_0=='_'||LA14_0=='b'||(LA14_0>='d' && LA14_0<='e')||(LA14_0>='g' && LA14_0<='j')||(LA14_0>='m' && LA14_0<='o')||LA14_0=='q'||(LA14_0>='s' && LA14_0<='t')||(LA14_0>='v' && LA14_0<='z')) ) {s = 20;}
 
-                        else if ( (LA14_0=='\'') ) {s = 21;}
+                        else if ( (LA14_0=='\"') ) {s = 21;}
 
-                        else if ( (LA14_0=='/') ) {s = 22;}
+                        else if ( (LA14_0=='\'') ) {s = 22;}
 
-                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 23;}
+                        else if ( (LA14_0=='/') ) {s = 23;}
 
-                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||(LA14_0>='(' && LA14_0<=')')||(LA14_0>='+' && LA14_0<='-')||(LA14_0>=':' && LA14_0<=';')||(LA14_0>='?' && LA14_0<='@')||(LA14_0>='[' && LA14_0<=']')||LA14_0=='`'||(LA14_0>='{' && LA14_0<='\uFFFF')) ) {s = 24;}
+                        else if ( ((LA14_0>='\t' && LA14_0<='\n')||LA14_0=='\r'||LA14_0==' ') ) {s = 24;}
+
+                        else if ( ((LA14_0>='\u0000' && LA14_0<='\b')||(LA14_0>='\u000B' && LA14_0<='\f')||(LA14_0>='\u000E' && LA14_0<='\u001F')||LA14_0=='!'||(LA14_0>='#' && LA14_0<='&')||(LA14_0>='(' && LA14_0<=')')||(LA14_0>='+' && LA14_0<='-')||(LA14_0>=':' && LA14_0<=';')||(LA14_0>='?' && LA14_0<='@')||(LA14_0>='[' && LA14_0<=']')||LA14_0=='`'||(LA14_0>='{' && LA14_0<='\uFFFF')) ) {s = 25;}
 
                         if ( s>=0 ) return s;
                         break;
@@ -1436,19 +1472,19 @@ public class InternalMyFeatureListLexer extends Lexer {
                         int LA14_21 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_21>='\u0000' && LA14_21<='\uFFFF')) ) {s = 46;}
+                        if ( ((LA14_21>='\u0000' && LA14_21<='\uFFFF')) ) {s = 48;}
 
-                        else s = 24;
+                        else s = 25;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA14_20 = input.LA(1);
+                        int LA14_22 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA14_20>='\u0000' && LA14_20<='\uFFFF')) ) {s = 46;}
+                        if ( ((LA14_22>='\u0000' && LA14_22<='\uFFFF')) ) {s = 48;}
 
-                        else s = 24;
+                        else s = 25;
 
                         if ( s>=0 ) return s;
                         break;

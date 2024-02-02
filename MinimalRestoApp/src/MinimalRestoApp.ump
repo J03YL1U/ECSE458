@@ -1,0 +1,17 @@
+namespace ca.mcgill.minimalresto.model;
+
+class MinimalRestoApp {
+  1 <@>- * Table tables;
+}
+
+class Table {
+  unique Integer number;
+  1 <@>- 0..* Seat seats;
+  enum Location { Indoors, Patio }
+  ;
+  Location location;
+  
+}
+
+class Seat {
+}

@@ -33,6 +33,7 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, MyFeatureListGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getConditionAccess().getAlternatives_0(), "rule__Condition__Alternatives_0");
 			builder.put(grammarAccess.getKeyAccess().getAlternatives_2(), "rule__Key__Alternatives_2");
+			builder.put(grammarAccess.getPropertyAccess().getAlternatives(), "rule__Property__Alternatives");
 			builder.put(grammarAccess.getVerbAccess().getAlternatives(), "rule__Verb__Alternatives");
 			builder.put(grammarAccess.getFeatureListAccess().getGroup(), "rule__FeatureList__Group__0");
 			builder.put(grammarAccess.getConceptAccess().getGroup(), "rule__Concept__Group__0");
@@ -42,8 +43,9 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstraintAccess().getGroup_1(), "rule__Constraint__Group_1__0");
 			builder.put(grammarAccess.getKeyAccess().getGroup(), "rule__Key__Group__0");
 			builder.put(grammarAccess.getKeyAccess().getGroup_1(), "rule__Key__Group_1__0");
-			builder.put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
-			builder.put(grammarAccess.getPropertyAccess().getGroup_1(), "rule__Property__Group_1__0");
+			builder.put(grammarAccess.getConceptPropertyAccess().getGroup(), "rule__ConceptProperty__Group__0");
+			builder.put(grammarAccess.getAttributePropertyAccess().getGroup(), "rule__AttributeProperty__Group__0");
+			builder.put(grammarAccess.getAttributePropertyAccess().getGroup_1(), "rule__AttributeProperty__Group_1__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup_2(), "rule__Feature__Group_2__0");
 			builder.put(grammarAccess.getFeatureListAccess().getConceptsAssignment_0(), "rule__FeatureList__ConceptsAssignment_0");
@@ -64,8 +66,9 @@ public class MyFeatureListParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConstraintAccess().getErrormsgAssignment_3(), "rule__Constraint__ErrormsgAssignment_3");
 			builder.put(grammarAccess.getKeyAccess().getConceptAssignment_0(), "rule__Key__ConceptAssignment_0");
 			builder.put(grammarAccess.getKeyAccess().getAttributeAssignment_1_1(), "rule__Key__AttributeAssignment_1_1");
-			builder.put(grammarAccess.getPropertyAccess().getConceptAssignment_0(), "rule__Property__ConceptAssignment_0");
-			builder.put(grammarAccess.getPropertyAccess().getAttributeAssignment_1_1(), "rule__Property__AttributeAssignment_1_1");
+			builder.put(grammarAccess.getConceptPropertyAccess().getConceptAssignment_0(), "rule__ConceptProperty__ConceptAssignment_0");
+			builder.put(grammarAccess.getAttributePropertyAccess().getConceptAssignment_0(), "rule__AttributeProperty__ConceptAssignment_0");
+			builder.put(grammarAccess.getAttributePropertyAccess().getAttributeAssignment_1_1(), "rule__AttributeProperty__AttributeAssignment_1_1");
 			builder.put(grammarAccess.getFeatureAccess().getVerbAssignment_0(), "rule__Feature__VerbAssignment_0");
 			builder.put(grammarAccess.getFeatureAccess().getConceptAssignment_1(), "rule__Feature__ConceptAssignment_1");
 			builder.put(grammarAccess.getFeatureAccess().getAttributeAssignment_2_1(), "rule__Feature__AttributeAssignment_2_1");

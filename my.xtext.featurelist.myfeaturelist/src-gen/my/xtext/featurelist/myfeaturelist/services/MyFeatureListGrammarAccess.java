@@ -351,8 +351,36 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		//'autounique'
 		public Keyword getAutouniqueKeyword_2_1() { return cAutouniqueKeyword_2_1; }
 	}
-	public class PropertyElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Property");
+	public class ConceptPropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.ConceptProperty");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cConceptConceptCrossReference_0_0 = (CrossReference)cConceptAssignment_0.eContents().get(0);
+		private final RuleCall cConceptConceptIDTerminalRuleCall_0_0_1 = (RuleCall)cConceptConceptCrossReference_0_0.eContents().get(1);
+		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		
+		// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+		//ConceptProperty:
+		//    (concept=[Concept]) 'root';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(concept=[Concept]) 'root'
+		public Group getGroup() { return cGroup; }
+		
+		//(concept=[Concept])
+		public Assignment getConceptAssignment_0() { return cConceptAssignment_0; }
+		
+		//[Concept]
+		public CrossReference getConceptConceptCrossReference_0_0() { return cConceptConceptCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getConceptConceptIDTerminalRuleCall_0_0_1() { return cConceptConceptIDTerminalRuleCall_0_0_1; }
+		
+		//'root'
+		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
+	}
+	public class AttributePropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.AttributeProperty");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cConceptConceptCrossReference_0_0 = (CrossReference)cConceptAssignment_0.eContents().get(0);
@@ -364,8 +392,7 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		private final RuleCall cAttributeAttributeIDTerminalRuleCall_1_1_0_1 = (RuleCall)cAttributeAttributeCrossReference_1_1_0.eContents().get(1);
 		private final Keyword cLazyKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
-		//Property:
+		//AttributeProperty:
 		//    (concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -398,6 +425,25 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		
 		//'lazy'
 		public Keyword getLazyKeyword_2() { return cLazyKeyword_2; }
+	}
+	public class PropertyElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Property");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConceptPropertyParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cAttributePropertyParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Property:
+		//    ConceptProperty | AttributeProperty;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ConceptProperty | AttributeProperty
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ConceptProperty
+		public RuleCall getConceptPropertyParserRuleCall_0() { return cConceptPropertyParserRuleCall_0; }
+		
+		//AttributeProperty
+		public RuleCall getAttributePropertyParserRuleCall_1() { return cAttributePropertyParserRuleCall_1; }
 	}
 	public class FeatureElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "my.xtext.featurelist.myfeaturelist.MyFeatureList.Feature");
@@ -499,6 +545,8 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	private final ErrorMsgElements pErrorMsg;
 	private final ConstraintElements pConstraint;
 	private final KeyElements pKey;
+	private final ConceptPropertyElements pConceptProperty;
+	private final AttributePropertyElements pAttributeProperty;
 	private final PropertyElements pProperty;
 	private final FeatureElements pFeature;
 	private final VerbElements eVerb;
@@ -521,6 +569,8 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 		this.pErrorMsg = new ErrorMsgElements();
 		this.pConstraint = new ConstraintElements();
 		this.pKey = new KeyElements();
+		this.pConceptProperty = new ConceptPropertyElements();
+		this.pAttributeProperty = new AttributePropertyElements();
 		this.pProperty = new PropertyElements();
 		this.pFeature = new FeatureElements();
 		this.eVerb = new VerbElements();
@@ -640,8 +690,28 @@ public class MyFeatureListGrammarAccess extends AbstractElementFinder.AbstractGr
 	}
 	
 	// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
-	//Property:
+	//ConceptProperty:
+	//    (concept=[Concept]) 'root';
+	public ConceptPropertyElements getConceptPropertyAccess() {
+		return pConceptProperty;
+	}
+	
+	public ParserRule getConceptPropertyRule() {
+		return getConceptPropertyAccess().getRule();
+	}
+	
+	//AttributeProperty:
 	//    (concept=[Concept])('.'(attribute=[Attribute])) 'lazy';
+	public AttributePropertyElements getAttributePropertyAccess() {
+		return pAttributeProperty;
+	}
+	
+	public ParserRule getAttributePropertyRule() {
+		return getAttributePropertyAccess().getRule();
+	}
+	
+	//Property:
+	//    ConceptProperty | AttributeProperty;
 	public PropertyElements getPropertyAccess() {
 		return pProperty;
 	}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<myFeatureList:FeatureList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:myFeatureList="http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList">
+<myFeatureList:FeatureList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:myFeatureList="http://www.xtext.my/featurelist/myfeaturelist/MyFeatureList">
   <concepts name="RestoApp">
     <attributes name="tables" multiplicity="0..*">
       <type name="Table"/>
@@ -102,17 +102,15 @@
   </constraints>
   <keys concept="//@concepts.1" attribute="//@concepts.1/@attributes.0"/>
   <keys concept="//@concepts.2" attribute="//@concepts.2/@attributes.0"/>
-  <properties concept="//@concepts.1">
-    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|9"/>
-  </properties>
+  <properties xsi:type="myFeatureList:ConceptProperty" concept="//@concepts.0"/>
   <features concept="//@concepts.1"/>
   <features verb="Remove" concept="//@concepts.1"/>
   <features verb="Update" concept="//@concepts.2" attribute="//@concepts.2/@attributes.0"/>
   <features verb="Display" concept="//@concepts.1"/>
   <features concept="//@concepts.1">
-    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|16"/>
+    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|15"/>
   </features>
   <features verb="Remove" concept="//@concepts.1">
-    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|18"/>
+    <attribute href="C:\Users\erica\Documents\UNI\Grad School\Thesis\grad-project\myrestaurantappFromUmple.myfeaturelist#|17"/>
   </features>
 </myFeatureList:FeatureList>

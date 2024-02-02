@@ -598,6 +598,97 @@ ruleKey returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleConceptProperty
+entryRuleConceptProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getConceptPropertyRule()); }
+	iv_ruleConceptProperty=ruleConceptProperty
+	{ $current=$iv_ruleConceptProperty.current; }
+	EOF;
+
+// Rule ConceptProperty
+ruleConceptProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getConceptPropertyRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getConceptPropertyAccess().getConceptConceptCrossReference_0_0());
+				}
+			)
+		)
+		otherlv_1='root'
+		{
+			newLeafNode(otherlv_1, grammarAccess.getConceptPropertyAccess().getRootKeyword_1());
+		}
+	)
+;
+
+// Entry rule entryRuleAttributeProperty
+entryRuleAttributeProperty returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getAttributePropertyRule()); }
+	iv_ruleAttributeProperty=ruleAttributeProperty
+	{ $current=$iv_ruleAttributeProperty.current; }
+	EOF;
+
+// Rule AttributeProperty
+ruleAttributeProperty returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getAttributePropertyRule());
+					}
+				}
+				otherlv_0=RULE_ID
+				{
+					newLeafNode(otherlv_0, grammarAccess.getAttributePropertyAccess().getConceptConceptCrossReference_0_0());
+				}
+			)
+		)
+		(
+			otherlv_1='.'
+			{
+				newLeafNode(otherlv_1, grammarAccess.getAttributePropertyAccess().getFullStopKeyword_1_0());
+			}
+			(
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getAttributePropertyRule());
+						}
+					}
+					otherlv_2=RULE_ID
+					{
+						newLeafNode(otherlv_2, grammarAccess.getAttributePropertyAccess().getAttributeAttributeCrossReference_1_1_0());
+					}
+				)
+			)
+		)
+		otherlv_3='lazy'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getAttributePropertyAccess().getLazyKeyword_2());
+		}
+	)
+;
+
 // Entry rule entryRuleProperty
 entryRuleProperty returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getPropertyRule()); }
@@ -614,41 +705,22 @@ ruleProperty returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		(
-			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPropertyRule());
-					}
-				}
-				otherlv_0=RULE_ID
-				{
-					newLeafNode(otherlv_0, grammarAccess.getPropertyAccess().getConceptConceptCrossReference_0_0());
-				}
-			)
-		)
-		(
-			otherlv_1='.'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getPropertyAccess().getFullStopKeyword_1_0());
-			}
-			(
-				(
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getPropertyRule());
-						}
-					}
-					otherlv_2=RULE_ID
-					{
-						newLeafNode(otherlv_2, grammarAccess.getPropertyAccess().getAttributeAttributeCrossReference_1_1_0());
-					}
-				)
-			)
-		)
-		otherlv_3='lazy'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getPropertyAccess().getLazyKeyword_2());
+			newCompositeNode(grammarAccess.getPropertyAccess().getConceptPropertyParserRuleCall_0());
+		}
+		this_ConceptProperty_0=ruleConceptProperty
+		{
+			$current = $this_ConceptProperty_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPropertyAccess().getAttributePropertyParserRuleCall_1());
+		}
+		this_AttributeProperty_1=ruleAttributeProperty
+		{
+			$current = $this_AttributeProperty_1.current;
+			afterParserOrEnumRuleCall();
 		}
 	)
 ;

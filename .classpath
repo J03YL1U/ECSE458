@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="my.featurelist.acceleo.module.methodgeneration/src"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.ide/src"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.ide/src-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.tests/src-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.tests/xtend-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.ui.tests/src-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.ui/src"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist.ui/src-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist/src"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist/src-gen"/>
+	<classpathentry kind="src" path="my.xtext.featurelist.myfeaturelist/xtend-gen"/>
+	<classpathentry kind="src" path="restaruantapp/src"/>
+	<classpathentry kind="lib" path="my.xtext.featurelist.myfeaturelist/.antlr-generator-3.2.0-patch.jar"/>
+	<classpathentry kind="output" path="my.featurelist.acceleo.module.methodgeneration/bin"/>
+</classpath>

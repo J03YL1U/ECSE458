@@ -1,10 +1,11 @@
+concept RestoApp
+
 concept Seat
 	int number
 
 concept Table
 	int number
 	Seat seat 1..*
-	String fakeatt 0..1
 	
 constraints
 	Table.number > 0 "The table number must be greater than 0"
@@ -15,7 +16,7 @@ keys
 	Seat.number unique
 	
 properties
-	Table.fakeatt lazy
+	RestoApp root
 	
 features
 	Add Table

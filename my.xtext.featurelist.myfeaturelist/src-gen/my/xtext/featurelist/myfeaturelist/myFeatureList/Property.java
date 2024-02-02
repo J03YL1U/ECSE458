@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Property#getConcept <em>Concept</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Property#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getProperty()
@@ -45,27 +44,5 @@ public interface Property extends EObject
    * @generated
    */
   void setConcept(Concept value);
-
-  /**
-   * Returns the value of the '<em><b>Attribute</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' reference.
-   * @see #setAttribute(Attribute)
-   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage#getProperty_Attribute()
-   * @model
-   * @generated
-   */
-  Attribute getAttribute();
-
-  /**
-   * Sets the value of the '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.Property#getAttribute <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' reference.
-   * @see #getAttribute()
-   * @generated
-   */
-  void setAttribute(Attribute value);
 
 } // Property

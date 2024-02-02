@@ -111,6 +111,16 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
         return createKeyAdapter();
       }
       @Override
+      public Adapter caseConceptProperty(ConceptProperty object)
+      {
+        return createConceptPropertyAdapter();
+      }
+      @Override
+      public Adapter caseAttributeProperty(AttributeProperty object)
+      {
+        return createAttributePropertyAdapter();
+      }
+      @Override
       public Adapter caseProperty(Property object)
       {
         return createPropertyAdapter();
@@ -243,6 +253,36 @@ public class MyFeatureListAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createKeyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptProperty <em>Concept Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptProperty
+   * @generated
+   */
+  public Adapter createConceptPropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link my.xtext.featurelist.myfeaturelist.myFeatureList.AttributeProperty <em>Attribute Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see my.xtext.featurelist.myfeaturelist.myFeatureList.AttributeProperty
+   * @generated
+   */
+  public Adapter createAttributePropertyAdapter()
   {
     return null;
   }

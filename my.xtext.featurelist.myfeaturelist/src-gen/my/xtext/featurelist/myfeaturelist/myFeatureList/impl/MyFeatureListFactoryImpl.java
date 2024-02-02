@@ -73,6 +73,8 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
       case MyFeatureListPackage.CONDITION: return createCondition();
       case MyFeatureListPackage.CONSTRAINT: return createConstraint();
       case MyFeatureListPackage.KEY: return createKey();
+      case MyFeatureListPackage.CONCEPT_PROPERTY: return createConceptProperty();
+      case MyFeatureListPackage.ATTRIBUTE_PROPERTY: return createAttributeProperty();
       case MyFeatureListPackage.PROPERTY: return createProperty();
       case MyFeatureListPackage.FEATURE: return createFeature();
       default:
@@ -196,6 +198,30 @@ public class MyFeatureListFactoryImpl extends EFactoryImpl implements MyFeatureL
   {
     KeyImpl key = new KeyImpl();
     return key;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ConceptProperty createConceptProperty()
+  {
+    ConceptPropertyImpl conceptProperty = new ConceptPropertyImpl();
+    return conceptProperty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public AttributeProperty createAttributeProperty()
+  {
+    AttributePropertyImpl attributeProperty = new AttributePropertyImpl();
+    return attributeProperty;
   }
 
   /**

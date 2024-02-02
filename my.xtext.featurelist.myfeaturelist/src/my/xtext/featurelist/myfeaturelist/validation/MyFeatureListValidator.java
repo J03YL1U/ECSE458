@@ -8,9 +8,11 @@ import org.eclipse.xtext.validation.Check;
 
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.ConceptProperty;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.FeatureList;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Key;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
+import my.xtext.featurelist.myfeaturelist.myFeatureList.Property;
 
 /**
  * This class contains custom validation rules. 
@@ -46,26 +48,51 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 	}
 
 	@Check
-	public void checkEachConceptHasKey(Concept concept) {
+	public void checkEachConceptButRootHasKey(Concept concept) {
 		FeatureList featureList = (FeatureList) concept.eContainer();
-		boolean hasKey = false;
-
+		Concept rootConcept = null;
 		if (featureList != null) {
-			for (Key key : featureList.getKeys()) {
-				if (key.getConcept().equals(concept)) {
-					hasKey = true;
-					break;
+			EList<Property> properties = featureList.getProperties();
+			for (Property property : properties) {
+				if (property instanceof ConceptProperty) {
+					rootConcept = property.getConcept();
 				}
 			}
+		}
+		if (!concept.equals(rootConcept)) {
+			boolean hasKey = false;
 
-			if (!hasKey) {
-				error("Every concept needs a key",
-						MyFeatureListPackage.Literals.CONCEPT__NAME);
+			if (featureList != null) {
+				for (Key key : featureList.getKeys()) {
+					if (key.getConcept().equals(concept)) {
+						hasKey = true;
+						break;
+					}
+				}
+
+				if (!hasKey) {
+					error("Every concept except root needs a key",
+							MyFeatureListPackage.Literals.CONCEPT__NAME);
+				}
+			}
+		}
+	}
+	
+	@Check
+	public void checkNoKeyForRootConcept(Key key) {
+		FeatureList featureList = (FeatureList) key.eContainer();
+		if (featureList != null) {
+			EList<Property> properties = featureList.getProperties();
+			for (Property property : properties) {
+				if (property instanceof ConceptProperty) {
+					if (key.getConcept().equals(property.getConcept())) {
+						error("The root concept cannot have a key", MyFeatureListPackage.Literals.KEY__CONCEPT);
+					}
+				}
 			}
 		}
 	}
 
-	//TODO: FIX
 	@Check
 	public void checkMultiplicity(Attribute attribute) {
 		String multiplicity = attribute.getMultiplicity();
@@ -98,4 +125,22 @@ public class MyFeatureListValidator extends AbstractMyFeatureListValidator {
 		}
 	}
 
+	@Check
+	public void checkExactlyOneRoot(FeatureList featureList) {
+		EList<Property> properties = featureList.getProperties();
+		boolean hasRoot = false;
+		if (properties != null) {
+			for (Property property : properties) {
+				if (property instanceof ConceptProperty) {
+					if (hasRoot) {
+						error("There can only be one root", MyFeatureListPackage.Literals.FEATURE_LIST__PROPERTIES);
+					}
+					hasRoot = true;
+				}
+			}
+			if (!hasRoot) {
+				error("There must be one root", MyFeatureListPackage.Literals.FEATURE_LIST__PROPERTIES);
+			}
+		}
+	}
 }

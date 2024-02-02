@@ -44,9 +44,12 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Key/concept"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Key/attribute"/>
     </genClasses>
+    <genClasses ecoreClass="MyFeatureList.ecore#//ConceptProperty"/>
+    <genClasses ecoreClass="MyFeatureList.ecore#//AttributeProperty">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//AttributeProperty/attribute"/>
+    </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Property">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Property/concept"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference MyFeatureList.ecore#//Property/attribute"/>
     </genClasses>
     <genClasses ecoreClass="MyFeatureList.ecore#//Feature">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MyFeatureList.ecore#//Feature/verb"/>

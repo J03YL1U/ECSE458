@@ -122,6 +122,22 @@ public class MyFeatureListSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case MyFeatureListPackage.CONCEPT_PROPERTY:
+      {
+        ConceptProperty conceptProperty = (ConceptProperty)theEObject;
+        T result = caseConceptProperty(conceptProperty);
+        if (result == null) result = caseProperty(conceptProperty);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case MyFeatureListPackage.ATTRIBUTE_PROPERTY:
+      {
+        AttributeProperty attributeProperty = (AttributeProperty)theEObject;
+        T result = caseAttributeProperty(attributeProperty);
+        if (result == null) result = caseProperty(attributeProperty);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case MyFeatureListPackage.PROPERTY:
       {
         Property property = (Property)theEObject;
@@ -248,6 +264,38 @@ public class MyFeatureListSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseKey(Key object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Concept Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Concept Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseConceptProperty(ConceptProperty object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttributeProperty(AttributeProperty object)
   {
     return null;
   }

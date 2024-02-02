@@ -3,7 +3,6 @@
  */
 package my.xtext.featurelist.myfeaturelist.myFeatureList.impl;
 
-import my.xtext.featurelist.myfeaturelist.myFeatureList.Attribute;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Concept;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 import my.xtext.featurelist.myfeaturelist.myFeatureList.Property;
@@ -25,7 +24,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.PropertyImpl#getConcept <em>Concept</em>}</li>
- *   <li>{@link my.xtext.featurelist.myfeaturelist.myFeatureList.impl.PropertyImpl#getAttribute <em>Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,16 +39,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
    * @ordered
    */
   protected Concept concept;
-
-  /**
-   * The cached value of the '{@link #getAttribute() <em>Attribute</em>}' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAttribute()
-   * @generated
-   * @ordered
-   */
-  protected Attribute attribute;
 
   /**
    * <!-- begin-user-doc -->
@@ -124,51 +112,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
    * @generated
    */
   @Override
-  public Attribute getAttribute()
-  {
-    if (attribute != null && attribute.eIsProxy())
-    {
-      InternalEObject oldAttribute = (InternalEObject)attribute;
-      attribute = (Attribute)eResolveProxy(oldAttribute);
-      if (attribute != oldAttribute)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, MyFeatureListPackage.PROPERTY__ATTRIBUTE, oldAttribute, attribute));
-      }
-    }
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Attribute basicGetAttribute()
-  {
-    return attribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setAttribute(Attribute newAttribute)
-  {
-    Attribute oldAttribute = attribute;
-    attribute = newAttribute;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, MyFeatureListPackage.PROPERTY__ATTRIBUTE, oldAttribute, attribute));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -176,9 +119,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
       case MyFeatureListPackage.PROPERTY__CONCEPT:
         if (resolve) return getConcept();
         return basicGetConcept();
-      case MyFeatureListPackage.PROPERTY__ATTRIBUTE:
-        if (resolve) return getAttribute();
-        return basicGetAttribute();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -195,9 +135,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     {
       case MyFeatureListPackage.PROPERTY__CONCEPT:
         setConcept((Concept)newValue);
-        return;
-      case MyFeatureListPackage.PROPERTY__ATTRIBUTE:
-        setAttribute((Attribute)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -216,9 +153,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
       case MyFeatureListPackage.PROPERTY__CONCEPT:
         setConcept((Concept)null);
         return;
-      case MyFeatureListPackage.PROPERTY__ATTRIBUTE:
-        setAttribute((Attribute)null);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -235,8 +169,6 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     {
       case MyFeatureListPackage.PROPERTY__CONCEPT:
         return concept != null;
-      case MyFeatureListPackage.PROPERTY__ATTRIBUTE:
-        return attribute != null;
     }
     return super.eIsSet(featureID);
   }

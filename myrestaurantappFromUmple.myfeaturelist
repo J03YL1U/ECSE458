@@ -47,7 +47,7 @@ keys
 	Seat.number unique
 	
 properties
-	Table.fakeatt lazy
+	RestoApp root
 	
 features
 	Add Table
