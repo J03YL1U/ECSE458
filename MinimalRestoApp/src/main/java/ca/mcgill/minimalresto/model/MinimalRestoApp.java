@@ -1,10 +1,10 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
 /*This code was generated using the UMPLE 1.27.0.3728.d139ed893 modeling language!*/
 
-package ca.mcgill.minimalresto.model;
+package main.java.ca.mcgill.minimalresto.model;
 import java.util.*;
 
-import ca.mcgill.minimalresto.model.Table.Location;
+import main.java.ca.mcgill.minimalresto.model.Table.Location;
 
 // line 3 "../../../../MinimalRestoApp.ump"
 public class MinimalRestoApp

@@ -1,7 +1,7 @@
-package ca.mcgill.minimalresto.application;
+package main.java.ca.mcgill.minimalresto.application;
 
-import ca.mcgill.minimalresto.model.MinimalRestoApp;
-import ca.mcgill.minimalresto.view.MinimalRestoAppPage;
+import main.java.ca.mcgill.minimalresto.model.MinimalRestoApp;
+import main.java.ca.mcgill.minimalresto.view.MinimalRestoAppPage;
 
 public class MinimalRestoAppApplication {
 	

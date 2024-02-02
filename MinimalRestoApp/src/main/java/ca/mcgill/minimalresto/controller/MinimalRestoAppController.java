@@ -1,9 +1,9 @@
-package ca.mcgill.minimalresto.controller;
+package main.java.ca.mcgill.minimalresto.controller;
 
-import ca.mcgill.minimalresto.application.MinimalRestoAppApplication;
-import ca.mcgill.minimalresto.model.MinimalRestoApp;
-import ca.mcgill.minimalresto.model.Table;
-import ca.mcgill.minimalresto.model.Table.Location;
+import main.java.ca.mcgill.minimalresto.application.MinimalRestoAppApplication;
+import main.java.ca.mcgill.minimalresto.model.MinimalRestoApp;
+import main.java.ca.mcgill.minimalresto.model.Table;
+import main.java.ca.mcgill.minimalresto.model.Table.Location;
 
 public class MinimalRestoAppController {
 	

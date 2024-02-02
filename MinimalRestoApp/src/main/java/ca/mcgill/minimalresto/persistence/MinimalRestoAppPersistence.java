@@ -1,4 +1,4 @@
-package ca.mcgill.minimalresto.persistence;
+package main.java.ca.mcgill.minimalresto.persistence;
 
 public class MinimalRestoAppPersistence {
 

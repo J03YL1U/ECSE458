@@ -1,4 +1,4 @@
-package ca.mcgill.minimalresto.view;
+package main.java.ca.mcgill.minimalresto.view;
 
 import javax.swing.JFrame;
 
