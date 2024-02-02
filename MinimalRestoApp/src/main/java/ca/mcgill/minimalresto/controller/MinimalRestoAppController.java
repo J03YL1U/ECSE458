@@ -15,7 +15,7 @@ public class MinimalRestoAppController {
 		MinimalRestoApp r = MinimalRestoAppApplication.getMinimalRestoApp();
 		
 		if (!(number > 0)) {
-			return "The table number cannot be negative or zero.";			
+			return "The table number must be greater than 0.";			
 		}
 		Location parsedLocation;
 		try {

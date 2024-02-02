@@ -2,9 +2,9 @@ Feature: Create Table
 As the manager, I want to add a table in the system.
 
 Background: 
-    	Given the following Table exists in the system
+    	Given the following table exists in the system
           | number 	| Location	|
-          |           1 | Indoors	|
+          |       1 | Indoors		|
 			
 Scenario Outline: Successfully create a table
 	When the manager attempts to create a new table in the system with number "<tableNumber>" and location "<location>"
@@ -13,8 +13,8 @@ Scenario Outline: Successfully create a table
 
 	Examples: 
       	  | number 	| Location	|
-          |           2 | Patio		|
-	  |	      3 | Indoors	|	
+          |       2 | Patio			|
+	  			|	      3 | Indoors		|	
 
 Scenario : Unsuccessfully create a table
 	When the manager attempts to create a new table in the system with number "<tableNumber>" and location "<location>"
@@ -22,7 +22,7 @@ Scenario : Unsuccessfully create a table
 	Then the error "<error>" shall be raised
 	
 	Examples: 
-      	  | number 	| Location	|
-          |           1 | Patio		|
-	  |	      4 | SecondFloor	|	
-	  |	     -23| Indoors	|
+      	  | number 	| Location		| Error
+          |       1 | Patio				| The table number must be unique.
+	  			|	      4 | SecondFloor	|	The table location must be Indoors or Patio.
+	  			|	     -23| Indoors			| The table number must be greater than 0.
