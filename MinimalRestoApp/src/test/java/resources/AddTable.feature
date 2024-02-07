@@ -22,7 +22,7 @@ Scenario : Unsuccessfully create a table
 	Then the error "<error>" shall be raised
 	
 	Examples: 
-      	  | number 	| Location		| Error
-          |       1 | Patio				| The table number must be unique.
-	  			|	      4 | SecondFloor	|	The table location must be Indoors or Patio.
-	  			|	     -23| Indoors			| The table number must be greater than 0.
+      	  | number 	| Location		| Error																					|
+          |       1 | Patio				| The table number must be unique.							|
+	  			|	      2 | SecondFloor	|	The table location must be Indoors or Patio.	|
+	  			|			 	0 | Indoors			| The table number must be greater than 0.			|

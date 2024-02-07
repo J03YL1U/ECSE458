@@ -1,5 +1,8 @@
 package test.java.ca.mcgill.minimalresto.features;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import java.util.List;
 import java.util.Map;
 
@@ -42,11 +45,11 @@ public class AddTableStepDefinitions {
 		assertEquals(table.getLocation(), location);
 	}
 	
-	 @Then("the number of tables in the system shall be {string}")
-	  public void the_number_of_tables_in_the_system_shall_be(String expectedNumOfTables) {
+	 @Then("the number of tables in the system shall be {int}")
+	  public void the_number_of_tables_in_the_system_shall_be(int expectedNumOfTables) {
 
 	    int numOfTables = minimalRestoApp.numberOfTables();
-	    assertEquals(Integer.parseInt(expectedNumOfTables), numOfTables);
+	    assertEquals(expectedNumOfTables, numOfTables);
 	  }
 
 	@Then("the error {string} shall be raised")

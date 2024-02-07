@@ -28,7 +28,6 @@ public class MinimalRestoAppController {
 		try {
 			new Table(number, parsedLocation, r);
 		}
-			
 		catch (RuntimeException e) {
 			return "The table number must be unique.";
 		}
