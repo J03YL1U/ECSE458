@@ -4,6 +4,7 @@ import ca.mcgill.minimalresto.application.MinimalRestoAppApplication;
 import ca.mcgill.minimalresto.model.MinimalRestoApp;
 import ca.mcgill.minimalresto.model.Table;
 import ca.mcgill.minimalresto.model.Table.Location;
+import ca.mcgill.minimalresto.persistence.MinimalRestoAppPersistence;
 
 public class MinimalRestoAppController {
 	
@@ -33,7 +34,7 @@ public class MinimalRestoAppController {
 		}
 		
 		try {
-			MinimalRestoAppApplication.save();
+			MinimalRestoAppPersistence.save();
 		}
 		catch (RuntimeException e) {
 			return e.getMessage();
