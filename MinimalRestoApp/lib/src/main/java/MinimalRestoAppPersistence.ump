@@ -1,0 +1,15 @@
+
+class MinimalRestoApp {
+  public void reinitialize() {
+    Table.reinitializeUniqueNumber(this.getTables());
+  }
+}
+
+class Table {
+  public static void reinitializeUniqueNumber(List<Table> tables) {
+    tablesByNumber = new HashMap<Integer, Table>();
+    for (Table t : tables) {
+      tablesByNumber.put(t.getNumber(), t);
+    }
+  }
+}

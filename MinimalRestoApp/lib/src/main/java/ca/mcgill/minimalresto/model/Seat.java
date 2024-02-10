@@ -1,9 +1,9 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.27.0.3728.d139ed893 modeling language!*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.minimalresto.model;
 
-// line 16 "../../../../MinimalRestoApp.ump"
+// line 18 "../../../../MinimalRestoApp.ump"
 public class Seat
 {
 
@@ -23,19 +23,19 @@ public class Seat
     boolean didAddTable = setTable(aTable);
     if (!didAddTable)
     {
-      throw new RuntimeException("Unable to create seat due to table");
+      throw new RuntimeException("Unable to create seat due to table. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
   }
 
   //------------------------
   // INTERFACE
   //------------------------
-
+  /* Code from template association_GetOne */
   public Table getTable()
   {
     return table;
   }
-
+  /* Code from template association_SetOneToMany */
   public boolean setTable(Table aTable)
   {
     boolean wasSet = false;

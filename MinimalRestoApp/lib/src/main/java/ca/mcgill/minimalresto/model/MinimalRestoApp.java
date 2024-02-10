@@ -1,12 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.27.0.3728.d139ed893 modeling language!*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.minimalresto.model;
 import java.util.*;
 
-import ca.mcgill.minimalresto.model.Table.Location;
-
-// line 3 "../../../../MinimalRestoApp.ump"
+// line 2 "../../../../MinimalRestoAppPersistence.ump"
+// line 5 "../../../../MinimalRestoApp.ump"
 public class MinimalRestoApp
 {
 
@@ -29,7 +28,7 @@ public class MinimalRestoApp
   //------------------------
   // INTERFACE
   //------------------------
-
+  /* Code from template association_GetMany */
   public Table getTable(int index)
   {
     Table aTable = tables.get(index);
@@ -59,13 +58,13 @@ public class MinimalRestoApp
     int index = tables.indexOf(aTable);
     return index;
   }
-
+  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfTables()
   {
     return 0;
   }
   /* Code from template association_AddManyToOne */
-  public Table addTable(int aNumber, Location aLocation)
+  public Table addTable(int aNumber, Table.Location aLocation)
   {
     return new Table(aNumber, aLocation, this);
   }
@@ -99,7 +98,7 @@ public class MinimalRestoApp
     }
     return wasRemoved;
   }
-
+  /* Code from template association_AddIndexControlFunctions */
   public boolean addTableAt(Table aTable, int index)
   {  
     boolean wasAdded = false;
@@ -141,6 +140,11 @@ public class MinimalRestoApp
       tables.remove(aTable);
     }
     
+  }
+
+  // line 4 "../../../../MinimalRestoAppPersistence.ump"
+   public void reinitialize(){
+    Table.reinitializeUniqueNumber(this.getTables());
   }
 
 }

@@ -1,10 +1,11 @@
 /*PLEASE DO NOT EDIT THIS CODE*/
-/*This code was generated using the UMPLE 1.27.0.3728.d139ed893 modeling language!*/
+/*This code was generated using the UMPLE 1.31.1.5860.78bb27cc6 modeling language!*/
 
 package ca.mcgill.minimalresto.model;
 import java.util.*;
 
-// line 7 "../../../../MinimalRestoApp.ump"
+// line 8 "../../../../MinimalRestoAppPersistence.ump"
+// line 9 "../../../../MinimalRestoApp.ump"
 public class Table
 {
 
@@ -41,13 +42,13 @@ public class Table
     location = aLocation;
     if (!setNumber(aNumber))
     {
-      throw new RuntimeException("Cannot create due to duplicate number");
+      throw new RuntimeException("Cannot create due to duplicate number. See http://manual.umple.org?RE003ViolationofUniqueness.html");
     }
     seats = new ArrayList<Seat>();
     boolean didAddMinimalRestoApp = setMinimalRestoApp(aMinimalRestoApp);
     if (!didAddMinimalRestoApp)
     {
-      throw new RuntimeException("Unable to create table due to minimalRestoApp");
+      throw new RuntimeException("Unable to create table due to minimalRestoApp. See http://manual.umple.org?RE002ViolationofAssociationMultiplicity.html");
     }
   }
 
@@ -59,6 +60,9 @@ public class Table
   {
     boolean wasSet = false;
     Integer anOldNumber = getNumber();
+    if (anOldNumber != null && anOldNumber.equals(aNumber)) {
+      return true;
+    }
     if (hasWithNumber(aNumber)) {
       return wasSet;
     }
@@ -83,12 +87,12 @@ public class Table
   {
     return number;
   }
-
+  /* Code from template attribute_GetUnique */
   public static Table getWithNumber(int aNumber)
   {
     return tablesByNumber.get(aNumber);
   }
-
+  /* Code from template attribute_HasUnique */
   public static boolean hasWithNumber(int aNumber)
   {
     return getWithNumber(aNumber) != null;
@@ -98,7 +102,7 @@ public class Table
   {
     return location;
   }
-
+  /* Code from template association_GetMany */
   public Seat getSeat(int index)
   {
     Seat aSeat = seats.get(index);
@@ -128,12 +132,12 @@ public class Table
     int index = seats.indexOf(aSeat);
     return index;
   }
-
+  /* Code from template association_GetOne */
   public MinimalRestoApp getMinimalRestoApp()
   {
     return minimalRestoApp;
   }
-
+  /* Code from template association_MinimumNumberOfMethod */
   public static int minimumNumberOfSeats()
   {
     return 0;
@@ -173,7 +177,7 @@ public class Table
     }
     return wasRemoved;
   }
-
+  /* Code from template association_AddIndexControlFunctions */
   public boolean addSeatAt(Seat aSeat, int index)
   {  
     boolean wasAdded = false;
@@ -205,7 +209,7 @@ public class Table
     }
     return wasAdded;
   }
-
+  /* Code from template association_SetOneToMany */
   public boolean setMinimalRestoApp(MinimalRestoApp aMinimalRestoApp)
   {
     boolean wasSet = false;
@@ -240,6 +244,14 @@ public class Table
     if(placeholderMinimalRestoApp != null)
     {
       placeholderMinimalRestoApp.removeTable(this);
+    }
+  }
+
+  // line 10 "../../../../MinimalRestoAppPersistence.ump"
+   public static  void reinitializeUniqueNumber(List<Table> tables){
+    tablesByNumber = new HashMap<Integer, Table>();
+    for (Table t : tables) {
+      tablesByNumber.put(t.getNumber(), t);
     }
   }
 
