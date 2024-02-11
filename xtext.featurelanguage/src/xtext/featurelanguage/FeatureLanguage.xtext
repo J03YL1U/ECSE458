@@ -1,0 +1,53 @@
+grammar xtext.featurelanguage.FeatureLanguage with org.eclipse.xtext.common.Terminals
+
+generate featureLanguage "http://www.featurelanguage.xtext/FeatureLanguage"
+
+FeatureList:
+        (concepts+=Concept)*
+        'constraints' (constraints+=Constraint)*
+        'keys' (keys+=Key)*
+        'properties' (properties+=Property)*
+    	'features' (features+=Feature)*;
+    	
+Concept:
+        'concept' name=ID
+        (characteristics+=Characteristic)*;
+       
+Characteristic:
+        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
+        
+Type:
+	name=ID;
+
+Condition:
+        ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+        
+ErrorMsg:
+	STRING;
+	        
+Constraint:
+	(concept=[Concept])('.'(characteristic=[Characteristic])) (condition+=Condition) (errormsg+=ErrorMsg);
+	
+Key:
+	(concept=[Concept])('.'(characteristic=[Characteristic])) (keyType=KeyType); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
+	
+ConceptProperty:
+	(concept=[Concept]) 'root';
+
+CharacteristicProperty:
+	(concept=[Concept])('.'(characteristic=[Characteristic])) 'lazy';
+	
+Property:
+	ConceptProperty | CharacteristicProperty;
+       
+Feature:
+        (verb=Verb) (concept=[Concept])('.'(characteristic=[Characteristic]))?;
+
+enum Verb:
+        Add | Remove | Update | Display; 
+        
+enum KeyType:
+	unique | autounique | index;  
+        
+terminal MULTIPLICITY:
+	(INT | '*')'..'(INT | '*');

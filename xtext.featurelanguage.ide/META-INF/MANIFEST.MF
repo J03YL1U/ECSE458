@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: xtext.featurelanguage.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: xtext.featurelanguage.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: xtext.featurelanguage.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: xtext.featurelanguage,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: xtext.featurelanguage.ide.contentassist.antlr.internal,
+ xtext.featurelanguage.ide.contentassist.antlr

@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: xtext.featurelanguage
+Bundle-ManifestVersion: 2
+Bundle-Name: xtext.featurelanguage
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: xtext.featurelanguage; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: xtext.featurelanguage.validation,
+ xtext.featurelanguage.services,
+ xtext.featurelanguage.featureLanguage.util,
+ xtext.featurelanguage.featureLanguage,
+ xtext.featurelanguage.parser.antlr.internal,
+ xtext.featurelanguage.scoping,
+ xtext.featurelanguage,
+ xtext.featurelanguage.serializer,
+ xtext.featurelanguage.generator,
+ xtext.featurelanguage.featureLanguage.impl,
+ xtext.featurelanguage.parser.antlr
+Import-Package: org.apache.log4j
