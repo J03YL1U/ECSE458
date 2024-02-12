@@ -12,6 +12,7 @@ import xtext.featurelanguage.featureLanguage.ConceptProperty;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
 import xtext.featurelanguage.featureLanguage.FeatureList;
 import xtext.featurelanguage.featureLanguage.Key;
+import xtext.featurelanguage.featureLanguage.KeyType;
 import xtext.featurelanguage.featureLanguage.Property;
 
 /**
@@ -26,11 +27,48 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 		FeatureList featureList = (FeatureList) key.eContainer();
 
 		if (featureList != null) {
+			if (key.getKeyType().equals(KeyType.AUTOUNIQUE) || key.getKeyType().equals(KeyType.UNIQUE)) {
+				for (Key otherKey : featureList.getKeys()) {
+					if (!key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept())) {
+						if (!otherKey.getKeyType().equals(KeyType.INDEX)) {
+							error("There can only be one key per concept",
+									FeatureLanguagePackage.Literals.KEY__CONCEPT);
+							break;
+						}
+					}
+				}
+			}
 			for (Key otherKey : featureList.getKeys()) {
-				if ( !key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept())) {
+				if (!key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept()) && key.getCharacteristic().equals(otherKey.getCharacteristic())) {
 					error("There can only be one key per concept",
 							FeatureLanguagePackage.Literals.KEY__CONCEPT);
 					break;
+				}
+				if (!key.equals(otherKey) && key.getConcept().getName().toString().equals(otherKey.getCharacteristic().getType().getName().toString())) {
+					error("There can only be one key per concept",
+							FeatureLanguagePackage.Literals.KEY__CONCEPT);
+					break;
+				}
+			}
+		}
+	}
+	
+	@Check
+	public void checkEachIndexKeyHasConcept(Key key) {
+		FeatureList featureList = (FeatureList) key.eContainer();
+
+		if (featureList != null) {
+			if (key.getKeyType().equals(KeyType.INDEX)) {
+				EList<Concept> concepts = featureList.getConcepts();
+				boolean hasConcept = false;
+				for (Concept concept : concepts) {
+					if (key.getCharacteristic().getType().getName().toString().equals(concept.getName().toString())) {
+						hasConcept = true;
+					}
+				}
+				if (!hasConcept) {
+					error("Every key needs a concept",
+							FeatureLanguagePackage.Literals.KEY__CHARACTERISTIC);
 				}
 			}
 		}
@@ -53,7 +91,12 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 
 			if (featureList != null) {
 				for (Key key : featureList.getKeys()) {
-					if (key.getConcept().equals(concept)) {
+					if (key.getConcept().equals(concept) && (key.getKeyType().equals(KeyType.AUTOUNIQUE) || key.getKeyType().equals(KeyType.UNIQUE))) {
+						hasKey = true;
+						break;
+					}
+					
+					if (key.getCharacteristic().getType().getName().toString().equals(concept.getName().toString()) && key.getKeyType().equals(KeyType.INDEX)) {
 						hasKey = true;
 						break;
 					}

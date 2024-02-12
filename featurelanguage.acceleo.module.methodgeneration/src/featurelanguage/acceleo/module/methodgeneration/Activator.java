@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package my.featurelist.acceleo.module.methodgeneration;
+package featurelanguage.acceleo.module.methodgeneration;
 
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
@@ -21,7 +21,7 @@ public class Activator extends Plugin {
     /**
      * The plug-in ID.
      */
-    public static final String PLUGIN_ID = "my.featurelist.acceleo.module.methodgeneration";
+    public static final String PLUGIN_ID = "featurelanguage.acceleo.module.methodgeneration";
 
     /**
      * The shared instance.

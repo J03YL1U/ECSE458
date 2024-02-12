@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ASCII"?>
+<featureLanguage:FeatureList xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:featureLanguage="http://www.featurelanguage.xtext/FeatureLanguage">
+  <concepts name="MinimalRestoApp">
+    <characteristics name="tables" multiplicity="0..*">
+      <type name="Table"/>
+    </characteristics>
+  </concepts>
+  <concepts name="Table">
+    <characteristics name="number">
+      <type name="int"/>
+    </characteristics>
+    <characteristics name="location">
+      <type name="Location"/>
+    </characteristics>
+    <characteristics name="minimalRestoApp" multiplicity="1..1">
+      <type name="MinimalRestoApp"/>
+    </characteristics>
+    <characteristics name="seats" multiplicity="0..*">
+      <type name="Seat"/>
+    </characteristics>
+  </concepts>
+  <concepts name="Seat">
+    <characteristics name="table" multiplicity="1..1">
+      <type name="Table"/>
+    </characteristics>
+  </concepts>
+  <constraints concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.0">
+    <condition/>
+    <errormsg>&quot;The table number must be greater than 0&quot;</errormsg>
+  </constraints>
+  <keys concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.0"/>
+  <keys concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.3" keyType="index"/>
+  <properties xsi:type="featureLanguage:ConceptProperty" concept="//@concepts.0"/>
+  <features concept="//@concepts.1"/>
+</featureLanguage:FeatureList>

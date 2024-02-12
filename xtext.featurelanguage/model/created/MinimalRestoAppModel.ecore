@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="ca.mcgill.minimalresto.model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EDataType" name="Location" instanceClassName="Location" />
+  <eClassifiers xsi:type="ecore:EClass" name="MinimalRestoApp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1" eType="#//Table" eOpposite="#//Table/minimalRestoApp" />
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="#//Location" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="minimalRestoApp" lowerBound="1" eType="#//MinimalRestoApp" eOpposite="#//MinimalRestoApp/tables" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seats" upperBound="-1" eType="#//Seat" eOpposite="#//Seat/table" />
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Seat">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table" eOpposite="#//Table/seats" />
+  </eClassifiers>
+</ecore:EPackage>

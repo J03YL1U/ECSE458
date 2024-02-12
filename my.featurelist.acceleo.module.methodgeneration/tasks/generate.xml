@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="generate" name="my.featurelist.acceleo.module.methodgeneration">
+<project default="generate" name="my.featurelanguage.acceleo.module.methodgeneration">
     <property name="ECLIPSE_HOME" value="../../../../../../../eclipse/modeling-2022-122/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../../../eclipse-workspace-modelingtools"/>
 
     <!-- The classpath with only the dependencies used by the project -->
-    <path id="my.featurelist.acceleo.module.methodgeneration.libraryclasspath">
-        <pathelement location="${ECLIPSE_WORKSPACE}/my.featurelist.acceleo.module.methodgeneration/bin"/>
+    <path id="my.featurelanguage.acceleo.module.methodgeneration.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/my.featurelanguage.acceleo.module.methodgeneration/bin"/>
     </path>
 
-    <path id="my.featurelist.acceleo.module.methodgeneration.classpath">
-        <path refid="my.featurelist.acceleo.module.methodgeneration.libraryclasspath"/>
+    <path id="my.featurelanguage.acceleo.module.methodgeneration.classpath">
+        <path refid="my.featurelanguage.acceleo.module.methodgeneration.libraryclasspath"/>
     </path>
 
     <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
-    <path id="my.featurelist.acceleo.module.methodgeneration.libraryclasspath.alljars">
-        <pathelement location="../my.featurelist.acceleo.module.methodgeneration/bin"/>
+    <path id="my.featurelanguage.acceleo.module.methodgeneration.libraryclasspath.alljars">
+        <pathelement location="../my.featurelanguage.acceleo.module.methodgeneration/bin"/>
         <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
     </path>
 
-    <path id="my.featurelist.acceleo.module.methodgeneration.classpath.alljars">
-        <path refid="my.featurelist.acceleo.module.methodgeneration.libraryclasspath.alljars"/>
+    <path id="my.featurelanguage.acceleo.module.methodgeneration.classpath.alljars">
+        <path refid="my.featurelanguage.acceleo.module.methodgeneration.libraryclasspath.alljars"/>
     </path>
 
     <!-- The default task with the jars used by this project -->
     <target name="generate">
-        <java classname="my.featurelist.acceleo.module.methodgeneration.main.Generate" classpathref="my.featurelist.acceleo.module.methodgeneration.classpath">
+        <java classname="featurelanguage.acceleo.module.methodgeneration.main.Generate" classpathref="my.featurelanguage.acceleo.module.methodgeneration.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -35,7 +35,7 @@
         Keep in mind that having two versions of the same jar can create problems
     -->
     <target name="generate.alljars">
-        <java classname="my.featurelist.acceleo.module.methodgeneration.main.Generate" classpathref="my.featurelist.acceleo.module.methodgeneration.classpath">
+        <java classname="featurelanguage.acceleo.module.methodgeneration.main.Generate" classpathref="my.featurelanguage.acceleo.module.methodgeneration.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>

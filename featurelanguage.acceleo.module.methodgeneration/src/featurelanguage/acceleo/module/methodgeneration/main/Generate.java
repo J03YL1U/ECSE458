@@ -8,7 +8,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-package my.featurelist.acceleo.module.methodgeneration.main;
+package featurelanguage.acceleo.module.methodgeneration.main;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,9 +23,6 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-
-import my.xtext.featurelist.myfeaturelist.myFeatureList.MyFeatureListPackage;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -38,7 +35,7 @@ public class Generate extends AbstractAcceleoGenerator {
      *
      * @generated
      */
-    public static final String MODULE_FILE_NAME = "/my/featurelist/acceleo/module/methodgeneration/main/generate";
+    public static final String MODULE_FILE_NAME = "/featurelanguage/acceleo/module/methodgeneration/main/generate";
     
     /**
      * The name of the templates that are to be generated.
@@ -338,16 +335,11 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated NOT
+     * @generated
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
-        
-        if (!isInWorkspace(MyFeatureListPackage.class)) {
-        	// The normal package registration if your metamodel is in a plugin.
-        	resourceSet.getPackageRegistry().put(MyFeatureListPackage.eNS_URI, MyFeatureListPackage.eINSTANCE);
-        	}
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
@@ -387,15 +379,11 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated NOT
+     * @generated
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
         super.registerResourceFactories(resourceSet);
-        
-        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().
-        put("myfeaturelist", new XMIResourceFactoryImpl());
-        
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
          * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation

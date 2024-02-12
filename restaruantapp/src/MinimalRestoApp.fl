@@ -1,0 +1,24 @@
+concept MinimalRestoApp
+	Table tables 0..*
+
+concept Table
+	int number
+	Location location
+	MinimalRestoApp minimalRestoApp 1..1
+	Seat seats 0..*
+
+concept Seat
+	Table table 1..1
+
+constraints
+	Table.number > 0 "The table number must be greater than 0"
+	
+keys
+	Table.number unique
+	Table.seats index
+	
+properties
+	MinimalRestoApp root
+	
+features
+	Add Table

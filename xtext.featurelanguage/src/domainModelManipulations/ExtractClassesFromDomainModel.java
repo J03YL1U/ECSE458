@@ -35,7 +35,7 @@ public class ExtractClassesFromDomainModel {
 		EcorePackage ecorePackage = EcorePackage.eINSTANCE;
 
 		// Get the URI of the model file.
-		URI fileURI = URI.createFileURI("model/created/restoappModel.ecore");
+		URI fileURI = URI.createFileURI("model/created/minimalRestoAppModel.ecore");
 		// Demand load the resource for this file.
 		Resource resource = resourceSet.getResource(fileURI, true);
 
@@ -78,7 +78,8 @@ public class ExtractClassesFromDomainModel {
 
 		//save info from current xtext (if any)
 		try {
-			File myObj = new File("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\myrestaurantapp.myfeaturelist");
+			//File myObj = new File("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\myrestaurantapp.fl");
+			File myObj = new File("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\minimalrestoapp.fl");
 			Scanner myReader = new Scanner(myObj);
 			boolean flag = false;
 			while (myReader.hasNextLine()) {
@@ -97,13 +98,14 @@ public class ExtractClassesFromDomainModel {
 
 		try {
 			//TODO: CHANGE TO SAME FILE NAME AS LINE 95 WHEN EXTRACTION WILL BE BETTER
-			FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\myrestaurantappFromUmple.myfeaturelist");
+			//FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\myrestaurantappFromUmple.fl");
+			FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\minimalrestoapp.fl");
 			myWriter.write(result);
 			myWriter.write(xtextFileContent);
 			myWriter.close();
-			System.out.println("MyFeatureList was updated.");
+			System.out.println("Feature List was updated.");
 		} catch (IOException e) {
-			System.out.println("Writing to MyFeatureList failed.");
+			System.out.println("Writing to Feature List failed.");
 			e.printStackTrace();
 		}
 	}

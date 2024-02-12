@@ -2,10 +2,11 @@ concept RestoApp
 
 concept Seat
 	int number
-
+	
 concept Table
 	int number
-	Seat seat 1..*
+	String bogusAttribute
+	Seat seats 1..*
 	
 constraints
 	Table.number > 0 "The table number must be greater than 0"
@@ -13,7 +14,7 @@ constraints
 	
 keys
 	Table.number unique
-	Seat.number unique
+	Table.seats index
 	
 properties
 	RestoApp root
@@ -23,5 +24,5 @@ features
 	Remove Table
 	Update Seat.number
 	Display Table
-	Add Table.seat
-	Remove Table.seat
+	Add Table.seats
+	Remove Table.seats

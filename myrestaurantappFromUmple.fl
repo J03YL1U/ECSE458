@@ -1,0 +1,58 @@
+concept RestoApp
+	Table tables 0..*
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 0..*
+	Bill bills 0..*
+
+concept Table
+	int number
+	int x
+	int y
+	int width
+	int length
+	RestoApp restoApp 1..1
+	Seat seats 1..*
+
+concept Seat
+	int number
+	Table table 1..1
+	Bill bills 0..*
+
+concept Menu
+	RestoApp restoApp 1..1
+	MenuItem menuItems 0..*
+
+concept MenuItem
+	String name
+	ItemCategory itemCategory
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 1..*
+	PricedMenuItem currentPricedMenuItem 0..1
+
+concept PricedMenuItem
+	double price
+	RestoApp restoApp 1..1
+	MenuItem menuItem 1..1
+
+concept Bill
+	RestoApp restoApp 1..1
+	Seat issuedForSeats 1..*
+
+constraints
+	Table.number > 0 "The table number must be greater than 0"
+	Seat.number > 0 "The seat number must be greater than 0"
+	
+keys
+	Table.number unique
+	Seat.number unique
+	
+properties
+	RestoApp root
+	
+features
+	Add Table
+	Remove Table
+	Update Seat.number
+	Display Table
+	Add Table.seat
+	Remove Table.seat
