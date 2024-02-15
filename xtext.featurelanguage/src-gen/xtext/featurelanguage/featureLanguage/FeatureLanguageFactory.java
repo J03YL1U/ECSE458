@@ -24,13 +24,22 @@ public interface FeatureLanguageFactory extends EFactory
   FeatureLanguageFactory eINSTANCE = xtext.featurelanguage.featureLanguage.impl.FeatureLanguageFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Feature List</em>'.
+   * Returns a new object of class '<em>Feature Language</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Feature List</em>'.
+   * @return a new object of class '<em>Feature Language</em>'.
    * @generated
    */
-  FeatureList createFeatureList();
+  FeatureLanguage createFeatureLanguage();
+
+  /**
+   * Returns a new object of class '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Element</em>'.
+   * @generated
+   */
+  NamedElement createNamedElement();
 
   /**
    * Returns a new object of class '<em>Concept</em>'.

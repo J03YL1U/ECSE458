@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.Condition#getOperator <em>Operator</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.Condition#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -23,6 +24,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Condition extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Operator</b></em>' attribute.
+   * The literals are from the enumeration {@link xtext.featurelanguage.featureLanguage.ComparisonOperator}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Operator</em>' attribute.
+   * @see xtext.featurelanguage.featureLanguage.ComparisonOperator
+   * @see #setOperator(ComparisonOperator)
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCondition_Operator()
+   * @model
+   * @generated
+   */
+  ComparisonOperator getOperator();
+
+  /**
+   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.Condition#getOperator <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Operator</em>' attribute.
+   * @see xtext.featurelanguage.featureLanguage.ComparisonOperator
+   * @see #getOperator()
+   * @generated
+   */
+  void setOperator(ComparisonOperator value);
+
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->

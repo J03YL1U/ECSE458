@@ -8,51 +8,52 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import xtext.featurelanguage.featureLanguage.ConceptProperty;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
+import xtext.featurelanguage.featureLanguage.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Concept Property</b></em>'.
+ * An implementation of the model object '<em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConceptPropertyImpl#isIsRoot <em>Is Root</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
+public class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement
 {
   /**
-   * The default value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsRoot()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final boolean IS_ROOT_EDEFAULT = false;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isIsRoot() <em>Is Root</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isIsRoot()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected boolean isRoot = IS_ROOT_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ConceptPropertyImpl()
+  protected NamedElementImpl()
   {
     super();
   }
@@ -65,7 +66,7 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
   @Override
   protected EClass eStaticClass()
   {
-    return FeatureLanguagePackage.Literals.CONCEPT_PROPERTY;
+    return FeatureLanguagePackage.Literals.NAMED_ELEMENT;
   }
 
   /**
@@ -74,9 +75,9 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
    * @generated
    */
   @Override
-  public boolean isIsRoot()
+  public String getName()
   {
-    return isRoot;
+    return name;
   }
 
   /**
@@ -85,12 +86,12 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
    * @generated
    */
   @Override
-  public void setIsRoot(boolean newIsRoot)
+  public void setName(String newName)
   {
-    boolean oldIsRoot = isRoot;
-    isRoot = newIsRoot;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONCEPT_PROPERTY__IS_ROOT, oldIsRoot, isRoot));
+      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.NAMED_ELEMENT__NAME, oldName, name));
   }
 
   /**
@@ -103,8 +104,8 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT_PROPERTY__IS_ROOT:
-        return isIsRoot();
+      case FeatureLanguagePackage.NAMED_ELEMENT__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +120,8 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT_PROPERTY__IS_ROOT:
-        setIsRoot((Boolean)newValue);
+      case FeatureLanguagePackage.NAMED_ELEMENT__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +137,8 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT_PROPERTY__IS_ROOT:
-        setIsRoot(IS_ROOT_EDEFAULT);
+      case FeatureLanguagePackage.NAMED_ELEMENT__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +154,8 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT_PROPERTY__IS_ROOT:
-        return isRoot != IS_ROOT_EDEFAULT;
+      case FeatureLanguagePackage.NAMED_ELEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +171,10 @@ public class ConceptPropertyImpl extends PropertyImpl implements ConceptProperty
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (isRoot: ");
-    result.append(isRoot);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }
 
-} //ConceptPropertyImpl
+} //NamedElementImpl

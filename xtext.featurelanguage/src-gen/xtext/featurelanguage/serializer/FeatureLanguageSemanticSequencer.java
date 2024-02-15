@@ -21,8 +21,8 @@ import xtext.featurelanguage.featureLanguage.ConceptProperty;
 import xtext.featurelanguage.featureLanguage.Condition;
 import xtext.featurelanguage.featureLanguage.Constraint;
 import xtext.featurelanguage.featureLanguage.Feature;
+import xtext.featurelanguage.featureLanguage.FeatureLanguage;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
-import xtext.featurelanguage.featureLanguage.FeatureList;
 import xtext.featurelanguage.featureLanguage.Key;
 import xtext.featurelanguage.featureLanguage.Type;
 import xtext.featurelanguage.services.FeatureLanguageGrammarAccess;
@@ -62,8 +62,8 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 			case FeatureLanguagePackage.FEATURE:
 				sequence_Feature(context, (Feature) semanticObject); 
 				return; 
-			case FeatureLanguagePackage.FEATURE_LIST:
-				sequence_FeatureList(context, (FeatureList) semanticObject); 
+			case FeatureLanguagePackage.FEATURE_LANGUAGE:
+				sequence_FeatureLanguage(context, (FeatureLanguage) semanticObject); 
 				return; 
 			case FeatureLanguagePackage.KEY:
 				sequence_Key(context, (Key) semanticObject); 
@@ -83,7 +83,7 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Property returns CharacteristicProperty
 	 *
 	 * Constraint:
-	 *     (concept=[Concept|ID] characteristic=[Characteristic|ID])
+	 *     (concept=[Concept|ID] characteristic=[Characteristic|ID] isLazy?='lazy')
 	 * </pre>
 	 */
 	protected void sequence_CharacteristicProperty(ISerializationContext context, CharacteristicProperty semanticObject) {
@@ -92,10 +92,13 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.PROPERTY__CONCEPT));
 			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CHARACTERISTIC_PROPERTY__CHARACTERISTIC) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CHARACTERISTIC_PROPERTY__CHARACTERISTIC));
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CHARACTERISTIC_PROPERTY__IS_LAZY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CHARACTERISTIC_PROPERTY__IS_LAZY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCharacteristicPropertyAccess().getConceptConceptIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FeatureLanguagePackage.Literals.PROPERTY__CONCEPT, false));
 		feeder.accept(grammarAccess.getCharacteristicPropertyAccess().getCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(FeatureLanguagePackage.Literals.CHARACTERISTIC_PROPERTY__CHARACTERISTIC, false));
+		feeder.accept(grammarAccess.getCharacteristicPropertyAccess().getIsLazyLazyKeyword_2_0(), semanticObject.isIsLazy());
 		feeder.finish();
 	}
 	
@@ -103,10 +106,11 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     NamedElement returns Characteristic
 	 *     Characteristic returns Characteristic
 	 *
 	 * Constraint:
-	 *     (type=Type name=ID multiplicity=MULTIPLICITY?)
+	 *     (type=Type name=ID (multiplicity=MULTIPLICITY | literals+=STRING+)?)
 	 * </pre>
 	 */
 	protected void sequence_Characteristic(ISerializationContext context, Characteristic semanticObject) {
@@ -121,16 +125,19 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Property returns ConceptProperty
 	 *
 	 * Constraint:
-	 *     concept=[Concept|ID]
+	 *     (concept=[Concept|ID] isRoot?='root')
 	 * </pre>
 	 */
 	protected void sequence_ConceptProperty(ISerializationContext context, ConceptProperty semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.PROPERTY__CONCEPT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.PROPERTY__CONCEPT));
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONCEPT_PROPERTY__IS_ROOT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONCEPT_PROPERTY__IS_ROOT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getConceptPropertyAccess().getConceptConceptIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FeatureLanguagePackage.Literals.PROPERTY__CONCEPT, false));
+		feeder.accept(grammarAccess.getConceptPropertyAccess().getIsRootRootKeyword_1_0(), semanticObject.isIsRoot());
 		feeder.finish();
 	}
 	
@@ -138,6 +145,7 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     NamedElement returns Concept
 	 *     Concept returns Concept
 	 *
 	 * Constraint:
@@ -155,15 +163,18 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Condition returns Condition
 	 *
 	 * Constraint:
-	 *     value=INT
+	 *     (operator=ComparisonOperator value=INT)
 	 * </pre>
 	 */
 	protected void sequence_Condition(ISerializationContext context, Condition semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONDITION__OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONDITION__OPERATOR));
 			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONDITION__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONDITION__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConditionAccess().getOperatorComparisonOperatorEnumRuleCall_0_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getConditionAccess().getValueINTTerminalRuleCall_1_0(), semanticObject.getValue());
 		feeder.finish();
 	}
@@ -175,24 +186,39 @@ public class FeatureLanguageSemanticSequencer extends AbstractDelegatingSemantic
 	 *     Constraint returns Constraint
 	 *
 	 * Constraint:
-	 *     (concept=[Concept|ID] characteristic=[Characteristic|ID] condition+=Condition errormsg+=ErrorMsg)
+	 *     (concept=[Concept|ID] characteristic=[Characteristic|ID] condition=Condition errorMsg=STRING)
 	 * </pre>
 	 */
 	protected void sequence_Constraint(ISerializationContext context, Constraint semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CONCEPT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CONCEPT));
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CHARACTERISTIC) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CHARACTERISTIC));
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CONDITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__CONDITION));
+			if (transientValues.isValueTransient(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__ERROR_MSG) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FeatureLanguagePackage.Literals.CONSTRAINT__ERROR_MSG));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getConstraintAccess().getConceptConceptIDTerminalRuleCall_0_0_1(), semanticObject.eGet(FeatureLanguagePackage.Literals.CONSTRAINT__CONCEPT, false));
+		feeder.accept(grammarAccess.getConstraintAccess().getCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1(), semanticObject.eGet(FeatureLanguagePackage.Literals.CONSTRAINT__CHARACTERISTIC, false));
+		feeder.accept(grammarAccess.getConstraintAccess().getConditionConditionParserRuleCall_2_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getConstraintAccess().getErrorMsgSTRINGTerminalRuleCall_3_0(), semanticObject.getErrorMsg());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * <pre>
 	 * Contexts:
-	 *     FeatureList returns FeatureList
+	 *     FeatureLanguage returns FeatureLanguage
 	 *
 	 * Constraint:
 	 *     (concepts+=Concept* constraints+=Constraint* keys+=Key* properties+=Property* features+=Feature*)
 	 * </pre>
 	 */
-	protected void sequence_FeatureList(ISerializationContext context, FeatureList semanticObject) {
+	protected void sequence_FeatureLanguage(ISerializationContext context, FeatureLanguage semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

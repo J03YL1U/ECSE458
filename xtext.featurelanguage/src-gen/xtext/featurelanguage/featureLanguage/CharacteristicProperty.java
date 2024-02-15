@@ -14,6 +14,7 @@ package xtext.featurelanguage.featureLanguage;
  * </p>
  * <ul>
  *   <li>{@link xtext.featurelanguage.featureLanguage.CharacteristicProperty#getCharacteristic <em>Characteristic</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.CharacteristicProperty#isIsLazy <em>Is Lazy</em>}</li>
  * </ul>
  *
  * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCharacteristicProperty()
@@ -43,5 +44,27 @@ public interface CharacteristicProperty extends Property
    * @generated
    */
   void setCharacteristic(Characteristic value);
+
+  /**
+   * Returns the value of the '<em><b>Is Lazy</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Lazy</em>' attribute.
+   * @see #setIsLazy(boolean)
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCharacteristicProperty_IsLazy()
+   * @model
+   * @generated
+   */
+  boolean isIsLazy();
+
+  /**
+   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.CharacteristicProperty#isIsLazy <em>Is Lazy</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Lazy</em>' attribute.
+   * @see #isIsLazy()
+   * @generated
+   */
+  void setIsLazy(boolean value);
 
 } // CharacteristicProperty

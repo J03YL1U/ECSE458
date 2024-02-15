@@ -73,10 +73,17 @@ public class FeatureLanguageSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE:
       {
-        FeatureList featureList = (FeatureList)theEObject;
-        T result = caseFeatureList(featureList);
+        FeatureLanguage featureLanguage = (FeatureLanguage)theEObject;
+        T result = caseFeatureLanguage(featureLanguage);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FeatureLanguagePackage.NAMED_ELEMENT:
+      {
+        NamedElement namedElement = (NamedElement)theEObject;
+        T result = caseNamedElement(namedElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -84,6 +91,7 @@ public class FeatureLanguageSwitch<T> extends Switch<T>
       {
         Concept concept = (Concept)theEObject;
         T result = caseConcept(concept);
+        if (result == null) result = caseNamedElement(concept);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,6 +99,7 @@ public class FeatureLanguageSwitch<T> extends Switch<T>
       {
         Characteristic characteristic = (Characteristic)theEObject;
         T result = caseCharacteristic(characteristic);
+        if (result == null) result = caseNamedElement(characteristic);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -157,17 +166,33 @@ public class FeatureLanguageSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Feature List</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Feature Language</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Feature List</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Feature Language</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFeatureList(FeatureList object)
+  public T caseFeatureLanguage(FeatureLanguage object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamedElement(NamedElement object)
   {
     return null;
   }

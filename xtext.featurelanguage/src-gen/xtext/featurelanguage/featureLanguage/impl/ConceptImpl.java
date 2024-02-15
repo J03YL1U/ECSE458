@@ -5,16 +5,12 @@ package xtext.featurelanguage.featureLanguage.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,34 +27,13 @@ import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConceptImpl#getName <em>Name</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConceptImpl#getCharacteristics <em>Characteristics</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
+public class ConceptImpl extends NamedElementImpl implements Concept
 {
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
-
   /**
    * The cached value of the '{@link #getCharacteristics() <em>Characteristics</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -88,31 +63,6 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   protected EClass eStaticClass()
   {
     return FeatureLanguagePackage.Literals.CONCEPT;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONCEPT__NAME, oldName, name));
   }
 
   /**
@@ -156,8 +106,6 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT__NAME:
-        return getName();
       case FeatureLanguagePackage.CONCEPT__CHARACTERISTICS:
         return getCharacteristics();
     }
@@ -175,9 +123,6 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT__NAME:
-        setName((String)newValue);
-        return;
       case FeatureLanguagePackage.CONCEPT__CHARACTERISTICS:
         getCharacteristics().clear();
         getCharacteristics().addAll((Collection<? extends Characteristic>)newValue);
@@ -196,9 +141,6 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case FeatureLanguagePackage.CONCEPT__CHARACTERISTICS:
         getCharacteristics().clear();
         return;
@@ -216,29 +158,10 @@ public class ConceptImpl extends MinimalEObjectImpl.Container implements Concept
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.CONCEPT__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FeatureLanguagePackage.CONCEPT__CHARACTERISTICS:
         return characteristics != null && !characteristics.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(')');
-    return result.toString();
   }
 
 } //ConceptImpl

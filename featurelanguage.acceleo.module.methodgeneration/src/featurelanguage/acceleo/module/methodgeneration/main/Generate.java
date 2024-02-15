@@ -23,6 +23,9 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -335,11 +338,16 @@ public class Generate extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        
+        if (!isInWorkspace(FeatureLanguagePackage.class)) {
+        	// The normal package registration if your metamodel is in a plugin.
+        	resourceSet.getPackageRegistry().put(FeatureLanguagePackage.eNS_URI, FeatureLanguagePackage.eINSTANCE);
+        	}
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
@@ -373,17 +381,21 @@ public class Generate extends AbstractAcceleoGenerator {
          * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
     }
-
+    
     /**
      * This can be used to update the resource set's resource factory registry with all needed factories.
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
         super.registerResourceFactories(resourceSet);
+        
+        resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().
+        put("fl", new XMIResourceFactoryImpl());
+        
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
          * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation

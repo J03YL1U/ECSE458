@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import xtext.featurelanguage.featureLanguage.ComparisonOperator;
 import xtext.featurelanguage.featureLanguage.Condition;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
 
@@ -21,6 +22,7 @@ import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConditionImpl#getOperator <em>Operator</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConditionImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
@@ -28,6 +30,26 @@ import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
  */
 public class ConditionImpl extends MinimalEObjectImpl.Container implements Condition
 {
+  /**
+   * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected static final ComparisonOperator OPERATOR_EDEFAULT = ComparisonOperator.GREATER_THAN;
+
+  /**
+   * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOperator()
+   * @generated
+   * @ordered
+   */
+  protected ComparisonOperator operator = OPERATOR_EDEFAULT;
+
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -75,6 +97,31 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
    * @generated
    */
   @Override
+  public ComparisonOperator getOperator()
+  {
+    return operator;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOperator(ComparisonOperator newOperator)
+  {
+    ComparisonOperator oldOperator = operator;
+    operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONDITION__OPERATOR, oldOperator, operator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public int getValue()
   {
     return value;
@@ -104,6 +151,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
+      case FeatureLanguagePackage.CONDITION__OPERATOR:
+        return getOperator();
       case FeatureLanguagePackage.CONDITION__VALUE:
         return getValue();
     }
@@ -120,6 +169,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
+      case FeatureLanguagePackage.CONDITION__OPERATOR:
+        setOperator((ComparisonOperator)newValue);
+        return;
       case FeatureLanguagePackage.CONDITION__VALUE:
         setValue((Integer)newValue);
         return;
@@ -137,6 +189,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
+      case FeatureLanguagePackage.CONDITION__OPERATOR:
+        setOperator(OPERATOR_EDEFAULT);
+        return;
       case FeatureLanguagePackage.CONDITION__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
@@ -154,6 +209,8 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
   {
     switch (featureID)
     {
+      case FeatureLanguagePackage.CONDITION__OPERATOR:
+        return operator != OPERATOR_EDEFAULT;
       case FeatureLanguagePackage.CONDITION__VALUE:
         return value != VALUE_EDEFAULT;
     }
@@ -171,7 +228,9 @@ public class ConditionImpl extends MinimalEObjectImpl.Container implements Condi
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (value: ");
+    result.append(" (operator: ");
+    result.append(operator);
+    result.append(", value: ");
     result.append(value);
     result.append(')');
     return result.toString();

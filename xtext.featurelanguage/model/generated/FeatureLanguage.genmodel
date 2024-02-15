@@ -17,42 +17,55 @@
       <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//KeyType/autounique"/>
       <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//KeyType/index"/>
     </genEnums>
-    <genClasses ecoreClass="FeatureLanguage.ecore#//FeatureList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureList/concepts"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureList/constraints"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureList/keys"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureList/properties"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureList/features"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="FeatureLanguage.ecore#//ComparisonOperator">
+      <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//ComparisonOperator/GreaterThan"/>
+      <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//ComparisonOperator/GreaterThanOrEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//ComparisonOperator/Equal"/>
+      <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//ComparisonOperator/LessThanOrEqual"/>
+      <genEnumLiterals ecoreEnumLiteral="FeatureLanguage.ecore#//ComparisonOperator/LessThan"/>
+    </genEnums>
+    <genClasses ecoreClass="FeatureLanguage.ecore#//FeatureLanguage">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureLanguage/concepts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureLanguage/constraints"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureLanguage/keys"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureLanguage/properties"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//FeatureLanguage/features"/>
+    </genClasses>
+    <genClasses ecoreClass="FeatureLanguage.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//NamedElement/name"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Concept">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Concept/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Concept/characteristics"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Characteristic">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Characteristic/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Characteristic/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Characteristic/multiplicity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Characteristic/literals"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Type">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Type/name"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Condition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Condition/operator"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Condition/value"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Constraint">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Constraint/concept"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Constraint/characteristic"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Constraint/condition"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Constraint/errormsg"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Constraint/errorMsg"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Key">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Key/concept"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Key/characteristic"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//Key/keyType"/>
     </genClasses>
-    <genClasses ecoreClass="FeatureLanguage.ecore#//ConceptProperty"/>
+    <genClasses ecoreClass="FeatureLanguage.ecore#//ConceptProperty">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//ConceptProperty/isRoot"/>
+    </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//CharacteristicProperty">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//CharacteristicProperty/characteristic"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FeatureLanguage.ecore#//CharacteristicProperty/isLazy"/>
     </genClasses>
     <genClasses ecoreClass="FeatureLanguage.ecore#//Property">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference FeatureLanguage.ecore#//Property/concept"/>

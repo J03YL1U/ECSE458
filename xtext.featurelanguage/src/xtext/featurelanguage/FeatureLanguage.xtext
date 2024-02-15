@@ -2,40 +2,40 @@ grammar xtext.featurelanguage.FeatureLanguage with org.eclipse.xtext.common.Term
 
 generate featureLanguage "http://www.featurelanguage.xtext/FeatureLanguage"
 
-FeatureList:
+FeatureLanguage:
         (concepts+=Concept)*
         'constraints' (constraints+=Constraint)*
         'keys' (keys+=Key)*
         'properties' (properties+=Property)*
     	'features' (features+=Feature)*;
     	
+NamedElement:
+	Concept | Characteristic;
+    	
 Concept:
         'concept' name=ID
         (characteristics+=Characteristic)*;
        
 Characteristic:
-        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
+        /*(typeName=STRING)*/ (type=Type) name=ID ((multiplicity=MULTIPLICITY) | '{' (literals+=STRING)* '}')?;
         
 Type:
 	name=ID;
 
 Condition:
-        ('>' | '>=' | '=' | '<=' | '<') (value=INT);
-        
-ErrorMsg:
-	STRING;
+        operator=(ComparisonOperator) (value=INT);
 	        
 Constraint:
-	(concept=[Concept])('.'(characteristic=[Characteristic])) (condition+=Condition) (errormsg+=ErrorMsg);
+	(concept=[Concept])('.'(characteristic=[Characteristic])) (condition=Condition) (errorMsg=STRING);
 	
 Key:
 	(concept=[Concept])('.'(characteristic=[Characteristic])) (keyType=KeyType); //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
 	
 ConceptProperty:
-	(concept=[Concept]) 'root';
+	(concept=[Concept]) isRoot?='root';
 
 CharacteristicProperty:
-	(concept=[Concept])('.'(characteristic=[Characteristic])) 'lazy';
+	(concept=[Concept])('.'(characteristic=[Characteristic])) isLazy?='lazy';
 	
 Property:
 	ConceptProperty | CharacteristicProperty;
@@ -48,6 +48,9 @@ enum Verb:
         
 enum KeyType:
 	unique | autounique | index;  
+	
+enum ComparisonOperator:
+	GreaterThan = '>' | GreaterThanOrEqual = '>=' | Equal = '=' | LessThanOrEqual = '<=' | LessThan = '<';
         
 terminal MULTIPLICITY:
 	(INT | '*')'..'(INT | '*');

@@ -59,14 +59,14 @@ public interface FeatureLanguagePackage extends EPackage
   FeatureLanguagePackage eINSTANCE = xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl.init();
 
   /**
-   * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl <em>Feature List</em>}' class.
+   * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl <em>Feature Language</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see xtext.featurelanguage.featureLanguage.impl.FeatureListImpl
-   * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl
+   * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getFeatureLanguage()
    * @generated
    */
-  int FEATURE_LIST = 0;
+  int FEATURE_LANGUAGE = 0;
 
   /**
    * The feature id for the '<em><b>Concepts</b></em>' containment reference list.
@@ -75,7 +75,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__CONCEPTS = 0;
+  int FEATURE_LANGUAGE__CONCEPTS = 0;
 
   /**
    * The feature id for the '<em><b>Constraints</b></em>' containment reference list.
@@ -84,7 +84,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__CONSTRAINTS = 1;
+  int FEATURE_LANGUAGE__CONSTRAINTS = 1;
 
   /**
    * The feature id for the '<em><b>Keys</b></em>' containment reference list.
@@ -93,7 +93,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__KEYS = 2;
+  int FEATURE_LANGUAGE__KEYS = 2;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -102,7 +102,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__PROPERTIES = 3;
+  int FEATURE_LANGUAGE__PROPERTIES = 3;
 
   /**
    * The feature id for the '<em><b>Features</b></em>' containment reference list.
@@ -111,16 +111,44 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int FEATURE_LIST__FEATURES = 4;
+  int FEATURE_LANGUAGE__FEATURES = 4;
 
   /**
-   * The number of structural features of the '<em>Feature List</em>' class.
+   * The number of structural features of the '<em>Feature Language</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FEATURE_LIST_FEATURE_COUNT = 5;
+  int FEATURE_LANGUAGE_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.NamedElementImpl <em>Named Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see xtext.featurelanguage.featureLanguage.impl.NamedElementImpl
+   * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getNamedElement()
+   * @generated
+   */
+  int NAMED_ELEMENT = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Named Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.ConceptImpl <em>Concept</em>}' class.
@@ -130,7 +158,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getConcept()
    * @generated
    */
-  int CONCEPT = 1;
+  int CONCEPT = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -139,7 +167,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONCEPT__NAME = 0;
+  int CONCEPT__NAME = NAMED_ELEMENT__NAME;
 
   /**
    * The feature id for the '<em><b>Characteristics</b></em>' containment reference list.
@@ -148,7 +176,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONCEPT__CHARACTERISTICS = 1;
+  int CONCEPT__CHARACTERISTICS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Concept</em>' class.
@@ -157,7 +185,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONCEPT_FEATURE_COUNT = 2;
+  int CONCEPT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicImpl <em>Characteristic</em>}' class.
@@ -167,16 +195,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getCharacteristic()
    * @generated
    */
-  int CHARACTERISTIC = 2;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CHARACTERISTIC__TYPE = 0;
+  int CHARACTERISTIC = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -185,7 +204,16 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHARACTERISTIC__NAME = 1;
+  int CHARACTERISTIC__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHARACTERISTIC__TYPE = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Multiplicity</b></em>' attribute.
@@ -194,7 +222,16 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHARACTERISTIC__MULTIPLICITY = 2;
+  int CHARACTERISTIC__MULTIPLICITY = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Literals</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHARACTERISTIC__LITERALS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Characteristic</em>' class.
@@ -203,7 +240,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHARACTERISTIC_FEATURE_COUNT = 3;
+  int CHARACTERISTIC_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.TypeImpl <em>Type</em>}' class.
@@ -213,7 +250,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getType()
    * @generated
    */
-  int TYPE = 3;
+  int TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -241,7 +278,16 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 4;
+  int CONDITION = 5;
+
+  /**
+   * The feature id for the '<em><b>Operator</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__OPERATOR = 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -250,7 +296,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITION__VALUE = 0;
+  int CONDITION__VALUE = 1;
 
   /**
    * The number of structural features of the '<em>Condition</em>' class.
@@ -259,7 +305,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONDITION_FEATURE_COUNT = 1;
+  int CONDITION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl <em>Constraint</em>}' class.
@@ -269,7 +315,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getConstraint()
    * @generated
    */
-  int CONSTRAINT = 5;
+  int CONSTRAINT = 6;
 
   /**
    * The feature id for the '<em><b>Concept</b></em>' reference.
@@ -290,7 +336,7 @@ public interface FeatureLanguagePackage extends EPackage
   int CONSTRAINT__CHARACTERISTIC = 1;
 
   /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference list.
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -299,13 +345,13 @@ public interface FeatureLanguagePackage extends EPackage
   int CONSTRAINT__CONDITION = 2;
 
   /**
-   * The feature id for the '<em><b>Errormsg</b></em>' attribute list.
+   * The feature id for the '<em><b>Error Msg</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONSTRAINT__ERRORMSG = 3;
+  int CONSTRAINT__ERROR_MSG = 3;
 
   /**
    * The number of structural features of the '<em>Constraint</em>' class.
@@ -324,7 +370,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getKey()
    * @generated
    */
-  int KEY = 6;
+  int KEY = 7;
 
   /**
    * The feature id for the '<em><b>Concept</b></em>' reference.
@@ -370,7 +416,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 9;
+  int PROPERTY = 10;
 
   /**
    * The feature id for the '<em><b>Concept</b></em>' reference.
@@ -398,7 +444,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getConceptProperty()
    * @generated
    */
-  int CONCEPT_PROPERTY = 7;
+  int CONCEPT_PROPERTY = 8;
 
   /**
    * The feature id for the '<em><b>Concept</b></em>' reference.
@@ -410,13 +456,22 @@ public interface FeatureLanguagePackage extends EPackage
   int CONCEPT_PROPERTY__CONCEPT = PROPERTY__CONCEPT;
 
   /**
+   * The feature id for the '<em><b>Is Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONCEPT_PROPERTY__IS_ROOT = PROPERTY_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Concept Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONCEPT_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 0;
+  int CONCEPT_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicPropertyImpl <em>Characteristic Property</em>}' class.
@@ -426,7 +481,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getCharacteristicProperty()
    * @generated
    */
-  int CHARACTERISTIC_PROPERTY = 8;
+  int CHARACTERISTIC_PROPERTY = 9;
 
   /**
    * The feature id for the '<em><b>Concept</b></em>' reference.
@@ -447,13 +502,22 @@ public interface FeatureLanguagePackage extends EPackage
   int CHARACTERISTIC_PROPERTY__CHARACTERISTIC = PROPERTY_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Is Lazy</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHARACTERISTIC_PROPERTY__IS_LAZY = PROPERTY_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Characteristic Property</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHARACTERISTIC_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 1;
+  int CHARACTERISTIC_PROPERTY_FEATURE_COUNT = PROPERTY_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.impl.FeatureImpl <em>Feature</em>}' class.
@@ -463,7 +527,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getFeature()
    * @generated
    */
-  int FEATURE = 10;
+  int FEATURE = 11;
 
   /**
    * The feature id for the '<em><b>Verb</b></em>' attribute.
@@ -509,7 +573,7 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getVerb()
    * @generated
    */
-  int VERB = 11;
+  int VERB = 12;
 
   /**
    * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.KeyType <em>Key Type</em>}' enum.
@@ -519,73 +583,104 @@ public interface FeatureLanguagePackage extends EPackage
    * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getKeyType()
    * @generated
    */
-  int KEY_TYPE = 12;
-
+  int KEY_TYPE = 13;
 
   /**
-   * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.FeatureList <em>Feature List</em>}'.
+   * The meta object id for the '{@link xtext.featurelanguage.featureLanguage.ComparisonOperator <em>Comparison Operator</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Feature List</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList
+   * @see xtext.featurelanguage.featureLanguage.ComparisonOperator
+   * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getComparisonOperator()
    * @generated
    */
-  EClass getFeatureList();
+  int COMPARISON_OPERATOR = 14;
+
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureList#getConcepts <em>Concepts</em>}'.
+   * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage <em>Feature Language</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Feature Language</em>'.
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage
+   * @generated
+   */
+  EClass getFeatureLanguage();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getConcepts <em>Concepts</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Concepts</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList#getConcepts()
-   * @see #getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage#getConcepts()
+   * @see #getFeatureLanguage()
    * @generated
    */
-  EReference getFeatureList_Concepts();
+  EReference getFeatureLanguage_Concepts();
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureList#getConstraints <em>Constraints</em>}'.
+   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getConstraints <em>Constraints</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Constraints</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList#getConstraints()
-   * @see #getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage#getConstraints()
+   * @see #getFeatureLanguage()
    * @generated
    */
-  EReference getFeatureList_Constraints();
+  EReference getFeatureLanguage_Constraints();
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureList#getKeys <em>Keys</em>}'.
+   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getKeys <em>Keys</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Keys</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList#getKeys()
-   * @see #getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage#getKeys()
+   * @see #getFeatureLanguage()
    * @generated
    */
-  EReference getFeatureList_Keys();
+  EReference getFeatureLanguage_Keys();
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureList#getProperties <em>Properties</em>}'.
+   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getProperties <em>Properties</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Properties</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList#getProperties()
-   * @see #getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage#getProperties()
+   * @see #getFeatureLanguage()
    * @generated
    */
-  EReference getFeatureList_Properties();
+  EReference getFeatureLanguage_Properties();
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureList#getFeatures <em>Features</em>}'.
+   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getFeatures <em>Features</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Features</em>'.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList#getFeatures()
-   * @see #getFeatureList()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage#getFeatures()
+   * @see #getFeatureLanguage()
    * @generated
    */
-  EReference getFeatureList_Features();
+  EReference getFeatureLanguage_Features();
+
+  /**
+   * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Named Element</em>'.
+   * @see xtext.featurelanguage.featureLanguage.NamedElement
+   * @generated
+   */
+  EClass getNamedElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.NamedElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see xtext.featurelanguage.featureLanguage.NamedElement#getName()
+   * @see #getNamedElement()
+   * @generated
+   */
+  EAttribute getNamedElement_Name();
 
   /**
    * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.Concept <em>Concept</em>}'.
@@ -596,17 +691,6 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    */
   EClass getConcept();
-
-  /**
-   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Concept#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see xtext.featurelanguage.featureLanguage.Concept#getName()
-   * @see #getConcept()
-   * @generated
-   */
-  EAttribute getConcept_Name();
 
   /**
    * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.Concept#getCharacteristics <em>Characteristics</em>}'.
@@ -641,17 +725,6 @@ public interface FeatureLanguagePackage extends EPackage
   EReference getCharacteristic_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Characteristic#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see xtext.featurelanguage.featureLanguage.Characteristic#getName()
-   * @see #getCharacteristic()
-   * @generated
-   */
-  EAttribute getCharacteristic_Name();
-
-  /**
    * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Characteristic#getMultiplicity <em>Multiplicity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -661,6 +734,17 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    */
   EAttribute getCharacteristic_Multiplicity();
+
+  /**
+   * Returns the meta object for the attribute list '{@link xtext.featurelanguage.featureLanguage.Characteristic#getLiterals <em>Literals</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Literals</em>'.
+   * @see xtext.featurelanguage.featureLanguage.Characteristic#getLiterals()
+   * @see #getCharacteristic()
+   * @generated
+   */
+  EAttribute getCharacteristic_Literals();
 
   /**
    * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.Type <em>Type</em>}'.
@@ -692,6 +776,17 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    */
   EClass getCondition();
+
+  /**
+   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Condition#getOperator <em>Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operator</em>'.
+   * @see xtext.featurelanguage.featureLanguage.Condition#getOperator()
+   * @see #getCondition()
+   * @generated
+   */
+  EAttribute getCondition_Operator();
 
   /**
    * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Condition#getValue <em>Value</em>}'.
@@ -737,10 +832,10 @@ public interface FeatureLanguagePackage extends EPackage
   EReference getConstraint_Characteristic();
 
   /**
-   * Returns the meta object for the containment reference list '{@link xtext.featurelanguage.featureLanguage.Constraint#getCondition <em>Condition</em>}'.
+   * Returns the meta object for the containment reference '{@link xtext.featurelanguage.featureLanguage.Constraint#getCondition <em>Condition</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Condition</em>'.
+   * @return the meta object for the containment reference '<em>Condition</em>'.
    * @see xtext.featurelanguage.featureLanguage.Constraint#getCondition()
    * @see #getConstraint()
    * @generated
@@ -748,15 +843,15 @@ public interface FeatureLanguagePackage extends EPackage
   EReference getConstraint_Condition();
 
   /**
-   * Returns the meta object for the attribute list '{@link xtext.featurelanguage.featureLanguage.Constraint#getErrormsg <em>Errormsg</em>}'.
+   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.Constraint#getErrorMsg <em>Error Msg</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Errormsg</em>'.
-   * @see xtext.featurelanguage.featureLanguage.Constraint#getErrormsg()
+   * @return the meta object for the attribute '<em>Error Msg</em>'.
+   * @see xtext.featurelanguage.featureLanguage.Constraint#getErrorMsg()
    * @see #getConstraint()
    * @generated
    */
-  EAttribute getConstraint_Errormsg();
+  EAttribute getConstraint_ErrorMsg();
 
   /**
    * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.Key <em>Key</em>}'.
@@ -812,6 +907,17 @@ public interface FeatureLanguagePackage extends EPackage
   EClass getConceptProperty();
 
   /**
+   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.ConceptProperty#isIsRoot <em>Is Root</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Root</em>'.
+   * @see xtext.featurelanguage.featureLanguage.ConceptProperty#isIsRoot()
+   * @see #getConceptProperty()
+   * @generated
+   */
+  EAttribute getConceptProperty_IsRoot();
+
+  /**
    * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.CharacteristicProperty <em>Characteristic Property</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -831,6 +937,17 @@ public interface FeatureLanguagePackage extends EPackage
    * @generated
    */
   EReference getCharacteristicProperty_Characteristic();
+
+  /**
+   * Returns the meta object for the attribute '{@link xtext.featurelanguage.featureLanguage.CharacteristicProperty#isIsLazy <em>Is Lazy</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Lazy</em>'.
+   * @see xtext.featurelanguage.featureLanguage.CharacteristicProperty#isIsLazy()
+   * @see #getCharacteristicProperty()
+   * @generated
+   */
+  EAttribute getCharacteristicProperty_IsLazy();
 
   /**
    * Returns the meta object for class '{@link xtext.featurelanguage.featureLanguage.Property <em>Property</em>}'.
@@ -917,6 +1034,16 @@ public interface FeatureLanguagePackage extends EPackage
   EEnum getKeyType();
 
   /**
+   * Returns the meta object for enum '{@link xtext.featurelanguage.featureLanguage.ComparisonOperator <em>Comparison Operator</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Comparison Operator</em>'.
+   * @see xtext.featurelanguage.featureLanguage.ComparisonOperator
+   * @generated
+   */
+  EEnum getComparisonOperator();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -940,14 +1067,14 @@ public interface FeatureLanguagePackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl <em>Feature List</em>}' class.
+     * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl <em>Feature Language</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see xtext.featurelanguage.featureLanguage.impl.FeatureListImpl
-     * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getFeatureList()
+     * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl
+     * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getFeatureLanguage()
      * @generated
      */
-    EClass FEATURE_LIST = eINSTANCE.getFeatureList();
+    EClass FEATURE_LANGUAGE = eINSTANCE.getFeatureLanguage();
 
     /**
      * The meta object literal for the '<em><b>Concepts</b></em>' containment reference list feature.
@@ -955,7 +1082,7 @@ public interface FeatureLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__CONCEPTS = eINSTANCE.getFeatureList_Concepts();
+    EReference FEATURE_LANGUAGE__CONCEPTS = eINSTANCE.getFeatureLanguage_Concepts();
 
     /**
      * The meta object literal for the '<em><b>Constraints</b></em>' containment reference list feature.
@@ -963,7 +1090,7 @@ public interface FeatureLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__CONSTRAINTS = eINSTANCE.getFeatureList_Constraints();
+    EReference FEATURE_LANGUAGE__CONSTRAINTS = eINSTANCE.getFeatureLanguage_Constraints();
 
     /**
      * The meta object literal for the '<em><b>Keys</b></em>' containment reference list feature.
@@ -971,7 +1098,7 @@ public interface FeatureLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__KEYS = eINSTANCE.getFeatureList_Keys();
+    EReference FEATURE_LANGUAGE__KEYS = eINSTANCE.getFeatureLanguage_Keys();
 
     /**
      * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
@@ -979,7 +1106,7 @@ public interface FeatureLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__PROPERTIES = eINSTANCE.getFeatureList_Properties();
+    EReference FEATURE_LANGUAGE__PROPERTIES = eINSTANCE.getFeatureLanguage_Properties();
 
     /**
      * The meta object literal for the '<em><b>Features</b></em>' containment reference list feature.
@@ -987,7 +1114,25 @@ public interface FeatureLanguagePackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FEATURE_LIST__FEATURES = eINSTANCE.getFeatureList_Features();
+    EReference FEATURE_LANGUAGE__FEATURES = eINSTANCE.getFeatureLanguage_Features();
+
+    /**
+     * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.NamedElementImpl <em>Named Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see xtext.featurelanguage.featureLanguage.impl.NamedElementImpl
+     * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getNamedElement()
+     * @generated
+     */
+    EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
     /**
      * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.ConceptImpl <em>Concept</em>}' class.
@@ -998,14 +1143,6 @@ public interface FeatureLanguagePackage extends EPackage
      * @generated
      */
     EClass CONCEPT = eINSTANCE.getConcept();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CONCEPT__NAME = eINSTANCE.getConcept_Name();
 
     /**
      * The meta object literal for the '<em><b>Characteristics</b></em>' containment reference list feature.
@@ -1034,20 +1171,20 @@ public interface FeatureLanguagePackage extends EPackage
     EReference CHARACTERISTIC__TYPE = eINSTANCE.getCharacteristic_Type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute CHARACTERISTIC__NAME = eINSTANCE.getCharacteristic_Name();
-
-    /**
      * The meta object literal for the '<em><b>Multiplicity</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute CHARACTERISTIC__MULTIPLICITY = eINSTANCE.getCharacteristic_Multiplicity();
+
+    /**
+     * The meta object literal for the '<em><b>Literals</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHARACTERISTIC__LITERALS = eINSTANCE.getCharacteristic_Literals();
 
     /**
      * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.TypeImpl <em>Type</em>}' class.
@@ -1076,6 +1213,14 @@ public interface FeatureLanguagePackage extends EPackage
      * @generated
      */
     EClass CONDITION = eINSTANCE.getCondition();
+
+    /**
+     * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONDITION__OPERATOR = eINSTANCE.getCondition_Operator();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -1112,7 +1257,7 @@ public interface FeatureLanguagePackage extends EPackage
     EReference CONSTRAINT__CHARACTERISTIC = eINSTANCE.getConstraint_Characteristic();
 
     /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
@@ -1120,12 +1265,12 @@ public interface FeatureLanguagePackage extends EPackage
     EReference CONSTRAINT__CONDITION = eINSTANCE.getConstraint_Condition();
 
     /**
-     * The meta object literal for the '<em><b>Errormsg</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Error Msg</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CONSTRAINT__ERRORMSG = eINSTANCE.getConstraint_Errormsg();
+    EAttribute CONSTRAINT__ERROR_MSG = eINSTANCE.getConstraint_ErrorMsg();
 
     /**
      * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.KeyImpl <em>Key</em>}' class.
@@ -1172,6 +1317,14 @@ public interface FeatureLanguagePackage extends EPackage
     EClass CONCEPT_PROPERTY = eINSTANCE.getConceptProperty();
 
     /**
+     * The meta object literal for the '<em><b>Is Root</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONCEPT_PROPERTY__IS_ROOT = eINSTANCE.getConceptProperty_IsRoot();
+
+    /**
      * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicPropertyImpl <em>Characteristic Property</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1188,6 +1341,14 @@ public interface FeatureLanguagePackage extends EPackage
      * @generated
      */
     EReference CHARACTERISTIC_PROPERTY__CHARACTERISTIC = eINSTANCE.getCharacteristicProperty_Characteristic();
+
+    /**
+     * The meta object literal for the '<em><b>Is Lazy</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHARACTERISTIC_PROPERTY__IS_LAZY = eINSTANCE.getCharacteristicProperty_IsLazy();
 
     /**
      * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.impl.PropertyImpl <em>Property</em>}' class.
@@ -1260,6 +1421,16 @@ public interface FeatureLanguagePackage extends EPackage
      * @generated
      */
     EEnum KEY_TYPE = eINSTANCE.getKeyType();
+
+    /**
+     * The meta object literal for the '{@link xtext.featurelanguage.featureLanguage.ComparisonOperator <em>Comparison Operator</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see xtext.featurelanguage.featureLanguage.ComparisonOperator
+     * @see xtext.featurelanguage.featureLanguage.impl.FeatureLanguagePackageImpl#getComparisonOperator()
+     * @generated
+     */
+    EEnum COMPARISON_OPERATOR = eINSTANCE.getComparisonOperator();
 
   }
 

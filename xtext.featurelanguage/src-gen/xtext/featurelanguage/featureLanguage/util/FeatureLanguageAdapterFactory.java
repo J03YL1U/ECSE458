@@ -76,9 +76,14 @@ public class FeatureLanguageAdapterFactory extends AdapterFactoryImpl
     new FeatureLanguageSwitch<Adapter>()
     {
       @Override
-      public Adapter caseFeatureList(FeatureList object)
+      public Adapter caseFeatureLanguage(FeatureLanguage object)
       {
-        return createFeatureListAdapter();
+        return createFeatureLanguageAdapter();
+      }
+      @Override
+      public Adapter caseNamedElement(NamedElement object)
+      {
+        return createNamedElementAdapter();
       }
       @Override
       public Adapter caseConcept(Concept object)
@@ -153,16 +158,31 @@ public class FeatureLanguageAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link xtext.featurelanguage.featureLanguage.FeatureList <em>Feature List</em>}'.
+   * Creates a new adapter for an object of class '{@link xtext.featurelanguage.featureLanguage.FeatureLanguage <em>Feature Language</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see xtext.featurelanguage.featureLanguage.FeatureList
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguage
    * @generated
    */
-  public Adapter createFeatureListAdapter()
+  public Adapter createFeatureLanguageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link xtext.featurelanguage.featureLanguage.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see xtext.featurelanguage.featureLanguage.NamedElement
+   * @generated
+   */
+  public Adapter createNamedElementAdapter()
   {
     return null;
   }

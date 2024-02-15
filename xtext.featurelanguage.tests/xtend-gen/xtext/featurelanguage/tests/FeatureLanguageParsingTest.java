@@ -15,14 +15,14 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import xtext.featurelanguage.featureLanguage.FeatureList;
+import xtext.featurelanguage.featureLanguage.FeatureLanguage;
 
 @ExtendWith(InjectionExtension.class)
 @InjectWith(FeatureLanguageInjectorProvider.class)
 @SuppressWarnings("all")
 public class FeatureLanguageParsingTest {
   @Inject
-  private ParseHelper<FeatureList> parseHelper;
+  private ParseHelper<FeatureLanguage> parseHelper;
 
   @Test
   public void loadModel() {
@@ -30,7 +30,7 @@ public class FeatureLanguageParsingTest {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("Hello Xtext!");
       _builder.newLine();
-      final FeatureList result = this.parseHelper.parse(_builder);
+      final FeatureLanguage result = this.parseHelper.parse(_builder);
       Assertions.assertNotNull(result);
       final EList<Resource.Diagnostic> errors = result.eResource().getErrors();
       boolean _isEmpty = errors.isEmpty();

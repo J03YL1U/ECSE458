@@ -20,29 +20,29 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import xtext.featurelanguage.featureLanguage.Concept;
 import xtext.featurelanguage.featureLanguage.Constraint;
 import xtext.featurelanguage.featureLanguage.Feature;
+import xtext.featurelanguage.featureLanguage.FeatureLanguage;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
-import xtext.featurelanguage.featureLanguage.FeatureList;
 import xtext.featurelanguage.featureLanguage.Key;
 import xtext.featurelanguage.featureLanguage.Property;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Feature List</b></em>'.
+ * An implementation of the model object '<em><b>Feature Language</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl#getConcepts <em>Concepts</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl#getConstraints <em>Constraints</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl#getKeys <em>Keys</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl#getProperties <em>Properties</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureListImpl#getFeatures <em>Features</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl#getKeys <em>Keys</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.FeatureLanguageImpl#getFeatures <em>Features</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FeatureListImpl extends MinimalEObjectImpl.Container implements FeatureList
+public class FeatureLanguageImpl extends MinimalEObjectImpl.Container implements FeatureLanguage
 {
   /**
    * The cached value of the '{@link #getConcepts() <em>Concepts</em>}' containment reference list.
@@ -99,7 +99,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FeatureListImpl()
+  protected FeatureLanguageImpl()
   {
     super();
   }
@@ -112,7 +112,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   @Override
   protected EClass eStaticClass()
   {
-    return FeatureLanguagePackage.Literals.FEATURE_LIST;
+    return FeatureLanguagePackage.Literals.FEATURE_LANGUAGE;
   }
 
   /**
@@ -125,7 +125,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     if (concepts == null)
     {
-      concepts = new EObjectContainmentEList<Concept>(Concept.class, this, FeatureLanguagePackage.FEATURE_LIST__CONCEPTS);
+      concepts = new EObjectContainmentEList<Concept>(Concept.class, this, FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS);
     }
     return concepts;
   }
@@ -140,7 +140,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     if (constraints == null)
     {
-      constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS);
+      constraints = new EObjectContainmentEList<Constraint>(Constraint.class, this, FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS);
     }
     return constraints;
   }
@@ -155,7 +155,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     if (keys == null)
     {
-      keys = new EObjectContainmentEList<Key>(Key.class, this, FeatureLanguagePackage.FEATURE_LIST__KEYS);
+      keys = new EObjectContainmentEList<Key>(Key.class, this, FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS);
     }
     return keys;
   }
@@ -170,7 +170,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     if (properties == null)
     {
-      properties = new EObjectContainmentEList<Property>(Property.class, this, FeatureLanguagePackage.FEATURE_LIST__PROPERTIES);
+      properties = new EObjectContainmentEList<Property>(Property.class, this, FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES);
     }
     return properties;
   }
@@ -185,7 +185,7 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     if (features == null)
     {
-      features = new EObjectContainmentEList<Feature>(Feature.class, this, FeatureLanguagePackage.FEATURE_LIST__FEATURES);
+      features = new EObjectContainmentEList<Feature>(Feature.class, this, FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES);
     }
     return features;
   }
@@ -200,15 +200,15 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST__CONCEPTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS:
         return ((InternalEList<?>)getConcepts()).basicRemove(otherEnd, msgs);
-      case FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS:
         return ((InternalEList<?>)getConstraints()).basicRemove(otherEnd, msgs);
-      case FeatureLanguagePackage.FEATURE_LIST__KEYS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS:
         return ((InternalEList<?>)getKeys()).basicRemove(otherEnd, msgs);
-      case FeatureLanguagePackage.FEATURE_LIST__PROPERTIES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES:
         return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
-      case FeatureLanguagePackage.FEATURE_LIST__FEATURES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES:
         return ((InternalEList<?>)getFeatures()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -224,15 +224,15 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST__CONCEPTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS:
         return getConcepts();
-      case FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS:
         return getConstraints();
-      case FeatureLanguagePackage.FEATURE_LIST__KEYS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS:
         return getKeys();
-      case FeatureLanguagePackage.FEATURE_LIST__PROPERTIES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES:
         return getProperties();
-      case FeatureLanguagePackage.FEATURE_LIST__FEATURES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES:
         return getFeatures();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -249,23 +249,23 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST__CONCEPTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS:
         getConcepts().clear();
         getConcepts().addAll((Collection<? extends Concept>)newValue);
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS:
         getConstraints().clear();
         getConstraints().addAll((Collection<? extends Constraint>)newValue);
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__KEYS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS:
         getKeys().clear();
         getKeys().addAll((Collection<? extends Key>)newValue);
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__PROPERTIES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES:
         getProperties().clear();
         getProperties().addAll((Collection<? extends Property>)newValue);
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__FEATURES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES:
         getFeatures().clear();
         getFeatures().addAll((Collection<? extends Feature>)newValue);
         return;
@@ -283,19 +283,19 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST__CONCEPTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS:
         getConcepts().clear();
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS:
         getConstraints().clear();
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__KEYS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS:
         getKeys().clear();
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__PROPERTIES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES:
         getProperties().clear();
         return;
-      case FeatureLanguagePackage.FEATURE_LIST__FEATURES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES:
         getFeatures().clear();
         return;
     }
@@ -312,18 +312,18 @@ public class FeatureListImpl extends MinimalEObjectImpl.Container implements Fea
   {
     switch (featureID)
     {
-      case FeatureLanguagePackage.FEATURE_LIST__CONCEPTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONCEPTS:
         return concepts != null && !concepts.isEmpty();
-      case FeatureLanguagePackage.FEATURE_LIST__CONSTRAINTS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__CONSTRAINTS:
         return constraints != null && !constraints.isEmpty();
-      case FeatureLanguagePackage.FEATURE_LIST__KEYS:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__KEYS:
         return keys != null && !keys.isEmpty();
-      case FeatureLanguagePackage.FEATURE_LIST__PROPERTIES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__PROPERTIES:
         return properties != null && !properties.isEmpty();
-      case FeatureLanguagePackage.FEATURE_LIST__FEATURES:
+      case FeatureLanguagePackage.FEATURE_LANGUAGE__FEATURES:
         return features != null && !features.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //FeatureListImpl
+} //FeatureLanguageImpl

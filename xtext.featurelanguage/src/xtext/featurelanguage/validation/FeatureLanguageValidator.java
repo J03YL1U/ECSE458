@@ -3,14 +3,17 @@
  */
 package xtext.featurelanguage.validation;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.validation.Check;
 
 import xtext.featurelanguage.featureLanguage.Characteristic;
 import xtext.featurelanguage.featureLanguage.Concept;
 import xtext.featurelanguage.featureLanguage.ConceptProperty;
+import xtext.featurelanguage.featureLanguage.FeatureLanguage;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
-import xtext.featurelanguage.featureLanguage.FeatureList;
 import xtext.featurelanguage.featureLanguage.Key;
 import xtext.featurelanguage.featureLanguage.KeyType;
 import xtext.featurelanguage.featureLanguage.Property;
@@ -22,13 +25,15 @@ import xtext.featurelanguage.featureLanguage.Property;
  */
 public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 	
+	List<String> PrimitiveDataTypes = Arrays.asList("int", "byte", "short", "long", "float", "double", "boolean", "char", "String");
+	
 	@Check
 	public void checkOnlyOneKeyPerConcept(Key key) {
-		FeatureList featureList = (FeatureList) key.eContainer();
+		FeatureLanguage featureLanguage = (FeatureLanguage) key.eContainer();
 
-		if (featureList != null) {
+		if (featureLanguage != null) {
 			if (key.getKeyType().equals(KeyType.AUTOUNIQUE) || key.getKeyType().equals(KeyType.UNIQUE)) {
-				for (Key otherKey : featureList.getKeys()) {
+				for (Key otherKey : featureLanguage.getKeys()) {
 					if (!key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept())) {
 						if (!otherKey.getKeyType().equals(KeyType.INDEX)) {
 							error("There can only be one key per concept",
@@ -38,7 +43,7 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 					}
 				}
 			}
-			for (Key otherKey : featureList.getKeys()) {
+			for (Key otherKey : featureLanguage.getKeys()) {
 				if (!key.equals(otherKey) && key.getConcept().equals(otherKey.getConcept()) && key.getCharacteristic().equals(otherKey.getCharacteristic())) {
 					error("There can only be one key per concept",
 							FeatureLanguagePackage.Literals.KEY__CONCEPT);
@@ -55,11 +60,11 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 	
 	@Check
 	public void checkEachIndexKeyHasConcept(Key key) {
-		FeatureList featureList = (FeatureList) key.eContainer();
+		FeatureLanguage featureLanguage = (FeatureLanguage) key.eContainer();
 
-		if (featureList != null) {
+		if (featureLanguage != null) {
 			if (key.getKeyType().equals(KeyType.INDEX)) {
-				EList<Concept> concepts = featureList.getConcepts();
+				EList<Concept> concepts = featureLanguage.getConcepts();
 				boolean hasConcept = false;
 				for (Concept concept : concepts) {
 					if (key.getCharacteristic().getType().getName().toString().equals(concept.getName().toString())) {
@@ -76,10 +81,10 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 
 	@Check
 	public void checkEachConceptButRootHasKey(Concept concept) {
-		FeatureList featureList = (FeatureList) concept.eContainer();
+		FeatureLanguage featureLanguage = (FeatureLanguage) concept.eContainer();
 		Concept rootConcept = null;
-		if (featureList != null) {
-			EList<Property> properties = featureList.getProperties();
+		if (featureLanguage != null) {
+			EList<Property> properties = featureLanguage.getProperties();
 			for (Property property : properties) {
 				if (property instanceof ConceptProperty) {
 					rootConcept = property.getConcept();
@@ -89,8 +94,8 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 		if (!concept.equals(rootConcept)) {
 			boolean hasKey = false;
 
-			if (featureList != null) {
-				for (Key key : featureList.getKeys()) {
+			if (featureLanguage != null) {
+				for (Key key : featureLanguage.getKeys()) {
 					if (key.getConcept().equals(concept) && (key.getKeyType().equals(KeyType.AUTOUNIQUE) || key.getKeyType().equals(KeyType.UNIQUE))) {
 						hasKey = true;
 						break;
@@ -104,7 +109,7 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 
 				if (!hasKey) {
 					error("Every concept except root needs a key",
-							FeatureLanguagePackage.Literals.CONCEPT__NAME);
+							FeatureLanguagePackage.Literals.NAMED_ELEMENT__NAME);
 				}
 			}
 		}
@@ -112,9 +117,9 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 	
 	@Check
 	public void checkNoKeyForRootConcept(Key key) {
-		FeatureList featureList = (FeatureList) key.eContainer();
-		if (featureList != null) {
-			EList<Property> properties = featureList.getProperties();
+		FeatureLanguage featureLanguage = (FeatureLanguage) key.eContainer();
+		if (featureLanguage != null) {
+			EList<Property> properties = featureLanguage.getProperties();
 			for (Property property : properties) {
 				if (property instanceof ConceptProperty) {
 					if (key.getConcept().equals(property.getConcept())) {
@@ -138,7 +143,7 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 			catch (NumberFormatException e) {
 				if (symbols[1] != "*") {
 					error("Multiplicity's lower bound must be lesser or equal to upper bound",
-							FeatureLanguagePackage.Literals.CHARACTERISTIC__NAME);
+							FeatureLanguagePackage.Literals.NAMED_ELEMENT__NAME);
 				}
 				return;
 			}
@@ -152,28 +157,59 @@ public class FeatureLanguageValidator extends AbstractFeatureLanguageValidator {
 
 			if (from > to) {
 				error("Multiplicity's lower bound must be lesser or equal to upper bound",
-						FeatureLanguagePackage.Literals.CHARACTERISTIC__NAME);
+						FeatureLanguagePackage.Literals.NAMED_ELEMENT__NAME);
 			}
 		}
 	}
 
 	@Check
-	public void checkExactlyOneRoot(FeatureList featureList) {
-		EList<Property> properties = featureList.getProperties();
+	public void checkExactlyOneRoot(FeatureLanguage featureLanguage) {
+		EList<Property> properties = featureLanguage.getProperties();
 		boolean hasRoot = false;
 		if (properties != null) {
 			for (Property property : properties) {
 				if (property instanceof ConceptProperty) {
 					if (hasRoot) {
-						error("There can only be one root", FeatureLanguagePackage.Literals.FEATURE_LIST__PROPERTIES);
+						error("There can only be one root", FeatureLanguagePackage.Literals.FEATURE_LANGUAGE__PROPERTIES);
 					}
 					hasRoot = true;
 				}
 			}
 			if (!hasRoot) {
-				error("There must be one root", FeatureLanguagePackage.Literals.FEATURE_LIST__PROPERTIES);
+				error("There must be one root", FeatureLanguagePackage.Literals.FEATURE_LANGUAGE__PROPERTIES);
 			}
 		}
 	}
 	
+	@Check
+	public void checkTypeMakesSense(Characteristic characteristic) {
+		FeatureLanguage featureLanguage = (FeatureLanguage) characteristic.eContainer().eContainer();
+		
+		if (featureLanguage != null) {
+			String characteristicType = characteristic.getType().getName().toString();
+			if (PrimitiveDataTypes.contains(characteristicType)) {
+				if (characteristic.getMultiplicity() != null || characteristic.getLiterals().size() != 0) {
+					error("Characteristics with primitive data types cannot have multiplicities nor literals", FeatureLanguagePackage.Literals.CHARACTERISTIC__TYPE);
+				}
+			}
+			else {
+				List<Concept> concepts = featureLanguage.getConcepts();
+				boolean isConceptType = false;
+				for (Concept concept : concepts) {
+					if (concept.getName().toString().equals(characteristicType)) {
+						isConceptType = true;
+						if (characteristic.getMultiplicity() == null) {
+							error("Characteristics with Concept data types must have a multiplicity", FeatureLanguagePackage.Literals.CHARACTERISTIC__TYPE);
+						}
+						break;
+					}
+				}
+				if (!isConceptType) {
+					if (characteristic.getLiterals() == null || characteristic.getLiterals().size() == 0) {
+						error("Characteristics with enum data types must have literals", FeatureLanguagePackage.Literals.CHARACTERISTIC__TYPE);
+					}
+				}
+			}
+		}
+	}
 }

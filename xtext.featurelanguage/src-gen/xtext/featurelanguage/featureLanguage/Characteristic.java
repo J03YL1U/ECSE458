@@ -3,7 +3,7 @@
  */
 package xtext.featurelanguage.featureLanguage;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,15 +15,15 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link xtext.featurelanguage.featureLanguage.Characteristic#getType <em>Type</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.Characteristic#getName <em>Name</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.Characteristic#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.Characteristic#getLiterals <em>Literals</em>}</li>
  * </ul>
  *
  * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCharacteristic()
  * @model
  * @generated
  */
-public interface Characteristic extends EObject
+public interface Characteristic extends NamedElement
 {
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
@@ -48,28 +48,6 @@ public interface Characteristic extends EObject
   void setType(Type value);
 
   /**
-   * Returns the value of the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Name</em>' attribute.
-   * @see #setName(String)
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCharacteristic_Name()
-   * @model
-   * @generated
-   */
-  String getName();
-
-  /**
-   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.Characteristic#getName <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Name</em>' attribute.
-   * @see #getName()
-   * @generated
-   */
-  void setName(String value);
-
-  /**
    * Returns the value of the '<em><b>Multiplicity</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -90,5 +68,17 @@ public interface Characteristic extends EObject
    * @generated
    */
   void setMultiplicity(String value);
+
+  /**
+   * Returns the value of the '<em><b>Literals</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Literals</em>' attribute list.
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getCharacteristic_Literals()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getLiterals();
 
 } // Characteristic

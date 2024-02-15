@@ -13,16 +13,18 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import xtext.featurelanguage.featureLanguage.Characteristic;
 import xtext.featurelanguage.featureLanguage.CharacteristicProperty;
+import xtext.featurelanguage.featureLanguage.ComparisonOperator;
 import xtext.featurelanguage.featureLanguage.Concept;
 import xtext.featurelanguage.featureLanguage.ConceptProperty;
 import xtext.featurelanguage.featureLanguage.Condition;
 import xtext.featurelanguage.featureLanguage.Constraint;
 import xtext.featurelanguage.featureLanguage.Feature;
+import xtext.featurelanguage.featureLanguage.FeatureLanguage;
 import xtext.featurelanguage.featureLanguage.FeatureLanguageFactory;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
-import xtext.featurelanguage.featureLanguage.FeatureList;
 import xtext.featurelanguage.featureLanguage.Key;
 import xtext.featurelanguage.featureLanguage.KeyType;
+import xtext.featurelanguage.featureLanguage.NamedElement;
 import xtext.featurelanguage.featureLanguage.Property;
 import xtext.featurelanguage.featureLanguage.Type;
 import xtext.featurelanguage.featureLanguage.Verb;
@@ -40,7 +42,14 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass featureListEClass = null;
+  private EClass featureLanguageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass namedElementEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -127,6 +136,13 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
   private EEnum keyTypeEEnum = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum comparisonOperatorEEnum = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -194,9 +210,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EClass getFeatureList()
+  public EClass getFeatureLanguage()
   {
-    return featureListEClass;
+    return featureLanguageEClass;
   }
 
   /**
@@ -205,9 +221,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Concepts()
+  public EReference getFeatureLanguage_Concepts()
   {
-    return (EReference)featureListEClass.getEStructuralFeatures().get(0);
+    return (EReference)featureLanguageEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -216,9 +232,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Constraints()
+  public EReference getFeatureLanguage_Constraints()
   {
-    return (EReference)featureListEClass.getEStructuralFeatures().get(1);
+    return (EReference)featureLanguageEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -227,9 +243,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Keys()
+  public EReference getFeatureLanguage_Keys()
   {
-    return (EReference)featureListEClass.getEStructuralFeatures().get(2);
+    return (EReference)featureLanguageEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -238,9 +254,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Properties()
+  public EReference getFeatureLanguage_Properties()
   {
-    return (EReference)featureListEClass.getEStructuralFeatures().get(3);
+    return (EReference)featureLanguageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -249,9 +265,31 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EReference getFeatureList_Features()
+  public EReference getFeatureLanguage_Features()
   {
-    return (EReference)featureListEClass.getEStructuralFeatures().get(4);
+    return (EReference)featureLanguageEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNamedElement()
+  {
+    return namedElementEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getNamedElement_Name()
+  {
+    return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -271,20 +309,9 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EAttribute getConcept_Name()
-  {
-    return (EAttribute)conceptEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public EReference getConcept_Characteristics()
   {
-    return (EReference)conceptEClass.getEStructuralFeatures().get(1);
+    return (EReference)conceptEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -315,7 +342,7 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EAttribute getCharacteristic_Name()
+  public EAttribute getCharacteristic_Multiplicity()
   {
     return (EAttribute)characteristicEClass.getEStructuralFeatures().get(1);
   }
@@ -326,7 +353,7 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EAttribute getCharacteristic_Multiplicity()
+  public EAttribute getCharacteristic_Literals()
   {
     return (EAttribute)characteristicEClass.getEStructuralFeatures().get(2);
   }
@@ -370,9 +397,20 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EAttribute getCondition_Value()
+  public EAttribute getCondition_Operator()
   {
     return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCondition_Value()
+  {
+    return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -425,7 +463,7 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
-  public EAttribute getConstraint_Errormsg()
+  public EAttribute getConstraint_ErrorMsg()
   {
     return (EAttribute)constraintEClass.getEStructuralFeatures().get(3);
   }
@@ -491,6 +529,17 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
+  public EAttribute getConceptProperty_IsRoot()
+  {
+    return (EAttribute)conceptPropertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EClass getCharacteristicProperty()
   {
     return characteristicPropertyEClass;
@@ -505,6 +554,17 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
   public EReference getCharacteristicProperty_Characteristic()
   {
     return (EReference)characteristicPropertyEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getCharacteristicProperty_IsLazy()
+  {
+    return (EAttribute)characteristicPropertyEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -601,6 +661,17 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
    * @generated
    */
   @Override
+  public EEnum getComparisonOperator()
+  {
+    return comparisonOperatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public FeatureLanguageFactory getFeatureLanguageFactory()
   {
     return (FeatureLanguageFactory)getEFactoryInstance();
@@ -626,33 +697,36 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     isCreated = true;
 
     // Create classes and their features
-    featureListEClass = createEClass(FEATURE_LIST);
-    createEReference(featureListEClass, FEATURE_LIST__CONCEPTS);
-    createEReference(featureListEClass, FEATURE_LIST__CONSTRAINTS);
-    createEReference(featureListEClass, FEATURE_LIST__KEYS);
-    createEReference(featureListEClass, FEATURE_LIST__PROPERTIES);
-    createEReference(featureListEClass, FEATURE_LIST__FEATURES);
+    featureLanguageEClass = createEClass(FEATURE_LANGUAGE);
+    createEReference(featureLanguageEClass, FEATURE_LANGUAGE__CONCEPTS);
+    createEReference(featureLanguageEClass, FEATURE_LANGUAGE__CONSTRAINTS);
+    createEReference(featureLanguageEClass, FEATURE_LANGUAGE__KEYS);
+    createEReference(featureLanguageEClass, FEATURE_LANGUAGE__PROPERTIES);
+    createEReference(featureLanguageEClass, FEATURE_LANGUAGE__FEATURES);
+
+    namedElementEClass = createEClass(NAMED_ELEMENT);
+    createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
     conceptEClass = createEClass(CONCEPT);
-    createEAttribute(conceptEClass, CONCEPT__NAME);
     createEReference(conceptEClass, CONCEPT__CHARACTERISTICS);
 
     characteristicEClass = createEClass(CHARACTERISTIC);
     createEReference(characteristicEClass, CHARACTERISTIC__TYPE);
-    createEAttribute(characteristicEClass, CHARACTERISTIC__NAME);
     createEAttribute(characteristicEClass, CHARACTERISTIC__MULTIPLICITY);
+    createEAttribute(characteristicEClass, CHARACTERISTIC__LITERALS);
 
     typeEClass = createEClass(TYPE);
     createEAttribute(typeEClass, TYPE__NAME);
 
     conditionEClass = createEClass(CONDITION);
+    createEAttribute(conditionEClass, CONDITION__OPERATOR);
     createEAttribute(conditionEClass, CONDITION__VALUE);
 
     constraintEClass = createEClass(CONSTRAINT);
     createEReference(constraintEClass, CONSTRAINT__CONCEPT);
     createEReference(constraintEClass, CONSTRAINT__CHARACTERISTIC);
     createEReference(constraintEClass, CONSTRAINT__CONDITION);
-    createEAttribute(constraintEClass, CONSTRAINT__ERRORMSG);
+    createEAttribute(constraintEClass, CONSTRAINT__ERROR_MSG);
 
     keyEClass = createEClass(KEY);
     createEReference(keyEClass, KEY__CONCEPT);
@@ -660,9 +734,11 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     createEAttribute(keyEClass, KEY__KEY_TYPE);
 
     conceptPropertyEClass = createEClass(CONCEPT_PROPERTY);
+    createEAttribute(conceptPropertyEClass, CONCEPT_PROPERTY__IS_ROOT);
 
     characteristicPropertyEClass = createEClass(CHARACTERISTIC_PROPERTY);
     createEReference(characteristicPropertyEClass, CHARACTERISTIC_PROPERTY__CHARACTERISTIC);
+    createEAttribute(characteristicPropertyEClass, CHARACTERISTIC_PROPERTY__IS_LAZY);
 
     propertyEClass = createEClass(PROPERTY);
     createEReference(propertyEClass, PROPERTY__CONCEPT);
@@ -675,6 +751,7 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     // Create enums
     verbEEnum = createEEnum(VERB);
     keyTypeEEnum = createEEnum(KEY_TYPE);
+    comparisonOperatorEEnum = createEEnum(COMPARISON_OPERATOR);
   }
 
   /**
@@ -706,37 +783,42 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    conceptEClass.getESuperTypes().add(this.getNamedElement());
+    characteristicEClass.getESuperTypes().add(this.getNamedElement());
     conceptPropertyEClass.getESuperTypes().add(this.getProperty());
     characteristicPropertyEClass.getESuperTypes().add(this.getProperty());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(featureListEClass, FeatureList.class, "FeatureList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFeatureList_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Keys(), this.getKey(), null, "keys", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Properties(), this.getProperty(), null, "properties", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFeatureList_Features(), this.getFeature(), null, "features", null, 0, -1, FeatureList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(featureLanguageEClass, FeatureLanguage.class, "FeatureLanguage", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getFeatureLanguage_Concepts(), this.getConcept(), null, "concepts", null, 0, -1, FeatureLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureLanguage_Constraints(), this.getConstraint(), null, "constraints", null, 0, -1, FeatureLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureLanguage_Keys(), this.getKey(), null, "keys", null, 0, -1, FeatureLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureLanguage_Properties(), this.getProperty(), null, "properties", null, 0, -1, FeatureLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFeatureLanguage_Features(), this.getFeature(), null, "features", null, 0, -1, FeatureLanguage.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conceptEClass, Concept.class, "Concept", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getConcept_Name(), ecorePackage.getEString(), "name", null, 0, 1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConcept_Characteristics(), this.getCharacteristic(), null, "characteristics", null, 0, -1, Concept.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(characteristicEClass, Characteristic.class, "Characteristic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCharacteristic_Type(), this.getType(), null, "type", null, 0, 1, Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getCharacteristic_Name(), ecorePackage.getEString(), "name", null, 0, 1, Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCharacteristic_Multiplicity(), ecorePackage.getEString(), "multiplicity", null, 0, 1, Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCharacteristic_Literals(), ecorePackage.getEString(), "literals", null, 0, -1, Characteristic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCondition_Operator(), this.getComparisonOperator(), "operator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getCondition_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(constraintEClass, Constraint.class, "Constraint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getConstraint_Concept(), this.getConcept(), null, "concept", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConstraint_Characteristic(), this.getCharacteristic(), null, "characteristic", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getConstraint_Condition(), this.getCondition(), null, "condition", null, 0, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getConstraint_Errormsg(), ecorePackage.getEString(), "errormsg", null, 0, -1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConstraint_Condition(), this.getCondition(), null, "condition", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getConstraint_ErrorMsg(), ecorePackage.getEString(), "errorMsg", null, 0, 1, Constraint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(keyEClass, Key.class, "Key", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getKey_Concept(), this.getConcept(), null, "concept", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -744,9 +826,11 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     initEAttribute(getKey_KeyType(), this.getKeyType(), "keyType", null, 0, 1, Key.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(conceptPropertyEClass, ConceptProperty.class, "ConceptProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getConceptProperty_IsRoot(), ecorePackage.getEBoolean(), "isRoot", null, 0, 1, ConceptProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(characteristicPropertyEClass, CharacteristicProperty.class, "CharacteristicProperty", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCharacteristicProperty_Characteristic(), this.getCharacteristic(), null, "characteristic", null, 0, 1, CharacteristicProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCharacteristicProperty_IsLazy(), ecorePackage.getEBoolean(), "isLazy", null, 0, 1, CharacteristicProperty.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getProperty_Concept(), this.getConcept(), null, "concept", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -767,6 +851,13 @@ public class FeatureLanguagePackageImpl extends EPackageImpl implements FeatureL
     addEEnumLiteral(keyTypeEEnum, KeyType.UNIQUE);
     addEEnumLiteral(keyTypeEEnum, KeyType.AUTOUNIQUE);
     addEEnumLiteral(keyTypeEEnum, KeyType.INDEX);
+
+    initEEnum(comparisonOperatorEEnum, ComparisonOperator.class, "ComparisonOperator");
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER_THAN);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.GREATER_THAN_OR_EQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.EQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN_OR_EQUAL);
+    addEEnumLiteral(comparisonOperatorEEnum, ComparisonOperator.LESS_THAN);
 
     // Create resource
     createResource(eNS_URI);

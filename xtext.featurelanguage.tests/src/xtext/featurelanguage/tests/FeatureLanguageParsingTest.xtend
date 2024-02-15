@@ -10,13 +10,13 @@ import org.eclipse.xtext.testing.util.ParseHelper
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.^extension.ExtendWith
-import xtext.featurelanguage.featureLanguage.FeatureList
+import xtext.featurelanguage.featureLanguage.FeatureLanguage
 
 @ExtendWith(InjectionExtension)
 @InjectWith(FeatureLanguageInjectorProvider)
 class FeatureLanguageParsingTest {
 	@Inject
-	ParseHelper<FeatureList> parseHelper
+	ParseHelper<FeatureLanguage> parseHelper
 	
 	@Test
 	def void loadModel() {

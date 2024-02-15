@@ -9,6 +9,12 @@ package xtext.featurelanguage.featureLanguage;
  * A representation of the model object '<em><b>Concept Property</b></em>'.
  * <!-- end-user-doc -->
  *
+ * <p>
+ * The following features are supported:
+ * </p>
+ * <ul>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.ConceptProperty#isIsRoot <em>Is Root</em>}</li>
+ * </ul>
  *
  * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConceptProperty()
  * @model
@@ -16,4 +22,26 @@ package xtext.featurelanguage.featureLanguage;
  */
 public interface ConceptProperty extends Property
 {
+  /**
+   * Returns the value of the '<em><b>Is Root</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Is Root</em>' attribute.
+   * @see #setIsRoot(boolean)
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConceptProperty_IsRoot()
+   * @model
+   * @generated
+   */
+  boolean isIsRoot();
+
+  /**
+   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.ConceptProperty#isIsRoot <em>Is Root</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Is Root</em>' attribute.
+   * @see #isIsRoot()
+   * @generated
+   */
+  void setIsRoot(boolean value);
+
 } // ConceptProperty

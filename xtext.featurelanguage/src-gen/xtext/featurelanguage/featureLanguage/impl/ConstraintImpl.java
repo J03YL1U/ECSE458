@@ -3,22 +3,14 @@
  */
 package xtext.featurelanguage.featureLanguage.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import xtext.featurelanguage.featureLanguage.Characteristic;
 import xtext.featurelanguage.featureLanguage.Concept;
@@ -37,7 +29,7 @@ import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl#getConcept <em>Concept</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl#getErrormsg <em>Errormsg</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.ConstraintImpl#getErrorMsg <em>Error Msg</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,24 +57,34 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
   protected Characteristic characteristic;
 
   /**
-   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference list.
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCondition()
    * @generated
    * @ordered
    */
-  protected EList<Condition> condition;
+  protected Condition condition;
 
   /**
-   * The cached value of the '{@link #getErrormsg() <em>Errormsg</em>}' attribute list.
+   * The default value of the '{@link #getErrorMsg() <em>Error Msg</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getErrormsg()
+   * @see #getErrorMsg()
    * @generated
    * @ordered
    */
-  protected EList<String> errormsg;
+  protected static final String ERROR_MSG_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getErrorMsg() <em>Error Msg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getErrorMsg()
+   * @generated
+   * @ordered
+   */
+  protected String errorMsg = ERROR_MSG_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -201,12 +203,8 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * @generated
    */
   @Override
-  public EList<Condition> getCondition()
+  public Condition getCondition()
   {
-    if (condition == null)
-    {
-      condition = new EObjectContainmentEList<Condition>(Condition.class, this, FeatureLanguagePackage.CONSTRAINT__CONDITION);
-    }
     return condition;
   }
 
@@ -215,14 +213,63 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public EList<String> getErrormsg()
+  public NotificationChain basicSetCondition(Condition newCondition, NotificationChain msgs)
   {
-    if (errormsg == null)
+    Condition oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
     {
-      errormsg = new EDataTypeEList<String>(String.class, this, FeatureLanguagePackage.CONSTRAINT__ERRORMSG);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONSTRAINT__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return errormsg;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCondition(Condition newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FeatureLanguagePackage.CONSTRAINT__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FeatureLanguagePackage.CONSTRAINT__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONSTRAINT__CONDITION, newCondition, newCondition));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getErrorMsg()
+  {
+    return errorMsg;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setErrorMsg(String newErrorMsg)
+  {
+    String oldErrorMsg = errorMsg;
+    errorMsg = newErrorMsg;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CONSTRAINT__ERROR_MSG, oldErrorMsg, errorMsg));
   }
 
   /**
@@ -236,7 +283,7 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
     switch (featureID)
     {
       case FeatureLanguagePackage.CONSTRAINT__CONDITION:
-        return ((InternalEList<?>)getCondition()).basicRemove(otherEnd, msgs);
+        return basicSetCondition(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -259,8 +306,8 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         return basicGetCharacteristic();
       case FeatureLanguagePackage.CONSTRAINT__CONDITION:
         return getCondition();
-      case FeatureLanguagePackage.CONSTRAINT__ERRORMSG:
-        return getErrormsg();
+      case FeatureLanguagePackage.CONSTRAINT__ERROR_MSG:
+        return getErrorMsg();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -270,7 +317,6 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -283,12 +329,10 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         setCharacteristic((Characteristic)newValue);
         return;
       case FeatureLanguagePackage.CONSTRAINT__CONDITION:
-        getCondition().clear();
-        getCondition().addAll((Collection<? extends Condition>)newValue);
+        setCondition((Condition)newValue);
         return;
-      case FeatureLanguagePackage.CONSTRAINT__ERRORMSG:
-        getErrormsg().clear();
-        getErrormsg().addAll((Collection<? extends String>)newValue);
+      case FeatureLanguagePackage.CONSTRAINT__ERROR_MSG:
+        setErrorMsg((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -311,10 +355,10 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
         setCharacteristic((Characteristic)null);
         return;
       case FeatureLanguagePackage.CONSTRAINT__CONDITION:
-        getCondition().clear();
+        setCondition((Condition)null);
         return;
-      case FeatureLanguagePackage.CONSTRAINT__ERRORMSG:
-        getErrormsg().clear();
+      case FeatureLanguagePackage.CONSTRAINT__ERROR_MSG:
+        setErrorMsg(ERROR_MSG_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -335,9 +379,9 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
       case FeatureLanguagePackage.CONSTRAINT__CHARACTERISTIC:
         return characteristic != null;
       case FeatureLanguagePackage.CONSTRAINT__CONDITION:
-        return condition != null && !condition.isEmpty();
-      case FeatureLanguagePackage.CONSTRAINT__ERRORMSG:
-        return errormsg != null && !errormsg.isEmpty();
+        return condition != null;
+      case FeatureLanguagePackage.CONSTRAINT__ERROR_MSG:
+        return ERROR_MSG_EDEFAULT == null ? errorMsg != null : !ERROR_MSG_EDEFAULT.equals(errorMsg);
     }
     return super.eIsSet(featureID);
   }
@@ -353,8 +397,8 @@ public class ConstraintImpl extends MinimalEObjectImpl.Container implements Cons
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (errormsg: ");
-    result.append(errormsg);
+    result.append(" (errorMsg: ");
+    result.append(errorMsg);
     result.append(')');
     return result.toString();
   }

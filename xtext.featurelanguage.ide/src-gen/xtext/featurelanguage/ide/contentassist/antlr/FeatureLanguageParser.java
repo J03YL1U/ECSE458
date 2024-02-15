@@ -31,13 +31,16 @@ public class FeatureLanguageParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, FeatureLanguageGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getConditionAccess().getAlternatives_0(), "rule__Condition__Alternatives_0");
+			builder.put(grammarAccess.getNamedElementAccess().getAlternatives(), "rule__NamedElement__Alternatives");
+			builder.put(grammarAccess.getCharacteristicAccess().getAlternatives_2(), "rule__Characteristic__Alternatives_2");
 			builder.put(grammarAccess.getPropertyAccess().getAlternatives(), "rule__Property__Alternatives");
 			builder.put(grammarAccess.getVerbAccess().getAlternatives(), "rule__Verb__Alternatives");
 			builder.put(grammarAccess.getKeyTypeAccess().getAlternatives(), "rule__KeyType__Alternatives");
-			builder.put(grammarAccess.getFeatureListAccess().getGroup(), "rule__FeatureList__Group__0");
+			builder.put(grammarAccess.getComparisonOperatorAccess().getAlternatives(), "rule__ComparisonOperator__Alternatives");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getGroup(), "rule__FeatureLanguage__Group__0");
 			builder.put(grammarAccess.getConceptAccess().getGroup(), "rule__Concept__Group__0");
 			builder.put(grammarAccess.getCharacteristicAccess().getGroup(), "rule__Characteristic__Group__0");
+			builder.put(grammarAccess.getCharacteristicAccess().getGroup_2_1(), "rule__Characteristic__Group_2_1__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getConstraintAccess().getGroup(), "rule__Constraint__Group__0");
 			builder.put(grammarAccess.getConstraintAccess().getGroup_1(), "rule__Constraint__Group_1__0");
@@ -48,28 +51,32 @@ public class FeatureLanguageParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCharacteristicPropertyAccess().getGroup_1(), "rule__CharacteristicProperty__Group_1__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup(), "rule__Feature__Group__0");
 			builder.put(grammarAccess.getFeatureAccess().getGroup_2(), "rule__Feature__Group_2__0");
-			builder.put(grammarAccess.getFeatureListAccess().getConceptsAssignment_0(), "rule__FeatureList__ConceptsAssignment_0");
-			builder.put(grammarAccess.getFeatureListAccess().getConstraintsAssignment_2(), "rule__FeatureList__ConstraintsAssignment_2");
-			builder.put(grammarAccess.getFeatureListAccess().getKeysAssignment_4(), "rule__FeatureList__KeysAssignment_4");
-			builder.put(grammarAccess.getFeatureListAccess().getPropertiesAssignment_6(), "rule__FeatureList__PropertiesAssignment_6");
-			builder.put(grammarAccess.getFeatureListAccess().getFeaturesAssignment_8(), "rule__FeatureList__FeaturesAssignment_8");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getConceptsAssignment_0(), "rule__FeatureLanguage__ConceptsAssignment_0");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getConstraintsAssignment_2(), "rule__FeatureLanguage__ConstraintsAssignment_2");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getKeysAssignment_4(), "rule__FeatureLanguage__KeysAssignment_4");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getPropertiesAssignment_6(), "rule__FeatureLanguage__PropertiesAssignment_6");
+			builder.put(grammarAccess.getFeatureLanguageAccess().getFeaturesAssignment_8(), "rule__FeatureLanguage__FeaturesAssignment_8");
 			builder.put(grammarAccess.getConceptAccess().getNameAssignment_1(), "rule__Concept__NameAssignment_1");
 			builder.put(grammarAccess.getConceptAccess().getCharacteristicsAssignment_2(), "rule__Concept__CharacteristicsAssignment_2");
 			builder.put(grammarAccess.getCharacteristicAccess().getTypeAssignment_0(), "rule__Characteristic__TypeAssignment_0");
 			builder.put(grammarAccess.getCharacteristicAccess().getNameAssignment_1(), "rule__Characteristic__NameAssignment_1");
-			builder.put(grammarAccess.getCharacteristicAccess().getMultiplicityAssignment_2(), "rule__Characteristic__MultiplicityAssignment_2");
+			builder.put(grammarAccess.getCharacteristicAccess().getMultiplicityAssignment_2_0(), "rule__Characteristic__MultiplicityAssignment_2_0");
+			builder.put(grammarAccess.getCharacteristicAccess().getLiteralsAssignment_2_1_1(), "rule__Characteristic__LiteralsAssignment_2_1_1");
 			builder.put(grammarAccess.getTypeAccess().getNameAssignment(), "rule__Type__NameAssignment");
+			builder.put(grammarAccess.getConditionAccess().getOperatorAssignment_0(), "rule__Condition__OperatorAssignment_0");
 			builder.put(grammarAccess.getConditionAccess().getValueAssignment_1(), "rule__Condition__ValueAssignment_1");
 			builder.put(grammarAccess.getConstraintAccess().getConceptAssignment_0(), "rule__Constraint__ConceptAssignment_0");
 			builder.put(grammarAccess.getConstraintAccess().getCharacteristicAssignment_1_1(), "rule__Constraint__CharacteristicAssignment_1_1");
 			builder.put(grammarAccess.getConstraintAccess().getConditionAssignment_2(), "rule__Constraint__ConditionAssignment_2");
-			builder.put(grammarAccess.getConstraintAccess().getErrormsgAssignment_3(), "rule__Constraint__ErrormsgAssignment_3");
+			builder.put(grammarAccess.getConstraintAccess().getErrorMsgAssignment_3(), "rule__Constraint__ErrorMsgAssignment_3");
 			builder.put(grammarAccess.getKeyAccess().getConceptAssignment_0(), "rule__Key__ConceptAssignment_0");
 			builder.put(grammarAccess.getKeyAccess().getCharacteristicAssignment_1_1(), "rule__Key__CharacteristicAssignment_1_1");
 			builder.put(grammarAccess.getKeyAccess().getKeyTypeAssignment_2(), "rule__Key__KeyTypeAssignment_2");
 			builder.put(grammarAccess.getConceptPropertyAccess().getConceptAssignment_0(), "rule__ConceptProperty__ConceptAssignment_0");
+			builder.put(grammarAccess.getConceptPropertyAccess().getIsRootAssignment_1(), "rule__ConceptProperty__IsRootAssignment_1");
 			builder.put(grammarAccess.getCharacteristicPropertyAccess().getConceptAssignment_0(), "rule__CharacteristicProperty__ConceptAssignment_0");
 			builder.put(grammarAccess.getCharacteristicPropertyAccess().getCharacteristicAssignment_1_1(), "rule__CharacteristicProperty__CharacteristicAssignment_1_1");
+			builder.put(grammarAccess.getCharacteristicPropertyAccess().getIsLazyAssignment_2(), "rule__CharacteristicProperty__IsLazyAssignment_2");
 			builder.put(grammarAccess.getFeatureAccess().getVerbAssignment_0(), "rule__Feature__VerbAssignment_0");
 			builder.put(grammarAccess.getFeatureAccess().getConceptAssignment_1(), "rule__Feature__ConceptAssignment_1");
 			builder.put(grammarAccess.getFeatureAccess().getCharacteristicAssignment_2_1(), "rule__Feature__CharacteristicAssignment_2_1");

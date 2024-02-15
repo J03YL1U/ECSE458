@@ -66,7 +66,8 @@ public class FeatureLanguageFactoryImpl extends EFactoryImpl implements FeatureL
   {
     switch (eClass.getClassifierID())
     {
-      case FeatureLanguagePackage.FEATURE_LIST: return createFeatureList();
+      case FeatureLanguagePackage.FEATURE_LANGUAGE: return createFeatureLanguage();
+      case FeatureLanguagePackage.NAMED_ELEMENT: return createNamedElement();
       case FeatureLanguagePackage.CONCEPT: return createConcept();
       case FeatureLanguagePackage.CHARACTERISTIC: return createCharacteristic();
       case FeatureLanguagePackage.TYPE: return createType();
@@ -96,6 +97,8 @@ public class FeatureLanguageFactoryImpl extends EFactoryImpl implements FeatureL
         return createVerbFromString(eDataType, initialValue);
       case FeatureLanguagePackage.KEY_TYPE:
         return createKeyTypeFromString(eDataType, initialValue);
+      case FeatureLanguagePackage.COMPARISON_OPERATOR:
+        return createComparisonOperatorFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -115,6 +118,8 @@ public class FeatureLanguageFactoryImpl extends EFactoryImpl implements FeatureL
         return convertVerbToString(eDataType, instanceValue);
       case FeatureLanguagePackage.KEY_TYPE:
         return convertKeyTypeToString(eDataType, instanceValue);
+      case FeatureLanguagePackage.COMPARISON_OPERATOR:
+        return convertComparisonOperatorToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -126,10 +131,22 @@ public class FeatureLanguageFactoryImpl extends EFactoryImpl implements FeatureL
    * @generated
    */
   @Override
-  public FeatureList createFeatureList()
+  public FeatureLanguage createFeatureLanguage()
   {
-    FeatureListImpl featureList = new FeatureListImpl();
-    return featureList;
+    FeatureLanguageImpl featureLanguage = new FeatureLanguageImpl();
+    return featureLanguage;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NamedElement createNamedElement()
+  {
+    NamedElementImpl namedElement = new NamedElementImpl();
+    return namedElement;
   }
 
   /**
@@ -292,6 +309,28 @@ public class FeatureLanguageFactoryImpl extends EFactoryImpl implements FeatureL
    * @generated
    */
   public String convertKeyTypeToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComparisonOperator createComparisonOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    ComparisonOperator result = ComparisonOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertComparisonOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -3,8 +3,6 @@
  */
 package xtext.featurelanguage.featureLanguage;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -19,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link xtext.featurelanguage.featureLanguage.Constraint#getConcept <em>Concept</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.Constraint#getCharacteristic <em>Characteristic</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.Constraint#getCondition <em>Condition</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.Constraint#getErrormsg <em>Errormsg</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.Constraint#getErrorMsg <em>Error Msg</em>}</li>
  * </ul>
  *
  * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConstraint()
@@ -73,27 +71,47 @@ public interface Constraint extends EObject
   void setCharacteristic(Characteristic value);
 
   /**
-   * Returns the value of the '<em><b>Condition</b></em>' containment reference list.
-   * The list contents are of type {@link xtext.featurelanguage.featureLanguage.Condition}.
+   * Returns the value of the '<em><b>Condition</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Condition</em>' containment reference list.
+   * @return the value of the '<em>Condition</em>' containment reference.
+   * @see #setCondition(Condition)
    * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConstraint_Condition()
    * @model containment="true"
    * @generated
    */
-  EList<Condition> getCondition();
+  Condition getCondition();
 
   /**
-   * Returns the value of the '<em><b>Errormsg</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.Constraint#getCondition <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Errormsg</em>' attribute list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConstraint_Errormsg()
-   * @model unique="false"
+   * @param value the new value of the '<em>Condition</em>' containment reference.
+   * @see #getCondition()
    * @generated
    */
-  EList<String> getErrormsg();
+  void setCondition(Condition value);
+
+  /**
+   * Returns the value of the '<em><b>Error Msg</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Error Msg</em>' attribute.
+   * @see #setErrorMsg(String)
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getConstraint_ErrorMsg()
+   * @model
+   * @generated
+   */
+  String getErrorMsg();
+
+  /**
+   * Sets the value of the '{@link xtext.featurelanguage.featureLanguage.Constraint#getErrorMsg <em>Error Msg</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Error Msg</em>' attribute.
+   * @see #getErrorMsg()
+   * @generated
+   */
+  void setErrorMsg(String value);
 
 } // Constraint

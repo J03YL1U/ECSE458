@@ -3,14 +3,19 @@
  */
 package xtext.featurelanguage.featureLanguage.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import xtext.featurelanguage.featureLanguage.Characteristic;
 import xtext.featurelanguage.featureLanguage.FeatureLanguagePackage;
@@ -25,13 +30,13 @@ import xtext.featurelanguage.featureLanguage.Type;
  * </p>
  * <ul>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicImpl#getType <em>Type</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicImpl#getName <em>Name</em>}</li>
  *   <li>{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicImpl#getMultiplicity <em>Multiplicity</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.impl.CharacteristicImpl#getLiterals <em>Literals</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CharacteristicImpl extends MinimalEObjectImpl.Container implements Characteristic
+public class CharacteristicImpl extends NamedElementImpl implements Characteristic
 {
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -42,26 +47,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected Type type;
-
-  /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected static final String NAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getName()
-   * @generated
-   * @ordered
-   */
-  protected String name = NAME_EDEFAULT;
 
   /**
    * The default value of the '{@link #getMultiplicity() <em>Multiplicity</em>}' attribute.
@@ -82,6 +67,16 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected String multiplicity = MULTIPLICITY_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLiterals() <em>Literals</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLiterals()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> literals;
 
   /**
    * <!-- begin-user-doc -->
@@ -160,31 +155,6 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
-  public String getName()
-  {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CHARACTERISTIC__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public String getMultiplicity()
   {
     return multiplicity;
@@ -202,6 +172,21 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
     multiplicity = newMultiplicity;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FeatureLanguagePackage.CHARACTERISTIC__MULTIPLICITY, oldMultiplicity, multiplicity));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<String> getLiterals()
+  {
+    if (literals == null)
+    {
+      literals = new EDataTypeEList<String>(String.class, this, FeatureLanguagePackage.CHARACTERISTIC__LITERALS);
+    }
+    return literals;
   }
 
   /**
@@ -232,10 +217,10 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
     {
       case FeatureLanguagePackage.CHARACTERISTIC__TYPE:
         return getType();
-      case FeatureLanguagePackage.CHARACTERISTIC__NAME:
-        return getName();
       case FeatureLanguagePackage.CHARACTERISTIC__MULTIPLICITY:
         return getMultiplicity();
+      case FeatureLanguagePackage.CHARACTERISTIC__LITERALS:
+        return getLiterals();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -245,6 +230,7 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -253,11 +239,12 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
       case FeatureLanguagePackage.CHARACTERISTIC__TYPE:
         setType((Type)newValue);
         return;
-      case FeatureLanguagePackage.CHARACTERISTIC__NAME:
-        setName((String)newValue);
-        return;
       case FeatureLanguagePackage.CHARACTERISTIC__MULTIPLICITY:
         setMultiplicity((String)newValue);
+        return;
+      case FeatureLanguagePackage.CHARACTERISTIC__LITERALS:
+        getLiterals().clear();
+        getLiterals().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -276,11 +263,11 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
       case FeatureLanguagePackage.CHARACTERISTIC__TYPE:
         setType((Type)null);
         return;
-      case FeatureLanguagePackage.CHARACTERISTIC__NAME:
-        setName(NAME_EDEFAULT);
-        return;
       case FeatureLanguagePackage.CHARACTERISTIC__MULTIPLICITY:
         setMultiplicity(MULTIPLICITY_EDEFAULT);
+        return;
+      case FeatureLanguagePackage.CHARACTERISTIC__LITERALS:
+        getLiterals().clear();
         return;
     }
     super.eUnset(featureID);
@@ -298,10 +285,10 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
     {
       case FeatureLanguagePackage.CHARACTERISTIC__TYPE:
         return type != null;
-      case FeatureLanguagePackage.CHARACTERISTIC__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FeatureLanguagePackage.CHARACTERISTIC__MULTIPLICITY:
         return MULTIPLICITY_EDEFAULT == null ? multiplicity != null : !MULTIPLICITY_EDEFAULT.equals(multiplicity);
+      case FeatureLanguagePackage.CHARACTERISTIC__LITERALS:
+        return literals != null && !literals.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -317,10 +304,10 @@ public class CharacteristicImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
-    result.append(", multiplicity: ");
+    result.append(" (multiplicity: ");
     result.append(multiplicity);
+    result.append(", literals: ");
+    result.append(literals);
     result.append(')');
     return result.toString();
   }

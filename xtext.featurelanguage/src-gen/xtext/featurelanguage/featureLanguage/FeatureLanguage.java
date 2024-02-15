@@ -9,25 +9,25 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Feature List</b></em>'.
+ * A representation of the model object '<em><b>Feature Language</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureList#getConcepts <em>Concepts</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureList#getConstraints <em>Constraints</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureList#getKeys <em>Keys</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureList#getProperties <em>Properties</em>}</li>
- *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureList#getFeatures <em>Features</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getConcepts <em>Concepts</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getConstraints <em>Constraints</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getKeys <em>Keys</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getProperties <em>Properties</em>}</li>
+ *   <li>{@link xtext.featurelanguage.featureLanguage.FeatureLanguage#getFeatures <em>Features</em>}</li>
  * </ul>
  *
- * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList()
+ * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage()
  * @model
  * @generated
  */
-public interface FeatureList extends EObject
+public interface FeatureLanguage extends EObject
 {
   /**
    * Returns the value of the '<em><b>Concepts</b></em>' containment reference list.
@@ -35,7 +35,7 @@ public interface FeatureList extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Concepts</em>' containment reference list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList_Concepts()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage_Concepts()
    * @model containment="true"
    * @generated
    */
@@ -47,7 +47,7 @@ public interface FeatureList extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Constraints</em>' containment reference list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList_Constraints()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage_Constraints()
    * @model containment="true"
    * @generated
    */
@@ -59,7 +59,7 @@ public interface FeatureList extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Keys</em>' containment reference list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList_Keys()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage_Keys()
    * @model containment="true"
    * @generated
    */
@@ -71,7 +71,7 @@ public interface FeatureList extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Properties</em>' containment reference list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList_Properties()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage_Properties()
    * @model containment="true"
    * @generated
    */
@@ -83,10 +83,10 @@ public interface FeatureList extends EObject
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Features</em>' containment reference list.
-   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureList_Features()
+   * @see xtext.featurelanguage.featureLanguage.FeatureLanguagePackage#getFeatureLanguage_Features()
    * @model containment="true"
    * @generated
    */
   EList<Feature> getFeatures();
 
-} // FeatureList
+} // FeatureLanguage

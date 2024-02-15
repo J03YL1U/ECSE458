@@ -25,8 +25,8 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class FeatureLanguageGrammarAccess extends AbstractElementFinder.AbstractGrammarElementFinder {
 	
-	public class FeatureListElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.FeatureList");
+	public class FeatureLanguageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.FeatureLanguage");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cConceptsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cConceptsConceptParserRuleCall_0_0 = (RuleCall)cConceptsAssignment_0.eContents().get(0);
@@ -43,7 +43,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		private final Assignment cFeaturesAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cFeaturesFeatureParserRuleCall_8_0 = (RuleCall)cFeaturesAssignment_8.eContents().get(0);
 		
-		//FeatureList:
+		//FeatureLanguage:
 		//        (concepts+=Concept)*
 		//        'constraints' (constraints+=Constraint)*
 		//        'keys' (keys+=Key)*
@@ -100,6 +100,25 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		//Feature
 		public RuleCall getFeaturesFeatureParserRuleCall_8_0() { return cFeaturesFeatureParserRuleCall_8_0; }
 	}
+	public class NamedElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.NamedElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cConceptParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cCharacteristicParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//NamedElement:
+		//    Concept | Characteristic;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Concept | Characteristic
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Concept
+		public RuleCall getConceptParserRuleCall_0() { return cConceptParserRuleCall_0; }
+		
+		//Characteristic
+		public RuleCall getCharacteristicParserRuleCall_1() { return cCharacteristicParserRuleCall_1; }
+	}
 	public class ConceptElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Concept");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -140,17 +159,23 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		private final RuleCall cTypeTypeParserRuleCall_0_0 = (RuleCall)cTypeAssignment_0.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cMultiplicityAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMultiplicityMULTIPLICITYTerminalRuleCall_2_0 = (RuleCall)cMultiplicityAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cMultiplicityAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cMultiplicityMULTIPLICITYTerminalRuleCall_2_0_0 = (RuleCall)cMultiplicityAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cLiteralsAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cLiteralsSTRINGTerminalRuleCall_2_1_1_0 = (RuleCall)cLiteralsAssignment_2_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_2_1_2 = (Keyword)cGroup_2_1.eContents().get(2);
 		
 		//Characteristic:
-		//        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
+		//        /*(typeName=STRING)*/ (type=Type) name=ID ((multiplicity=MULTIPLICITY) | '{' (literals+=STRING)* '}')?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(type=Type) name=ID (multiplicity=MULTIPLICITY)?
+		///*(typeName=STRING)*/ (type=Type) name=ID ((multiplicity=MULTIPLICITY) | '{' (literals+=STRING)* '}')?
 		public Group getGroup() { return cGroup; }
 		
-		//(type=Type)
+		///*(typeName=STRING)*/ (type=Type)
 		public Assignment getTypeAssignment_0() { return cTypeAssignment_0; }
 		
 		//Type
@@ -162,11 +187,29 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
-		//(multiplicity=MULTIPLICITY)?
-		public Assignment getMultiplicityAssignment_2() { return cMultiplicityAssignment_2; }
+		//((multiplicity=MULTIPLICITY) | '{' (literals+=STRING)* '}')?
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//(multiplicity=MULTIPLICITY)
+		public Assignment getMultiplicityAssignment_2_0() { return cMultiplicityAssignment_2_0; }
 		
 		//MULTIPLICITY
-		public RuleCall getMultiplicityMULTIPLICITYTerminalRuleCall_2_0() { return cMultiplicityMULTIPLICITYTerminalRuleCall_2_0; }
+		public RuleCall getMultiplicityMULTIPLICITYTerminalRuleCall_2_0_0() { return cMultiplicityMULTIPLICITYTerminalRuleCall_2_0_0; }
+		
+		//'{' (literals+=STRING)* '}'
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2_1_0() { return cLeftCurlyBracketKeyword_2_1_0; }
+		
+		//(literals+=STRING)*
+		public Assignment getLiteralsAssignment_2_1_1() { return cLiteralsAssignment_2_1_1; }
+		
+		//STRING
+		public RuleCall getLiteralsSTRINGTerminalRuleCall_2_1_1_0() { return cLiteralsSTRINGTerminalRuleCall_2_1_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_2_1_2() { return cRightCurlyBracketKeyword_2_1_2; }
 	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Type");
@@ -186,56 +229,29 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	public class ConditionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Condition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cGreaterThanSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cGreaterThanSignEqualsSignKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Keyword cEqualsSignKeyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
-		private final Keyword cLessThanSignEqualsSignKeyword_0_3 = (Keyword)cAlternatives_0.eContents().get(3);
-		private final Keyword cLessThanSignKeyword_0_4 = (Keyword)cAlternatives_0.eContents().get(4);
+		private final Assignment cOperatorAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOperatorComparisonOperatorEnumRuleCall_0_0 = (RuleCall)cOperatorAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//Condition:
-		//        ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+		//        operator=(ComparisonOperator) (value=INT);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//('>' | '>=' | '=' | '<=' | '<') (value=INT)
+		//operator=(ComparisonOperator) (value=INT)
 		public Group getGroup() { return cGroup; }
 		
-		//('>' | '>=' | '=' | '<=' | '<')
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//operator=(ComparisonOperator)
+		public Assignment getOperatorAssignment_0() { return cOperatorAssignment_0; }
 		
-		//'>'
-		public Keyword getGreaterThanSignKeyword_0_0() { return cGreaterThanSignKeyword_0_0; }
-		
-		//'>='
-		public Keyword getGreaterThanSignEqualsSignKeyword_0_1() { return cGreaterThanSignEqualsSignKeyword_0_1; }
-		
-		//'='
-		public Keyword getEqualsSignKeyword_0_2() { return cEqualsSignKeyword_0_2; }
-		
-		//'<='
-		public Keyword getLessThanSignEqualsSignKeyword_0_3() { return cLessThanSignEqualsSignKeyword_0_3; }
-		
-		//'<'
-		public Keyword getLessThanSignKeyword_0_4() { return cLessThanSignKeyword_0_4; }
+		//(ComparisonOperator)
+		public RuleCall getOperatorComparisonOperatorEnumRuleCall_0_0() { return cOperatorComparisonOperatorEnumRuleCall_0_0; }
 		
 		//(value=INT)
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 		
 		//INT
 		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
-	}
-	public class ErrorMsgElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.ErrorMsg");
-		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//ErrorMsg:
-		//    STRING;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//STRING
-		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
 	}
 	public class ConstraintElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Constraint");
@@ -250,14 +266,14 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		private final RuleCall cCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1 = (RuleCall)cCharacteristicCharacteristicCrossReference_1_1_0.eContents().get(1);
 		private final Assignment cConditionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cConditionConditionParserRuleCall_2_0 = (RuleCall)cConditionAssignment_2.eContents().get(0);
-		private final Assignment cErrormsgAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cErrormsgErrorMsgParserRuleCall_3_0 = (RuleCall)cErrormsgAssignment_3.eContents().get(0);
+		private final Assignment cErrorMsgAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cErrorMsgSTRINGTerminalRuleCall_3_0 = (RuleCall)cErrorMsgAssignment_3.eContents().get(0);
 		
 		//Constraint:
-		//    (concept=[Concept])('.'(characteristic=[Characteristic])) (condition+=Condition) (errormsg+=ErrorMsg);
+		//    (concept=[Concept])('.'(characteristic=[Characteristic])) (condition=Condition) (errorMsg=STRING);
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept=[Concept])('.'(characteristic=[Characteristic])) (condition+=Condition) (errormsg+=ErrorMsg)
+		//(concept=[Concept])('.'(characteristic=[Characteristic])) (condition=Condition) (errorMsg=STRING)
 		public Group getGroup() { return cGroup; }
 		
 		//(concept=[Concept])
@@ -284,17 +300,17 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		//ID
 		public RuleCall getCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1() { return cCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1; }
 		
-		//(condition+=Condition)
+		//(condition=Condition)
 		public Assignment getConditionAssignment_2() { return cConditionAssignment_2; }
 		
 		//Condition
 		public RuleCall getConditionConditionParserRuleCall_2_0() { return cConditionConditionParserRuleCall_2_0; }
 		
-		//(errormsg+=ErrorMsg)
-		public Assignment getErrormsgAssignment_3() { return cErrormsgAssignment_3; }
+		//(errorMsg=STRING)
+		public Assignment getErrorMsgAssignment_3() { return cErrorMsgAssignment_3; }
 		
-		//ErrorMsg
-		public RuleCall getErrormsgErrorMsgParserRuleCall_3_0() { return cErrormsgErrorMsgParserRuleCall_3_0; }
+		//STRING
+		public RuleCall getErrorMsgSTRINGTerminalRuleCall_3_0() { return cErrorMsgSTRINGTerminalRuleCall_3_0; }
 	}
 	public class KeyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Key");
@@ -353,14 +369,15 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		private final Assignment cConceptAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cConceptConceptCrossReference_0_0 = (CrossReference)cConceptAssignment_0.eContents().get(0);
 		private final RuleCall cConceptConceptIDTerminalRuleCall_0_0_1 = (RuleCall)cConceptConceptCrossReference_0_0.eContents().get(1);
-		private final Keyword cRootKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIsRootAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cIsRootRootKeyword_1_0 = (Keyword)cIsRootAssignment_1.eContents().get(0);
 		
 		// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
 		//ConceptProperty:
-		//    (concept=[Concept]) 'root';
+		//    (concept=[Concept]) isRoot?='root';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept=[Concept]) 'root'
+		//(concept=[Concept]) isRoot?='root'
 		public Group getGroup() { return cGroup; }
 		
 		//(concept=[Concept])
@@ -372,8 +389,11 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		//ID
 		public RuleCall getConceptConceptIDTerminalRuleCall_0_0_1() { return cConceptConceptIDTerminalRuleCall_0_0_1; }
 		
+		//isRoot?='root'
+		public Assignment getIsRootAssignment_1() { return cIsRootAssignment_1; }
+		
 		//'root'
-		public Keyword getRootKeyword_1() { return cRootKeyword_1; }
+		public Keyword getIsRootRootKeyword_1_0() { return cIsRootRootKeyword_1_0; }
 	}
 	public class CharacteristicPropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.CharacteristicProperty");
@@ -386,13 +406,14 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		private final Assignment cCharacteristicAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final CrossReference cCharacteristicCharacteristicCrossReference_1_1_0 = (CrossReference)cCharacteristicAssignment_1_1.eContents().get(0);
 		private final RuleCall cCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1 = (RuleCall)cCharacteristicCharacteristicCrossReference_1_1_0.eContents().get(1);
-		private final Keyword cLazyKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cIsLazyAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cIsLazyLazyKeyword_2_0 = (Keyword)cIsLazyAssignment_2.eContents().get(0);
 		
 		//CharacteristicProperty:
-		//    (concept=[Concept])('.'(characteristic=[Characteristic])) 'lazy';
+		//    (concept=[Concept])('.'(characteristic=[Characteristic])) isLazy?='lazy';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(concept=[Concept])('.'(characteristic=[Characteristic])) 'lazy'
+		//(concept=[Concept])('.'(characteristic=[Characteristic])) isLazy?='lazy'
 		public Group getGroup() { return cGroup; }
 		
 		//(concept=[Concept])
@@ -419,8 +440,11 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		//ID
 		public RuleCall getCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1() { return cCharacteristicCharacteristicIDTerminalRuleCall_1_1_0_1; }
 		
+		//isLazy?='lazy'
+		public Assignment getIsLazyAssignment_2() { return cIsLazyAssignment_2; }
+		
 		//'lazy'
-		public Keyword getLazyKeyword_2() { return cLazyKeyword_2; }
+		public Keyword getIsLazyLazyKeyword_2_0() { return cIsLazyLazyKeyword_2_0; }
 	}
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.Property");
@@ -564,13 +588,64 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		
 		public Keyword getIndexIndexKeyword_2_0() { return cIndexIndexKeyword_2_0; }
 	}
+	public class ComparisonOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.ComparisonOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cGreaterThanEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cGreaterThanGreaterThanSignKeyword_0_0 = (Keyword)cGreaterThanEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cGreaterThanOrEqualEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cGreaterThanOrEqualGreaterThanSignEqualsSignKeyword_1_0 = (Keyword)cGreaterThanOrEqualEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cEqualEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cEqualEqualsSignKeyword_2_0 = (Keyword)cEqualEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cLessThanOrEqualEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cLessThanOrEqualLessThanSignEqualsSignKeyword_3_0 = (Keyword)cLessThanOrEqualEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cLessThanEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cLessThanLessThanSignKeyword_4_0 = (Keyword)cLessThanEnumLiteralDeclaration_4.eContents().get(0);
+		
+		//enum ComparisonOperator:
+		//    GreaterThan = '>' | GreaterThanOrEqual = '>=' | Equal = '=' | LessThanOrEqual = '<=' | LessThan = '<';
+		public EnumRule getRule() { return rule; }
+		
+		//GreaterThan = '>' | GreaterThanOrEqual = '>=' | Equal = '=' | LessThanOrEqual = '<=' | LessThan = '<'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//GreaterThan = '>'
+		public EnumLiteralDeclaration getGreaterThanEnumLiteralDeclaration_0() { return cGreaterThanEnumLiteralDeclaration_0; }
+		
+		//'>'
+		public Keyword getGreaterThanGreaterThanSignKeyword_0_0() { return cGreaterThanGreaterThanSignKeyword_0_0; }
+		
+		//GreaterThanOrEqual = '>='
+		public EnumLiteralDeclaration getGreaterThanOrEqualEnumLiteralDeclaration_1() { return cGreaterThanOrEqualEnumLiteralDeclaration_1; }
+		
+		//'>='
+		public Keyword getGreaterThanOrEqualGreaterThanSignEqualsSignKeyword_1_0() { return cGreaterThanOrEqualGreaterThanSignEqualsSignKeyword_1_0; }
+		
+		//Equal = '='
+		public EnumLiteralDeclaration getEqualEnumLiteralDeclaration_2() { return cEqualEnumLiteralDeclaration_2; }
+		
+		//'='
+		public Keyword getEqualEqualsSignKeyword_2_0() { return cEqualEqualsSignKeyword_2_0; }
+		
+		//LessThanOrEqual = '<='
+		public EnumLiteralDeclaration getLessThanOrEqualEnumLiteralDeclaration_3() { return cLessThanOrEqualEnumLiteralDeclaration_3; }
+		
+		//'<='
+		public Keyword getLessThanOrEqualLessThanSignEqualsSignKeyword_3_0() { return cLessThanOrEqualLessThanSignEqualsSignKeyword_3_0; }
+		
+		//LessThan = '<'
+		public EnumLiteralDeclaration getLessThanEnumLiteralDeclaration_4() { return cLessThanEnumLiteralDeclaration_4; }
+		
+		//'<'
+		public Keyword getLessThanLessThanSignKeyword_4_0() { return cLessThanLessThanSignKeyword_4_0; }
+	}
 	
-	private final FeatureListElements pFeatureList;
+	private final FeatureLanguageElements pFeatureLanguage;
+	private final NamedElementElements pNamedElement;
 	private final ConceptElements pConcept;
 	private final CharacteristicElements pCharacteristic;
 	private final TypeElements pType;
 	private final ConditionElements pCondition;
-	private final ErrorMsgElements pErrorMsg;
 	private final ConstraintElements pConstraint;
 	private final KeyElements pKey;
 	private final ConceptPropertyElements pConceptProperty;
@@ -579,6 +654,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	private final FeatureElements pFeature;
 	private final VerbElements eVerb;
 	private final KeyTypeElements eKeyType;
+	private final ComparisonOperatorElements eComparisonOperator;
 	private final TerminalRule tMULTIPLICITY;
 	
 	private final Grammar grammar;
@@ -590,12 +666,12 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pFeatureList = new FeatureListElements();
+		this.pFeatureLanguage = new FeatureLanguageElements();
+		this.pNamedElement = new NamedElementElements();
 		this.pConcept = new ConceptElements();
 		this.pCharacteristic = new CharacteristicElements();
 		this.pType = new TypeElements();
 		this.pCondition = new ConditionElements();
-		this.pErrorMsg = new ErrorMsgElements();
 		this.pConstraint = new ConstraintElements();
 		this.pKey = new KeyElements();
 		this.pConceptProperty = new ConceptPropertyElements();
@@ -604,6 +680,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		this.pFeature = new FeatureElements();
 		this.eVerb = new VerbElements();
 		this.eKeyType = new KeyTypeElements();
+		this.eComparisonOperator = new ComparisonOperatorElements();
 		this.tMULTIPLICITY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "xtext.featurelanguage.FeatureLanguage.MULTIPLICITY");
 	}
 	
@@ -634,18 +711,28 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	}
 
 	
-	//FeatureList:
+	//FeatureLanguage:
 	//        (concepts+=Concept)*
 	//        'constraints' (constraints+=Constraint)*
 	//        'keys' (keys+=Key)*
 	//        'properties' (properties+=Property)*
 	//        'features' (features+=Feature)*;
-	public FeatureListElements getFeatureListAccess() {
-		return pFeatureList;
+	public FeatureLanguageElements getFeatureLanguageAccess() {
+		return pFeatureLanguage;
 	}
 	
-	public ParserRule getFeatureListRule() {
-		return getFeatureListAccess().getRule();
+	public ParserRule getFeatureLanguageRule() {
+		return getFeatureLanguageAccess().getRule();
+	}
+	
+	//NamedElement:
+	//    Concept | Characteristic;
+	public NamedElementElements getNamedElementAccess() {
+		return pNamedElement;
+	}
+	
+	public ParserRule getNamedElementRule() {
+		return getNamedElementAccess().getRule();
 	}
 	
 	//Concept:
@@ -660,7 +747,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//Characteristic:
-	//        (type=Type) name=ID (multiplicity=MULTIPLICITY)?;
+	//        /*(typeName=STRING)*/ (type=Type) name=ID ((multiplicity=MULTIPLICITY) | '{' (literals+=STRING)* '}')?;
 	public CharacteristicElements getCharacteristicAccess() {
 		return pCharacteristic;
 	}
@@ -680,7 +767,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//Condition:
-	//        ('>' | '>=' | '=' | '<=' | '<') (value=INT);
+	//        operator=(ComparisonOperator) (value=INT);
 	public ConditionElements getConditionAccess() {
 		return pCondition;
 	}
@@ -689,18 +776,8 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 		return getConditionAccess().getRule();
 	}
 	
-	//ErrorMsg:
-	//    STRING;
-	public ErrorMsgElements getErrorMsgAccess() {
-		return pErrorMsg;
-	}
-	
-	public ParserRule getErrorMsgRule() {
-		return getErrorMsgAccess().getRule();
-	}
-	
 	//Constraint:
-	//    (concept=[Concept])('.'(characteristic=[Characteristic])) (condition+=Condition) (errormsg+=ErrorMsg);
+	//    (concept=[Concept])('.'(characteristic=[Characteristic])) (condition=Condition) (errorMsg=STRING);
 	public ConstraintElements getConstraintAccess() {
 		return pConstraint;
 	}
@@ -721,7 +798,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	
 	// //possibly add a 'unique (Concept)' to signify uniqueness in that concept only
 	//ConceptProperty:
-	//    (concept=[Concept]) 'root';
+	//    (concept=[Concept]) isRoot?='root';
 	public ConceptPropertyElements getConceptPropertyAccess() {
 		return pConceptProperty;
 	}
@@ -731,7 +808,7 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	}
 	
 	//CharacteristicProperty:
-	//    (concept=[Concept])('.'(characteristic=[Characteristic])) 'lazy';
+	//    (concept=[Concept])('.'(characteristic=[Characteristic])) isLazy?='lazy';
 	public CharacteristicPropertyElements getCharacteristicPropertyAccess() {
 		return pCharacteristicProperty;
 	}
@@ -778,6 +855,16 @@ public class FeatureLanguageGrammarAccess extends AbstractElementFinder.Abstract
 	
 	public EnumRule getKeyTypeRule() {
 		return getKeyTypeAccess().getRule();
+	}
+	
+	//enum ComparisonOperator:
+	//    GreaterThan = '>' | GreaterThanOrEqual = '>=' | Equal = '=' | LessThanOrEqual = '<=' | LessThan = '<';
+	public ComparisonOperatorElements getComparisonOperatorAccess() {
+		return eComparisonOperator;
+	}
+	
+	public EnumRule getComparisonOperatorRule() {
+		return getComparisonOperatorAccess().getRule();
 	}
 	
 	//terminal MULTIPLICITY:
