@@ -4,12 +4,16 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EEnumLiteral;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -20,6 +24,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 
 public class ExtractClassesFromDomainModel {
+	
+	static List<String> EcoreDataTypes = Arrays.asList("EInt", "EByte", "EShort", "ELong", "EFloat", "EDouble", "EBoolean", "EChar", "EString");
 	public static void main(String[] args) {
 
 		String result = "";
@@ -48,7 +54,23 @@ public class ExtractClassesFromDomainModel {
 				for (EStructuralFeature feature : ((EClass) classifier).getEStructuralFeatures()) {
 					if (feature instanceof EAttribute) {
 						String featureType = getJavaType(feature);
-						result = result.concat("\t" + featureType + " " + feature.getName() + "\n");
+						String literals = "";
+						if (!EcoreDataTypes.contains(feature.getEType().getName())) {
+							literals = "{ ";
+							EClassifier enumType = epackage.getEClassifier(featureType);							
+							if (enumType instanceof EEnum) {
+								EEnum e = (EEnum) enumType;
+								for (EEnumLiteral lit : e.getELiterals()) {
+									literals = literals.concat(lit.getName() + " ");
+								}
+								literals = literals.concat("}");
+							}
+							else {
+								System.out.println("Invalid enum"); //should not happen
+								return;
+							}
+						}
+						result = result.concat("\t" + featureType + " " + feature.getName() + " " + literals + "\n");
 					}
 					if (feature instanceof EReference) {
 						int lowerBound = feature.getLowerBound();
@@ -61,8 +83,6 @@ public class ExtractClassesFromDomainModel {
 			}
 		}
 
-		//System.out.println(result);
-
 		printToMyFeatureListFile(result);
 	}
 
@@ -70,7 +90,12 @@ public class ExtractClassesFromDomainModel {
 		if (feature.getEType().getName() == "EString") {
 			return "String";
 		}
-		return feature.getEType().getInstanceClassName();
+		String result = feature.getEType().getInstanceClassName(); //for primitive data types
+		
+		if (result == null) {
+			result = feature.getEType().getName(); //for enums
+		}
+		return result;
 	}
 
 	private static void printToMyFeatureListFile(String result) {

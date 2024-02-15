@@ -2,8 +2,8 @@ concept MinimalRestoApp
 	Table tables 0..*
 
 concept Table
-	int number
-	Location location
+	int number 
+	Location location { Indoors Patio }
 	MinimalRestoApp minimalRestoApp 1..1
 	Seat seats 0..*
 
