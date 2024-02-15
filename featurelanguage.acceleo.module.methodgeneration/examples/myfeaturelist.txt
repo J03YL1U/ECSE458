@@ -1,7 +1,7 @@
 Method Generation
-		public String addTable(int number, Location location, MinimalRestoApp minimalRestoApp, Seat seats);
+		public String addTable(int number, int x, int y, int width, int length, RestoApp restoApp, Seat seats);
 		public void removeTable(int numberSeat seats);
-		public String updateSeat(Table table);
+		public String updateSeat();
 		public TOTable getTable(int numberSeat seats);
 		
 		public String addSeatsToTable(int tableNumber

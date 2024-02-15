@@ -1,14 +1,41 @@
-concept MinimalRestoApp
+concept RestoApp
 	Table tables 0..*
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 0..*
+	Bill bills 0..*
 
 concept Table
 	int number 
-	Location location { Indoors Patio }
-	MinimalRestoApp minimalRestoApp 1..1
-	Seat seats 0..*
+	int x 
+	int y 
+	int width 
+	int length 
+	RestoApp restoApp 1..1
+	Seat seats 1..*
 
 concept Seat
+	int number 
 	Table table 1..1
+	Bill bills 0..*
+
+concept Menu
+	RestoApp restoApp 1..1
+	MenuItem menuItems 0..*
+
+concept MenuItem
+	String name 
+	Menu menu 1..1
+	PricedMenuItem pricedMenuItems 1..*
+	PricedMenuItem currentPricedMenuItem 0..1
+
+concept PricedMenuItem
+	double price 
+	RestoApp restoApp 1..1
+	MenuItem menuItem 1..1
+
+concept Bill
+	RestoApp restoApp 1..1
+	Seat issuedForSeats 1..*
 
 constraints
 	Table.number > 0 "The table number must be greater than 0"

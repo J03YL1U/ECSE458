@@ -41,7 +41,8 @@ public class ExtractClassesFromDomainModel {
 		EcorePackage ecorePackage = EcorePackage.eINSTANCE;
 
 		// Get the URI of the model file.
-		URI fileURI = URI.createFileURI("model/created/minimalRestoAppModel.ecore");
+		URI fileURI = URI.createFileURI("model/created/restoappModel.ecore");
+		//URI fileURI = URI.createFileURI("model/created/minimalRestoAppModel.ecore");
 		// Demand load the resource for this file.
 		Resource resource = resourceSet.getResource(fileURI, true);
 

@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="ca.mcgill.ecse223.resto.model" nsPrefix="model">
-  <eClassifiers xsi:type="ecore:EDataType" name="ItemCategory" instanceClassName="ItemCategory" />
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="ca.mcgill.ecse223.resto.model" nsPrefix="model">
   <eClassifiers xsi:type="ecore:EClass" name="RestoApp">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1" eType="#//Table" eOpposite="#//Table/restoApp" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menu" lowerBound="1" eType="#//Menu" eOpposite="#//Menu/restoApp" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pricedMenuItems" upperBound="-1" eType="#//PricedMenuItem" eOpposite="#//PricedMenuItem/restoApp" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bills" upperBound="-1" eType="#//Bill" eOpposite="#//Bill/restoApp" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tables" upperBound="-1"
+        eType="#//Table" eOpposite="#//Table/restoApp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menu" lowerBound="1" eType="#//Menu"
+        eOpposite="#//Menu/restoApp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pricedMenuItems" upperBound="-1"
+        eType="#//PricedMenuItem" eOpposite="#//PricedMenuItem/restoApp"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bills" upperBound="-1"
+        eType="#//Bill" eOpposite="#//Bill/restoApp"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1" eType="#//RestoApp" eOpposite="#//RestoApp/tables" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="seats" lowerBound="1" upperBound="-1" eType="#//Seat" eOpposite="#//Seat/table" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="length" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1"
+        eType="#//RestoApp" eOpposite="#//RestoApp/tables"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="seats" lowerBound="1" upperBound="-1"
+        eType="#//Seat" eOpposite="#//Seat/table"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Seat">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table" eOpposite="#//Table/seats" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="bills" upperBound="-1" eType="#//Bill" eOpposite="#//Bill/issuedForSeats" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" lowerBound="1" eType="#//Table"
+        eOpposite="#//Table/seats"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bills" upperBound="-1"
+        eType="#//Bill" eOpposite="#//Bill/issuedForSeats"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Menu">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1" eType="#//RestoApp" eOpposite="#//RestoApp/menu" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuItems" upperBound="-1" eType="#//MenuItem" eOpposite="#//MenuItem/menu" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1"
+        eType="#//RestoApp" eOpposite="#//RestoApp/menu"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuItems" upperBound="-1"
+        eType="#//MenuItem" eOpposite="#//MenuItem/menu"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MenuItem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="itemCategory" eType="#//ItemCategory" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menu" lowerBound="1" eType="#//Menu" eOpposite="#//Menu/menuItems" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="pricedMenuItems" lowerBound="1" upperBound="-1" eType="#//PricedMenuItem" eOpposite="#//PricedMenuItem/menuItem" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="currentPricedMenuItem" eType="#//PricedMenuItem" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menu" lowerBound="1" eType="#//Menu"
+        eOpposite="#//Menu/menuItems"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pricedMenuItems" lowerBound="1"
+        upperBound="-1" eType="#//PricedMenuItem" eOpposite="#//PricedMenuItem/menuItem"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="currentPricedMenuItem"
+        eType="#//PricedMenuItem"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PricedMenuItem">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1" eType="#//RestoApp" eOpposite="#//RestoApp/pricedMenuItems" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="menuItem" lowerBound="1" eType="#//MenuItem" eOpposite="#//MenuItem/pricedMenuItems" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="price" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1"
+        eType="#//RestoApp" eOpposite="#//RestoApp/pricedMenuItems"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuItem" lowerBound="1"
+        eType="#//MenuItem" eOpposite="#//MenuItem/pricedMenuItems"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Bill">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1" eType="#//RestoApp" eOpposite="#//RestoApp/bills" />
-    <eStructuralFeatures xsi:type="ecore:EReference" name="issuedForSeats" lowerBound="1" upperBound="-1" eType="#//Seat" eOpposite="#//Seat/bills" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restoApp" lowerBound="1"
+        eType="#//RestoApp" eOpposite="#//RestoApp/bills"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="issuedForSeats" lowerBound="1"
+        upperBound="-1" eType="#//Seat" eOpposite="#//Seat/bills"/>
   </eClassifiers>
 </ecore:EPackage>
