@@ -1,8 +1,5 @@
 concept RestoApp
 	Table tables 0..*
-	Menu menu 1..1
-	PricedMenuItem pricedMenuItems 0..*
-	Bill bills 0..*
 
 concept Table
 	int number 
@@ -16,26 +13,6 @@ concept Table
 concept Seat
 	int number 
 	Table table 1..1
-	Bill bills 0..*
-
-concept Menu
-	RestoApp restoApp 1..1
-	MenuItem menuItems 0..*
-
-concept MenuItem
-	String name 
-	Menu menu 1..1
-	PricedMenuItem pricedMenuItems 1..*
-	PricedMenuItem currentPricedMenuItem 0..1
-
-concept PricedMenuItem
-	double price 
-	RestoApp restoApp 1..1
-	MenuItem menuItem 1..1
-
-concept Bill
-	RestoApp restoApp 1..1
-	Seat issuedForSeats 1..*
 
 constraints
 	Table.number > 0 "The table number must be greater than 0"
@@ -43,7 +20,7 @@ constraints
 	
 keys
 	Table.number unique
-	Table.seats index
+	Seat.number unique
 	
 properties
 	RestoApp root
