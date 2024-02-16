@@ -1,6 +1,10 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.featurelanguage.xtext/FeatureLanguage')/]
 
+[query public getRoot(aFeatureLanguage : FeatureLanguage) : String = 
+	aFeatureLanguage.properties->any(x : Property | x.oclIsTypeOf(ConceptProperty)).concept.name
+/]
+
 [template public generate(aFeatureLanguage : FeatureLanguage)]
 [comment @main/]
 [file('myfeaturelist.txt', false, 'UTF-8')]
@@ -51,7 +55,7 @@ public TO[aFeature.characteristic.name.toUpperFirst()/] get[createName(aFeature)
 [template public paramList(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
 	[if (aFeature.characteristic.name.oclIsUndefined())]
-[listCharacteristics(aFeature.concept)/][/if]
+[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [if (aFeature.verb.toString().equalsIgnoreCase('Remove'))]
@@ -63,7 +67,7 @@ public TO[aFeature.characteristic.name.toUpperFirst()/] get[createName(aFeature)
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [if (aFeature.verb.toString().equalsIgnoreCase('Update'))]
 	[if (aFeature.characteristic.name.oclIsUndefined())] [comment should not happen/]
-[listCharacteristics(aFeature.concept)/][/if]
+[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 		[for (aKey : Key | aFeatureLanguage.keys)]
 			[if (aKey.concept.name.equalsIgnoreCase(aFeature.concept.name))]
@@ -77,8 +81,9 @@ public TO[aFeature.characteristic.name.toUpperFirst()/] get[createName(aFeature)
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [/template]
 
-[template public listCharacteristics(aConcept : Concept)]
-[for (aCharacteristic : Characteristic | aConcept.characteristics) separator (', ')][aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/][/for]
+[template public listCharacteristics(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
+[for (aCharacteristic : Characteristic | aConcept.characteristics) separator (', ')]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))][aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/][/if][/for]
 [/template]
 
 [template public findConceptKey(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
