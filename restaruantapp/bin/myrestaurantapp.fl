@@ -5,7 +5,7 @@ concept Seat
 	
 concept Table
 	int number
-	String bogusAttribute
+	String otherAttribute
 	Seat seats 1..*
 	
 constraints
@@ -14,7 +14,7 @@ constraints
 	
 keys
 	Table.number unique
-	Table.seats index
+	Seat.number unique
 	
 properties
 	RestoApp root
