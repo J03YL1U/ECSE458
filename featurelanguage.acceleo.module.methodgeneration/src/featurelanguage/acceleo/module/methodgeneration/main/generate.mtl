@@ -7,7 +7,7 @@
 
 [template public generate(aFeatureLanguage : FeatureLanguage)]
 [comment @main/]
-[file('myfeaturelist.txt', false, 'UTF-8')]
+[file('assetPlusFeatureList.txt', false, 'UTF-8')]
 Method Generation
 [for (aFeature : Feature | aFeatureLanguage.features)]
 	[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]

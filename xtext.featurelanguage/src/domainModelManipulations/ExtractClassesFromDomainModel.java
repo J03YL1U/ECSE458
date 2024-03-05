@@ -41,7 +41,7 @@ public class ExtractClassesFromDomainModel {
 		EcorePackage ecorePackage = EcorePackage.eINSTANCE;
 
 		// Get the URI of the model file.
-		URI fileURI = URI.createFileURI("model/created/restoappModel.ecore");
+		URI fileURI = URI.createFileURI("model/created/AssetPlusAppModel.ecore");
 		//URI fileURI = URI.createFileURI("model/created/minimalRestoAppModel.ecore");
 		// Demand load the resource for this file.
 		Resource resource = resourceSet.getResource(fileURI, true);
@@ -104,7 +104,8 @@ public class ExtractClassesFromDomainModel {
 
 		//save info from current xtext (if any)
 		try {
-			File myObj = new File("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\myrestaurantapp.fl");
+			File myObj = new File("C:\\Users\\Joey Liu\\runtime-EclipseApplication\\testproject\\src\\assetPlus.fl");
+			
 			//File myObj = new File("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\minimalrestoapp.fl");
 			Scanner myReader = new Scanner(myObj);
 			boolean flag = false;
@@ -124,7 +125,7 @@ public class ExtractClassesFromDomainModel {
 
 		try {
 			//TODO: CHANGE TO SAME FILE NAME AS LINE 95 WHEN EXTRACTION WILL BE BETTER
-			FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\myrestaurantappFromUmple.fl");
+			FileWriter myWriter = new FileWriter("C:\\Users\\Joey Liu\\runtime-EclipseApplication\\testproject\\assetPlus.fl");
 			//FileWriter myWriter = new FileWriter("C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\restaruantapp\\src\\minimalrestoapp.fl");
 			myWriter.write(result);
 			myWriter.write(xtextFileContent);

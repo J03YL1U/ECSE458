@@ -1,0 +1,9 @@
+Method Generation
+		public String addMaintenanceTicket(int id, String raisedOnDate, String description, , MaintenanceNote ticketNotes);
+		public void removeMaintenanceTicket(int id);
+		public String updateMaintenanceTicket(int id, int newId);
+		public String addTicketNotesToMaintenanceTicket(int maintenanceTicketId, int id);
+		public void removeTicketNotesFromMaintenanceTicket(int maintenanceTicketId, int id);
+		public TOMaintenanceTicket getMaintenanceTicket(int id);
+		
+		public String addMaintenanceNote(int id, String date, String description, MaintenanceTicket maintenanceTicket);

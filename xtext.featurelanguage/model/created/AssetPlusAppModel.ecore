@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" 
+name="model" nsURI="ca.mcgill.assetplus.model" nsPrefix="model">
+  <eClassifiers xsi:type="ecore:EClass" name="assetPlusApp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maintenanceTickets" upperBound="-1" eType="#//MaintenanceTicket" eOpposite="#//MaintenanceTicket/assetPlusApp" />
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaintenanceTicket">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="raisedOnDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assetPlusApp" lowerBound="1" eType="#//assetPlusApp" eOpposite="#//assetPlusApp/maintenanceTickets" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ticketNotes" upperBound="-1" eType="#//MaintenanceNote" eOpposite="#//MaintenanceNote/maintenanceTicket" />
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MaintenanceNote">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" />
+    <eStructuralFeatures xsi:type="ecore:EReference" name="maintenanceTicket" lowerBound="1" eType="#//MaintenanceTicket" eOpposite="#//MaintenanceTicket/ticketNotes" />
+  </eClassifiers>
+</ecore:EPackage>

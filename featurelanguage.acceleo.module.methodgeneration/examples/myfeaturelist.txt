@@ -1,8 +1,9 @@
 Method Generation
-		public String addTable(int number, int x, int y, int width, int length, , Seat seats);
-		public void removeTable(int number);
-		public String updateSeat(int number, int newNumber);
-		public TOTable getTable(int number);
+		public String addMaintenanceTicket(int id, String raisedOnDate, String description, , MaintenanceNote notes);
+		public void removeMaintenanceTicket(int id);
+		public String updateMaintenanceTicket(int id, int newId);
+		public String addMaintenanceTicket(int id, String raisedOnDate, String description, , MaintenanceNote notes);
+		public void removeMaintenanceTicket(int id);
+		public TOMaintenanceTicket getMaintenanceTicket(int id);
 		
-		public String addSeatsToTable(int tableNumber, int number);
-		public void removeSeatsFromTable(int tableNumber, int number);
+		public String addMaintenanceNote(int id, String date, String description, , MaintenanceTicket ticket);

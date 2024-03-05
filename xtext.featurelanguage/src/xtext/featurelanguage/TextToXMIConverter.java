@@ -16,11 +16,11 @@ public class TextToXMIConverter {
 	    XtextResourceSet resourceSet = injector.getInstance(XtextResourceSet.class);
 
 	    // replace absoluteTargetFolderPath with the path to your folder
-	    String absoluteTargetFolderPath = "C:\\Users\\erica\\Documents\\UNI\\Grad School\\Thesis\\grad-project\\";
+	    String absoluteTargetFolderPath = "C:\\Users\\Joey Liu\\runtime-EclipseApplication\\testproject\\";
 	   // String inputURI = "file:///" + absoluteTargetFolderPath + "restaruantapp\\src\\myrestaurantapp.fl";
-	    String inputURI = "file:///" + absoluteTargetFolderPath + "myrestaurantappFromUmple.fl";
+	    String inputURI = "file:///" + absoluteTargetFolderPath + "assetPlus.fl";
 	    //String inputURI = "file:///" + absoluteTargetFolderPath + "restaruantapp\\src\\MinimalRestoApp.fl";
-	    String outputURI = "file:///" + absoluteTargetFolderPath + "attempt.xmi";
+	    String outputURI = "file:///" + absoluteTargetFolderPath + "assetPlus.xmi";
 	    //String outputURI = "file:///" + absoluteTargetFolderPath + "MinimalRestoApp.xmi";
 	    
 	    URI uri = URI.createURI(inputURI);
