@@ -7,50 +7,75 @@
 
 [template public generate(aFeatureLanguage : FeatureLanguage)]
 [comment @main/]
-[file('assetPlusFeatureList.txt', false, 'UTF-8')]
-Method Generation
+[file('assetPlusFeatureList.java', false, 'UTF-8')]
 [for (aFeature : Feature | aFeatureLanguage.features)]
-	[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
-		[add(aFeature, aFeatureLanguage)/]
-	[/if]
-	[if (aFeature.verb.toString().equalsIgnoreCase('Remove'))]
-		[remove(aFeature, aFeatureLanguage)/]
-	[/if]
-	[if (aFeature.verb.toString().equalsIgnoreCase('Update'))]
-		[update(aFeature, aFeatureLanguage)/]
-	[/if]
-	[if (aFeature.verb.toString().equalsIgnoreCase('Display'))]
-		[display(aFeature, aFeatureLanguage)/]
-	[/if]
+public class [aFeature.concept.name/]{
+	
+	//Private Fields generation
+	[generateButton(aFeature, aFeatureLanguage)/]
+	[generateJavaFXTextField(aFeature, aFeatureLanguage)/]
 [/for]
+
+	//Method Generation
+[for (aFeature : Feature | aFeatureLanguage.features)]
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+	[add(aFeature, aFeatureLanguage)/]
+[/if]
+[/for]
+}
 [/file]
 [/template]
 
+
+[comment]Its ours ... ours[/comment]
+
 [template public add(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-public String add[createName(aFeature)/]([paramList(aFeature, aFeatureLanguage)/]);
-[/template]
+public void add[createName(aFeature)/](ActionEvent event){
 
-[template public remove(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-public void remove[createName(aFeature)/]([paramList(aFeature, aFeatureLanguage)/]);
-[/template]
-
-[template public update(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-public String update[createName(aFeature)/]([paramList(aFeature, aFeatureLanguage)/]);
-[/template]
-
-[template public display(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-	[if (aFeature.characteristic.name.oclIsUndefined())] 
-public TO[aFeature.concept.name.toUpperFirst()/] get[createName(aFeature)/]([paramList(aFeature, aFeatureLanguage)/]);
-	[/if]
-	[if (not aFeature.characteristic.name.oclIsUndefined())] 
-public TO[aFeature.characteristic.name.toUpperFirst()/] get[createName(aFeature)/]([paramList(aFeature, aFeatureLanguage)/]);
-	[/if]
+	[generateGetters(aFeature, aFeatureLanguage)/]
+	[checkErrors()/]	
+}
 [/template]
 
 [template public createName(aFeature : Feature)]
 [if ((not aFeature.characteristic.name.oclIsUndefined()) and (not aFeature.verb.toString().equalsIgnoreCase('Update')))]
 [aFeature.characteristic.name.toUpperFirst()/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
 [/template]
+
+[template public generateGetters(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+	[if (aFeature.characteristic.name.oclIsUndefined())]
+[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
+	[if (not aFeature.characteristic.name.oclIsUndefined())]
+[findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
+[/template]
+
+[template public generateJavaFXTextField(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+[for (aCharacteristic : Characteristic | aFeature.concept.characteristics) separator ('\n')]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
+@FXML 
+private TextField [aCharacteristic.name.toLowerFirst()/]Field; 
+[/if]
+[/for]
+[/template]
+
+[template public generateButton(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+@FXML 
+private Button add[aFeature.concept.name/]Button;
+
+@FXML
+private Button cancel[aFeature.concept.name/]Button; 
+[/if]
+[/template]
+
+[template public checkErrors(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+
+[/if]
+[/template]
+
+[comment]Its ours ... ours[/comment]
 
 [template public paramList(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
@@ -82,8 +107,11 @@ public TO[aFeature.characteristic.name.toUpperFirst()/] get[createName(aFeature)
 [/template]
 
 [template public listCharacteristics(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
-[for (aCharacteristic : Characteristic | aConcept.characteristics) separator (', ')]
-[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))][aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/][/if][/for]
+[for (aCharacteristic : Characteristic | aConcept.characteristics)]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
+[aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/] = [aCharacteristic.name.toLowerFirst()/]Field.getText();
+[/if]
+[/for]
 [/template]
 
 [template public findConceptKey(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]

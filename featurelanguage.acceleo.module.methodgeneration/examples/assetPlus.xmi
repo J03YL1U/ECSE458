@@ -45,11 +45,6 @@
   <keys concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.0"/>
   <keys concept="//@concepts.2" characteristic="//@concepts.2/@characteristics.0"/>
   <properties xsi:type="featureLanguage:ConceptProperty" concept="//@concepts.0" isRoot="true"/>
+  <properties xsi:type="featureLanguage:CharacteristicProperty" concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.4" isLazy="true"/>
   <features concept="//@concepts.1"/>
-  <features verb="Remove" concept="//@concepts.1"/>
-  <features verb="Update" concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.2"/>
-  <features concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.4"/>
-  <features verb="Remove" concept="//@concepts.1" characteristic="//@concepts.1/@characteristics.4"/>
-  <features verb="Display" concept="//@concepts.1"/>
-  <features concept="//@concepts.2"/>
 </featureLanguage:FeatureLanguage>
