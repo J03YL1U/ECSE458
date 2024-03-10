@@ -5,6 +5,37 @@
 	aFeatureLanguage.properties->any(x : Property | x.oclIsTypeOf(ConceptProperty)).concept.name
 /]
 
+[comment][query public getCharacteristicKey(aCharacteristic : Characteristic, aConceptName : String, aFeatureLanguage : FeatureLanguage) : Key = 
+	if aFeatureLanguage.keys->exists(x : Key | x.concept.name.equalsIgnoreCase(aCharacteristic.type) and (x.keyType.toString().equalsIgnoreCase('autounique') or x.keyType.toString().equalsIgnoreCase('unique')))
+	then aFeatureLanguage.keys->any(x : Key | x.concept.name.equalsIgnoreCase(aCharacteristic.type) and (x.keyType.toString().equalsIgnoreCase('autounique') or x.keyType.toString().equalsIgnoreCase('unique')))
+	else aFeatureLanguage.keys->any(x : Key | x.characteristic.name.equalsIgnoreCase(aCharacteristic.name) and x.concept.name.equalsIgnoreCase(aConceptName) and x.keyType.toString().equalsIgnoreCase('index'))
+	endif
+/][/comment]
+
+[query public getConceptKey(aConceptName : String, aFeatureLanguage : FeatureLanguage) : Key = 
+	aFeatureLanguage.keys->any(x : Key | x.concept.name.equalsIgnoreCase(aConceptName) and (x.keyType.toString().equalsIgnoreCase('autounique') or x.keyType.toString().equalsIgnoreCase('unique')))
+/]
+
+[query public getConstraints(aConcept : Concept, aFeatureLanguage : FeatureLanguage) : Constraint =
+	aFeatureLanguage.constraints->select(c : Constraint | c.concept.name.equalsIgnoreCase(aConcept.name))
+/]
+
+[query public getEnumCharacteristics(aConcept : Concept) : Characteristic =
+	aConcept.characteristics->reject(c : Characteristic | c.literals->first().oclIsUndefined())
+/]
+
+[comment][query public getConcept(aCharacteristic : Characteristic, aFeatureLanguage : FeatureLanguage) : Concept = 
+	aFeatureLanguage.concepts->any(c : Concept | c.name.equalsIgnoreCase(aCharacteristic.type))
+/][/comment]
+
+[query public getCharacteristicConstraints(aConcept : Concept, aCharacteristic : Characteristic, aFeatureLanguage : FeatureLanguage) : Constraint =
+	aFeatureLanguage.constraints->select(c : Constraint | c.concept.name.equalsIgnoreCase(aConcept.name) and c.characteristic.name.equalsIgnoreCase(aCharacteristic.name))
+/]
+
+[query public getCharacteristicProperty(aConcept : Concept, aCharacteristic: Characteristic, aFeatureLanguage : FeatureLanguage) : Property =
+	aFeatureLanguage.properties ->select(c : Property | c.concept.name.equalsIgnoreCase(aConcept.name) and c.oclAsType(CharacteristicProperty).characteristic.name.equalsIgnoreCase(aCharacteristic.name))
+/]
+
 [template public generate(aFeatureLanguage : FeatureLanguage)]
 [comment @main/]
 [file('assetPlusFeatureList.java', false, 'UTF-8')]
@@ -21,6 +52,8 @@ public class [aFeature.concept.name/]{
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
 	[add(aFeature, aFeatureLanguage)/]
 [/if]
+
+	[cancel(aFeature, aFeatureLanguage)/]
 [/for]
 }
 [/file]
@@ -30,10 +63,20 @@ public class [aFeature.concept.name/]{
 [comment]Its ours ... ours[/comment]
 
 [template public add(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-public void add[createName(aFeature)/](ActionEvent event){
+public void add[createName(aFeature)/]Clicked (ActionEvent event){
 
 	[generateGetters(aFeature, aFeatureLanguage)/]
-	[checkErrors()/]	
+	[checkErrors(aFeature, aFeatureLanguage)/]
+
+	else{
+		[createBody(aFeature, aFeatureLanguage)/]
+	}
+}
+[/template]
+
+[template public cancel(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+public void cancelClicked(ActionEvent event){
+	 AssetPlusFXMLView.getInstance().closePopUpWindow();
 }
 [/template]
 
@@ -42,10 +85,26 @@ public void add[createName(aFeature)/](ActionEvent event){
 [aFeature.characteristic.name.toUpperFirst()/][if (aFeature.verb.toString().equalsIgnoreCase('Add'))]To[/if][if ((aFeature.verb.toString().equalsIgnoreCase('Remove')) or (aFeature.verb.toString().equalsIgnoreCase('Display')))]From[/if][/if][aFeature.concept.name/]
 [/template]
 
+[template public listCharacteristicsText(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
+[for (aCharacteristic : Characteristic | aConcept.characteristics)]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
+[aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/] = [aCharacteristic.name.toLowerFirst()/]Field.getText();
+[/if]
+[/for]
+[/template]
+
+[template public listCharacteristicsClear(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
+[for (aCharacteristic : Characteristic | aConcept.characteristics)]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
+[aCharacteristic.name.toLowerFirst()/]Field.getText("");
+[/if]
+[/for]
+[/template]
+
 [template public generateGetters(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
 	[if (aFeature.characteristic.name.oclIsUndefined())]
-[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
+[listCharacteristicsText(aFeature.concept, aFeatureLanguage)/][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [/template]
@@ -65,14 +124,38 @@ private TextField [aCharacteristic.name.toLowerFirst()/]Field;
 private Button add[aFeature.concept.name/]Button;
 
 @FXML
-private Button cancel[aFeature.concept.name/]Button; 
+private Button cancel[aFeature.concept.name/]Button;
+
+@FXML
+private Label add[aFeature.concept.name/]Error;
 [/if]
 [/template]
 
-[template public checkErrors(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
-[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+[template public listParams(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
+[for (aCharacteristic : Characteristic | aConcept.characteristics) separator (', ')]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))][aCharacteristic.name.toLowerFirst()/][/if][/for]
+[/template]
 
+[template public checkErrors(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+if([for (aCharacteristic : Characteristic | aFeature.concept.characteristics)separator ('||')]
+[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
+[comment][if (not getCharacteristicProperty(aFeature.concept, aCharacteristic, aFeatureLanguage).oclAsType(CharacteristicProperty).isLazy)] [/comment]
+[aCharacteristic.name.toLowerFirst()/] == null[/if][/for]){
+	add[aFeature.concept.name/]Error.setText("One of the required fields is empty");
+}
+[/template]
+
+[template public createBody(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
+[if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
+String error = setXController.add[aFeature.concept.name/]([listParams(aFeature.concept, aFeatureLanguage)/]);
 [/if]
+
+if(error = ""){
+	[listCharacteristicsClear(aFeature.concept, aFeatureLanguage)/]
+}
+else{
+	add[aFeature.concept.name/]Error.setText(error);
+}
 [/template]
 
 [comment]Its ours ... ours[/comment]
@@ -80,7 +163,7 @@ private Button cancel[aFeature.concept.name/]Button;
 [template public paramList(aFeature : Feature, aFeatureLanguage : FeatureLanguage)]
 [if (aFeature.verb.toString().equalsIgnoreCase('Add'))]
 	[if (aFeature.characteristic.name.oclIsUndefined())]
-[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
+[listCharacteristicsText(aFeature.concept, aFeatureLanguage)/][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [if (aFeature.verb.toString().equalsIgnoreCase('Remove'))]
@@ -92,7 +175,7 @@ private Button cancel[aFeature.concept.name/]Button;
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
 [if (aFeature.verb.toString().equalsIgnoreCase('Update'))]
 	[if (aFeature.characteristic.name.oclIsUndefined())] [comment should not happen/]
-[listCharacteristics(aFeature.concept, aFeatureLanguage)/][/if]
+[listCharacteristicsText(aFeature.concept, aFeatureLanguage)/][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 		[for (aKey : Key | aFeatureLanguage.keys)]
 			[if (aKey.concept.name.equalsIgnoreCase(aFeature.concept.name))]
@@ -104,14 +187,6 @@ private Button cancel[aFeature.concept.name/]Button;
 [aKey.characteristic.type.name/] [aKey.characteristic.name.toLowerFirst()/][/if][/for][/if]
 	[if (not aFeature.characteristic.name.oclIsUndefined())]
 [findConceptKey(aFeature.concept, aFeatureLanguage)/], [findCharacteristicKey(aFeature.characteristic, aFeatureLanguage)/][/if][/if]
-[/template]
-
-[template public listCharacteristics(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
-[for (aCharacteristic : Characteristic | aConcept.characteristics)]
-[if (not aCharacteristic.type.name.equalsIgnoreCase(getRoot(aFeatureLanguage)))]
-[aCharacteristic.type.name/] [aCharacteristic.name.toLowerFirst()/] = [aCharacteristic.name.toLowerFirst()/]Field.getText();
-[/if]
-[/for]
 [/template]
 
 [template public findConceptKey(aConcept : Concept, aFeatureLanguage : FeatureLanguage)]
